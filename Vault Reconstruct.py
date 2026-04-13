@@ -9,11 +9,12 @@ Usage:
 
 import os
 import time
-import re
 import logging
 import sys
 from pathlib import Path
 from dataclasses import dataclass, field
+
+import reconstruct_rust # New Rust module
 
 from vault_reconstruct.env import load_dotenv_no_override
 load_dotenv_no_override()
@@ -29,8 +30,7 @@ except ImportError:
 
 from vault_reconstruct.json_extract import extract_json_array
 from vault_reconstruct.llm import LlmConfig, generate_text_with_retries, make_backend
-from vault_reconstruct.paths import safe_filename
-from vault_reconstruct.text_protect import mask_protected, restore_protected
+from vault_reconstruct.paths import safe_filename # Keep for Phase 1
 from vault_reconstruct.config import get_vault_paths
 
 # ============================================================================
@@ -204,69 +204,14 @@ def run_phase1(client, config: Config):
 # PHASE 2 — AUTO-LINK THE VAULT
 # ============================================================================
 
-# Matches YAML front-matter at the top of a file
-_FRONTMATTER_RE = re.compile(r"^---\n.*?\n---\n", re.DOTALL)
-# Matches fenced code blocks  ```...```
-_CODE_FENCE_RE  = re.compile(r"```.*?```", re.DOTALL)
-# Matches inline code  `...`
-_INLINE_CODE_RE = re.compile(r"`[^`]+`")
-# Matches existing wiki-links  [[...]]
-_WIKILINK_RE    = re.compile(r"\[\[.*?\]\]")
-
-
-def _mask_protected_regions(text: str) -> tuple[str, list[tuple[str, str]]]:
-    return mask_protected(text)
-
-
-def _restore_protected_regions(text: str, placeholders: list[tuple[str, str]]) -> str:
-    return restore_protected(text, placeholders)
-
-
 def run_phase2(config: Config):
-    log.info("=== PHASE 2: Auto-generating wiki-links ===")
-
-    output_md_files = [
-        p for p in Path(config.output_vault).rglob("*.md")
-        if not p.name.startswith(".") and p.name != config.tracker_filename
-    ]
-
-    # Build title list; ignore very short stems (too many false positives)
-    titles = sorted(
-        (f.stem for f in output_md_files if len(f.stem) > 3),
-        key=len,
-        reverse=True,  # Longest-first avoids partial replacement
-    )
-    log.info("Linking %d titles across %d files…", len(titles), len(output_md_files))
-
-    for file_path in tqdm(output_md_files, desc="Linking notes"):
-        try:
-            original = file_path.read_text(encoding="utf-8")
-            masked, placeholders = _mask_protected_regions(original)
-
-            links_added = 0
-            for title in titles:
-                if title == file_path.stem:
-                    continue  # Don't link a note to itself
-
-                # Word-boundary match, case-insensitive, first occurrence only
-                pattern = r"\b(" + re.escape(title) + r")\b"
-                new_masked, count = re.subn(
-                    pattern, r"[[\1]]", masked, count=1, flags=re.IGNORECASE
-                )
-                if count:
-                    masked = new_masked
-                    links_added += 1
-
-            result = _restore_protected_regions(masked, placeholders)
-
-            if result != original:
-                file_path.write_text(result, encoding="utf-8")
-                log.info("Added %d link(s) → %s", links_added, file_path.stem)
-
-        except OSError as exc:
-            log.error("Could not process %s: %s", file_path.stem, exc)
-
-    log.info("Phase 2 complete.")
+    # This phase is now handled by the Rust module
+    try:
+        files_modified = reconstruct_rust.run_link_phase(config.output_vault)
+        log.info("Phase 2 (Rust) complete. %d files modified.", files_modified)
+    except Exception as exc:
+        log.error("Phase 2 (Rust) failed: %s", exc)
+        raise
 
 
 # ============================================================================

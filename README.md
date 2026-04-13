@@ -47,6 +47,17 @@ Build the app (recommended: onedir):
 .\build_exe.ps1 -Mode onedir
 ```
 
+### Building the Rust module
+
+The link-reconstruction phase (Phase 2) is now implemented in Rust for performance. You'll need to build the Rust module for your Python environment:
+
+```bash
+cd reconstruct_rust
+maturin develop --release
+cd ..
+```
+This will compile the Rust code and make it available as `reconstruct_rust` to your Python scripts.
+
 Compatibility note: `.\build_hud.ps1` is a thin wrapper around `.\build_exe.ps1` (same flags/behavior).
 
 There are two PyInstaller modes:
