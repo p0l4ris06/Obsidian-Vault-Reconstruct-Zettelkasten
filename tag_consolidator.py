@@ -20,12 +20,26 @@ import argparse
 from pathlib import Path
 from collections import defaultdict
 
-import ollama
-from ollama import Client
+from vault_reconstruct.json_extract import extract_json_dict
+from vault_reconstruct.llm import LlmConfig, generate_text_with_retries, make_backend
+from vault_reconstruct.config import get_vault_paths
+from vault_reconstruct.env import load_dotenv_no_override
 
-VAULT_PATH  = r"C:\Users\Wren C\Documents\Coding stuff\Obsidian Vault"
-CLOUD_MODEL = "gemma4:31b-cloud"
-LOCAL_MODEL = "gemma3:4b"
+load_dotenv_no_override()
+
+VAULT_PATH = os.environ.get("VAULT_PATH", str(get_vault_paths().output_vault))
+
+# Backend selection:
+# - VAULT_LLM_PROVIDER=ollama|gemini|azure
+# - For gemini: set GEMINI_API_KEY
+# - For azure: set AZURE_OPENAI_ENDPOINT + AZURE_OPENAI_API_KEY + VAULT_AZURE_MODEL (deployment name)
+PROVIDER = os.environ.get("VAULT_LLM_PROVIDER", "ollama").strip().lower()
+
+# Model defaults per provider
+OLLAMA_LOCAL_MODEL = os.environ.get("VAULT_OLLAMA_MODEL", "qwen2.5-coder:0.5b-base-q8_0")
+OLLAMA_CLOUD_MODEL = os.environ.get("VAULT_OLLAMA_CLOUD_MODEL", "gemma4:31b-cloud")
+GEMINI_MODEL = os.environ.get("VAULT_GEMINI_MODEL", "gemini-2.5-flash")
+AZURE_MODEL = os.environ.get("VAULT_AZURE_MODEL", "gpt-4.1-mini")
 MIN_COUNT   = 3
 BATCH_SIZE  = 60
 REQUEST_DELAY = 0.3
@@ -96,7 +110,6 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler("tag_consolidation.log", encoding="utf-8"),
     ],
 )
 log = logging.getLogger(__name__)
@@ -106,42 +119,30 @@ _TAG_BLOCK_RE   = re.compile(r"(tags:\s*\n)((?:  - .+\n?)*)", re.MULTILINE)
 _TAG_LINE_RE    = re.compile(r"^  - (.+)$", re.MULTILINE)
 
 
-def _load_dotenv():
-    env_path = Path(__file__).parent / ".env"
-    if not env_path.exists():
-        return
-    with open(env_path, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith("#") or "=" not in line:
-                continue
-            key, _, value = line.partition("=")
-            os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
-    log.info("[.env] loaded")
+def _make_backend():
+    if PROVIDER == "ollama":
+        cfg = LlmConfig(
+            provider="ollama",
+            model=OLLAMA_LOCAL_MODEL,
+            max_retries=3,
+            ollama_cloud_model=OLLAMA_CLOUD_MODEL,
+        )
+    elif PROVIDER == "gemini":
+        cfg = LlmConfig(provider="gemini", model=GEMINI_MODEL, max_retries=3)
+    elif PROVIDER == "azure":
+        cfg = LlmConfig(provider="azure", model=AZURE_MODEL, max_retries=3)
+    else:
+        raise SystemExit(f"Unknown VAULT_LLM_PROVIDER: {PROVIDER!r} (expected ollama/gemini/azure)")
+    return make_backend(cfg)
 
-_load_dotenv()
 
-
-def _call_model(prompt: str, label: str = "") -> str | None:
-    key   = os.environ.get("OLLAMA_API_KEY", "").strip()
-    cloud = Client(host="https://ollama.com",
-                   headers={"Authorization": f"Bearer {key}"}) if key else None
-    pairs = ([(cloud, CLOUD_MODEL, "cloud")] if cloud else []) + [(None, LOCAL_MODEL, "local")]
-
-    for client, model, src in pairs:
-        for attempt in range(3):
-            try:
-                msgs = [{"role": "user", "content": prompt}]
-                r = client.chat(model=model, messages=msgs) if client \
-                    else ollama.chat(model=model, messages=msgs)
-                return r["message"]["content"]
-            except ollama.ResponseError:
-                break
-            except Exception as exc:
-                wait = 5 * (2 ** attempt)
-                log.warning("[%s] %s error (%s), retry in %ds", label, src, exc, wait)
-                time.sleep(wait)
-    return None
+def _verify_backend_or_raise(backend) -> None:
+    """
+    Fail-fast connectivity check.
+    Note: for Ollama this verifies the local server is reachable; for remote
+    providers it verifies credentials/network are working.
+    """
+    _ = generate_text_with_retries(backend, prompt="ping", max_retries=1)
 
 
 def scan_vault(vault: Path) -> dict[str, list[Path]]:
@@ -179,25 +180,35 @@ Format: {{"rare_tag": "broad_tag_or_DELETE", ...}}
 """
 
 
-def ai_map_tags(rare: list[str], broad: set[str], min_count: int) -> dict[str, str]:
+def ai_map_tags(rare: list[str], broad: set[str], min_count: int, *, require_llm: bool) -> dict[str, str]:
     broad_str = ", ".join(sorted(broad))
     rare_str  = "\n".join(f"- {t}" for t in rare)
-    raw = _call_model(
-        _MAP_PROMPT.format(broad_tags=broad_str, rare_tags=rare_str, min_count=min_count),
-        label="tag-map"
-    )
-    if not raw:
-        return {}
-    clean = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw.strip(), flags=re.MULTILINE)
-    m = re.search(r"\{.*\}", clean, re.DOTALL)
-    if not m:
-        return {}
-    try:
-        result = json.loads(m.group(0))
-        return {k: v for k, v in result.items()
-                if k in rare and (v == "DELETE" or v in broad)}
-    except json.JSONDecodeError:
-        return {}
+    backend = _make_backend()
+    if require_llm:
+        raw = generate_text_with_retries(
+            backend,
+            prompt=_MAP_PROMPT.format(broad_tags=broad_str, rare_tags=rare_str, min_count=min_count),
+            max_retries=3,
+        )
+    else:
+        try:
+            raw = generate_text_with_retries(
+                backend,
+                prompt=_MAP_PROMPT.format(broad_tags=broad_str, rare_tags=rare_str, min_count=min_count),
+                max_retries=3,
+            )
+        except Exception as exc:
+            log.warning("[tag-map] LLM error: %s", exc)
+            return {}
+
+    result = extract_json_dict(raw or "") or {}
+    cleaned: dict[str, str] = {}
+    for k, v in result.items():
+        if not isinstance(k, str) or not isinstance(v, str):
+            continue
+        if k in rare and (v == "DELETE" or v in broad):
+            cleaned[k] = v
+    return cleaned
 
 
 def rewrite_note(fp: Path, tag_map: dict[str, str], dry_run: bool) -> list[str]:
@@ -253,6 +264,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--min", type=int, default=MIN_COUNT)
+    parser.add_argument(
+        "--require-llm",
+        action="store_true",
+        help="Fail fast if the selected LLM backend is not reachable",
+    )
     args = parser.parse_args()
 
     vault = Path(VAULT_PATH)
@@ -262,6 +278,25 @@ def main():
 
     if args.dry_run:
         log.info("DRY RUN — no files will be modified")
+
+    try:
+        backend = _make_backend()
+        if args.require_llm:
+            _verify_backend_or_raise(backend)
+    except RuntimeError as exc:
+        log.critical(str(exc))
+        log.critical(
+            "Set one of:\n"
+            "  - VAULT_LLM_PROVIDER=ollama and run `ollama serve` (optional OLLAMA_API_KEY)\n"
+            "  - VAULT_LLM_PROVIDER=gemini and set GEMINI_API_KEY\n"
+            "  - VAULT_LLM_PROVIDER=azure and set AZURE_OPENAI_ENDPOINT + AZURE_OPENAI_API_KEY (+ VAULT_AZURE_MODEL)\n"
+        )
+        sys.exit(1)
+    except Exception as exc:
+        if args.require_llm:
+            log.critical("LLM backend not reachable: %s", exc)
+            sys.exit(1)
+        log.warning("LLM backend not reachable (%s). Continuing without AI mappings.", exc)
 
     tag_counts = scan_vault(vault)
 
@@ -287,7 +322,7 @@ def main():
     batches = [rare[i:i+BATCH_SIZE] for i in range(0, len(rare), BATCH_SIZE)]
     for i, batch in enumerate(batches):
         log.info("AI batch %d/%d...", i+1, len(batches))
-        full_map.update(ai_map_tags(batch, broad, args.min))
+        full_map.update(ai_map_tags(batch, broad, args.min, require_llm=args.require_llm))
         time.sleep(REQUEST_DELAY)
 
     # Save mapping for review

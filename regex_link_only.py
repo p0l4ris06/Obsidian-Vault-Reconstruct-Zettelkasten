@@ -7,15 +7,20 @@ Uses the same tracker as obsidian_zettelkasten_v2.py so results are
 compatible. Notes marked done here won't be re-processed by the main script.
 
 Usage:
-    python regex_link_only.py
+    python regex_link_only.py --vault "D:\Obsidian Vault"
 """
 
+import argparse
 import json
 import re
 import logging
 import sys
 from pathlib import Path
 from dataclasses import dataclass
+from vault_reconstruct.config import get_vault_paths
+from vault_reconstruct.env import load_dotenv_no_override
+
+load_dotenv_no_override()
 
 try:
     from tqdm import tqdm
@@ -30,7 +35,7 @@ except ImportError:
 
 @dataclass
 class Config:
-    output_vault:    str = r"C:\Users\dcrac\Documents\Obsidian Vault"
+    output_vault: str = str(get_vault_paths().output_vault)
     tracker_filename: str = ".zettelkasten_tracker.json"
     # Only process notes with fewer than this many existing wikilinks
     # Set to 999 to process every note regardless
@@ -47,7 +52,6 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler("regex_link.log", encoding="utf-8"),
     ],
 )
 log = logging.getLogger(__name__)
@@ -89,39 +93,7 @@ class ProcessingTracker:
         self._save()
 
 
-# ============================================================================
-# PROTECTED REGION MASKING
-# ============================================================================
-
-_FRONTMATTER_RE = re.compile(r"^---\s*\n.*?\n---\s*\n", re.DOTALL)
-_CODE_FENCE_RE  = re.compile(r"```.*?```", re.DOTALL)
-_INLINE_CODE_RE = re.compile(r"`[^`]+`")
-_WIKILINK_RE    = re.compile(r"\[\[.*?\]\]")
-
-
-def mask_protected(text: str) -> tuple[str, list[tuple[str, str]]]:
-    placeholders: list[tuple[str, str]] = []
-
-    def _replace(m: re.Match) -> str:
-        token = f"\x00PH{len(placeholders)}\x00"
-        placeholders.append((token, m.group(0)))
-        return token
-
-    masked = _FRONTMATTER_RE.sub(_replace, text, count=1)
-    masked = _CODE_FENCE_RE.sub(_replace, masked)
-    masked = _INLINE_CODE_RE.sub(_replace, masked)
-    masked = _WIKILINK_RE.sub(_replace, masked)
-    return masked, placeholders
-
-
-def restore_protected(text: str, placeholders: list[tuple[str, str]]) -> str:
-    for token, original in placeholders:
-        text = text.replace(token, original)
-    return text
-
-
-def count_wikilinks(text: str) -> int:
-    return len(_WIKILINK_RE.findall(text))
+from vault_reconstruct.text_protect import count_wikilinks, mask_protected, restore_protected
 
 
 # ============================================================================
@@ -162,8 +134,24 @@ def regex_link_pass(file_path: Path, titles: list[str]) -> int:
 # ============================================================================
 
 def main():
-    config      = Config()
-    output_path = Path(config.output_vault)
+    parser = argparse.ArgumentParser(description="Regex-only wikilinker (offline).")
+    parser.add_argument(
+        "--vault",
+        type=str,
+        default=None,
+        help="Path to Obsidian vault (defaults to VAULT_OUTPUT_PATH/VAULT_PATH or repo default).",
+    )
+    parser.add_argument(
+        "--max-existing-links",
+        type=int,
+        default=Config().max_existing_links,
+        help="Skip notes that already have >= this many wikilinks (default: 999).",
+    )
+    ns = parser.parse_args()
+
+    config = Config()
+    output_path = Path(ns.vault).expanduser() if ns.vault else Path(config.output_vault)
+    config.max_existing_links = int(ns.max_existing_links)
     tracker     = ProcessingTracker(output_path / config.tracker_filename)
 
     # Collect all vault notes

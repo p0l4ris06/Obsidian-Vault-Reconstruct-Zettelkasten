@@ -1,0 +1,20 @@
+# Minimal runtime dependencies used across scripts in this repo.
+#
+# Note: some scripts use optional dependencies and will still run without them:
+# - tqdm (progress bars)
+# - python-dotenv (loading .env)
+#
+# Model backends:
+# - ollama (local/cloud inference via Ollama)
+# - google-genai (Gemini API client)
+
+tqdm
+python-dotenv
+ollama
+google-genai
+openai
+genanki
+
+# Nice CLI/HUD
+textual
+

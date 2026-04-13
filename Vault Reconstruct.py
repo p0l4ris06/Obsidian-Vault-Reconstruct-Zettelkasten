@@ -8,7 +8,6 @@ Usage:
 """
 
 import os
-import json
 import time
 import re
 import logging
@@ -16,12 +15,8 @@ import sys
 from pathlib import Path
 from dataclasses import dataclass, field
 
-# ── Optional dependency: python-dotenv ──────────────────────────────────────
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass  # Fine — just use real environment variables
+from vault_reconstruct.env import load_dotenv_no_override
+load_dotenv_no_override()
 
 # ── Optional dependency: tqdm ────────────────────────────────────────────────
 try:
@@ -32,7 +27,11 @@ except ImportError:
     def tqdm(iterable, **kwargs):  # Graceful fallback
         return iterable
 
-from google import genai
+from vault_reconstruct.json_extract import extract_json_array
+from vault_reconstruct.llm import LlmConfig, generate_text_with_retries, make_backend
+from vault_reconstruct.paths import safe_filename
+from vault_reconstruct.text_protect import mask_protected, restore_protected
+from vault_reconstruct.config import get_vault_paths
 
 # ============================================================================
 # CONFIGURATION — edit these two paths; keep the API key in your environment
@@ -40,11 +39,14 @@ from google import genai
 
 @dataclass
 class Config:
-    input_vault:  str = r"C:\Users\dcrac\Documents\University Vault"
-    output_vault: str = r"C:\Users\dcrac\Documents\Obsidian Vault"
-    model:        str = "gemini-2.5-flash"
+    input_vault: str = str(get_vault_paths().input_vault)
+    output_vault: str = str(get_vault_paths().output_vault)
+    provider:     str = os.environ.get("VAULT_LLM_PROVIDER", "gemini").strip().lower()
+    model:        str = os.environ.get("VAULT_GEMINI_MODEL", "gemini-2.5-flash")
+    azure_model:  str = os.environ.get("VAULT_AZURE_MODEL", "gpt-4.1-mini")
+    ollama_model: str = os.environ.get("VAULT_OLLAMA_MODEL", "qwen2.5-coder:0.5b-base-q8_0")
     min_content_length: int = 50
-    request_delay:      float = 4.0   # seconds between successful API calls
+    request_delay:      float = 1.0   # seconds between successful calls (extra quota safety)
     max_retries:        int = 5
     output_folders:     list = field(default_factory=lambda: [
         "00_Inbox", "01_MOCs", "02_Zettels", "03_Literature"
@@ -63,7 +65,6 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler("zettelkasten_run.log", encoding="utf-8"),
     ],
 )
 log = logging.getLogger(__name__)
@@ -100,50 +101,16 @@ class ProcessingTracker:
         self._save()
 
 
-# ============================================================================
-# JSON HELPERS
-# ============================================================================
-
-def extract_json_array(text: str) -> list[dict] | None:
-    """
-    Try three strategies to pull a valid JSON array out of a model response:
-      1. Direct parse (model was well-behaved)
-      2. Regex extraction of the outermost [...] block
-      3. Strip markdown code fences and retry
-    Returns None if all strategies fail.
-    """
-    for attempt in (text, _strip_fences(text), _regex_extract(text)):
-        if attempt is None:
-            continue
-        try:
-            result = json.loads(attempt)
-            if isinstance(result, list):
-                return result
-        except json.JSONDecodeError:
-            pass
-    return None
-
-
-def _strip_fences(text: str) -> str:
-    """Remove ```json ... ``` or ``` ... ``` wrappers."""
-    return re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.MULTILINE)
-
-
-def _regex_extract(text: str) -> str | None:
-    """Pull the outermost [...] block from text."""
-    match = re.search(r"\[.*\]", text, re.DOTALL)
-    return match.group(0) if match else None
-
-
-# ============================================================================
-# SAFE FILENAME
-# ============================================================================
-
-_UNSAFE_CHARS = re.compile(r'[\\/:*?"<>|]')
-
-def safe_filename(title: str) -> str:
-    """Strip characters illegal in filenames across platforms."""
-    return _UNSAFE_CHARS.sub("-", title).strip(". ")[:200] or "Untitled"
+def _make_backend(config: Config):
+    if config.provider == "gemini":
+        cfg = LlmConfig(provider="gemini", model=config.model, max_retries=config.max_retries)
+    elif config.provider == "azure":
+        cfg = LlmConfig(provider="azure", model=config.azure_model, max_retries=config.max_retries)
+    elif config.provider == "ollama":
+        cfg = LlmConfig(provider="ollama", model=config.ollama_model, max_retries=config.max_retries)
+    else:
+        raise SystemExit(f"Unknown VAULT_LLM_PROVIDER: {config.provider!r} (expected gemini/azure/ollama)")
+    return make_backend(cfg)
 
 
 # ============================================================================
@@ -166,42 +133,21 @@ NOTE TO PROCESS:
 
 def split_note(client, config: Config, content: str, filename: str) -> list[dict] | None:
     """
-    Call the Gemini API with exponential back-off.
+    Call the configured LLM backend with retry/backoff.
     Returns a list of note dicts on success, or None if all retries failed.
     """
     prompt = SPLIT_PROMPT.format(content=content)
+    try:
+        text = generate_text_with_retries(client, prompt=prompt, max_retries=max(1, int(config.max_retries)))
+    except Exception as exc:
+        log.error("[%s] LLM error: %s — skipping.", filename, exc)
+        return None
 
-    for attempt in range(config.max_retries):
-        try:
-            response = client.models.generate_content(
-                model=config.model,
-                contents=prompt,
-            )
-            notes = extract_json_array(response.text)
-            if notes is not None:
-                return notes
-            log.warning("[%s] Response was not valid JSON (attempt %d/%d).",
-                        filename, attempt + 1, config.max_retries)
-            return None  # Bad JSON isn't fixed by retrying — quarantine it
-
-        except Exception as exc:
-            msg = str(exc).lower()
-            is_rate_limit = any(tok in msg for tok in ("429", "quota", "exhausted", "rate"))
-
-            if is_rate_limit:
-                wait = 60 * (2 ** attempt)  # Exponential back-off: 60 s, 120 s, 240 s…
-                log.warning("Rate-limited. Waiting %d s before retry %d/%d…",
-                            wait, attempt + 1, config.max_retries)
-                time.sleep(wait)
-            else:
-                log.error("[%s] Unexpected error: %s — skipping.", filename, exc)
-                return None  # Non-retriable
-
-    log.critical(
-        "Hit max retries. You've likely exhausted the daily free-tier quota.\n"
-        "Run the script again tomorrow — it will resume where it left off."
-    )
-    sys.exit(1)
+    notes = extract_json_array(text or "")
+    if notes is not None:
+        return notes
+    log.warning("[%s] Response was not valid JSON — quarantining.", filename)
+    return None
 
 
 def run_phase1(client, config: Config):
@@ -269,29 +215,11 @@ _WIKILINK_RE    = re.compile(r"\[\[.*?\]\]")
 
 
 def _mask_protected_regions(text: str) -> tuple[str, list[tuple[str, str]]]:
-    """
-    Replace front-matter, code blocks, and existing wiki-links with unique
-    placeholders so Phase 2 never corrupts them. Returns the masked text and
-    the placeholder→original mapping.
-    """
-    placeholders: list[tuple[str, str]] = []
-
-    def _replace(m: re.Match) -> str:
-        token = f"\x00PLACEHOLDER_{len(placeholders)}\x00"
-        placeholders.append((token, m.group(0)))
-        return token
-
-    masked = _FRONTMATTER_RE.sub(_replace, text, count=1)
-    masked = _CODE_FENCE_RE.sub(_replace, masked)
-    masked = _INLINE_CODE_RE.sub(_replace, masked)
-    masked = _WIKILINK_RE.sub(_replace, masked)
-    return masked, placeholders
+    return mask_protected(text)
 
 
 def _restore_protected_regions(text: str, placeholders: list[tuple[str, str]]) -> str:
-    for token, original in placeholders:
-        text = text.replace(token, original)
-    return text
+    return restore_protected(text, placeholders)
 
 
 def run_phase2(config: Config):
@@ -346,17 +274,30 @@ def run_phase2(config: Config):
 # ============================================================================
 
 def main():
-    api_key = os.getenv("GEMINI_API_KEY")
-    if not api_key:
+    if any(a in ("-h", "--help") for a in sys.argv[1:]):
+        print(
+            "Vault Reconstruct (Gemini/Azure/Ollama splitter + regex linker)\n\n"
+            "Environment:\n"
+            "  VAULT_INPUT_PATH   (input vault path)\n"
+            "  VAULT_OUTPUT_PATH  (output vault path)\n"
+            "  VAULT_LLM_PROVIDER gemini|azure|ollama (default: gemini)\n"
+            "  GEMINI_API_KEY     (if provider=gemini)\n"
+            "  AZURE_OPENAI_ENDPOINT / AZURE_OPENAI_API_KEY (if provider=azure)\n"
+            "  VAULT_GEMINI_MODEL / VAULT_AZURE_MODEL / VAULT_OLLAMA_MODEL (optional)\n"
+        )
+        raise SystemExit(0)
+    config = Config()
+    try:
+        client = _make_backend(config)
+    except RuntimeError as exc:
+        log.critical(str(exc))
         log.critical(
-            "GEMINI_API_KEY environment variable is not set.\n"
-            "Set it with:  export GEMINI_API_KEY='your-key-here'\n"
-            "Or place it in a .env file in the same directory as this script."
+            "Set one of:\n"
+            "  - VAULT_LLM_PROVIDER=gemini and GEMINI_API_KEY\n"
+            "  - VAULT_LLM_PROVIDER=azure and AZURE_OPENAI_ENDPOINT + AZURE_OPENAI_API_KEY\n"
+            "  - VAULT_LLM_PROVIDER=ollama and run `ollama serve`\n"
         )
         sys.exit(1)
-
-    config = Config()
-    client = genai.Client(api_key=api_key)
 
     run_phase1(client, config)
     run_phase2(config)

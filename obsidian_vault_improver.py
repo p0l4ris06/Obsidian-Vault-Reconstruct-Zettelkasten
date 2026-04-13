@@ -28,6 +28,11 @@ from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from typing import Optional, Dict, Set, List, Tuple
 
+from vault_reconstruct.config import get_vault_paths
+from vault_reconstruct.env import load_dotenv_no_override
+
+load_dotenv_no_override()
+
 try:
     from tqdm import tqdm
 except ImportError:
@@ -41,7 +46,7 @@ except ImportError:
 
 @dataclass
 class Config:
-    vault_path: str = r"C:\Users\dcrac\Documents\Obsidian Vault"
+    vault_path: str = str(get_vault_paths().output_vault)
     dry_run: bool = False
     fix_tags: bool = False
     fix_links: bool = False
@@ -147,7 +152,6 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler("vault_improver.log", encoding="utf-8"),
     ],
 )
 log = logging.getLogger(__name__)

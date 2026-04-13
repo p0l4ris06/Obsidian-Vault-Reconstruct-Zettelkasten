@@ -5,13 +5,21 @@ This script identifies notes with minimal content (< 100 chars after frontmatter
 and expands them with relevant content based on their title and tags.
 """
 
+import argparse
+import os
 import re
 import json
 from pathlib import Path
 from datetime import datetime
+from vault_reconstruct.config import DEFAULT_VAULT_PATH, get_vault_paths
+from vault_reconstruct.env import load_dotenv_no_override
 
-VAULT_PATH = Path(r"C:\Users\dcrac\Documents\Obsidian Vault")
-ZETTELS_PATH = VAULT_PATH / "02_Zettels"
+load_dotenv_no_override()
+
+
+def _default_vault_path() -> Path:
+    # Hard-locked default; env overrides supported via get_vault_paths.
+    return get_vault_paths().output_vault if "VAULT_PATH" in os.environ or "VAULT_OUTPUT_PATH" in os.environ else DEFAULT_VAULT_PATH
 
 # Content templates for common veterinary topics
 CONTENT_TEMPLATES = {
@@ -329,13 +337,20 @@ def expand_short_note(file_path: Path, min_content_length: int = 100) -> bool:
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--vault", default=str(_default_vault_path()), help="Path to Obsidian vault")
+    args = parser.parse_args()
+
+    vault_path = Path(args.vault)
+    zettels_path = vault_path / "02_Zettels"
+
     print("=" * 60)
     print("Expanding Short Notes")
     print("=" * 60)
 
     # Find all markdown files in zettels
-    md_files = list(ZETTELS_PATH.glob("*.md"))
-    print(f"Found {len(md_files)} notes in {ZETTELS_PATH.name}")
+    md_files = list(zettels_path.glob("*.md"))
+    print(f"Found {len(md_files)} notes in {zettels_path.name}")
 
     expanded_count = 0
     skipped_count = 0

@@ -35,6 +35,16 @@ import os
 import ollama
 from ollama import Client
 
+from vault_reconstruct.env import load_dotenv_no_override
+load_dotenv_no_override()
+
+from vault_reconstruct.llm import LlmConfig, generate_text_with_retries, make_backend
+from vault_reconstruct.json_extract import extract_json_array, extract_json_dict
+from vault_reconstruct.paths import safe_filename
+from vault_reconstruct.text_protect import count_wikilinks, mask_protected, restore_protected
+from vault_reconstruct.config import get_vault_paths
+from vault_reconstruct.model_recommend import select_ollama_model_for_mode
+
 
 # ============================================================================
 # CONFIGURATION
@@ -42,12 +52,20 @@ from ollama import Client
 
 @dataclass
 class Config:
-    input_vault:        str   = r"C:\Users\dcrac\Documents\University Vault"
-    output_vault:       str   = r"C:\Users\dcrac\Documents\Obsidian Vault"
+    input_vault: str = str(get_vault_paths().input_vault)
+    output_vault: str = str(get_vault_paths().output_vault)
+    # Model backend selection:
+    # - ollama: local (and optional cloud-first if OLLAMA_API_KEY set)
+    # - gemini: uses GEMINI_API_KEY
+    # - azure: uses AZURE_OPENAI_ENDPOINT + AZURE_OPENAI_API_KEY
+    provider:           str   = os.environ.get("VAULT_LLM_PROVIDER", "ollama").strip().lower()
     # Cloud model (used first if OLLAMA_API_KEY is set); set to None to force local
     cloud_model:        str   = "gemma3:4b-cloud"
     # Local model used as fallback when cloud fails or no API key is found
-    local_model:        str   = "gemma3:4b"
+    local_model:        str   = os.environ.get("VAULT_OLLAMA_MODEL", "").strip() or ""
+    # Gemini/Azure model names
+    gemini_model:       str   = os.environ.get("VAULT_GEMINI_MODEL", "gemini-2.5-flash")
+    azure_model:        str   = os.environ.get("VAULT_AZURE_MODEL", "gpt-4.1-mini")
     min_content_length: int   = 50
     request_delay:      float = 0.5
     max_retries:        int   = 3
@@ -69,7 +87,6 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler("zettelkasten_v2.log", encoding="utf-8"),
     ],
 )
 log = logging.getLogger(__name__)
@@ -132,50 +149,62 @@ class ProcessingTracker:
 # JSON HELPERS
 # ============================================================================
 
-def extract_json_array(text: str) -> list[dict] | None:
-    for candidate in (text, _strip_fences(text), _regex_extract(text)):
-        if candidate is None:
-            continue
-        try:
-            result = json.loads(candidate)
-            if isinstance(result, list):
-                return result
-        except json.JSONDecodeError:
-            pass
-    return None
-
-
 def extract_json_string_array(text: str) -> list[str] | None:
     """Extract a JSON array of strings (used for link suggestions)."""
-    for candidate in (text, _strip_fences(text), _regex_extract(text)):
-        if candidate is None:
-            continue
-        try:
-            result = json.loads(candidate)
-            if isinstance(result, list) and all(isinstance(i, str) for i in result):
-                return result
-        except json.JSONDecodeError:
-            pass
+    arr = extract_json_array(text)
+    if isinstance(arr, list) and all(isinstance(i, str) for i in arr):
+        return arr
     return None
-
-
-def _strip_fences(text: str) -> str:
-    return re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.MULTILINE)
-
-
-def _regex_extract(text: str) -> str | None:
-    match = re.search(r"\[.*\]", text, re.DOTALL)
-    return match.group(0) if match else None
 
 
 # ============================================================================
 # HELPERS
 # ============================================================================
 
-_UNSAFE_CHARS = re.compile(r'[\\/:*?"<>|]')
+_backend_cache: dict[str, object] = {}
 
-def safe_filename(title: str) -> str:
-    return _UNSAFE_CHARS.sub("-", title).strip(". ")[:200] or "Untitled"
+
+def _backend_cache_key(config: Config, *, strict_json: bool) -> str:
+    provider = (config.provider or "ollama").lower()
+    if provider != "ollama":
+        return provider
+    return f"ollama:json={int(bool(strict_json))}"
+
+
+def _get_backend(config: Config, *, strict_json: bool = True):
+    global _backend_cache
+    key = _backend_cache_key(config, strict_json=strict_json)
+    cached = _backend_cache.get(key)
+    if cached is not None:
+        return cached
+
+    provider = (config.provider or "ollama").lower()
+    if provider == "ollama":
+        local_model = config.local_model or select_ollama_model_for_mode(strict_json=strict_json)
+        cfg = LlmConfig(
+            provider="ollama",
+            model=local_model,
+            max_retries=max(1, int(config.max_retries)),
+            ollama_cloud_model=config.cloud_model,
+        )
+    elif provider == "gemini":
+        cfg = LlmConfig(
+            provider="gemini",
+            model=config.gemini_model,
+            max_retries=max(1, int(config.max_retries)),
+        )
+    elif provider == "azure":
+        cfg = LlmConfig(
+            provider="azure",
+            model=config.azure_model,
+            max_retries=max(1, int(config.max_retries)),
+        )
+    else:
+        raise SystemExit(f"Unknown VAULT_LLM_PROVIDER: {config.provider!r} (expected ollama/gemini/azure)")
+
+    backend = make_backend(cfg)
+    _backend_cache[key] = backend
+    return backend
 
 
 def _make_cloud_client() -> Client | None:
@@ -199,87 +228,23 @@ def _chat(client: Client | None, model: str, prompt: str) -> str:
     return response["message"]["content"]
 
 
-def call_ollama(config: Config, prompt: str, label: str) -> str | None:
+def call_ollama(config: Config, prompt: str, label: str, *, strict_json: bool = True) -> str | None:
     """
     Cloud-first with local fallback.
     - If OLLAMA_API_KEY is set, tries cloud_model first.
     - Falls back to local_model automatically on any cloud failure.
     - Retries connection errors with back-off on both paths.
     """
-    cloud_client = _make_cloud_client()
-    use_cloud    = cloud_client is not None
-
-    # Build ordered list of (client, model, description) to try
-    candidates = []
-    if use_cloud:
-        candidates.append((cloud_client, config.cloud_model, "cloud"))
-    candidates.append((None, config.local_model, "local"))
-
-    for client, model, source in candidates:
-        for attempt in range(config.max_retries):
-            try:
-                text = _chat(client, model, prompt)
-                if source == "cloud" and attempt == 0 and use_cloud:
-                    pass  # happy path, no extra log needed
-                else:
-                    log.debug("[%s] Response via %s/%s", label, source, model)
-                return text
-
-            except ollama.ResponseError as exc:
-                log.warning("[%s] %s model error: %s — trying next option.", label, source, exc)
-                break  # Model-level error; skip retries, move to next candidate
-
-            except Exception as exc:
-                msg = str(exc).lower()
-                is_connection = any(t in msg for t in ("connection", "refused", "timeout", "rate"))
-                if is_connection and attempt < config.max_retries - 1:
-                    wait = 10 * (attempt + 1)
-                    log.warning("[%s] %s not responding. Retrying in %ds (%d/%d)…",
-                                label, source, wait, attempt + 1, config.max_retries)
-                    time.sleep(wait)
-                else:
-                    log.warning("[%s] %s failed (%s) — falling back.", label, source, exc)
-                    break  # Move to next candidate
-
-    log.error("[%s] All inference options exhausted (cloud + local).", label)
-    return None
-
-    log.critical(
-        "Cannot reach Ollama after %d attempts. Is 'ollama serve' running?",
-        config.max_retries,
-    )
-    sys.exit(1)
+    # Backwards-compatible name: now routes through the configured backend.
+    try:
+        backend = _get_backend(config, strict_json=strict_json)
+        return generate_text_with_retries(backend, prompt=prompt, max_retries=max(1, int(config.max_retries)))
+    except Exception as exc:
+        log.warning("[%s] LLM call failed: %s", label, exc)
+        return None
 
 
 _FRONTMATTER_RE = re.compile(r"^---\s*\n.*?\n---\s*\n", re.DOTALL)
-_CODE_FENCE_RE  = re.compile(r"```.*?```", re.DOTALL)
-_INLINE_CODE_RE = re.compile(r"`[^`]+`")
-_WIKILINK_RE    = re.compile(r"\[\[.*?\]\]")
-
-
-def count_wikilinks(text: str) -> int:
-    return len(_WIKILINK_RE.findall(text))
-
-
-def mask_protected(text: str) -> tuple[str, list[tuple[str, str]]]:
-    placeholders: list[tuple[str, str]] = []
-
-    def _replace(m: re.Match) -> str:
-        token = f"\x00PH{len(placeholders)}\x00"
-        placeholders.append((token, m.group(0)))
-        return token
-
-    masked = _FRONTMATTER_RE.sub(_replace, text, count=1)
-    masked = _CODE_FENCE_RE.sub(_replace, masked)
-    masked = _INLINE_CODE_RE.sub(_replace, masked)
-    masked = _WIKILINK_RE.sub(_replace, masked)
-    return masked, placeholders
-
-
-def restore_protected(text: str, placeholders: list[tuple[str, str]]) -> str:
-    for token, original in placeholders:
-        text = text.replace(token, original)
-    return text
 
 
 # ============================================================================
@@ -781,7 +746,7 @@ def run_phase4(config: Config):
 
         note_list = "\n".join(f"- {p.stem}" for p in notes)
         prompt    = MOC_PROMPT.format(topic=topic, note_list=note_list)
-        body      = call_ollama(config, prompt, moc_key)
+        body      = call_ollama(config, prompt, moc_key, strict_json=False)
 
         if body is None:
             log.warning("Could not generate MOC for topic: %s", topic)
@@ -830,9 +795,17 @@ def _local_model_names() -> list[str]:
 
 
 def verify_ollama(config: Config):
+    if (config.provider or "ollama").lower() != "ollama":
+        log.info("Skipping Ollama verification (VAULT_LLM_PROVIDER=%s).", config.provider)
+        return
+
     api_key    = os.environ.get("OLLAMA_API_KEY", "").strip()
     cloud_ok   = False
     local_ok   = False
+
+    json_model = config.local_model or select_ollama_model_for_mode(strict_json=True)
+    prose_model = config.local_model or select_ollama_model_for_mode(strict_json=False)
+    log.info("Ollama routing — JSON phases: %s | prose (MOC): %s", json_model, prose_model)
 
     # Check cloud
     if api_key:
@@ -847,17 +820,18 @@ def verify_ollama(config: Config):
         except Exception as exc:
             log.warning("Cloud check failed (%s). Will fall back to local.", exc)
 
-    # Check local
+    # Check local (need tags for JSON + prose routes unless cloud covers everything)
     try:
-        names    = _local_model_names()
-        local_ok = any(config.local_model in n for n in names)
+        names = _local_model_names()
+        name_set = {n for n in names if n}
+        need = {json_model, prose_model}
+        local_ok = all(m in name_set for m in need)
         if local_ok:
-            log.info("Local ready — model '%s' found.", config.local_model)
+            log.info("Local ready — models present: %s", ", ".join(sorted(need)))
         else:
-            log.warning(
-                "Local model '%s' not pulled. Run:  ollama pull %s",
-                config.local_model, config.local_model,
-            )
+            missing = sorted(m for m in need if m not in name_set)
+            pull_hint = " && ".join(f"ollama pull {m}" for m in missing) if missing else ""
+            log.warning("Local model(s) not pulled: %s — run: %s", ", ".join(missing), pull_hint)
     except Exception as exc:
         log.warning("Cannot reach local Ollama (%s). Run: ollama serve", exc)
 
@@ -865,8 +839,8 @@ def verify_ollama(config: Config):
         log.critical(
             "Neither cloud nor local Ollama is available.\n"
             "  Cloud: set OLLAMA_API_KEY environment variable\n"
-            "  Local: run 'ollama serve' and 'ollama pull %s'",
-            config.local_model,
+            "  Local: run 'ollama serve' and pull: %s",
+            ", ".join(sorted({json_model, prose_model})),
         )
         sys.exit(1)
 
@@ -877,6 +851,17 @@ def verify_ollama(config: Config):
 
 
 def main():
+    if any(a in ("-h", "--help") for a in sys.argv[1:]):
+        print(
+            "Vault Reconstruct (Ollama full pipeline)\n\n"
+            "Environment:\n"
+            "  VAULT_INPUT_PATH / VAULT_OUTPUT_PATH (vault paths)\n"
+            "  VAULT_OLLAMA_MODEL / VAULT_OLLAMA_INSTRUCT_MODEL / VAULT_OLLAMA_CLOUD_MODEL (optional)\n"
+            "  OLLAMA_API_KEY (optional cloud-first)\n\n"
+            "Notes:\n"
+            "  This script has no stable CLI flags yet; configure via env vars.\n"
+        )
+        raise SystemExit(0)
     config = Config()
     verify_ollama(config)
 

@@ -18,41 +18,34 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Optional
 
+from vault_reconstruct.config import get_vault_paths
+from vault_reconstruct.env import load_dotenv_no_override
+from vault_reconstruct.llm import LlmConfig, generate_text_with_retries, make_backend_thread_local
+from vault_reconstruct.model_recommend import select_ollama_model_for_mode
+
 try:
     from tqdm import tqdm
 except ImportError:
     def tqdm(iterable, **kwargs): return iterable
 
-import ollama
-from ollama import Client
-
-# ============================================================================
-# .ENV LOADER
-# ============================================================================
-def _load_dotenv():
-    env_path = Path(__file__).parent / ".env"
-    if not env_path.exists():
-        return
-    with open(env_path, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith("#") or "=" not in line:
-                continue
-            key, _, value = line.partition("=")
-            os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
-    print(f"[.env] Loaded from {env_path}")
-
-_load_dotenv()
+load_dotenv_no_override()
 
 # ============================================================================
 # CONFIGURATION
 # ============================================================================
 @dataclass
 class Config:
-    input_vault:  str = r"C:\Users\Wren C\Documents\Coding stuff\Obsidian Vault"
-    output_vault: str = r"C:\Users\Wren C\Documents\Coding stuff\Obsidian Vault"
-    cloud_model: str = "gemma4:31b-cloud"
-    local_model: str = "gemma3:4b"
+    input_vault: str = str(get_vault_paths().input_vault)
+    output_vault: str = str(get_vault_paths().output_vault)
+    # Model backend selection:
+    # - ollama: local (and optional cloud-first if OLLAMA_API_KEY set)
+    # - gemini: uses GEMINI_API_KEY
+    # - azure: uses AZURE_OPENAI_ENDPOINT + AZURE_OPENAI_API_KEY
+    provider:           str = os.environ.get("VAULT_LLM_PROVIDER", "ollama").strip().lower()
+    cloud_model:        str = os.environ.get("VAULT_OLLAMA_CLOUD_MODEL", "gemma3:4b-cloud")
+    local_model:        str = os.environ.get("VAULT_OLLAMA_MODEL", "").strip() or ""
+    gemini_model:       str = os.environ.get("VAULT_GEMINI_MODEL", "gemini-2.5-flash")
+    azure_model:        str = os.environ.get("VAULT_AZURE_MODEL", "gpt-4.1-mini")
     min_content_length:     int   = 50
     request_delay:          float = 0.5
     max_retries:            int   = 3
@@ -123,7 +116,6 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler("zettelkasten_v3.log", encoding="utf-8"),
     ],
 )
 log = logging.getLogger(__name__)
@@ -196,56 +188,45 @@ class ProcessingTracker:
 
 
 # ============================================================================
-# OLLAMA CLIENT — built once per process, reused across all calls
+# LLM CLIENT — per-thread backend cache
 # ============================================================================
-_ollama_client: Optional[Client] = None
-_ollama_candidates: list = []  # [(client_or_None, model, src), ...]
+def _make_llm_config(config: Config, *, strict_json: bool) -> LlmConfig:
+    provider = (config.provider or "ollama").strip().lower()
+    if provider == "ollama":
+        local_model = config.local_model or select_ollama_model_for_mode(strict_json=strict_json)
+        return LlmConfig(
+            provider="ollama",
+            model=local_model,
+            max_retries=max(1, int(config.max_retries)),
+            ollama_cloud_model=(config.cloud_model or None),
+        )
+    if provider == "gemini":
+        return LlmConfig(
+            provider="gemini",
+            model=config.gemini_model,
+            max_retries=max(1, int(config.max_retries)),
+        )
+    if provider == "azure":
+        return LlmConfig(
+            provider="azure",
+            model=config.azure_model,
+            max_retries=max(1, int(config.max_retries)),
+        )
+    raise SystemExit(f"Unknown VAULT_LLM_PROVIDER: {config.provider!r} (expected ollama/gemini/azure)")
 
 
-def _build_ollama_candidates(config: Config):
-    """Construct the reusable client and candidate list exactly once."""
-    global _ollama_client, _ollama_candidates
-    key = os.environ.get("OLLAMA_API_KEY", "").strip()
-    _ollama_client = (
-        Client(host="https://ollama.com", headers={"Authorization": f"Bearer {key}"})
-        if key else None
-    )
-    _ollama_candidates = []
-    if _ollama_client:
-        _ollama_candidates.append((_ollama_client, config.cloud_model, "cloud"))
-    _ollama_candidates.append((None, config.local_model, "local"))
-
-
-def verify_ollama(config: Config):
-    _build_ollama_candidates(config)
-    key = os.environ.get("OLLAMA_API_KEY", "").strip()
-    log.info(
-        "OLLAMA_API_KEY detected — cloud-first execution."
-        if key else
-        "No OLLAMA_API_KEY detected — local execution."
-    )
-
-
-def call_ollama(config: Config, prompt: str, label: str) -> Optional[str]:
-    """Call Ollama with exponential back-off on transient errors."""
-    for c, model, src in _ollama_candidates:
-        for attempt in range(config.max_retries):
-            try:
-                msgs = [{"role": "user", "content": prompt}]
-                r = c.chat(model=model, messages=msgs) if c else ollama.chat(model=model, messages=msgs)
-                return r["message"]["content"]
-            except Exception as exc:
-                is_transient = any(
-                    t in str(exc).lower()
-                    for t in ("connection", "refused", "timeout", "rate", "429")
-                )
-                if is_transient and attempt < config.max_retries - 1:
-                    wait = 5 * (2 ** attempt) + random.uniform(0.1, 1.5)
-                    log.warning("[%s] %s busy, retry in %.1fs…", label, src, wait)
-                    time.sleep(wait)
-                else:
-                    break
-    return None
+def call_llm(config: Config, prompt: str, label: str, *, strict_json: bool = True) -> Optional[str]:
+    try:
+        cfg = _make_llm_config(config, strict_json=strict_json)
+        backend = make_backend_thread_local(cfg)
+        return generate_text_with_retries(
+            backend,
+            prompt=prompt,
+            max_retries=max(1, int(config.max_retries)),
+        )
+    except Exception as exc:
+        log.warning("[%s] LLM call failed: %s", label, exc)
+        return None
 
 
 # ============================================================================
@@ -414,7 +395,7 @@ def _process_ai_link(fp: Path, config: Config, cache: TitleCache, tracker: Proce
         tracker.mark_done("phase4", fp.stem)
         return 0
 
-    raw = call_ollama(
+    raw = call_llm(
         config,
         _AI_LINK_PROMPT.format(
             title=fp.stem,
@@ -550,7 +531,7 @@ def _update_note_tags(fp: Path, tag_mapping: dict[str, str]):
 
 
 def _process_tag_batch(batch: list[str], strong_tags_str: str, config: Config) -> dict:
-    raw = call_ollama(
+    raw = call_llm(
         config,
         _TAG_CONSOLIDATION_PROMPT.format(
             weak_tags="\n".join(f"- {t}" for t in batch),
@@ -625,7 +606,7 @@ List every note provided exactly once as a [[wikilink]]. Do not output YAML."""
 
 def _process_single_moc(topic: str, notes: list[Path], config: Config, moc_dir: Path, tracker: ProcessingTracker):
     moc_key = f"MOC_{topic}"
-    body = call_ollama(
+    body = call_llm(
         config,
         _MOC_PROMPT.format(
             topic=topic,
@@ -633,6 +614,7 @@ def _process_single_moc(topic: str, notes: list[Path], config: Config, moc_dir: 
             count=len(notes),
         ),
         moc_key,
+        strict_json=False,
     )
     if not body:
         tracker.mark_done("phase5", moc_key)
@@ -721,7 +703,7 @@ def _process_improve_moc(
         tracker.mark_done("phase6", fp.stem)
         return 0
 
-    new_body = call_ollama(
+    new_body = call_llm(
         config,
         _MOC_IMPROVE_PROMPT.format(
             title=fp.stem,
@@ -730,6 +712,7 @@ def _process_improve_moc(
             count=len(expected_notes),
         ),
         f"MOC6:{fp.stem}",
+        strict_json=False,
     )
     if not new_body:
         tracker.mark_done("phase6", fp.stem)
@@ -788,9 +771,18 @@ def run_phase6(config: Config, tag_map: Optional[dict] = None):
 # ENTRY POINT
 # ============================================================================
 def main():
+    if any(a in ("-h", "--help") for a in sys.argv[1:]):
+        print(
+            "Obsidian Zettelkasten Converter (threaded)\n\n"
+            "Environment:\n"
+            "  VAULT_INPUT_PATH / VAULT_OUTPUT_PATH (vault paths)\n"
+            "  VAULT_OLLAMA_MODEL / VAULT_OLLAMA_CLOUD_MODEL (optional)\n"
+            "  OLLAMA_API_KEY (optional cloud-first)\n\n"
+            "Notes:\n"
+            "  This script has no stable CLI flags yet; configure via env vars.\n"
+        )
+        raise SystemExit(0)
     config = Config()
-    verify_ollama(config)  # also builds the reusable Ollama client + candidates
-
     # Collect tag map once and share it across all phases that need it.
     output_path = Path(config.output_vault)
     tag_map = _collect_tag_map(output_path, config.tracker_filename)

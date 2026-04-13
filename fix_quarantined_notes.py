@@ -5,23 +5,26 @@ For QUARANTINE files: Remove the header comment and rename
 For ERROR files: Parse the JSON and extract individual zettel notes
 """
 
+import argparse
+import os
 import json
 import re
 import shutil
 from pathlib import Path
 from datetime import datetime
+from vault_reconstruct.config import DEFAULT_VAULT_PATH, get_vault_paths
+from vault_reconstruct.env import load_dotenv_no_override
 
-VAULT_PATH = Path(r"C:\Users\dcrac\Documents\Obsidian Vault")
-INBOX_PATH = VAULT_PATH / "00_Inbox"
-ZETTELS_PATH = VAULT_PATH / "02_Zettels"
-
-# Ensure zettels folder exists
-ZETTELS_PATH.mkdir(parents=True, exist_ok=True)
+load_dotenv_no_override()
 
 
-def fix_quarantine_files():
+def _default_vault_path() -> Path:
+    return get_vault_paths().output_vault if "VAULT_PATH" in os.environ or "VAULT_OUTPUT_PATH" in os.environ else DEFAULT_VAULT_PATH
+
+
+def fix_quarantine_files(inbox_path: Path, zettels_path: Path):
     """Fix QUARANTINE_*.md files - remove header and rename."""
-    quarantine_files = list(INBOX_PATH.glob("QUARANTINE_*.md"))
+    quarantine_files = list(inbox_path.glob("QUARANTINE_*.md"))
     print(f"Found {len(quarantine_files)} QUARANTINE files")
 
     fixed_count = 0
@@ -35,7 +38,7 @@ def fix_quarantine_files():
 
             # Determine new filename (remove QUARANTINE_ prefix)
             new_name = qfile.stem.replace("QUARANTINE_", "")
-            new_path = ZETTELS_PATH / f"{new_name}.md"
+            new_path = zettels_path / f"{new_name}.md"
 
             # Check if target exists
             if new_path.exists():
@@ -85,9 +88,9 @@ def extract_notes_from_json_like(json_str: str) -> list:
     return notes
 
 
-def fix_error_files():
+def fix_error_files(inbox_path: Path, zettels_path: Path):
     """Fix ERROR_*.md files - parse JSON and extract individual notes."""
-    error_files = list(INBOX_PATH.glob("ERROR_*.md"))
+    error_files = list(inbox_path.glob("ERROR_*.md"))
     print(f"Found {len(error_files)} ERROR files")
 
     total_notes = 0
@@ -139,7 +142,7 @@ created: {today}
 
 {note_content}
 """
-                new_path = ZETTELS_PATH / f"{safe_title}.md"
+                new_path = zettels_path / f"{safe_title}.md"
 
                 # Check if file exists
                 if new_path.exists():
@@ -164,12 +167,21 @@ created: {today}
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--vault", default=str(_default_vault_path()), help="Path to Obsidian vault")
+    args = parser.parse_args()
+
+    vault_path = Path(args.vault)
+    inbox_path = vault_path / "00_Inbox"
+    zettels_path = vault_path / "02_Zettels"
+    zettels_path.mkdir(parents=True, exist_ok=True)
+
     print("=" * 60)
     print("Fixing QUARANTINE and ERROR notes")
     print("=" * 60)
 
-    q_fixed = fix_quarantine_files()
-    e_fixed = fix_error_files()
+    q_fixed = fix_quarantine_files(inbox_path, zettels_path)
+    e_fixed = fix_error_files(inbox_path, zettels_path)
 
     print("\n" + "=" * 60)
     print(f"Summary: Fixed {q_fixed} QUARANTINE files, extracted {e_fixed} notes from ERROR files")
