@@ -14,7 +14,13 @@ import sys
 from pathlib import Path
 from dataclasses import dataclass, field
 
-import reconstruct_rust # New Rust module
+try:
+    import reconstruct_rust  # New Rust module
+except ImportError:
+    import sys
+    print("ERROR: The 'reconstruct_rust' module is not built.", file=sys.stderr)
+    print("       Please build it by running `cd reconstruct_rust && maturin develop --release && cd ..`", file=sys.stderr)
+    sys.exit(1)
 
 from vault_reconstruct.env import load_dotenv_no_override
 load_dotenv_no_override()
