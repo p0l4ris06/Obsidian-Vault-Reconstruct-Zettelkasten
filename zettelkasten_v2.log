@@ -1,0 +1,1916 @@
+16:09:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:09:08  INFO      Cloud ready — model 'gemma3:4b-cloud' reachable.
+16:09:08  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+16:09:08  INFO      Local ready — model 'gemma3:4b' found.
+16:09:08  INFO      Mode: cloud-first with local fallback.
+16:09:08  INFO      === PHASE 0: Recovering quarantined notes ===
+16:09:08  INFO      Tracker loaded — 12450 total phase completions recorded.
+16:09:08  INFO      Found 0 quarantined files to recover.
+16:09:08  INFO      All quarantined files already processed. Skipping Phase 0.
+16:09:08  INFO      === PHASE 1: Splitting notes into Zettelkasten ===
+16:09:08  INFO      Tracker loaded — 12450 total phase completions recorded.
+16:09:08  INFO      607 files total, 0 remaining.
+16:09:08  INFO      All input files already processed. Skipping Phase 1.
+16:09:08  INFO      === PHASE 2: Adding YAML frontmatter ===
+16:09:08  INFO      Tracker loaded — 12450 total phase completions recorded.
+16:09:08  INFO      7999 notes total, 0 need frontmatter.
+16:09:08  INFO      All notes already have frontmatter. Skipping Phase 2.
+16:09:08  INFO      === PHASE 3: Regex linking (fast, no Ollama) ===
+16:09:08  INFO      Tracker loaded — 12450 total phase completions recorded.
+16:09:08  INFO      7999 notes total, 4187 remaining to link.
+16:14:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:14:00  INFO      Cloud ready — model 'gemma3:4b-cloud' reachable.
+16:14:00  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+16:14:00  INFO      Local ready — model 'gemma3:4b' found.
+16:14:00  INFO      Mode: cloud-first with local fallback.
+16:14:00  INFO      === PHASE 0: Recovering quarantined notes ===
+16:14:00  INFO      Tracker loaded — 12613 total phase completions recorded.
+16:14:00  INFO      Found 0 quarantined files to recover.
+16:14:00  INFO      All quarantined files already processed. Skipping Phase 0.
+16:14:00  INFO      === PHASE 1: Splitting notes into Zettelkasten ===
+16:14:00  INFO      Tracker loaded — 12613 total phase completions recorded.
+16:14:00  INFO      607 files total, 0 remaining.
+16:14:00  INFO      All input files already processed. Skipping Phase 1.
+16:14:00  INFO      === PHASE 2: Adding YAML frontmatter ===
+16:14:00  INFO      Tracker loaded — 12613 total phase completions recorded.
+16:14:00  INFO      7999 notes total, 0 need frontmatter.
+16:14:00  INFO      All notes already have frontmatter. Skipping Phase 2.
+16:14:00  INFO      === PHASE 3: Regex linking (fast, no Ollama) ===
+16:14:00  INFO      Tracker loaded — 12613 total phase completions recorded.
+16:14:00  INFO      7999 notes total, 4024 remaining to link.
+16:17:00  INFO      Phase 3 complete. 353 links added across 3523 notes. 501 notes skipped (already have enough links).
+16:17:00  INFO      === PHASE 4: AI-assisted linking (under-linked notes only) ===
+16:17:00  INFO      Tracker loaded — 16634 total phase completions recorded.
+16:17:01  INFO      7999 notes total, 7999 remaining.
+16:17:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 500 Internal Server Error"
+16:17:03  WARNING   [ERROR_Avian Nursing] cloud model error: Internal Server Error (ref: a197b3fe-c2f7-4c2f-80e5-bba1e5e65ff8) (status code: 500) — trying next option.
+16:43:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+16:43:38  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)). Will fall back to local.
+16:43:38  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+16:43:38  INFO      Local ready — model 'gemma3:4b' found.
+16:43:38  INFO      === PHASE 0: Recovering quarantined notes ===
+16:43:38  INFO      Tracker loaded — 12454 total phase completions recorded.
+16:43:38  INFO      Found 0 quarantined files to recover.
+16:43:38  INFO      All quarantined files already processed. Skipping Phase 0.
+16:43:38  INFO      === PHASE 1: Splitting notes into Zettelkasten ===
+16:43:38  INFO      Tracker loaded — 12454 total phase completions recorded.
+16:43:39  INFO      607 files total, 0 remaining.
+16:43:39  INFO      All input files already processed. Skipping Phase 1.
+16:43:39  INFO      === PHASE 2: Adding YAML frontmatter ===
+16:43:39  INFO      Tracker loaded — 12454 total phase completions recorded.
+16:43:39  INFO      7989 notes total, 0 need frontmatter.
+16:43:39  INFO      All notes already have frontmatter. Skipping Phase 2.
+16:43:39  INFO      === PHASE 3: Regex linking (fast, no Ollama) ===
+16:43:39  INFO      Tracker loaded — 12454 total phase completions recorded.
+16:43:39  INFO      7989 notes total, 4183 remaining to link.
+17:58:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+17:58:24  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)). Will fall back to local.
+17:58:24  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+17:58:24  INFO      Local ready — model 'gemma3:4b' found.
+17:58:24  INFO      === PHASE 0: Recovering quarantined notes ===
+17:58:24  INFO      Tracker loaded — 12931 total phase completions recorded.
+17:58:24  INFO      Found 0 quarantined files to recover.
+17:58:24  INFO      All quarantined files already processed. Skipping Phase 0.
+17:58:24  INFO      === PHASE 1: Splitting notes into Zettelkasten ===
+17:58:24  INFO      Tracker loaded — 12931 total phase completions recorded.
+17:58:24  INFO      607 files total, 0 remaining.
+17:58:24  INFO      All input files already processed. Skipping Phase 1.
+17:58:24  INFO      === PHASE 2: Adding YAML frontmatter ===
+17:58:24  INFO      Tracker loaded — 12931 total phase completions recorded.
+17:58:24  INFO      7989 notes total, 0 need frontmatter.
+17:58:24  INFO      All notes already have frontmatter. Skipping Phase 2.
+17:58:24  INFO      === PHASE 3: Regex linking (fast, no Ollama) ===
+17:58:24  INFO      Tracker loaded — 12931 total phase completions recorded.
+17:58:24  INFO      7989 notes total, 3706 remaining to link.
+20:22:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+20:22:09  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+20:22:09  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+20:22:09  INFO      Local ready — 'gemma3:4b' found.
+20:22:09  INFO      Mode: cloud-first, local fallback.
+20:22:09  INFO      === PHASE 0: Quarantine recovery ===
+20:22:09  INFO      Tracker: 13228 total completions.
+20:22:09  INFO      No quarantined notes to recover.
+20:22:09  INFO      === PHASE 1: Splitting notes ===
+20:22:09  INFO      Tracker: 13228 total completions.
+20:22:10  INFO      607 files total, 0 remaining.
+20:22:10  INFO      All input files processed. Skipping Phase 1.
+20:22:10  INFO      === PHASE 2: YAML frontmatter ===
+20:22:10  INFO      Tracker: 13228 total completions.
+20:22:10  INFO      7989 notes total, 0 need frontmatter.
+20:22:10  INFO      All notes have frontmatter. Skipping Phase 2.
+20:22:10  INFO      === PHASE 3: Regex linking ===
+20:22:10  INFO      Tracker: 13228 total completions.
+20:22:10  INFO      7989 notes | 7989 titles | 3409 remaining.
+20:31:42  INFO      Processed 300 files — restarting process to clear memory…
+20:31:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+20:31:50  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+20:31:50  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+20:31:50  INFO      Local ready — 'gemma3:4b' found.
+20:31:50  INFO      Mode: cloud-first, local fallback.
+20:31:50  INFO      === PHASE 0: Quarantine recovery ===
+20:31:50  INFO      Tracker: 13528 total completions.
+20:31:50  INFO      No quarantined notes to recover.
+20:31:50  INFO      === PHASE 1: Splitting notes ===
+20:31:50  INFO      Tracker: 13528 total completions.
+20:31:50  INFO      607 files total, 0 remaining.
+20:31:50  INFO      All input files processed. Skipping Phase 1.
+20:31:50  INFO      === PHASE 2: YAML frontmatter ===
+20:31:50  INFO      Tracker: 13528 total completions.
+20:31:51  INFO      7989 notes total, 0 need frontmatter.
+20:31:51  INFO      All notes have frontmatter. Skipping Phase 2.
+20:31:51  INFO      === PHASE 3: Regex linking ===
+20:31:51  INFO      Tracker: 13528 total completions.
+20:31:51  INFO      7989 notes | 7989 titles | 3109 remaining.
+20:41:04  INFO      Processed 300 files — restarting process to clear memory…
+20:41:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+20:41:09  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+20:41:09  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+20:41:09  INFO      Local ready — 'gemma3:4b' found.
+20:41:09  INFO      Mode: cloud-first, local fallback.
+20:41:09  INFO      === PHASE 0: Quarantine recovery ===
+20:41:09  INFO      Tracker: 13828 total completions.
+20:41:09  INFO      No quarantined notes to recover.
+20:41:09  INFO      === PHASE 1: Splitting notes ===
+20:41:09  INFO      Tracker: 13828 total completions.
+20:41:09  INFO      607 files total, 0 remaining.
+20:41:09  INFO      All input files processed. Skipping Phase 1.
+20:41:09  INFO      === PHASE 2: YAML frontmatter ===
+20:41:09  INFO      Tracker: 13828 total completions.
+20:41:09  INFO      7989 notes total, 0 need frontmatter.
+20:41:09  INFO      All notes have frontmatter. Skipping Phase 2.
+20:41:09  INFO      === PHASE 3: Regex linking ===
+20:41:09  INFO      Tracker: 13828 total completions.
+20:41:10  INFO      7989 notes | 7989 titles | 2809 remaining.
+20:47:11  INFO      Processed 300 files — restarting process to clear memory…
+20:47:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+20:47:15  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+20:47:15  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+20:47:15  INFO      Local ready — 'gemma3:4b' found.
+20:47:15  INFO      Mode: cloud-first, local fallback.
+20:47:15  INFO      === PHASE 0: Quarantine recovery ===
+20:47:15  INFO      Tracker: 14128 total completions.
+20:47:15  INFO      No quarantined notes to recover.
+20:47:15  INFO      === PHASE 1: Splitting notes ===
+20:47:15  INFO      Tracker: 14128 total completions.
+20:47:15  INFO      607 files total, 0 remaining.
+20:47:15  INFO      All input files processed. Skipping Phase 1.
+20:47:15  INFO      === PHASE 2: YAML frontmatter ===
+20:47:15  INFO      Tracker: 14128 total completions.
+20:47:16  INFO      7989 notes total, 0 need frontmatter.
+20:47:16  INFO      All notes have frontmatter. Skipping Phase 2.
+20:47:16  INFO      === PHASE 3: Regex linking ===
+20:47:16  INFO      Tracker: 14128 total completions.
+20:47:16  INFO      7989 notes | 7989 titles | 2509 remaining.
+20:51:15  INFO      Processed 300 files — restarting process to clear memory…
+20:51:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+20:51:21  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+20:51:21  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+20:51:21  INFO      Local ready — 'gemma3:4b' found.
+20:51:21  INFO      Mode: cloud-first, local fallback.
+20:51:21  INFO      === PHASE 0: Quarantine recovery ===
+20:51:21  INFO      Tracker: 14428 total completions.
+20:51:21  INFO      No quarantined notes to recover.
+20:51:21  INFO      === PHASE 1: Splitting notes ===
+20:51:21  INFO      Tracker: 14428 total completions.
+20:51:21  INFO      607 files total, 0 remaining.
+20:51:21  INFO      All input files processed. Skipping Phase 1.
+20:51:21  INFO      === PHASE 2: YAML frontmatter ===
+20:51:21  INFO      Tracker: 14428 total completions.
+20:51:21  INFO      7989 notes total, 0 need frontmatter.
+20:51:21  INFO      All notes have frontmatter. Skipping Phase 2.
+20:51:21  INFO      === PHASE 3: Regex linking ===
+20:51:21  INFO      Tracker: 14428 total completions.
+20:51:21  INFO      7989 notes | 7989 titles | 2209 remaining.
+20:55:13  INFO      Processed 300 files — restarting process to clear memory…
+20:55:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+20:55:21  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+20:55:21  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+20:55:21  INFO      Local ready — 'gemma3:4b' found.
+20:55:21  INFO      Mode: cloud-first, local fallback.
+20:55:21  INFO      === PHASE 0: Quarantine recovery ===
+20:55:21  INFO      Tracker: 14728 total completions.
+20:55:21  INFO      No quarantined notes to recover.
+20:55:21  INFO      === PHASE 1: Splitting notes ===
+20:55:21  INFO      Tracker: 14728 total completions.
+20:55:21  INFO      607 files total, 0 remaining.
+20:55:21  INFO      All input files processed. Skipping Phase 1.
+20:55:21  INFO      === PHASE 2: YAML frontmatter ===
+20:55:21  INFO      Tracker: 14728 total completions.
+20:55:21  INFO      7989 notes total, 0 need frontmatter.
+20:55:21  INFO      All notes have frontmatter. Skipping Phase 2.
+20:55:21  INFO      === PHASE 3: Regex linking ===
+20:55:21  INFO      Tracker: 14728 total completions.
+20:55:21  INFO      7989 notes | 7989 titles | 1908 remaining.
+20:59:14  INFO      Processed 300 files — restarting process to clear memory…
+20:59:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+20:59:21  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+20:59:21  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+20:59:21  INFO      Local ready — 'gemma3:4b' found.
+20:59:21  INFO      Mode: cloud-first, local fallback.
+20:59:21  INFO      === PHASE 0: Quarantine recovery ===
+20:59:21  INFO      Tracker: 15028 total completions.
+20:59:21  INFO      No quarantined notes to recover.
+20:59:21  INFO      === PHASE 1: Splitting notes ===
+20:59:21  INFO      Tracker: 15028 total completions.
+20:59:21  INFO      607 files total, 0 remaining.
+20:59:21  INFO      All input files processed. Skipping Phase 1.
+20:59:21  INFO      === PHASE 2: YAML frontmatter ===
+20:59:21  INFO      Tracker: 15028 total completions.
+20:59:21  INFO      7989 notes total, 0 need frontmatter.
+20:59:21  INFO      All notes have frontmatter. Skipping Phase 2.
+20:59:21  INFO      === PHASE 3: Regex linking ===
+20:59:21  INFO      Tracker: 15028 total completions.
+20:59:21  INFO      7989 notes | 7989 titles | 1608 remaining.
+21:01:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:01:38  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:01:38  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:01:38  INFO      Local ready — 'gemma3:4b' found.
+21:01:38  INFO      Mode: cloud-first, local fallback.
+21:01:38  INFO      === PHASE 0: Quarantine recovery ===
+21:01:38  INFO      Tracker: 15190 total completions.
+21:01:38  INFO      No quarantined notes to recover.
+21:01:38  INFO      === PHASE 1: Splitting notes ===
+21:01:38  INFO      Tracker: 15190 total completions.
+21:01:38  INFO      607 files total, 0 remaining.
+21:01:38  INFO      All input files processed. Skipping Phase 1.
+21:01:38  INFO      === PHASE 2: YAML frontmatter ===
+21:01:38  INFO      Tracker: 15190 total completions.
+21:01:38  INFO      7989 notes total, 0 need frontmatter.
+21:01:38  INFO      All notes have frontmatter. Skipping Phase 2.
+21:01:38  INFO      === PHASE 3: Regex linking ===
+21:01:38  INFO      Tracker: 15190 total completions.
+21:01:39  INFO      7989 notes | 7989 titles | 1446 remaining.
+21:03:45  INFO      Processed 300 files — restarting process to clear memory…
+21:03:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:03:50  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:03:50  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:03:50  INFO      Local ready — 'gemma3:4b' found.
+21:03:50  INFO      Mode: cloud-first, local fallback.
+21:03:50  INFO      === PHASE 0: Quarantine recovery ===
+21:03:50  INFO      Tracker: 15330 total completions.
+21:03:50  INFO      No quarantined notes to recover.
+21:03:50  INFO      === PHASE 1: Splitting notes ===
+21:03:50  INFO      Tracker: 15330 total completions.
+21:03:51  INFO      607 files total, 0 remaining.
+21:03:51  INFO      All input files processed. Skipping Phase 1.
+21:03:51  INFO      === PHASE 2: YAML frontmatter ===
+21:03:51  INFO      Tracker: 15330 total completions.
+21:03:51  INFO      7989 notes total, 0 need frontmatter.
+21:03:51  INFO      All notes have frontmatter. Skipping Phase 2.
+21:03:51  INFO      === PHASE 3: Regex linking ===
+21:03:51  INFO      Tracker: 15330 total completions.
+21:03:51  INFO      7989 notes | 7989 titles | 1306 remaining.
+21:06:32  INFO      Processed 300 files — restarting process to clear memory…
+21:06:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:06:38  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:06:38  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:06:38  INFO      Local ready — 'gemma3:4b' found.
+21:06:38  INFO      Mode: cloud-first, local fallback.
+21:06:38  INFO      === PHASE 0: Quarantine recovery ===
+21:06:38  INFO      Tracker: 15490 total completions.
+21:06:38  INFO      No quarantined notes to recover.
+21:06:38  INFO      === PHASE 1: Splitting notes ===
+21:06:38  INFO      Tracker: 15490 total completions.
+21:06:38  INFO      607 files total, 0 remaining.
+21:06:38  INFO      All input files processed. Skipping Phase 1.
+21:06:38  INFO      === PHASE 2: YAML frontmatter ===
+21:06:38  INFO      Tracker: 15490 total completions.
+21:06:38  INFO      7989 notes total, 0 need frontmatter.
+21:06:38  INFO      All notes have frontmatter. Skipping Phase 2.
+21:06:38  INFO      === PHASE 3: Regex linking ===
+21:06:38  INFO      Tracker: 15490 total completions.
+21:06:38  INFO      7989 notes | 7989 titles | 1146 remaining.
+21:06:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:06:44  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:06:44  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:06:44  INFO      Local ready — 'gemma3:4b' found.
+21:06:44  INFO      Mode: cloud-first, local fallback.
+21:06:44  INFO      === PHASE 0: Quarantine recovery ===
+21:06:44  INFO      Tracker: 15500 total completions.
+21:06:44  INFO      No quarantined notes to recover.
+21:06:44  INFO      === PHASE 1: Splitting notes ===
+21:06:44  INFO      Tracker: 15500 total completions.
+21:06:44  INFO      607 files total, 0 remaining.
+21:06:44  INFO      All input files processed. Skipping Phase 1.
+21:06:44  INFO      === PHASE 2: YAML frontmatter ===
+21:06:44  INFO      Tracker: 15500 total completions.
+21:06:44  INFO      7989 notes total, 0 need frontmatter.
+21:06:44  INFO      All notes have frontmatter. Skipping Phase 2.
+21:06:44  INFO      === PHASE 3: Regex linking ===
+21:06:44  INFO      Tracker: 15500 total completions.
+21:06:44  INFO      7989 notes | 7989 titles | 1136 remaining.
+21:09:52  INFO      Processed 300 files — restarting process to clear memory…
+21:09:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:09:59  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:09:59  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:09:59  INFO      Local ready — 'gemma3:4b' found.
+21:09:59  INFO      Mode: cloud-first, local fallback.
+21:09:59  INFO      === PHASE 0: Quarantine recovery ===
+21:09:59  INFO      Tracker: 15630 total completions.
+21:09:59  INFO      No quarantined notes to recover.
+21:09:59  INFO      === PHASE 1: Splitting notes ===
+21:09:59  INFO      Tracker: 15630 total completions.
+21:09:59  INFO      607 files total, 0 remaining.
+21:09:59  INFO      All input files processed. Skipping Phase 1.
+21:09:59  INFO      === PHASE 2: YAML frontmatter ===
+21:09:59  INFO      Tracker: 15630 total completions.
+21:09:59  INFO      7989 notes total, 0 need frontmatter.
+21:09:59  INFO      All notes have frontmatter. Skipping Phase 2.
+21:09:59  INFO      === PHASE 3: Regex linking ===
+21:09:59  INFO      Tracker: 15630 total completions.
+21:09:59  INFO      7989 notes | 7989 titles | 1005 remaining.
+21:13:51  INFO      Processed 300 files — restarting process to clear memory…
+21:13:59  INFO      Processed 300 files — restarting process to clear memory…
+21:14:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:14:00  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:14:00  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:14:00  INFO      Local ready — 'gemma3:4b' found.
+21:14:00  INFO      Mode: cloud-first, local fallback.
+21:14:00  INFO      === PHASE 0: Quarantine recovery ===
+21:14:00  INFO      Tracker: 15800 total completions.
+21:14:00  INFO      No quarantined notes to recover.
+21:14:00  INFO      === PHASE 1: Splitting notes ===
+21:14:00  INFO      Tracker: 15800 total completions.
+21:14:00  INFO      607 files total, 0 remaining.
+21:14:00  INFO      All input files processed. Skipping Phase 1.
+21:14:00  INFO      === PHASE 2: YAML frontmatter ===
+21:14:00  INFO      Tracker: 15800 total completions.
+21:14:00  INFO      7989 notes total, 0 need frontmatter.
+21:14:00  INFO      All notes have frontmatter. Skipping Phase 2.
+21:14:00  INFO      === PHASE 3: Regex linking ===
+21:14:00  INFO      Tracker: 15800 total completions.
+21:14:00  INFO      7989 notes | 7989 titles | 834 remaining.
+21:14:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:14:02  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:14:02  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:14:02  INFO      Local ready — 'gemma3:4b' found.
+21:14:02  INFO      Mode: cloud-first, local fallback.
+21:14:02  INFO      === PHASE 0: Quarantine recovery ===
+21:14:02  INFO      Tracker: 15800 total completions.
+21:14:02  INFO      No quarantined notes to recover.
+21:14:02  INFO      === PHASE 1: Splitting notes ===
+21:14:02  INFO      Tracker: 15800 total completions.
+21:14:02  INFO      607 files total, 0 remaining.
+21:14:02  INFO      All input files processed. Skipping Phase 1.
+21:14:02  INFO      === PHASE 2: YAML frontmatter ===
+21:14:02  INFO      Tracker: 15800 total completions.
+21:14:02  INFO      7989 notes total, 0 need frontmatter.
+21:14:02  INFO      All notes have frontmatter. Skipping Phase 2.
+21:14:02  INFO      === PHASE 3: Regex linking ===
+21:14:02  INFO      Tracker: 15800 total completions.
+21:14:03  INFO      7989 notes | 7989 titles | 834 remaining.
+21:14:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:14:17  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:14:17  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:14:17  INFO      Local ready — 'gemma3:4b' found.
+21:14:17  INFO      Mode: cloud-first, local fallback.
+21:14:17  INFO      === PHASE 0: Quarantine recovery ===
+21:14:17  INFO      Tracker: 15810 total completions.
+21:14:17  INFO      No quarantined notes to recover.
+21:14:17  INFO      === PHASE 1: Splitting notes ===
+21:14:17  INFO      Tracker: 15810 total completions.
+21:14:17  INFO      607 files total, 0 remaining.
+21:14:17  INFO      All input files processed. Skipping Phase 1.
+21:14:17  INFO      === PHASE 2: YAML frontmatter ===
+21:14:17  INFO      Tracker: 15810 total completions.
+21:14:17  INFO      7989 notes total, 0 need frontmatter.
+21:14:17  INFO      All notes have frontmatter. Skipping Phase 2.
+21:14:17  INFO      === PHASE 3: Regex linking ===
+21:14:17  INFO      Tracker: 15810 total completions.
+21:14:17  INFO      7989 notes | 7989 titles | 824 remaining.
+21:19:38  INFO      Processed 300 files — restarting process to clear memory…
+21:19:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:19:48  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:19:51  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:19:51  INFO      Local ready — 'gemma3:4b' found.
+21:19:51  INFO      Mode: cloud-first, local fallback.
+21:19:51  INFO      === PHASE 0: Quarantine recovery ===
+21:19:51  INFO      Tracker: 15930 total completions.
+21:19:51  INFO      No quarantined notes to recover.
+21:19:51  INFO      === PHASE 1: Splitting notes ===
+21:19:51  INFO      Tracker: 15930 total completions.
+21:19:52  INFO      607 files total, 0 remaining.
+21:19:52  INFO      All input files processed. Skipping Phase 1.
+21:19:52  INFO      === PHASE 2: YAML frontmatter ===
+21:19:52  INFO      Tracker: 15930 total completions.
+21:19:53  INFO      7989 notes total, 0 need frontmatter.
+21:19:53  INFO      All notes have frontmatter. Skipping Phase 2.
+21:19:53  INFO      === PHASE 3: Regex linking ===
+21:19:53  INFO      Tracker: 15930 total completions.
+21:19:53  INFO      7989 notes | 7989 titles | 704 remaining.
+21:26:59  INFO      Processed 300 files — restarting process to clear memory…
+21:27:00  INFO      Processed 300 files — restarting process to clear memory…
+21:27:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:27:09  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:27:09  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:27:09  INFO      Local ready — 'gemma3:4b' found.
+21:27:09  INFO      Mode: cloud-first, local fallback.
+21:27:09  INFO      === PHASE 0: Quarantine recovery ===
+21:27:10  INFO      Tracker: 16100 total completions.
+21:27:10  INFO      No quarantined notes to recover.
+21:27:10  INFO      === PHASE 1: Splitting notes ===
+21:27:10  INFO      Tracker: 16100 total completions.
+21:27:10  INFO      607 files total, 0 remaining.
+21:27:10  INFO      All input files processed. Skipping Phase 1.
+21:27:10  INFO      === PHASE 2: YAML frontmatter ===
+21:27:10  INFO      Tracker: 16100 total completions.
+21:27:10  INFO      7989 notes total, 0 need frontmatter.
+21:27:10  INFO      All notes have frontmatter. Skipping Phase 2.
+21:27:10  INFO      === PHASE 3: Regex linking ===
+21:27:10  INFO      Tracker: 16100 total completions.
+21:27:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:27:10  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:27:10  INFO      7989 notes | 7989 titles | 534 remaining.
+21:27:10  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:27:10  INFO      Local ready — 'gemma3:4b' found.
+21:27:10  INFO      Mode: cloud-first, local fallback.
+21:27:10  INFO      === PHASE 0: Quarantine recovery ===
+21:27:10  INFO      Tracker: 16100 total completions.
+21:27:10  INFO      No quarantined notes to recover.
+21:27:10  INFO      === PHASE 1: Splitting notes ===
+21:27:11  INFO      Tracker: 16100 total completions.
+21:27:11  INFO      607 files total, 0 remaining.
+21:27:11  INFO      All input files processed. Skipping Phase 1.
+21:27:11  INFO      === PHASE 2: YAML frontmatter ===
+21:27:11  INFO      Tracker: 16100 total completions.
+21:27:11  INFO      7989 notes total, 0 need frontmatter.
+21:27:11  INFO      All notes have frontmatter. Skipping Phase 2.
+21:27:11  INFO      === PHASE 3: Regex linking ===
+21:27:11  INFO      Tracker: 16100 total completions.
+21:27:11  INFO      7989 notes | 7989 titles | 534 remaining.
+21:27:26  INFO      Processed 300 files — restarting process to clear memory…
+21:29:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:29:37  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:29:37  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:29:37  INFO      Local ready — 'gemma3:4b' found.
+21:29:37  INFO      Mode: cloud-first, local fallback.
+21:29:37  INFO      === PHASE 0: Quarantine recovery ===
+21:29:38  INFO      Tracker: 16150 total completions.
+21:29:38  INFO      No quarantined notes to recover.
+21:29:38  INFO      === PHASE 1: Splitting notes ===
+21:29:38  INFO      Tracker: 16150 total completions.
+21:29:38  INFO      607 files total, 0 remaining.
+21:29:38  INFO      All input files processed. Skipping Phase 1.
+21:29:38  INFO      === PHASE 2: YAML frontmatter ===
+21:29:38  INFO      Tracker: 16150 total completions.
+21:29:38  INFO      7989 notes total, 0 need frontmatter.
+21:29:38  INFO      All notes have frontmatter. Skipping Phase 2.
+21:29:38  INFO      === PHASE 3: Regex linking ===
+21:29:38  INFO      Tracker: 16150 total completions.
+21:29:38  INFO      7989 notes | 7989 titles | 484 remaining.
+21:29:46  INFO      Processed 100 files — restarting process to clear memory…
+21:29:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:29:57  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:29:57  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:29:57  INFO      Local ready — 'gemma3:4b' found.
+21:29:57  INFO      Mode: cloud-first, local fallback.
+21:29:57  INFO      === PHASE 0: Quarantine recovery ===
+21:29:57  INFO      Tracker: 16160 total completions.
+21:29:57  INFO      No quarantined notes to recover.
+21:29:57  INFO      === PHASE 1: Splitting notes ===
+21:29:57  INFO      Tracker: 16160 total completions.
+21:29:57  INFO      607 files total, 0 remaining.
+21:29:57  INFO      All input files processed. Skipping Phase 1.
+21:29:57  INFO      === PHASE 2: YAML frontmatter ===
+21:29:57  INFO      Tracker: 16160 total completions.
+21:29:58  INFO      7989 notes total, 0 need frontmatter.
+21:29:58  INFO      All notes have frontmatter. Skipping Phase 2.
+21:29:58  INFO      === PHASE 3: Regex linking ===
+21:29:58  INFO      Tracker: 16160 total completions.
+21:29:58  INFO      7989 notes | 7989 titles | 474 remaining.
+21:30:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:30:03  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:30:03  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:30:03  INFO      Local ready — 'gemma3:4b' found.
+21:30:03  INFO      Mode: cloud-first, local fallback.
+21:30:03  INFO      === PHASE 0: Quarantine recovery ===
+21:30:03  INFO      Tracker: 16240 total completions.
+21:30:03  INFO      No quarantined notes to recover.
+21:30:03  INFO      === PHASE 1: Splitting notes ===
+21:30:03  INFO      Tracker: 16240 total completions.
+21:30:03  INFO      607 files total, 0 remaining.
+21:30:03  INFO      All input files processed. Skipping Phase 1.
+21:30:03  INFO      === PHASE 2: YAML frontmatter ===
+21:30:03  INFO      Tracker: 16240 total completions.
+21:30:03  INFO      7989 notes total, 0 need frontmatter.
+21:30:03  INFO      All notes have frontmatter. Skipping Phase 2.
+21:30:03  INFO      === PHASE 3: Regex linking ===
+21:30:03  INFO      Tracker: 16240 total completions.
+21:30:04  INFO      7989 notes | 7989 titles | 394 remaining.
+21:30:04  INFO      Processed 100 files — restarting process to clear memory…
+21:30:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:30:14  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:30:14  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:30:14  INFO      Local ready — 'gemma3:4b' found.
+21:30:14  INFO      Mode: cloud-first, local fallback.
+21:30:14  INFO      === PHASE 0: Quarantine recovery ===
+21:30:14  INFO      Tracker: 16330 total completions.
+21:30:14  INFO      No quarantined notes to recover.
+21:30:14  INFO      === PHASE 1: Splitting notes ===
+21:30:14  INFO      Tracker: 16330 total completions.
+21:30:14  INFO      607 files total, 0 remaining.
+21:30:14  INFO      All input files processed. Skipping Phase 1.
+21:30:14  INFO      === PHASE 2: YAML frontmatter ===
+21:30:14  INFO      Tracker: 16330 total completions.
+21:30:14  INFO      7989 notes total, 0 need frontmatter.
+21:30:14  INFO      All notes have frontmatter. Skipping Phase 2.
+21:30:14  INFO      === PHASE 3: Regex linking ===
+21:30:14  INFO      Tracker: 16330 total completions.
+21:30:15  INFO      7989 notes | 7989 titles | 304 remaining.
+21:30:15  INFO      Processed 100 files — restarting process to clear memory…
+21:30:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:30:25  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:30:28  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:30:28  INFO      Local ready — 'gemma3:4b' found.
+21:30:28  INFO      Mode: cloud-first, local fallback.
+21:30:28  INFO      === PHASE 0: Quarantine recovery ===
+21:30:28  INFO      Tracker: 16420 total completions.
+21:30:28  INFO      No quarantined notes to recover.
+21:30:28  INFO      === PHASE 1: Splitting notes ===
+21:30:28  INFO      Tracker: 16420 total completions.
+21:30:28  INFO      607 files total, 0 remaining.
+21:30:28  INFO      All input files processed. Skipping Phase 1.
+21:30:28  INFO      === PHASE 2: YAML frontmatter ===
+21:30:28  INFO      Tracker: 16420 total completions.
+21:30:28  INFO      Processed 100 files — restarting process to clear memory…
+21:30:28  INFO      7989 notes total, 0 need frontmatter.
+21:30:28  INFO      All notes have frontmatter. Skipping Phase 2.
+21:30:28  INFO      === PHASE 3: Regex linking ===
+21:30:28  INFO      Tracker: 16430 total completions.
+21:30:29  INFO      7989 notes | 7989 titles | 204 remaining.
+21:30:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+21:30:39  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+21:30:39  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:30:39  INFO      Local ready — 'gemma3:4b' found.
+21:30:39  INFO      Mode: cloud-first, local fallback.
+21:30:39  INFO      === PHASE 0: Quarantine recovery ===
+21:30:39  INFO      Tracker: 16510 total completions.
+21:30:39  INFO      No quarantined notes to recover.
+21:30:39  INFO      === PHASE 1: Splitting notes ===
+21:30:39  INFO      Tracker: 16510 total completions.
+21:30:39  INFO      607 files total, 0 remaining.
+21:30:39  INFO      All input files processed. Skipping Phase 1.
+21:30:39  INFO      === PHASE 2: YAML frontmatter ===
+21:30:39  INFO      Tracker: 16510 total completions.
+21:30:40  INFO      7989 notes total, 0 need frontmatter.
+21:30:40  INFO      All notes have frontmatter. Skipping Phase 2.
+21:30:40  INFO      === PHASE 3: Regex linking ===
+21:30:40  INFO      Tracker: 16510 total completions.
+21:30:40  INFO      7989 notes | 7989 titles | 124 remaining.
+21:30:41  INFO      Processed 100 files — restarting process to clear memory…
+21:30:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:30:46  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:30:46  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:30:46  INFO      Local ready — 'gemma3:4b' found.
+21:30:46  INFO      === PHASE 0: Quarantine recovery ===
+21:30:46  INFO      Tracker: 16560 total completions.
+21:30:46  INFO      No quarantined notes to recover.
+21:30:46  INFO      === PHASE 1: Splitting notes ===
+21:30:46  INFO      Tracker: 16560 total completions.
+21:30:46  INFO      607 files total, 0 remaining.
+21:30:46  INFO      All input files processed. Skipping Phase 1.
+21:30:46  INFO      === PHASE 2: YAML frontmatter ===
+21:30:46  INFO      Tracker: 16570 total completions.
+21:30:46  INFO      7989 notes total, 0 need frontmatter.
+21:30:46  INFO      All notes have frontmatter. Skipping Phase 2.
+21:30:46  INFO      === PHASE 3: Regex linking ===
+21:30:46  INFO      Tracker: 16570 total completions.
+21:30:46  INFO      7989 notes | 7989 titles | 64 remaining.
+21:30:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:30:50  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:30:50  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:30:50  INFO      Local ready — 'gemma3:4b' found.
+21:30:50  INFO      === PHASE 0: Quarantine recovery ===
+21:30:50  INFO      Tracker: 16180 total completions.
+21:30:50  INFO      No quarantined notes to recover.
+21:30:50  INFO      === PHASE 1: Splitting notes ===
+21:30:50  INFO      Tracker: 16180 total completions.
+21:30:50  INFO      Processed 100 files — restarting process to clear memory…
+21:30:50  INFO      607 files total, 0 remaining.
+21:30:50  INFO      All input files processed. Skipping Phase 1.
+21:30:50  INFO      === PHASE 2: YAML frontmatter ===
+21:30:50  WARNING   Tracker unreadable — starting fresh.
+21:30:51  INFO      7989 notes total, 7989 need frontmatter.
+21:30:53  INFO      Phase 3 complete — 3 links added.
+21:30:53  INFO      === PHASE 4: AI linking ===
+21:30:53  INFO      Tracker: 16634 total completions.
+21:30:54  INFO      7989 notes total, 7989 remaining for AI linking.
+21:30:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:30:55  WARNING   [ERROR_Avian Nursing] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+21:30:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:30:56  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:30:56  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:30:56  INFO      Local ready — 'gemma3:4b' found.
+21:30:56  INFO      === PHASE 0: Quarantine recovery ===
+21:30:56  INFO      Tracker: 270 total completions.
+21:30:56  INFO      16 quarantined files to attempt.
+21:30:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:30:58  WARNING   [QUARANTINE_Advanced Skeletal Anatomy.md] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+21:32:45  INFO      Phase 2 complete.
+21:32:45  INFO      === PHASE 3: Regex linking ===
+21:32:45  INFO      Tracker: 7980 total completions.
+21:32:45  INFO      7989 notes | 7989 titles | 7989 remaining.
+21:32:51  INFO      Processed 100 files — restarting process to clear memory…
+21:32:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:32:55  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:32:56  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:32:56  INFO      Local ready — 'gemma3:4b' found.
+21:32:56  INFO      === PHASE 0: Quarantine recovery ===
+21:32:56  INFO      Tracker: 8080 total completions.
+21:32:56  INFO      16 quarantined files to attempt.
+21:32:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:32:57  WARNING   [QUARANTINE_Advanced Skeletal Anatomy.md] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+21:33:06  INFO      Processed 300 files — restarting process to clear memory…
+21:33:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:33:09  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:33:09  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:33:09  INFO      Local ready — 'gemma3:4b' found.
+21:33:09  INFO      === PHASE 0: Quarantine recovery ===
+21:33:09  INFO      Tracker: 16230 total completions.
+21:33:09  INFO      No quarantined notes to recover.
+21:33:09  INFO      === PHASE 1: Splitting notes ===
+21:33:09  INFO      Tracker: 16230 total completions.
+21:33:09  INFO      607 files total, 0 remaining.
+21:33:09  INFO      All input files processed. Skipping Phase 1.
+21:33:09  INFO      === PHASE 2: YAML frontmatter ===
+21:33:09  INFO      Tracker: 16230 total completions.
+21:33:10  INFO      7989 notes total, 0 need frontmatter.
+21:33:10  INFO      All notes have frontmatter. Skipping Phase 2.
+21:33:10  INFO      === PHASE 3: Regex linking ===
+21:33:10  INFO      Tracker: 16230 total completions.
+21:33:10  INFO      7989 notes | 7989 titles | 404 remaining.
+21:33:16  INFO      Processed 100 files — restarting process to clear memory…
+21:33:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:33:20  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:33:20  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:33:20  INFO      Local ready — 'gemma3:4b' found.
+21:33:20  INFO      === PHASE 0: Quarantine recovery ===
+21:33:20  INFO      Tracker: 16330 total completions.
+21:33:20  INFO      No quarantined notes to recover.
+21:33:20  INFO      === PHASE 1: Splitting notes ===
+21:33:20  INFO      Tracker: 16330 total completions.
+21:33:20  INFO      607 files total, 0 remaining.
+21:33:20  INFO      All input files processed. Skipping Phase 1.
+21:33:20  INFO      === PHASE 2: YAML frontmatter ===
+21:33:20  INFO      Tracker: 16330 total completions.
+21:33:21  INFO      7989 notes total, 0 need frontmatter.
+21:33:21  INFO      All notes have frontmatter. Skipping Phase 2.
+21:33:21  INFO      === PHASE 3: Regex linking ===
+21:33:21  INFO      Tracker: 16330 total completions.
+21:33:21  INFO      7989 notes | 7989 titles | 304 remaining.
+21:33:27  INFO      Processed 100 files — restarting process to clear memory…
+21:33:33  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:33:33  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:33:33  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:33:33  INFO      Local ready — 'gemma3:4b' found.
+21:33:33  INFO      === PHASE 0: Quarantine recovery ===
+21:33:34  INFO      Tracker: 16430 total completions.
+21:33:34  INFO      No quarantined notes to recover.
+21:33:34  INFO      === PHASE 1: Splitting notes ===
+21:33:34  INFO      Tracker: 16430 total completions.
+21:33:34  INFO      607 files total, 0 remaining.
+21:33:34  INFO      All input files processed. Skipping Phase 1.
+21:33:34  INFO      === PHASE 2: YAML frontmatter ===
+21:33:34  INFO      Tracker: 16430 total completions.
+21:33:35  INFO      7989 notes total, 0 need frontmatter.
+21:33:35  INFO      All notes have frontmatter. Skipping Phase 2.
+21:33:35  INFO      === PHASE 3: Regex linking ===
+21:33:35  INFO      Tracker: 16430 total completions.
+21:33:35  INFO      7989 notes | 7989 titles | 204 remaining.
+21:33:43  INFO      Processed 100 files — restarting process to clear memory…
+21:33:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:33:47  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:33:47  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:33:47  INFO      Local ready — 'gemma3:4b' found.
+21:33:47  INFO      === PHASE 0: Quarantine recovery ===
+21:33:47  INFO      Tracker: 16530 total completions.
+21:33:47  INFO      No quarantined notes to recover.
+21:33:47  INFO      === PHASE 1: Splitting notes ===
+21:33:47  INFO      Tracker: 16530 total completions.
+21:33:47  INFO      607 files total, 0 remaining.
+21:33:47  INFO      All input files processed. Skipping Phase 1.
+21:33:47  INFO      === PHASE 2: YAML frontmatter ===
+21:33:47  INFO      Tracker: 16530 total completions.
+21:33:47  INFO      7989 notes total, 0 need frontmatter.
+21:33:47  INFO      All notes have frontmatter. Skipping Phase 2.
+21:33:47  INFO      === PHASE 3: Regex linking ===
+21:33:47  INFO      Tracker: 16530 total completions.
+21:33:47  INFO      7989 notes | 7989 titles | 104 remaining.
+21:33:53  INFO      Processed 100 files — restarting process to clear memory…
+21:33:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:33:56  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:33:56  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:33:56  INFO      Local ready — 'gemma3:4b' found.
+21:33:56  INFO      === PHASE 0: Quarantine recovery ===
+21:33:56  INFO      Tracker: 16630 total completions.
+21:33:56  INFO      No quarantined notes to recover.
+21:33:56  INFO      === PHASE 1: Splitting notes ===
+21:33:56  INFO      Tracker: 16630 total completions.
+21:33:57  INFO      607 files total, 0 remaining.
+21:33:57  INFO      All input files processed. Skipping Phase 1.
+21:33:57  INFO      === PHASE 2: YAML frontmatter ===
+21:33:57  INFO      Tracker: 16630 total completions.
+21:33:57  INFO      7989 notes total, 0 need frontmatter.
+21:33:57  INFO      All notes have frontmatter. Skipping Phase 2.
+21:33:57  INFO      === PHASE 3: Regex linking ===
+21:33:57  INFO      Tracker: 16630 total completions.
+21:33:57  INFO      7989 notes | 7989 titles | 4 remaining.
+21:33:57  INFO      Phase 3 complete — 0 links added.
+21:33:58  INFO      === PHASE 4: AI linking ===
+21:33:58  INFO      Tracker: 16634 total completions.
+21:33:58  INFO      7989 notes total, 7989 remaining for AI linking.
+21:33:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:33:59  WARNING   [ERROR_Avian Nursing] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+21:40:09  INFO      Processed 300 files — restarting process to clear memory…
+21:40:09  INFO      Processed 300 files — restarting process to clear memory…
+21:40:13  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:40:13  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:40:13  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:40:13  INFO      Local ready — 'gemma3:4b' found.
+21:40:13  INFO      === PHASE 0: Quarantine recovery ===
+21:40:13  INFO      Tracker: 16400 total completions.
+21:40:13  INFO      No quarantined notes to recover.
+21:40:13  INFO      === PHASE 1: Splitting notes ===
+21:40:13  INFO      Tracker: 16400 total completions.
+21:40:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:40:14  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:40:14  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:40:14  INFO      Local ready — 'gemma3:4b' found.
+21:40:14  INFO      === PHASE 0: Quarantine recovery ===
+21:40:14  INFO      Tracker: 16400 total completions.
+21:40:14  INFO      No quarantined notes to recover.
+21:40:14  INFO      === PHASE 1: Splitting notes ===
+21:40:14  INFO      Tracker: 16400 total completions.
+21:40:14  INFO      607 files total, 0 remaining.
+21:40:14  INFO      All input files processed. Skipping Phase 1.
+21:40:14  INFO      607 files total, 0 remaining.
+21:40:14  INFO      All input files processed. Skipping Phase 1.
+21:40:14  INFO      === PHASE 2: YAML frontmatter ===
+21:40:14  INFO      === PHASE 2: YAML frontmatter ===
+21:40:14  INFO      Tracker: 16400 total completions.
+21:40:14  INFO      Tracker: 16400 total completions.
+21:40:14  INFO      7989 notes total, 0 need frontmatter.
+21:40:14  INFO      All notes have frontmatter. Skipping Phase 2.
+21:40:14  INFO      7989 notes total, 0 need frontmatter.
+21:40:14  INFO      All notes have frontmatter. Skipping Phase 2.
+21:40:14  INFO      === PHASE 3: Regex linking ===
+21:40:14  INFO      === PHASE 3: Regex linking ===
+21:40:14  INFO      Tracker: 16400 total completions.
+21:40:14  INFO      Tracker: 16400 total completions.
+21:40:14  INFO      7989 notes | 7989 titles | 234 remaining.
+21:40:14  INFO      7989 notes | 7989 titles | 234 remaining.
+21:40:23  INFO      Processed 100 files — restarting process to clear memory…
+21:40:23  INFO      Processed 100 files — restarting process to clear memory…
+21:40:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:40:27  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:40:27  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:40:27  INFO      Local ready — 'gemma3:4b' found.
+21:40:27  INFO      === PHASE 0: Quarantine recovery ===
+21:40:27  INFO      Tracker: 16500 total completions.
+21:40:27  INFO      No quarantined notes to recover.
+21:40:27  INFO      === PHASE 1: Splitting notes ===
+21:40:27  INFO      Tracker: 16500 total completions.
+21:40:27  INFO      607 files total, 0 remaining.
+21:40:27  INFO      All input files processed. Skipping Phase 1.
+21:40:27  INFO      === PHASE 2: YAML frontmatter ===
+21:40:27  INFO      Tracker: 16500 total completions.
+21:40:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:40:27  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:40:27  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:40:27  INFO      Local ready — 'gemma3:4b' found.
+21:40:27  INFO      === PHASE 0: Quarantine recovery ===
+21:40:27  INFO      Tracker: 16500 total completions.
+21:40:27  INFO      No quarantined notes to recover.
+21:40:27  INFO      === PHASE 1: Splitting notes ===
+21:40:27  INFO      Tracker: 16500 total completions.
+21:40:27  INFO      7989 notes total, 0 need frontmatter.
+21:40:27  INFO      All notes have frontmatter. Skipping Phase 2.
+21:40:27  INFO      === PHASE 3: Regex linking ===
+21:40:27  INFO      Tracker: 16500 total completions.
+21:40:27  INFO      607 files total, 0 remaining.
+21:40:27  INFO      All input files processed. Skipping Phase 1.
+21:40:27  INFO      === PHASE 2: YAML frontmatter ===
+21:40:27  INFO      Tracker: 16500 total completions.
+21:40:27  INFO      7989 notes total, 0 need frontmatter.
+21:40:27  INFO      All notes have frontmatter. Skipping Phase 2.
+21:40:27  INFO      7989 notes | 7989 titles | 134 remaining.
+21:40:27  INFO      === PHASE 3: Regex linking ===
+21:40:27  INFO      Tracker: 16500 total completions.
+21:40:27  INFO      7989 notes | 7989 titles | 134 remaining.
+21:40:33  INFO      Processed 100 files — restarting process to clear memory…
+21:40:33  INFO      Processed 100 files — restarting process to clear memory…
+21:40:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:40:36  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:40:36  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:40:36  INFO      Local ready — 'gemma3:4b' found.
+21:40:36  INFO      === PHASE 0: Quarantine recovery ===
+21:40:36  INFO      Tracker: 16600 total completions.
+21:40:36  INFO      No quarantined notes to recover.
+21:40:36  INFO      === PHASE 1: Splitting notes ===
+21:40:36  INFO      Tracker: 16600 total completions.
+21:40:37  INFO      607 files total, 0 remaining.
+21:40:37  INFO      All input files processed. Skipping Phase 1.
+21:40:37  INFO      === PHASE 2: YAML frontmatter ===
+21:40:37  INFO      Tracker: 16600 total completions.
+21:40:37  INFO      7989 notes total, 0 need frontmatter.
+21:40:37  INFO      All notes have frontmatter. Skipping Phase 2.
+21:40:37  INFO      === PHASE 3: Regex linking ===
+21:40:37  INFO      Tracker: 16600 total completions.
+21:40:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:40:37  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+21:40:37  INFO      7989 notes | 7989 titles | 34 remaining.
+21:40:37  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:40:37  INFO      Local ready — 'gemma3:4b' found.
+21:40:37  INFO      === PHASE 0: Quarantine recovery ===
+21:40:37  INFO      Tracker: 16600 total completions.
+21:40:37  INFO      No quarantined notes to recover.
+21:40:37  INFO      === PHASE 1: Splitting notes ===
+21:40:37  INFO      Tracker: 16600 total completions.
+21:40:37  INFO      607 files total, 0 remaining.
+21:40:37  INFO      All input files processed. Skipping Phase 1.
+21:40:37  INFO      === PHASE 2: YAML frontmatter ===
+21:40:37  INFO      Tracker: 16600 total completions.
+21:40:37  INFO      7989 notes total, 0 need frontmatter.
+21:40:37  INFO      All notes have frontmatter. Skipping Phase 2.
+21:40:37  INFO      === PHASE 3: Regex linking ===
+21:40:37  INFO      Tracker: 16600 total completions.
+21:40:37  INFO      7989 notes | 7989 titles | 34 remaining.
+21:40:39  INFO      Phase 3 complete — 0 links added.
+21:40:39  INFO      === PHASE 4: AI linking ===
+21:40:39  INFO      Tracker: 16634 total completions.
+21:40:39  INFO      7989 notes total, 7989 remaining for AI linking.
+21:40:39  INFO      Phase 3 complete — 0 links added.
+21:40:39  INFO      === PHASE 4: AI linking ===
+21:40:39  INFO      Tracker: 16634 total completions.
+21:40:40  INFO      7989 notes total, 7989 remaining for AI linking.
+21:40:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:40:41  WARNING   [ERROR_Avian Nursing] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+21:40:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:40:42  WARNING   [ERROR_Avian Nursing] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+21:42:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 504 Gateway Timeout"
+21:42:31  WARNING   Cloud check failed (upstream request timeout (status code: 504)) — local only.
+21:42:31  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+21:42:31  INFO      Local ready — 'gemma3:4b' found.
+21:42:31  INFO      === PHASE 0: Quarantine recovery ===
+21:42:32  INFO      Tracker: 16634 total completions.
+21:42:32  INFO      No quarantined notes to recover.
+21:42:32  INFO      === PHASE 1: Splitting notes ===
+21:42:32  INFO      Tracker: 16634 total completions.
+21:42:32  INFO      607 files total, 0 remaining.
+21:42:32  INFO      All input files processed. Skipping Phase 1.
+21:42:32  INFO      === PHASE 2: YAML frontmatter ===
+21:42:32  INFO      Tracker: 16634 total completions.
+21:42:32  INFO      7989 notes total, 0 need frontmatter.
+21:42:32  INFO      All notes have frontmatter. Skipping Phase 2.
+21:42:32  INFO      === PHASE 3: Regex linking ===
+21:42:32  INFO      Tracker: 16634 total completions.
+21:42:32  INFO      7989 notes | 7989 titles | 0 remaining.
+21:42:32  INFO      All notes already regex-linked. Skipping Phase 3.
+21:42:32  INFO      === PHASE 4: AI linking ===
+21:42:32  INFO      Tracker: 16634 total completions.
+21:42:33  INFO      7989 notes total, 7989 remaining for AI linking.
+21:42:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:42:34  WARNING   [ERROR_Avian Nursing] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+21:52:23  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:52:23  WARNING   Still unparseable: QUARANTINE_Advanced Skeletal Anatomy.md — leaving in quarantine.
+21:52:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:52:25  WARNING   [QUARANTINE_Agents of Disease.md] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+21:58:31  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:58:31  WARNING   Still unparseable: QUARANTINE_Advanced Skeletal Anatomy.md — leaving in quarantine.
+21:58:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+21:58:32  WARNING   [QUARANTINE_Agents of Disease.md] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+22:00:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+22:00:50  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+22:00:50  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+22:00:50  INFO      Local ready — 'gemma3:4b' found.
+22:00:50  INFO      === PHASE 0: Quarantine recovery ===
+22:00:50  INFO      Tracker: 16634 total completions.
+22:00:50  INFO      No quarantined notes to recover.
+22:00:50  INFO      === PHASE 1: Splitting notes ===
+22:00:50  INFO      Tracker: 16634 total completions.
+22:00:51  INFO      607 files total, 0 remaining.
+22:00:51  INFO      All input files processed. Skipping Phase 1.
+22:00:51  INFO      === PHASE 2: YAML frontmatter ===
+22:00:51  INFO      Tracker: 16634 total completions.
+22:00:51  INFO      7989 notes total, 0 need frontmatter.
+22:00:51  INFO      All notes have frontmatter. Skipping Phase 2.
+22:00:51  INFO      === PHASE 3: Regex linking ===
+22:00:51  INFO      Tracker: 16634 total completions.
+22:00:51  INFO      7989 notes | 7989 titles | 0 remaining.
+22:00:51  INFO      All notes already regex-linked. Skipping Phase 3.
+22:00:51  INFO      === PHASE 4: AI linking ===
+22:00:51  INFO      Tracker: 16634 total completions.
+22:00:52  INFO      7989 notes total, 7989 remaining for AI linking.
+22:00:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+22:00:53  WARNING   [ERROR_Avian Nursing] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+22:04:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:04:15  INFO      AI added 14 → ERROR_Avian Nursing
+22:04:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+22:04:18  WARNING   [ERROR_Cardiovascular Disease 2] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+22:10:06  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:10:06  INFO      AI added 49 → ERROR_Avian Nursing
+22:10:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+22:10:08  WARNING   [ERROR_Cardiovascular Disease 2] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+22:12:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+22:12:29  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+22:12:29  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+22:12:29  INFO      Local ready — 'gemma3:4b' found.
+22:12:29  INFO      === PHASE 0: Quarantine recovery ===
+22:12:29  INFO      Tracker: 24627 total completions.
+22:12:29  INFO      No quarantined notes to recover.
+22:12:29  INFO      === PHASE 1: Splitting notes ===
+22:12:29  INFO      Tracker: 24627 total completions.
+22:12:29  INFO      607 files total, 0 remaining.
+22:12:29  INFO      All input files processed. Skipping Phase 1.
+22:12:29  INFO      === PHASE 2: YAML frontmatter ===
+22:12:29  INFO      Tracker: 24627 total completions.
+22:12:30  INFO      7989 notes total, 0 need frontmatter.
+22:12:30  INFO      All notes have frontmatter. Skipping Phase 2.
+22:12:30  INFO      === PHASE 3: Regex linking ===
+22:12:30  INFO      Tracker: 24627 total completions.
+22:12:30  INFO      7989 notes | 7989 titles | 0 remaining.
+22:12:30  INFO      All notes already regex-linked. Skipping Phase 3.
+22:12:30  INFO      === PHASE 4: AI linking ===
+22:12:30  INFO      Tracker: 24627 total completions.
+22:12:30  INFO      7989 notes total, 0 remaining for AI linking.
+22:12:30  INFO      All notes AI-linked. Skipping Phase 4.
+22:12:30  INFO      === PHASE 5: MOC generation ===
+22:12:30  INFO      Tracker: 24627 total completions.
+22:12:44  INFO      736 eligible topics, 736 MOCs remaining.
+22:12:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+22:12:45  WARNING   [MOC_kidney] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+14:21:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:21:36  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+14:21:36  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+14:21:36  INFO      Local ready — 'gemma3:4b' found.
+14:21:36  INFO      Mode: cloud-first, local fallback.
+14:21:36  INFO      === PHASE 0: Quarantine recovery ===
+14:21:36  INFO      Tracker: 24627 total completions.
+14:21:36  INFO      No quarantined notes to recover.
+14:21:36  INFO      === PHASE 1: Splitting notes ===
+14:21:36  INFO      Tracker: 24627 total completions.
+14:21:36  INFO      607 files total, 0 remaining.
+14:21:36  INFO      All input files processed. Skipping Phase 1.
+14:21:36  INFO      === PHASE 2: YAML frontmatter ===
+14:21:36  INFO      Tracker: 24627 total completions.
+14:21:36  INFO      7989 notes total, 0 need frontmatter.
+14:21:36  INFO      All notes have frontmatter. Skipping Phase 2.
+14:21:36  INFO      === PHASE 3: Regex linking ===
+14:21:36  INFO      Tracker: 24627 total completions.
+14:21:36  INFO      Title cache: 7989 titles indexed.
+14:21:36  INFO      7989 notes | 7989 titles | 0 remaining.
+14:21:36  INFO      All notes already regex-linked. Skipping Phase 3.
+14:21:36  INFO      === PHASE 4: AI linking ===
+14:21:36  INFO      Tracker: 24627 total completions.
+14:21:36  INFO      7989 notes total, 0 remaining for AI linking.
+14:21:36  INFO      All notes AI-linked. Skipping Phase 4.
+14:21:36  INFO      === PHASE 5: MOC generation ===
+14:21:36  INFO      Tracker: 24627 total completions.
+14:22:29  INFO      736 eligible topics, 736 MOCs remaining.
+14:22:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:22:35  INFO      Created MOC: MOC - Kidney (56 notes)
+14:22:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:22:41  INFO      Created MOC: MOC - Calcium (17 notes)
+14:22:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:22:45  INFO      Created MOC: MOC - Homeostasis (10 notes)
+14:22:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:22:50  INFO      Created MOC: MOC - Ecdysis (5 notes)
+14:22:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:22:56  INFO      Created MOC: MOC - Growth (7 notes)
+14:23:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:23:02  INFO      Created MOC: MOC - Snake (38 notes)
+14:23:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 500 Internal Server Error"
+14:23:03  WARNING   [MOC_anatomy] cloud model error: Internal Server Error (ref: 347ff1fb-ae7c-471c-9b27-eb7edc208dd8) (status code: 500) — trying next.
+14:28:19  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:28:19  INFO      Created MOC: MOC - Anatomy (574 notes)
+14:28:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:28:24  INFO      Created MOC: MOC - Vertebrae (4 notes)
+14:28:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:28:39  INFO      Created MOC: MOC - Physiology (275 notes)
+14:28:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:28:44  INFO      Created MOC: MOC - Respiratory (54 notes)
+14:28:49  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:28:49  INFO      Created MOC: MOC - Wildlife Law (4 notes)
+14:28:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:28:54  INFO      Created MOC: MOC - Legislation (6 notes)
+14:28:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:28:59  INFO      Created MOC: MOC - Conservation (3 notes)
+14:29:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:03  INFO      Created MOC: MOC - Animal Welfare (5 notes)
+14:29:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:12  INFO      Created MOC: MOC - Muscle (90 notes)
+14:29:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:17  INFO      Created MOC: MOC - Trunk (4 notes)
+14:29:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:22  INFO      Created MOC: MOC - Abdominal (8 notes)
+14:29:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:26  INFO      Created MOC: MOC - Arteries (13 notes)
+14:29:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:32  INFO      Created MOC: MOC - Abdomen (6 notes)
+14:29:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:38  INFO      Created MOC: MOC - Veins (10 notes)
+14:29:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:43  INFO      Created MOC: MOC - Innervation (3 notes)
+14:29:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:48  INFO      Created MOC: MOC - Muscles (14 notes)
+14:29:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:29:53  INFO      Created MOC: MOC - Eye Movement (3 notes)
+14:30:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:01  INFO      Created MOC: MOC - Neuroscience (51 notes)
+14:30:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:06  INFO      Created MOC: MOC - Joints (25 notes)
+14:30:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:11  INFO      Created MOC: MOC - Movement (30 notes)
+14:30:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:17  INFO      Created MOC: MOC - Musculoskeletal (8 notes)
+14:30:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:23  INFO      Created MOC: MOC - Dog (37 notes)
+14:30:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:28  INFO      Created MOC: MOC - Abduction (3 notes)
+14:30:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:34  INFO      Created MOC: MOC - Vets20019 (57 notes)
+14:30:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:39  INFO      Created MOC: MOC - Abscess (3 notes)
+14:30:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:43  INFO      Created MOC: MOC - Inflammation (15 notes)
+14:30:49  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:49  INFO      Created MOC: MOC - Drainage (3 notes)
+14:30:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:53  INFO      Created MOC: MOC - Digestive System (18 notes)
+14:30:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:30:57  INFO      Created MOC: MOC - Biochemistry (10 notes)
+14:31:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:03  INFO      Created MOC: MOC - Hip (5 notes)
+14:31:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:09  INFO      Created MOC: MOC - Horse (39 notes)
+14:31:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:15  INFO      Created MOC: MOC - Ligament (8 notes)
+14:31:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:20  INFO      Created MOC: MOC - Shoulder (12 notes)
+14:31:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:25  INFO      Created MOC: MOC - Neck (5 notes)
+14:31:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:29  INFO      Created MOC: MOC - Respiration (40 notes)
+14:31:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:35  INFO      Created MOC: MOC - Accessory Sex Glands (3 notes)
+14:31:40  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:40  INFO      Created MOC: MOC - Urethra (5 notes)
+14:31:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:45  INFO      Created MOC: MOC - Dht (3 notes)
+14:31:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:31:50  INFO      Created MOC: MOC - Seminal Fluid (3 notes)
+14:32:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:02  INFO      Created MOC: MOC - Vets20019 (195 notes)
+14:32:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:08  INFO      Created MOC: MOC - Acid-Base (3 notes)
+14:32:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:12  INFO      Created MOC: MOC - Ph (5 notes)
+14:32:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:20  INFO      Created MOC: MOC - Cardiac (74 notes)
+14:32:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:24  INFO      Created MOC: MOC - Teeth (14 notes)
+14:32:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:29  INFO      Created MOC: MOC - Dentition (6 notes)
+14:32:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:35  INFO      Created MOC: MOC - Pain (19 notes)
+14:32:40  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:40  INFO      Created MOC: MOC - Scales (6 notes)
+14:32:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:46  INFO      Created MOC: MOC - Veterinary (55 notes)
+14:32:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:52  INFO      Created MOC: MOC - Actin (4 notes)
+14:32:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:32:57  INFO      Created MOC: MOC - Thyroid (15 notes)
+14:33:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:33:01  INFO      Created MOC: MOC - Hormone (29 notes)
+14:33:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:33:07  INFO      Created MOC: MOC - Cardiovascular System (17 notes)
+22:01:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:01:58  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+22:01:58  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+22:01:58  INFO      Local ready — 'gemma3:4b' found.
+22:01:58  INFO      Mode: cloud-first, local fallback.
+22:01:58  INFO      === PHASE 0: Quarantine recovery ===
+22:01:58  INFO      Tracker: 24627 total completions.
+22:01:58  INFO      No quarantined notes to recover.
+22:01:58  INFO      === PHASE 1: Splitting notes ===
+22:01:58  INFO      Tracker: 24627 total completions.
+22:01:58  INFO      607 files total, 0 remaining.
+22:01:58  INFO      All input files processed. Skipping Phase 1.
+22:01:58  INFO      === PHASE 2: YAML frontmatter ===
+22:01:58  INFO      Tracker: 24627 total completions.
+22:01:59  INFO      8046 notes total, 57 need frontmatter.
+22:01:59  INFO      Phase 2 complete.
+22:01:59  INFO      === PHASE 3: Regex linking ===
+22:01:59  INFO      Tracker: 24677 total completions.
+22:01:59  INFO      Title cache: 8046 titles indexed.
+22:01:59  INFO      8046 notes | 8046 titles | 57 remaining.
+22:01:59  INFO      Phase 3 complete — 34 links added.
+22:01:59  INFO      === PHASE 4: AI linking ===
+22:01:59  INFO      Tracker: 24734 total completions.
+22:01:59  INFO      8046 notes total, 57 remaining for AI linking.
+22:02:00  INFO      Phase 4 complete — 0 AI links added.
+22:02:00  INFO      === PHASE 5: MOC generation ===
+22:02:00  INFO      Tracker: 24791 total completions.
+22:02:51  INFO      Limiting to top 50 topics (from 81 candidates)
+22:02:51  INFO      81 eligible topics (min 15 notes), 50 MOCs to generate.
+22:02:51  INFO      Top topics: anatomy(574), physiology(275), muscle(90), dogs(90), cardiac(74)...
+22:02:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 500 Internal Server Error"
+22:02:52  WARNING   [MOC_anatomy] cloud model error: Internal Server Error (ref: f099cc98-7a7c-455e-ade3-597e07727c70) (status code: 500) — trying next.
+22:08:05  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:08:05  INFO      Created MOC: MOC - Anatomy (574 notes)
+22:08:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:08:17  INFO      Created MOC: MOC - Physiology (275 notes)
+22:08:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:08:25  INFO      Created MOC: MOC - Muscle (90 notes)
+22:08:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:08:32  INFO      Created MOC: MOC - Dogs (90 notes)
+22:08:40  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:08:40  INFO      Created MOC: MOC - Cardiac (74 notes)
+22:08:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:08:46  INFO      Created MOC: MOC - Cats (66 notes)
+22:08:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:08:52  INFO      Created MOC: MOC - Nutrition (58 notes)
+22:08:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:08:58  INFO      Created MOC: MOC - Cardiovascular (57 notes)
+22:09:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:05  INFO      Created MOC: MOC - Kidney (56 notes)
+22:09:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:11  INFO      Created MOC: MOC - Veterinary (55 notes)
+22:09:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:16  INFO      Created MOC: MOC - Respiratory (54 notes)
+22:09:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:22  INFO      Created MOC: MOC - Flashard/Completed (54 notes)
+22:09:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:28  INFO      Created MOC: MOC - Neuroscience (51 notes)
+22:09:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:35  INFO      Created MOC: MOC - Hormones (50 notes)
+22:09:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:41  INFO      Created MOC: MOC - Cardiology (50 notes)
+22:09:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:47  INFO      Created MOC: MOC - Nervous System (50 notes)
+22:09:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:53  INFO      Created MOC: MOC - Embryology (44 notes)
+22:09:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:09:59  INFO      Created MOC: MOC - Development (42 notes)
+22:10:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:04  INFO      Created MOC: MOC - Respiration (40 notes)
+22:10:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:09  INFO      Created MOC: MOC - Surgery (40 notes)
+22:10:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:14  INFO      Created MOC: MOC - Horse (39 notes)
+22:10:19  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:19  INFO      Created MOC: MOC - Snake (38 notes)
+22:10:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:26  INFO      Created MOC: MOC - Horses (38 notes)
+22:10:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:31  INFO      Created MOC: MOC - Anaesthetic (37 notes)
+22:10:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:36  INFO      Created MOC: MOC - Heart (37 notes)
+22:10:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:42  INFO      Created MOC: MOC - Pharmacology (36 notes)
+22:10:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:48  INFO      Created MOC: MOC - Behaviour (35 notes)
+22:10:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:10:54  INFO      Created MOC: MOC - Rabbit (35 notes)
+22:11:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:01  INFO      Created MOC: MOC - Anat10008 (32 notes)
+22:11:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:07  INFO      Created MOC: MOC - Urine (32 notes)
+22:11:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:11  INFO      Created MOC: MOC - Movement (30 notes)
+22:11:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:18  INFO      Created MOC: MOC - Catheter (30 notes)
+22:11:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:23  INFO      Created MOC: MOC - Anaesthesia (30 notes)
+22:11:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:28  INFO      Created MOC: MOC - Brain (30 notes)
+22:11:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:34  INFO      Created MOC: MOC - Hormone (29 notes)
+22:11:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:38  INFO      Created MOC: MOC - Bone (28 notes)
+22:11:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:44  INFO      Created MOC: MOC - Regulation (27 notes)
+22:11:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:50  INFO      Created MOC: MOC - Liver (27 notes)
+22:11:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:11:55  INFO      Created MOC: MOC - Spinal Cord (27 notes)
+22:12:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:00  INFO      Created MOC: MOC - Reptiles (27 notes)
+22:12:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:05  INFO      Created MOC: MOC - Digestion (26 notes)
+22:12:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:09  INFO      Created MOC: MOC - Pressure (26 notes)
+22:12:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:14  INFO      Created MOC: MOC - Joints (25 notes)
+22:12:14  INFO      Processed 100 files — restarting process to clear memory…
+22:12:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:21  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+22:12:21  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+22:12:21  INFO      Local ready — 'gemma3:4b' found.
+22:12:21  INFO      Mode: cloud-first, local fallback.
+22:12:21  INFO      === PHASE 0: Quarantine recovery ===
+22:12:21  INFO      Tracker: 24834 total completions.
+22:12:21  INFO      No quarantined notes to recover.
+22:12:21  INFO      === PHASE 1: Splitting notes ===
+22:12:21  INFO      Tracker: 24834 total completions.
+22:12:21  INFO      607 files total, 0 remaining.
+22:12:21  INFO      All input files processed. Skipping Phase 1.
+22:12:21  INFO      === PHASE 2: YAML frontmatter ===
+22:12:21  INFO      Tracker: 24834 total completions.
+22:12:22  INFO      8075 notes total, 36 need frontmatter.
+22:12:22  INFO      Phase 2 complete.
+22:12:22  INFO      === PHASE 3: Regex linking ===
+22:12:22  INFO      Tracker: 24864 total completions.
+22:12:22  INFO      Title cache: 8075 titles indexed.
+22:12:22  INFO      8075 notes | 8075 titles | 29 remaining.
+22:12:22  INFO      Phase 3 complete — 7 links added.
+22:12:22  INFO      === PHASE 4: AI linking ===
+22:12:22  INFO      Tracker: 24893 total completions.
+22:12:22  INFO      8075 notes total, 29 remaining for AI linking.
+22:12:23  INFO      Phase 4 complete — 0 AI links added.
+22:12:23  INFO      === PHASE 5: MOC generation ===
+22:12:23  INFO      Tracker: 24922 total completions.
+22:12:27  INFO      Limiting to top 50 topics (from 81 candidates)
+22:12:27  INFO      81 eligible topics (min 15 notes), 7 MOCs to generate.
+22:12:27  INFO      Top topics: sensory(25), clinical(25), diagnosis(24), equine(24), sutures(24)...
+22:12:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:28  INFO      Cloud ready — 'gemma3:4b-cloud' reachable.
+22:12:28  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+22:12:28  INFO      Local ready — 'gemma3:4b' found.
+22:12:28  INFO      Mode: cloud-first, local fallback.
+22:12:28  INFO      === PHASE 0: Quarantine recovery ===
+22:12:28  INFO      Tracker: 24922 total completions.
+22:12:28  INFO      No quarantined notes to recover.
+22:12:28  INFO      === PHASE 1: Splitting notes ===
+22:12:28  INFO      Tracker: 24922 total completions.
+22:12:28  INFO      607 files total, 0 remaining.
+22:12:28  INFO      All input files processed. Skipping Phase 1.
+22:12:28  INFO      === PHASE 2: YAML frontmatter ===
+22:12:28  INFO      Tracker: 24922 total completions.
+22:12:29  INFO      8075 notes total, 6 need frontmatter.
+22:12:29  INFO      Phase 2 complete.
+22:12:29  INFO      === PHASE 3: Regex linking ===
+22:12:29  INFO      Tracker: 24922 total completions.
+22:12:29  INFO      Title cache: 8075 titles indexed.
+22:12:29  INFO      8075 notes | 8075 titles | 0 remaining.
+22:12:29  INFO      All notes already regex-linked. Skipping Phase 3.
+22:12:29  INFO      === PHASE 4: AI linking ===
+22:12:29  INFO      Tracker: 24922 total completions.
+22:12:29  INFO      8075 notes total, 0 remaining for AI linking.
+22:12:29  INFO      All notes AI-linked. Skipping Phase 4.
+22:12:29  INFO      === PHASE 5: MOC generation ===
+22:12:29  INFO      Tracker: 24922 total completions.
+22:12:30  INFO      Limiting to top 50 topics (from 81 candidates)
+22:12:30  INFO      81 eligible topics (min 15 notes), 7 MOCs to generate.
+22:12:30  INFO      Top topics: sensory(25), clinical(25), diagnosis(24), equine(24), sutures(24)...
+22:12:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:32  INFO      Created MOC: MOC - Sensory (25 notes)
+22:12:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:35  INFO      Created MOC: MOC - Sensory (25 notes)
+22:12:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:36  INFO      Created MOC: MOC - Clinical (25 notes)
+22:12:40  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:40  INFO      Created MOC: MOC - Clinical (25 notes)
+22:12:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:42  INFO      Created MOC: MOC - Diagnosis (24 notes)
+22:12:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:45  INFO      Created MOC: MOC - Diagnosis (24 notes)
+22:12:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:47  INFO      Created MOC: MOC - Equine (24 notes)
+22:12:49  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:49  INFO      Created MOC: MOC - Equine (24 notes)
+22:12:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:53  INFO      Created MOC: MOC - Sutures (24 notes)
+22:12:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:55  INFO      Created MOC: MOC - Sutures (24 notes)
+22:12:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:59  INFO      Created MOC: MOC - Bacteria (23 notes)
+22:12:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:12:59  INFO      Created MOC: MOC - Bacteria (23 notes)
+22:13:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:13:04  INFO      Created MOC: MOC - Behavior (22 notes)
+22:13:04  INFO      Phase 5 complete.
+22:13:04  INFO      === All done! ===
+22:13:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+22:13:05  INFO      Created MOC: MOC - Behavior (22 notes)
+22:13:05  INFO      Phase 5 complete.
+22:13:05  INFO      === All done! ===
+11:41:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:41:42  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+11:41:42  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+11:41:42  INFO      Local ready — 'gemma3:4b' found.
+11:41:42  INFO      === PHASE 0: Quarantine recovery ===
+11:41:42  INFO      Tracker: 24929 total completions.
+11:41:42  INFO      No quarantined notes to recover.
+11:41:42  INFO      === PHASE 1: Splitting notes ===
+11:41:42  INFO      Tracker: 24929 total completions.
+11:41:42  INFO      607 files total, 0 remaining.
+11:41:42  INFO      All input files processed. Skipping Phase 1.
+11:41:42  INFO      === PHASE 2: YAML frontmatter ===
+11:41:42  INFO      Tracker: 24929 total completions.
+11:41:42  INFO      8353 notes total, 294 need frontmatter.
+11:41:44  INFO      Phase 2 complete.
+11:41:44  INFO      === PHASE 3: Regex linking ===
+11:41:44  INFO      Tracker: 25219 total completions.
+11:41:44  INFO      Title cache: 8353 titles indexed.
+11:41:44  INFO      8353 notes | 8353 titles | 288 remaining.
+11:41:44  INFO      Processed 100 files — restarting process to clear memory…
+11:41:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:41:46  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+11:41:46  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+11:41:46  INFO      Local ready — 'gemma3:4b' found.
+11:41:46  INFO      === PHASE 0: Quarantine recovery ===
+11:41:46  INFO      Tracker: 25319 total completions.
+11:41:46  INFO      No quarantined notes to recover.
+11:41:46  INFO      === PHASE 1: Splitting notes ===
+11:41:46  INFO      Tracker: 25319 total completions.
+11:41:46  INFO      607 files total, 0 remaining.
+11:41:46  INFO      All input files processed. Skipping Phase 1.
+11:41:46  INFO      === PHASE 2: YAML frontmatter ===
+11:41:46  INFO      Tracker: 25319 total completions.
+11:41:46  INFO      8353 notes total, 4 need frontmatter.
+11:45:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:45:36  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+11:45:36  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+11:45:36  INFO      Local ready — 'gemma3:4b' found.
+11:45:36  INFO      === PHASE 0: Quarantine recovery ===
+11:45:36  INFO      Tracker: 25319 total completions.
+11:45:36  INFO      No quarantined notes to recover.
+11:45:36  INFO      === PHASE 1: Splitting notes ===
+11:45:36  INFO      Tracker: 25319 total completions.
+11:45:36  INFO      607 files total, 0 remaining.
+11:45:36  INFO      All input files processed. Skipping Phase 1.
+11:45:36  INFO      === PHASE 2: YAML frontmatter ===
+11:45:36  INFO      Tracker: 25319 total completions.
+11:45:36  INFO      8353 notes total, 4 need frontmatter.
+11:45:36  INFO      Phase 2 complete.
+11:45:36  INFO      === PHASE 3: Regex linking ===
+11:45:36  INFO      Tracker: 25319 total completions.
+11:45:36  INFO      Title cache: 8353 titles indexed.
+11:45:36  INFO      8353 notes | 8353 titles | 188 remaining.
+11:45:37  INFO      Processed 100 files — restarting process to clear memory…
+11:45:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:45:38  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+11:45:38  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+11:45:38  INFO      Local ready — 'gemma3:4b' found.
+11:45:38  INFO      === PHASE 0: Quarantine recovery ===
+11:45:38  INFO      Tracker: 25419 total completions.
+11:45:38  INFO      No quarantined notes to recover.
+11:45:38  INFO      === PHASE 1: Splitting notes ===
+11:45:38  INFO      Tracker: 25419 total completions.
+11:45:38  INFO      607 files total, 0 remaining.
+11:45:38  INFO      All input files processed. Skipping Phase 1.
+11:45:38  INFO      === PHASE 2: YAML frontmatter ===
+11:45:38  INFO      Tracker: 25419 total completions.
+11:45:38  INFO      8353 notes total, 4 need frontmatter.
+11:46:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:46:01  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+11:46:01  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+11:46:01  INFO      Local ready — 'gemma3:4b' found.
+11:46:01  INFO      === PHASE 0: Quarantine recovery ===
+11:46:01  INFO      Tracker: 25419 total completions.
+11:46:01  INFO      No quarantined notes to recover.
+11:46:01  INFO      === PHASE 1: Splitting notes ===
+11:46:01  INFO      Tracker: 25419 total completions.
+11:46:01  INFO      607 files total, 0 remaining.
+11:46:01  INFO      All input files processed. Skipping Phase 1.
+11:46:01  INFO      === PHASE 2: YAML frontmatter ===
+11:46:01  INFO      Tracker: 25419 total completions.
+11:46:01  INFO      8353 notes total, 4 need frontmatter.
+11:46:01  INFO      Phase 2 complete.
+11:46:01  INFO      === PHASE 3: Regex linking ===
+11:46:01  INFO      Tracker: 25419 total completions.
+11:46:01  INFO      Title cache: 8353 titles indexed.
+11:46:01  INFO      8353 notes | 8353 titles | 88 remaining.
+11:46:02  INFO      Phase 3 complete — 2 links added.
+11:46:02  INFO      === PHASE 4: AI linking ===
+11:46:02  INFO      Tracker: 25507 total completions.
+11:46:02  INFO      8353 notes total, 288 remaining for AI linking.
+11:46:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:46:02  WARNING   [Abnormalities in Avian Droppings and Their Significance] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+11:48:53  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:48:53  INFO      AI added 11 → Abnormalities in Avian Droppings and Their Significance
+11:48:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:48:54  WARNING   [Acquired Cardiac Diseases in Cats Overview] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+11:51:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:51:42  INFO      AI added 29 → Acquired Cardiac Diseases in Cats Overview
+11:51:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:51:44  WARNING   [Acquired Cardiac Diseases in Dogs Overview] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+11:54:33  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:54:33  INFO      AI added 33 → Acquired Cardiac Diseases in Dogs Overview
+11:54:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:54:35  WARNING   [Air Sac Perfusion Anaesthesia in Birds] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+11:57:41  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+11:57:41  INFO      AI added 17 → Air Sac Perfusion Anaesthesia in Birds
+11:57:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+11:57:43  WARNING   [ANAT20001 Antlers vs. Horns - Key Distinctions] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+12:00:40  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:00:40  INFO      AI added 14 → ANAT20001 Antlers vs. Horns - Key Distinctions
+12:00:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+12:00:41  WARNING   [ANAT20001 Case Study - Warrior or Woman Initial Interpretation] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+12:04:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:04:15  INFO      AI added 18 → ANAT20001 Case Study - Warrior or Woman Initial Interpretation
+12:04:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+12:04:17  WARNING   [ANAT20001 Case Study - Warrior or Woman Re-evaluation and Conclusion] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+12:07:03  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:07:03  INFO      AI added 12 → ANAT20001 Case Study - Warrior or Woman Re-evaluation and Conclusion
+12:07:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+12:07:04  WARNING   [ANAT20001 General Bone Characteristics by Vertebrate Class] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+12:10:44  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:10:44  INFO      AI added 27 → ANAT20001 General Bone Characteristics by Vertebrate Class
+12:10:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+12:10:46  WARNING   [ANAT20001 Mandible Comparison - Herbivores vs. Carnivores] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+12:13:35  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:13:35  INFO      AI added 18 → ANAT20001 Mandible Comparison - Herbivores vs. Carnivores
+12:13:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+12:13:36  WARNING   [ANAT20001 Postcranial Identification - Metapodials (Distal Limb)] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+12:16:45  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:16:45  INFO      AI added 11 → ANAT20001 Postcranial Identification - Metapodials (Distal Limb)
+12:16:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+12:16:47  WARNING   [ANAT20001 Postcranial Identification - Metapodials of Horse (Perissodactyla)] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+12:19:58  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:19:59  INFO      AI added 13 → ANAT20001 Postcranial Identification - Metapodials of Horse (Perissodactyla)
+12:20:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+12:20:00  WARNING   [ANAT20001 Postcranial Identification - Metapodials of Ruminants (Artiodactyla)] cloud model error: you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429) — trying next.
+12:23:14  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+12:23:14  INFO      AI added 10 → ANAT20001 Postcranial Identification - Metapodials of Ruminants (Artiodactyla)
+12:23:14  INFO      Processed 100 files — restarting process to clear memory…
+12:23:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+12:23:17  WARNING   Cloud check failed (you (dcracknell6) have reached your session usage limit, upgrade for higher limits: https://ollama.com/upgrade (status code: 429)) — local only.
+12:23:17  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+12:23:17  INFO      Local ready — 'gemma3:4b' found.
+12:23:17  INFO      === PHASE 0: Quarantine recovery ===
+12:23:17  INFO      Tracker: 25533 total completions.
+12:23:17  INFO      No quarantined notes to recover.
+12:23:17  INFO      === PHASE 1: Splitting notes ===
+12:23:17  INFO      Tracker: 25533 total completions.
+12:23:17  INFO      607 files total, 0 remaining.
+12:23:17  INFO      All input files processed. Skipping Phase 1.
+12:23:17  INFO      === PHASE 2: YAML frontmatter ===
+12:23:17  INFO      Tracker: 25533 total completions.
+12:23:17  INFO      8353 notes total, 4 need frontmatter.
+12:56:13  WARNING   Local model 'qwen-slim:latest' not pulled. Run: ollama pull qwen-slim:latest
+12:56:13  CRITICAL  Neither cloud nor local Ollama available.
+  Cloud: set OLLAMA_API_KEY
+  Local: 'ollama serve' then 'ollama pull qwen-slim:latest'
+13:00:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:00:39  INFO      Cloud ready — 'gemma4:31b-cloud' reachable.
+13:00:39  WARNING   Local model 'gemma3:4b' not pulled. Run: ollama pull gemma3:4b
+13:00:39  INFO      Mode: cloud-first, local fallback.
+13:00:39  INFO      === PHASE 0: Quarantine recovery ===
+13:00:39  INFO      No quarantined notes to recover.
+13:00:39  INFO      === PHASE 1: Splitting notes ===
+13:00:39  INFO      0 files total, 0 remaining.
+13:00:39  INFO      All input files processed. Skipping Phase 1.
+13:00:39  INFO      === PHASE 2: YAML frontmatter ===
+13:00:39  INFO      0 notes total, 0 need frontmatter.
+13:00:39  INFO      All notes have frontmatter. Skipping Phase 2.
+13:00:39  INFO      === PHASE 3: Regex linking ===
+13:00:39  INFO      Title cache: 0 titles indexed.
+13:00:39  INFO      0 notes | 0 titles | 0 remaining.
+13:00:39  INFO      All notes already regex-linked. Skipping Phase 3.
+13:00:39  INFO      === PHASE 4: AI linking ===
+13:00:39  INFO      0 notes total, 0 remaining for AI linking.
+13:00:39  INFO      All notes AI-linked. Skipping Phase 4.
+13:00:39  INFO      === PHASE 5: MOC generation ===
+13:00:39  INFO      Building tag map…
+13:00:39  INFO      0 eligible topics (min 15 notes), 0 MOCs to generate.
+13:00:39  INFO      All MOCs generated. Skipping Phase 5.
+13:00:39  INFO      === All done! ===
+13:03:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:03:41  INFO      Cloud ready — 'gemma4:31b-cloud' reachable.
+13:03:41  WARNING   Local model 'gemma3:4b' not pulled. Run: ollama pull gemma3:4b
+13:03:41  INFO      Mode: cloud-first, local fallback.
+13:03:41  INFO      === PHASE 0: Quarantine recovery ===
+13:03:41  INFO      Tracker: 17547 total completions.
+13:03:41  INFO      No quarantined notes to recover.
+13:03:41  INFO      === PHASE 1: Splitting notes ===
+13:03:41  INFO      Tracker: 17547 total completions.
+13:03:41  INFO      8493 files total, 8372 remaining.
+13:08:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:08:25  INFO      Cloud ready — 'gemma4:31b-cloud' reachable.
+13:08:25  WARNING   Local model 'gemma3:4b' not pulled. Run: ollama pull gemma3:4b
+13:08:25  INFO      Mode: cloud-first, local fallback.
+13:08:25  INFO      === PHASE 2: YAML frontmatter ===
+13:08:25  INFO      Tracker: 17688 total completions.
+13:08:25  INFO      8352 notes total, 0 need frontmatter.
+13:08:25  INFO      All notes have frontmatter. Skipping Phase 2.
+13:08:25  INFO      === PHASE 3: Regex linking ===
+13:08:25  INFO      Tracker: 17688 total completions.
+13:08:26  INFO      Title cache: 8352 titles indexed.
+13:08:26  INFO      8352 notes | 8352 titles | 0 remaining.
+13:08:26  INFO      All notes already regex-linked. Skipping Phase 3.
+13:08:26  INFO      === PHASE 4: AI linking ===
+13:08:26  INFO      Tracker: 17688 total completions.
+13:08:26  INFO      8352 notes total, 8218 remaining for AI linking.
+13:09:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:09:36  INFO      AI added 6 → Abductor Pollicis Longus - Thumb Abductor
+13:09:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:09:44  INFO      AI added 13 → Abscess Definition & Progression
+13:10:49  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:10:49  INFO      AI added 15 → Abscess Definition
+13:10:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:10:59  INFO      AI added 6 → Abscess Signs & Complications
+13:11:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:11:23  INFO      AI added 8 → Abscess Treatment - Drainage
+13:11:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:11:36  INFO      AI added 10 → Abscess Treatment
+13:12:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:12:55  INFO      AI added 10 → Abscess- Clinical Signs and Complications
+13:13:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:13:07  INFO      AI added 13 → Abscess- Definition and Pathophysiology
+13:13:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:13:17  INFO      AI added 9 → Abscess- Treatment and Management
+13:13:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:13:23  INFO      AI added 6 → Abscesses in Reptiles- Characteristics and Treatment
+13:13:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:13:31  INFO      AI added 7 → Absence of Significant Check Ligaments in Equine Hindlimb
+13:13:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:13:37  INFO      AI added 4 → Absorption as a Function
+13:14:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:14:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:15:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:15:03  INFO      AI added 4 → Academic Grading Policy- Second Year Onwards
+13:16:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:16:38  INFO      AI added 5 → Accessory Digestive Organs - Image Reference
+13:17:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:17:53  INFO      AI added 7 → Accessory Hip Ligament - Abduction Restriction
+13:18:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:18:00  INFO      AI added 7 → Accessory Muscles of Respiration
+13:18:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:18:07  INFO      AI added 10 → Accessory Nerve (CN XI) - Function
+13:19:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:01  INFO      AI added 12 → Accessory Nerve (CN XI)- Neck Muscle Control
+13:19:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:13  INFO      AI added 9 → Accessory Respiratory Muscles
+13:19:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:17  INFO      AI added 7 → Accessory Sex Glands - Bulbourethral Glands
+13:19:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:22  INFO      AI added 8 → Accessory Sex Glands - Prostate & DHT
+13:19:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:26  INFO      AI added 8 → Accessory Sex Glands - Seminal Vesicles & Fructose
+13:19:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:31  INFO      AI added 9 → Accessory Sex Glands
+13:19:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:36  INFO      AI added 9 → Acepromazine (ACP) - General Overview
+13:19:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:41  INFO      AI added 8 → Acepromazine- Cardiovascular System Effects
+13:19:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:47  INFO      AI added 11 → Acepromazine- Lack of Analgesia
+13:19:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:52  INFO      AI added 7 → Acepromazine- Mechanism of Action
+13:19:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:19:56  INFO      AI added 10 → Acepromazine- Pharmacokinetics (Onset, Duration, Metabolism, Bioavailability)
+13:20:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:01  INFO      AI added 7 → Acepromazine- Respiratory and Thermoregulatory Effects
+13:20:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:06  INFO      AI added 7 → Acepromazine- Sedative and Anxiolytic Properties
+13:20:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:11  INFO      AI added 10 → ACh Stimulation of Gastric Cells
+13:20:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:15  INFO      AI added 4 → Acid-Base Balance - Acidemia Definition
+13:20:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:20  INFO      AI added 12 → Acid-Base Balance Monitoring - VETS20019
+13:20:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:27  INFO      AI added 12 → Acid-Base Balance- Core Concepts
+13:20:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:32  INFO      AI added 11 → Acid-Base Imbalance Consequences
+13:20:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:36  INFO      AI added 6 → Acidaemia and Alkalaemia
+13:20:40  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:40  INFO      AI added 3 → Acidaemia and Alkalemia
+13:20:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:45  INFO      AI added 7 → Acidaemia-Alkalemia Definitions
+13:20:49  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:49  INFO      AI added 6 → Acidosis and Alkalosis (Disturbance Result)
+13:20:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:20:53  INFO      AI added 6 → Acidosis-Alkalosis Definitions
+13:21:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:21:01  INFO      AI added 10 → Acquired Heart Diseases - Species and Examples
+13:21:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:21:06  INFO      AI added 9 → Acquired Heart Diseases
+13:21:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:21:11  INFO      AI added 8 → Acrodont-Pleurodont Dentition
+13:21:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:21:16  INFO      AI added 10 → Acronyms - Pain Scales
+13:21:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:21:22  INFO      AI added 12 → Acronyms Used in Pain Assessment
+13:21:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:21:25  INFO      AI added 6 → Actin (Myofilament)
+13:21:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:21:29  INFO      AI added 7 → Actin Myofilament Structure
+13:21:33  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:21:33  INFO      AI added 7 → Action of TH on Target Cells - Gene Transcription
+13:21:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:21:37  INFO      AI added 10 → Action of TH on Target Cells
+13:21:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:01  INFO      AI added 13 → Action Potential Shapes and Channelopathies
+13:22:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:15  INFO      AI added 25 → Action Potentials in the Heart - Sinoatrial Node
+13:22:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:21  INFO      AI added 11 → Action Potentials in the Sinoatrial Node
+13:22:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:25  INFO      AI added 7 → Active Transport Definition
+13:22:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:29  INFO      AI added 8 → Active Transport
+13:22:33  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:33  INFO      AI added 7 → Acute Effects of GH
+13:22:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:39  INFO      AI added 8 → Acute Gastroenteritis- Hydration Management
+13:22:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:44  INFO      AI added 10 → Acute Gastroenteritis- Infection Control Nursing
+13:22:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:50  INFO      AI added 15 → Acute Gastroenteritis- Medication Management
+13:22:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:55  INFO      AI added 12 → Acute Gastroenteritis- Nurse's Role in Diagnostics
+13:22:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:22:59  INFO      AI added 6 → Acute Gastroenteritis- Patient and Environmental Hygiene Nursing
+13:23:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:23:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:23:10  INFO      AI added 15 → Acute Pancreatitis- Clinical Signs
+13:23:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:23:16  INFO      AI added 14 → Acute Pancreatitis- Convalescence and Prognosis
+13:23:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:23:23  INFO      AI added 9 → Acute Pancreatitis- Nursing Management
+13:23:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:23:28  INFO      AI added 12 → Acute Pancreatitis- Pathology and Severity
+13:23:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:23:39  INFO      AI added 12 → Acute Vomiting and Diarrhoea - Causes & Diagnostic Approach
+13:23:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:23:45  INFO      AI added 15 → Acute Vomiting and Diarrhoea- Non-Surgical Causes (High Concern)
+13:23:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:23:56  INFO      AI added 16 → Acute Vomiting and Diarrhoea- Non-Surgical Causes (Low Concern)
+13:24:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:24:10  INFO      AI added 13 → Acute Vomiting and Diarrhoea- Surgical Causes (High Concern Emergency)
+13:24:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:24:18  INFO      AI added 8 → Acute Vomiting- Dietary Management
+13:24:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:24:22  INFO      AI added 4 → Acute vs. Chronic Acid-Base Disturbances
+13:24:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:24:28  INFO      AI added 15 → Acute vs. Chronic Disturbances
+13:24:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:24:35  INFO      AI added 11 → Adaptive Cells - B Lymphocytes
+13:24:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:24:47  INFO      AI added 16 → Adaptive Cells - T Lymphocytes
+13:24:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:24:52  INFO      AI added 11 → Adaptive Immune Cell Activation - Lymph Node Interaction
+13:24:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:24:57  INFO      AI added 11 → Adaptive Immune System - Sequence Specificity
+13:25:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:06  INFO      AI added 10 → Additional Exam Topics
+13:25:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:15  INFO      AI added 8 → Additive Effects of Opioids
+13:25:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:20  INFO      AI added 8 → Additive-Synergistic Effects of Dexmedetomidine
+13:25:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:41  INFO      AI added 9 → ADH and Urine Volume
+13:25:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:46  INFO      AI added 7 → ADH Effects on Collecting Duct
+13:25:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:52  INFO      AI added 10 → ADH Feedback Loop & Urine Volume
+13:25:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:25:59  INFO      AI added 16 → ADH Release and Action
+13:26:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:10  INFO      AI added 15 → ADME of Drugs- Overview
+13:26:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:16  INFO      AI added 20 → ADME- Drug Disposition Overview
+13:26:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:20  INFO      AI added 4 → Administering SC Injections (Dogs)
+13:26:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:24  INFO      AI added 6 → Administering SC Injections
+13:26:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:29  INFO      AI added 10 → Administration of Topical Ophthalmic Medications
+13:26:33  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:33  INFO      AI added 9 → Admissions Protocol - Best Practices
+13:26:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:36  INFO      AI added 4 → Admissions Protocol
+13:26:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:41  INFO      Processed 100 files — restarting to clear memory…
+13:26:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+13:26:48  INFO      Cloud ready — 'gemma4:31b-cloud' reachable.
+13:26:48  WARNING   Local model 'gemma3:4b' not pulled. Run: ollama pull gemma3:4b
+13:26:48  INFO      Mode: cloud-first, local fallback.
+13:26:48  INFO      === PHASE 2: YAML frontmatter ===
+13:26:48  INFO      Tracker: 17791 total completions.
+13:26:48  INFO      8352 notes total, 0 need frontmatter.
+13:26:48  INFO      All notes have frontmatter. Skipping Phase 2.
+13:26:48  INFO      === PHASE 3: Regex linking ===
+13:26:49  INFO      Tracker: 17791 total completions.
+13:26:49  INFO      Title cache: 8352 titles indexed.
+13:26:49  INFO      8352 notes | 8352 titles | 0 remaining.
+13:26:49  INFO      All notes already regex-linked. Skipping Phase 3.
+13:26:49  INFO      === PHASE 4: AI linking ===
+13:26:49  INFO      Tracker: 17791 total completions.
+13:26:49  INFO      8352 notes total, 8114 remaining for AI linking.
+14:46:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:35  INFO      Cloud ready — 'gemma4:31b-cloud' reachable.
+14:46:35  WARNING   Local model 'gemma3:4b' not pulled. Run: ollama pull gemma3:4b
+14:46:35  INFO      Mode: cloud-first, local fallback.
+14:46:35  INFO      === PHASE 2: YAML frontmatter ===
+14:46:36  INFO      Tracker: 17791 total completions.
+14:46:36  INFO      8352 notes total, 0 need frontmatter.
+14:46:36  INFO      All notes have frontmatter. Skipping Phase 2.
+14:46:36  INFO      === PHASE 3: Regex linking ===
+14:46:36  INFO      Tracker: 17791 total completions.
+14:46:36  INFO      Title cache: 8352 titles indexed.
+14:46:36  INFO      8352 notes | 8352 titles | 0 remaining.
+14:46:36  INFO      All notes already regex-linked. Skipping Phase 3.
+14:46:36  INFO      === PHASE 4: AI linking ===
+14:46:36  INFO      Tracker: 17791 total completions.
+14:46:36  INFO      8352 notes total, 8114 remaining for AI linking.
+14:46:40  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:40  INFO      AI added 5 → Adnexa - Orbit Bones
+14:46:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:45  INFO      AI added 10 → Adrenal Cortex Hormone Types
+14:46:49  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:49  INFO      AI added 6 → Adrenal Cortex Zones
+14:47:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:05  INFO      AI added 12 → Adrenal Gland Cortex Function
+14:47:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:11  INFO      AI added 13 → Adrenal Gland Hormones - The Cortex
+14:47:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:22  INFO      AI added 15 → Adrenal Gland Medulla Function
+14:48:19  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:48:19  INFO      AI added 11 → Adrenal Gland Structure
+14:48:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:48:59  INFO      AI added 13 → Adrenal Glands Function
+14:49:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:08  INFO      AI added 18 → Adrenal Medulla - Catecholamines
+14:51:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:07  INFO      AI added 13 → Adrenal Medulla Hormones
+14:52:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:53:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:53:11  INFO      AI added 11 → Adrenaline Release - Neural Control
+14:53:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:53:17  INFO      AI added 11 → Adrenaline
+14:55:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:55:25  INFO      AI added 13 → Adrenergic Receptors and Physiological Effects
+14:56:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:01  INFO      AI added 5 → Adson Dissecting Forceps
+14:56:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:09  INFO      AI added 12 → Advanced Life Support (ALS) - Drug Administration
+14:56:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:14  INFO      AI added 7 → Advanced Life Support (ALS)
+14:56:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:51  INFO      AI added 11 → Advanced Monitoring Techniques
+14:56:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:56  INFO      AI added 8 → Adventitious Lung Sounds - Description
+14:57:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:01  INFO      AI added 6 → Adventitious Lung Sounds - Wheeze
+14:57:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:07  INFO      AI added 11 → Adverse Effects - Bradycardia
+14:57:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:12  INFO      AI added 6 → Adverse Effects - Emetic and GI
+14:57:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:16  INFO      AI added 4 → Adverse Effects - Hyperglycaemia
+14:57:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:45  INFO      AI added 11 → Adverse Effects of Injectable Anesthetics- Hypotension
+14:57:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:51  INFO      AI added 9 → Adverse Effects of Injectable Anesthetics- Post-induction Apnoea
+14:57:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:59  INFO      AI added 12 → Adverse Reaction- Idiosyncratic Liver Failure in Cats with Diazepam
+14:58:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:07  INFO      AI added 10 → Afferent and Efferent Nerve Types
+14:58:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:12  INFO      AI added 9 → Afferent Neurons
+14:58:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:45  INFO      AI added 27 → Agents Used in Pain Management
+14:58:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:51  INFO      AI added 10 → Aglyph - Toothless Snakes
+14:58:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:54  INFO      AI added 5 → AI Utilization in Veterinary Oncology
+14:59:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:01  INFO      AI added 10 → Aims of Anti-Epileptic Drug (AED) Therapy
+14:59:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:12  INFO      AI added 7 → Aims of Oncological Investigation in Veterinary Medicine
+14:59:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:20  INFO      AI added 7 → Air Flow and Resistance
+15:00:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:17  INFO      AI added 8 → Air Sac Perfusion Anaesthesia – Surgical Applications
+15:00:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:24  INFO      AI added 13 → Airway Device Placement During GA
+15:00:30  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:30  INFO      AI added 11 → Airway Management Devices in Veterinary Anaesthesia
+15:00:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:37  INFO      AI added 12 → Airway Management in Exotic Anaesthesia
+15:01:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:15  INFO      AI added 8 → Airway Resistance and Bronchomotor Tone
+15:01:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:43  INFO      AI added 15 → Aldosterone Action
+15:01:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:48  INFO      AI added 7 → Aldosterone and Mineralocorticoids
+15:01:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:53  INFO      AI added 9 → Aldosterone and Potassium Regulation
+15:02:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:00  INFO      AI added 15 → Aldosterone Production
+15:02:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:05  INFO      AI added 10 → Aldosterone Release
+15:02:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:10  INFO      AI added 10 → Alimentary System Adaptations in Lizards
+15:02:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:18  INFO      AI added 16 → Allergic Skin Disease - Multifactorial Cause
+15:03:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:03:17  INFO      AI added 5 → Allis Tissue Forceps
+15:03:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:03:23  INFO      AI added 5 → Allodynia - Pain from Non-Painful Stimuli
+15:03:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:03:56  INFO      AI added 7 → Allodynia
+15:04:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:04:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:04:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:04:12  INFO      AI added 9 → ALP and GGT as Cholestasis Markers
+15:04:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:04:16  INFO      AI added 6 → ALP Liver Parameter
+15:04:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:04:24  INFO      AI added 18 → Alpha- and Beta-Adrenergic Receptors
+15:04:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:04:29  INFO      AI added 10 → Alpha-2 Adrenergic Agonists- Cardiovascular Side Effects
+15:04:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:04:37  INFO      AI added 14 → Alpha-2 Adrenergic Agonists- Core Mechanism and Actions
+15:04:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:04:58  INFO      AI added 14 → Alpha-2 Adrenergic Agonists- Gastrointestinal and Metabolic Side Effects
+15:05:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:05:08  INFO      AI added 15 → Alpha-2 Adrenergic Agonists- Licensed Forms and General Usage
+15:05:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:05:17  INFO      AI added 13 → Alpha-2 Adrenergic Agonists- Modulating Effects and Reversibility
+15:05:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:05:28  INFO      AI added 17 → Alpha-2 Adrenergic Agonists- Pharmacokinetics and Administration Profile
+15:05:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:05:37  INFO      AI added 15 → Alpha-2 Adrenergic Agonists- Respiratory and Reproductive Side Effects
+15:05:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:05:46  INFO      AI added 13 → Alpha-2 Adrenoreceptor Agonists in Equine Sedation
+15:05:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:05:57  INFO      AI added 23 → Alpha-2 Agonists in Anesthesia
+15:06:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:06:08  INFO      AI added 20 → Alpha-2 Agonists in Equine Sedation
+15:06:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:06:15  INFO      AI added 14 → Alpha-Adrenergic Receptors
+15:06:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:06:36  INFO      AI added 6 → Alpha-casozepine for Anxiety Reduction
+15:06:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:06:42  INFO      AI added 19 → ALT and AST in Liver Function
+15:06:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:06:47  INFO      AI added 10 → ALT Liver Parameter
+15:06:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:06:50  INFO      AI added 4 → Altered GH Secretion in Disease
+15:06:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:06:54  INFO      AI added 3 → Alternatives to Sutures
+15:06:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:07:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:07:03  INFO      AI added 5 → Alveolar Surface Tension - Hydrogen Bonds & Spherical Shape
+15:07:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:07:07  INFO      AI added 4 → Alveolar Surface Tension
+15:07:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:07:12  INFO      AI added 9 → Alveolar Ventilation (VA)
+15:07:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:07:18  INFO      AI added 12 → Alveolar, Arterial, and Venous Pressures
+15:07:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:07:24  INFO      AI added 11 → American Barn Stabling- Characteristics, Pros and Cons
+15:07:33  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:07:33  INFO      AI added 8 → Amino Acid Hormone Classification- Tyrosine
+15:07:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:07:50  INFO      AI added 7 → Amino Acid Hormone Receptor - Variability
+15:07:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:07:59  INFO      AI added 12 → Amino Acid Precursors for Neurotransmitters- Tryptophan & Tyrosine
+15:08:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:08:05  INFO      AI added 10 → Amino Acids - Albumin
+15:08:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:08:09  INFO      AI added 4 → Amino Acids - Catabolism
+15:08:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:08:16  INFO      AI added 12 → Amino Acids - Essential Fatty Acids
+15:08:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:08:22  INFO      AI added 8 → Ammonia in Stables- Sources, Risks, and Reduction
+15:08:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:08:33  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:08:33  INFO      AI added 6 → Amphibian Cardiovascular System- Common Carotid Artery
+15:08:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:08:38  INFO      AI added 9 → Amphibian Cardiovascular System- Conus Arteriosus Branches
+15:08:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:08:43  INFO      AI added 7 → Amphibian Cardiovascular System- Deoxygenated Blood Flow
+15:09:30  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:09:30  INFO      AI added 10 → Amphibian Cardiovascular System- Oxygenated Blood Flow
+15:10:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:10:52  INFO      AI added 6 → Amphibian Cardiovascular System- Pulmocutaneous Artery
+15:10:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:10:57  INFO      AI added 8 → Amphibian Cardiovascular System- Spiral Valve Function
+15:11:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:11:01  INFO      AI added 6 → Amphibian Cardiovascular System- Systemic Arteries
+15:11:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:11:06  INFO      AI added 8 → Amphibian Cardiovascular System- Three-Chambered Heart
+15:11:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:11:11  INFO      AI added 6 → Amphibian Cardiovascular System- Ventricular Discharge
+15:11:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:11:34  INFO      AI added 10 → Amphibian Care - Common Conditions

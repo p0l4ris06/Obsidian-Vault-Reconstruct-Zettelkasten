@@ -1,0 +1,914 @@
+15:13:16  INFO      OLLAMA_API_KEY detected — cloud-first execution.
+15:13:16  INFO      
+==================================================
+=== PHASE 4: AI Semantic Linking ===
+==================================================
+15:16:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:16:14  INFO      AI added 6 → Amphibian Coelomic Cavities- Pericardial Cavity
+15:16:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:16:31  INFO      AI added 12 → Amphibian Classification- Overview
+15:16:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:16:37  INFO      AI added 4 → Tags List
+15:17:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:17:01  INFO      AI added 4 → Amphibian Classification
+15:17:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:17:57  INFO      AI added 3 → Amphibian Coelomic Cavities- Pericardiopleural Membrane
+15:18:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:18:07  INFO      AI added 3 → Amphibian Coelomic Cavities- Pleuroperitoneal Cavity
+15:25:25  INFO      OLLAMA_API_KEY detected — cloud-first execution.
+15:25:45  INFO      
+==================================================
+=== PHASE 4: AI Semantic Linking ===
+==================================================
+15:26:30  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:26:30  INFO      AI added 7 → Amphibian Female Urogenital System- Paired Ovaries
+15:26:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:26:39  INFO      AI added 10 → Amphibian Diversity
+15:27:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:27:12  INFO      AI added 4 → Amphibian Diet- Adult Carnivory
+15:27:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:27:14  INFO      AI added 5 → Amphibian Female Urogenital System- Ovulation Process
+15:27:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:27:36  INFO      AI added 5 → Amphibian Gastrointestinal Tract- Cloaca Connection
+15:27:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:27:37  INFO      AI added 6 → Amphibian Female Urogenital System- Ova Transport
+15:27:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:27:54  INFO      AI added 4 → Amphibian General- Ectothermy
+15:28:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:28:43  INFO      AI added 11 → Amphibian General- Conservation Status
+15:30:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:30:34  INFO      AI added 10 → Amphibian General- Geographic Distribution
+15:31:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:31:39  INFO      AI added 8 → Amphibian General- Human Consumption
+15:32:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:32:48  INFO      AI added 7 → Amphibian General- Metamorphosis
+15:33:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:33:43  INFO      AI added 5 → Amphibian General- Size Range
+15:33:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:33:56  INFO      AI added 17 → Amphibian General- Laboratory Animals
+15:34:30  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:34:30  INFO      AI added 12 → Amphibian General- Species Diversity
+15:34:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:34:31  INFO      AI added 11 → Amphibian General- Terrarium Animals
+15:35:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:35:10  INFO      AI added 8 → Amphibian Husbandry Requirements
+15:35:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:35:48  INFO      AI added 11 → Amphibian Integument- Epidermis Thickness (Respiratory Role)
+15:35:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:35:48  INFO      AI added 16 → Amphibian Integument- Cutaneous Capillary Network
+15:35:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 502 Bad Gateway"
+15:36:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:36:20  INFO      AI added 9 → Amphibian Integument- Moisture Requirement (Respiratory Role)
+15:36:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:36:27  INFO      AI added 14 → Amphibian Integument- Layers and Glands
+15:37:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:37:25  INFO      AI added 10 → Amphibian Integument- Overview of Roles
+15:37:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:37:30  INFO      AI added 7 → Amphibian Integument- Role in Protection
+15:38:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:38:09  INFO      AI added 8 → Amphibian Integument- Role in Sensation
+15:38:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:38:31  INFO      AI added 14 → Amphibian Integument- Role in Respiration
+15:39:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:39:05  INFO      AI added 5 → Amphibian Integument- Role in Water Balance
+15:39:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:39:36  INFO      AI added 6 → Amphibian Integument- Scales
+15:39:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:39:59  INFO      AI added 6 → Amphibian Integument- Water Loss (Respiratory Implication)
+15:40:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:40:48  INFO      AI added 6 → Amphibian Male Urogenital System- Bladder Presence
+15:41:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:41:06  INFO      AI added 5 → Amphibian Integument- Role in Thermoregulation
+15:41:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:41:39  INFO      AI added 7 → Amphibian Male Urogenital System- Paired Testes
+15:41:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:41:45  INFO      AI added 10 → Amphibian Oral Cavity- Eye Retraction for Swallowing
+15:42:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:42:21  INFO      AI added 7 → Amphibian Male Urogenital System- Mesonephric Kidney
+15:42:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:42:53  INFO      AI added 9 → Amphibian Oral Cavity- Teeth Function
+15:43:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:43:18  INFO      AI added 9 → Amphibian Oral Cavity- Tongue Function
+15:43:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:43:50  INFO      AI added 8 → Amphibian Order- Anura (Frogs and Toads)
+15:44:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:44:26  INFO      AI added 8 → Amphibian Order- Caudata (Newts, Salamanders, Sirens)
+15:44:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:44:28  INFO      AI added 6 → Amphibian Order- Gymnophiona (Caecilians)
+15:44:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:44:47  INFO      AI added 5 → Amphibian Prey Location- Sight
+15:44:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:44:48  INFO      AI added 11 → Amphibian Overview - General Facts
+15:44:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:44:54  INFO      AI added 5 → Amphibian Reproduction- Ova Deposition
+15:44:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:44:54  INFO      AI added 7 → Amphibian Respiratory System- Buccal Pumping
+15:46:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:46:23  INFO      AI added 14 → Amphibian Respiratory System- Cutaneous Respiration (Gas Exchange Factors)
+15:46:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:46:24  INFO      AI added 18 → Amphibian Respiratory System- Cutaneous Respiration (Life Stages)
+15:46:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:46:43  INFO      AI added 12 → Amphibian Respiratory System- Cutaneous Respiration (Medium)
+15:46:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:46:46  INFO      AI added 15 → Amphibian Respiratory System- Cutaneous Respiration (Prevalence)
+15:46:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:46:48  INFO      AI added 9 → Amphibian Respiratory System- Cutaneous Respiration Regulation
+15:47:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:06  INFO      AI added 10 → Amphibian Respiratory System- External Gills
+15:47:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:12  INFO      AI added 8 → Amphibian Respiratory System- Gill Irrigation
+15:47:19  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:19  INFO      AI added 7 → Amphibian Respiratory System- Gill Size and Oxygen Availability
+15:47:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:25  INFO      AI added 7 → Amphibian Respiratory System- Gill Support Mechanism
+15:47:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:36  INFO      AI added 8 → Amphibian Respiratory System- Gills in Larval Stages
+15:47:36  INFO      AI added 9 → Amphibian Respiratory System- Gills in Adult Salamanders
+15:47:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:39  INFO      AI added 6 → Amphibian Respiratory System- Lung Faveoli
+15:47:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:43  INFO      AI added 9 → Amphibian Respiratory System- Pulmonary Respiration (Prevalence)
+15:47:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:45  INFO      AI added 4 → Amphibian Respiratory System- Trachea Structure
+15:47:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:48  INFO      AI added 7 → Amphibian Respiratory System- Trunk Muscles in Expiration
+15:47:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:55  INFO      AI added 13 → Amphibian Respiratory System- Unique Epidermal Capillaries in Lungless Salamanders
+15:47:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:47:58  INFO      AI added 6 → Amplification of Stimuli by Nerve Fibers
+15:49:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 502 Bad Gateway"
+15:50:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:50:02  INFO      AI added 6 → Anaemia- Regeneration
+15:52:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+15:52:58  WARNING   [Anaerobic Respiration in Shock] cloud busy, retry in 5.1s…
+15:53:33  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:53:33  INFO      AI added 5 → Anaerobic Bacteria & Spores
+15:54:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:54:32  INFO      AI added 13 → Anaemia Clinical Signs
+15:56:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:56:21  INFO      AI added 11 → Anaesthesia Planning- Oropharyngeal Cases
+15:57:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:57:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:57:28  INFO      AI added 8 → Anaerobic Respiration in Shock
+15:57:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:57:32  INFO      AI added 13 → Anaesthesia Principles - Avian Considerations
+15:57:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:57:34  INFO      AI added 15 → Anaesthesia Principles – Avian Anaesthesia
+15:57:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:57:38  INFO      AI added 12 → Anaesthesia Risks in Exotic Species - Mortality Rates
+15:57:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:57:41  INFO      AI added 14 → Anaesthetic Breathing System- Key Definitions
+15:57:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:57:42  INFO      AI added 10 → Anaesthetic Drug Calculations & Drawing
+15:57:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:57:45  INFO      AI added 9 → Anaesthetic Drug Calculations and Drawing
+15:57:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:57:50  INFO      AI added 17 → Anaesthetic Induction Methods
+15:58:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:58:02  INFO      AI added 15 → Anaesthetic Induction Routes Overview
+15:58:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:58:24  INFO      AI added 7 → Anaesthetic Induction via Face Mask
+15:58:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:58:28  INFO      AI added 8 → Anaesthetic Induction via Gas Chamber
+15:58:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:58:31  INFO      AI added 10 → Anaesthetic Machine Components
+15:59:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:59:12  INFO      AI added 5 → Anaesthetic Gas Scavenging
+15:59:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:59:22  INFO      AI added 12 → Anaesthetic Machine Safety Features
+15:59:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:59:43  INFO      AI added 9 → Anaesthetic Machine- Flowmeter (Rotameter)
+15:59:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:59:48  INFO      AI added 11 → Anaesthetic Machine- Non-return Pressure Relief Safety Valve
+16:01:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:01:16  INFO      AI added 12 → Anaesthetic Machine- Oxygen Cylinder Yolk
+16:02:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:02:03  INFO      AI added 8 → Anaesthetic Machine- Pressure Gauge
+16:02:13  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:02:13  INFO      AI added 9 → Anaesthetic Machine- Vaporizer
+16:02:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:02:55  INFO      AI added 7 → Anaesthetic Machine- Pressure Regulator
+16:02:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:02:56  INFO      AI added 9 → Anaesthetic Mechanism - GABA Agonists
+16:03:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:03:59  INFO      AI added 7 → Anaesthetic Risk in Horses - Mortality Rates
+16:04:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:04:31  INFO      AI added 8 → Anaesthetic Risk - Colic
+16:05:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:05:14  INFO      AI added 13 → Anaesthetic Vaporizer- Mechanism and Features
+16:05:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:05:16  INFO      AI added 14 → Analgesic Agents Used in Practice
+16:05:19  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:05:19  INFO      AI added 13 → Anat10008 - Anatomical Directions
+16:05:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:05:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:05:27  INFO      AI added 17 → ANAT10008 - Appendicular Skeleton
+16:05:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:05:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:05:55  INFO      AI added 11 → ANAT10008 - Bones Overview
+16:05:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:05:58  INFO      AI added 8 → ANAT10008 - Caudal Vena Cava
+16:06:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:06:01  INFO      AI added 10 → ANAT10008 - Cranial Vena Cava
+16:06:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:06:05  INFO      AI added 5 → ANAT10008 - Definition
+16:06:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:06:10  INFO      AI added 11 → ANAT10008 - Neural Crest Cells
+16:06:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:06:15  INFO      AI added 12 → ANAT10008 - Pulmonary Arteries
+16:07:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:07:12  INFO      AI added 16 → ANAT10008 - Pulmonary Veins
+16:07:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:07:16  INFO      AI added 8 → ANAT10008 - Quadruped Directional Terms
+16:11:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:11:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:11:25  INFO      AI added 19 → ANAT10008 - Peripheral Nervous System Overview
+16:12:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+16:12:16  WARNING   [Anat10008- Function of the Bladder Lining] cloud busy, retry in 5.3s…
+16:12:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:12:31  INFO      AI added 7 → ANAT10008 Course Overview
+16:13:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:13:31  INFO      AI added 7 → Anat10008-Definition- Example - Bladder Lining
+16:13:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:13:36  INFO      AI added 9 → ANAT10008 Overview
+16:13:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:13:46  INFO      AI added 9 → ANAT10008
+16:14:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:14:06  INFO      AI added 7 → Anat10008- Function of the Bladder Lining
+16:14:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:14:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:14:18  INFO      AI added 21 → ANAT10009 Course Overview
+16:15:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:15:39  INFO      AI added 31 → ANAT10009 Course Files - Dataview Table
+16:15:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:15:59  INFO      AI added 21 → ANAT10009 Course Topics
+16:16:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:16:35  INFO      AI added 10 → ANAT10009 Overview
+16:16:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:16:43  INFO      AI added 12 → ANAT10009 Definition
+16:16:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:17:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:17:15  INFO      AI added 11 → ANAT10009- Definition
+16:17:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:17:39  INFO      AI added 14 → ANAT10009- Human Female Reproductive Tract Overview
+16:17:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:17:51  INFO      AI added 8 → ANAT20001 Postcranial Identification - Ribs
+16:18:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:18:06  INFO      AI added 7 → ANAT20001 Postcranial Identification - Sternum
+16:18:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:18:15  INFO      AI added 9 → ANAT20001 Skull Identification - Artiodactyla (Even-toed) - General Ruminant Features
+16:18:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:18:23  INFO      AI added 9 → ANAT20001 Skull Identification - Bovidae (CowsSheep)
+16:18:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:18:48  INFO      AI added 10 → ANAT20001 Skull Identification - Canidae (DogsFoxes)
+16:19:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:19:12  INFO      AI added 10 → ANAT20001 Skull Identification - Felidae (Cats)
+16:21:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:21:16  INFO      AI added 9 → ANAT20001 Skull Identification - Order Carnivora General Features
+16:23:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+16:23:49  WARNING   [ANAT20001 Skull Identification - Order Rodentia General Features] cloud busy, retry in 5.3s…
+16:24:13  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+16:24:13  WARNING   [ANAT20001 Skull Identification - Order Soricomorpha (ShrewsMoles) General Features] cloud busy, retry in 6.4s…
+16:25:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:25:05  INFO      AI added 9 → ANAT20001 Skull Identification - Cervidae (Deer)
+16:28:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+16:28:05  INFO      AI added 9 → ANAT20001 Skull Identification - Order Lagomorpha (RabbitsHares)
+16:29:19  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 429 Too Many Requests"
+16:29:19  WARNING   [ANAT20001 Skull Identification - Order Soricomorpha (ShrewsMoles) General Features] cloud busy, retry in 10.8s…
+18:46:21  INFO      OLLAMA_API_KEY detected — cloud-first execution.
+18:46:24  INFO      
+==================================================
+=== PHASE 4: AI Semantic Linking ===
+==================================================
+18:46:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:46:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:46:32  INFO      AI added 11 → ANAT20001 Skull Identification - Order Rodentia General Features
+18:46:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:46:35  INFO      AI added 7 → ANAT20001 Skull Identification - Rodentia Suborder Myomorpha (RatsMice)
+18:46:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:46:54  INFO      AI added 8 → ANAT20001 Skull Identification - Order Soricomorpha (ShrewsMoles) General Features
+18:46:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:46:56  INFO      AI added 5 → ANAT20001 Skull Identification - Rodentia Suborder Sciuromorpha (Squirrels)
+18:47:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:47:00  INFO      AI added 6 → ANAT20001 Skull Identification - Soricidae (Shrews)
+18:47:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:47:05  INFO      AI added 10 → ANAT20001 Skull Identification - Suidae (Pigs)
+18:47:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:47:08  INFO      AI added 8 → ANAT20001 Skull Identification - Talpidae (Moles)
+18:47:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:47:20  INFO      AI added 11 → ANAT20001 Skull Identification - Perissodactyla (Odd-toed) - Equidae (Horses)
+18:47:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:47:56  INFO      AI added 14 → ANAT20001 Skull Identification - Ungulates (Hoofed Mammals) Overview
+18:49:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:49:29  INFO      AI added 37 → ANAT20001 Skull Morphology - Adaptations and Influences
+18:49:49  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:49:49  INFO      AI added 8 → ANAT20001 Taphonomy - Definition and Processes Affecting Bones
+18:50:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:50:26  INFO      AI added 33 → ANAT20001 Species Identification Through Bone and Dentition - Overview
+18:50:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:50:52  INFO      AI added 7 → Anatomic Shunt - Physiological Mechanism
+18:51:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:51:20  INFO      AI added 11 → Anatomical Challenges - Size Variation & Examination Difficulty
+18:51:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:51:36  INFO      AI added 16 → Anatomical Basis of BOAS- Skull and Soft Tissue
+18:52:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:52:00  INFO      AI added 8 → Anatomical Challenges in Exotic Anaesthesia
+18:52:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:52:04  INFO      AI added 8 → Anatomical Classification- Domains & Kingdoms
+18:52:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:52:48  INFO      AI added 15 → Anatomical Directions - Caudal
+18:53:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:53:02  INFO      AI added 12 → Anatomical Directions - Cranial
+18:53:19  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:53:19  INFO      AI added 11 → Anatomical Directions - Dorsal
+18:53:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:53:55  INFO      AI added 11 → Anatomical Directions - Lateral
+18:54:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:54:24  INFO      AI added 28 → Anatomical Directions - Distal
+18:54:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:54:24  INFO      AI added 12 → Anatomical Directions - Medial
+18:54:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:54:56  INFO      AI added 11 → Anatomical Directions - Ventral
+18:55:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:55:02  INFO      AI added 13 → Anatomical Directions - Proximal
+18:55:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:55:38  INFO      AI added 9 → Anatomical Movements- Abduction
+18:55:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:55:39  INFO      AI added 11 → Anatomical Directions
+18:55:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:55:51  INFO      AI added 6 → Anatomical Movements- Adduction
+18:56:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:56:08  INFO      AI added 14 → Anatomical Movements- Extension
+18:56:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:56:24  INFO      AI added 12 → Anatomical Movements- Flexion
+18:56:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:56:27  INFO      AI added 7 → Anatomical Movements- Pronation
+18:56:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:56:42  INFO      AI added 7 → Anatomical Movements- Supination
+18:56:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:56:42  INFO      AI added 3 → Anatomical Position
+18:57:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:57:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:57:26  INFO      AI added 7 → Anatomy and Features of Endotracheal Tubes
+18:57:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:57:50  INFO      AI added 4 → Anatomy of the Chelonian Shell
+18:58:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:58:02  INFO      AI added 4 → Anatomy of the Ear - Middle Ear
+18:58:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:58:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:58:15  INFO      AI added 9 → Anatomy of the Tongue
+18:58:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:58:28  INFO      AI added 16 → Ancestral & Feral Horse Group Living
+18:58:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:58:34  INFO      AI added 9 → Ancestral Feline Social Structure
+18:58:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:58:39  INFO      AI added 6 → Ancestral Origins of Domestic Dogs- The Wolf
+18:58:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:58:39  INFO      AI added 6 → Ancestral Wolf Behavior
+18:58:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:58:50  INFO      AI added 2 → Ancient Beliefs Regarding Rabbit Consumption
+18:59:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:59:07  INFO      AI added 6 → Ancillary Diagnostic Testing - Purpose and Considerations
+18:59:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:59:08  INFO      AI added 14 → Ancillary Diagnostic Testing - Purpose & Decision Making
+18:59:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:59:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+18:59:34  INFO      AI added 12 → Anconeus - Elbow Joint Stabilizer
+18:59:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:00:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:00:03  INFO      AI added 9 → Androgen Effect in Males
+19:00:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:00:58  INFO      AI added 10 → Androgen Production
+19:01:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:01:23  INFO      AI added 10 → Androgens Release
+19:01:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:01:41  INFO      AI added 7 → Angiotensin II Actions via AT1 Receptors in Kidney
+19:01:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:01:42  INFO      AI added 6 → Angiotensinogen and Angiotensin I Synthesis
+19:01:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:01:43  INFO      AI added 2 → Animal Pelvic Relations – Image Reference
+19:02:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:02:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:02:17  INFO      AI added 10 → Animal Welfare Act 2006 - Legal Duty of Care
+19:02:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:02:21  INFO      AI added 6 → Animal Welfare Act 2006 - Legal Duty
+19:02:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:02:25  INFO      AI added 8 → Animal Welfare Act 2006- Duty of Care
+19:02:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:02:28  INFO      AI added 7 → Anisodactyl Foot Morphology in Birds
+19:02:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:02:47  INFO      AI added 5 → Anorectal Canal Anatomy
+19:02:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:02:47  INFO      AI added 8 → Annular Ligament - Canine Elbow - Function
+19:02:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:03:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:03:12  INFO      AI added 9 → Anorexia and Impactions in Reptiles
+19:03:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:03:31  INFO      AI added 5 → Antagonist Definition
+19:03:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:03:57  INFO      AI added 17 → ANS Pathway
+19:03:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:03:58  INFO      AI added 6 → Antagonists in Anesthesia Recovery
+19:03:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:03:59  INFO      AI added 4 → Anterior Medial Auricle of the Right Atrium
+19:04:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:04:14  INFO      AI added 7 → Anterior Pituitary - Hormonal Control
+19:04:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:04:16  INFO      AI added 11 → Anterior Pituitary Corticotropinophorous Zone
+19:04:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:04:27  INFO      AI added 11 → Anterior Pituitary Hormones
+19:04:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:04:29  INFO      AI added 21 → Anterior Pituitary Hormones - FSH, LH, and Prolactin
+19:04:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:04:29  INFO      AI added 2 → Anterior
+19:04:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:04:35  INFO      AI added 17 → Anterolateral Abdominal Wall Muscles - Overview
+19:04:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:04:46  INFO      AI added 17 → Anti-Epileptic Drug (AED) Therapy - Aims and Goals
+19:05:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:05:10  INFO      AI added 12 → Anti-Epileptic Drug (AED) Therapy - Aims
+19:06:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:06:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:06:41  INFO      AI added 5 → Antibiotic Resistance (Definition)
+19:06:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:06:42  INFO      AI added 10 → Antibiotic Classification- Bacteriostatic vs. Bacteriocidal
+19:06:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:06:50  INFO      AI added 9 → Antibiotic Resistance - A Growing Threat
+19:06:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:06:51  INFO      AI added 9 → Antibiotic Resistance- Triple Threat
+19:07:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:07:00  INFO      AI added 8 → Antibiotic Stewardship and Resistance in Veterinary Medicine
+19:07:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:07:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:07:35  INFO      AI added 5 → Antibody Isotypes - Properties
+19:07:45  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:07:45  INFO      AI added 1 → Antibody Isotypes
+19:08:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:00  INFO      AI added 7 → Antiseptic Definition
+19:08:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:01  INFO      AI added 14 → Antidiuretic Hormone (ADH) Release
+19:08:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:17  INFO      AI added 6 → Antlers vs. Horns - Comparative Analysis
+19:08:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:18  INFO      AI added 6 → Antlers vs. Horns- Structural and Growth Differences
+19:08:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:24  INFO      AI added 6 → Anura External Anatomy- Absence of External Gills
+19:08:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:24  INFO      AI added 10 → Anura - Frog and Toad Anatomy
+19:08:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:26  INFO      AI added 4 → Anura External Anatomy- Eyelids
+19:08:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:27  INFO      AI added 6 → Anura External Anatomy- Locomotion Adaptations
+19:08:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:43  INFO      AI added 4 → Anura External Anatomy- Skin Texture
+19:08:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:08:44  INFO      AI added 7 → Anura External Anatomy- Size Range
+19:09:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:09:03  INFO      AI added 4 → Anura External Anatomy- Tympanic Membrane
+19:09:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:09:15  INFO      AI added 12 → Anura External Anatomy- Tail-less Adults
+19:09:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:09:26  INFO      AI added 8 → Anura External Anatomy
+19:09:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:09:34  INFO      AI added 6 → Anura Locomotion- Jumping Adaptations
+19:10:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:10:01  INFO      AI added 5 → Anura Skeletal System- Absence of Ribs
+19:10:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:10:10  INFO      AI added 15 → Anura Skeletal System- Absence of Hard Palate
+19:10:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:10:12  INFO      AI added 4 → Anura Skeletal System- Digit Count
+19:10:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:10:12  INFO      AI added 3 → Anura Skeletal System- Tadpole Limb Regeneration
+19:10:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:10:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:10:29  INFO      AI added 7 → Anuran Male Anatomy- Vocal Sacs (Oral Cavity Connection)
+19:10:29  INFO      AI added 7 → Anura Skeletal System- Vertebral Column and Urostyle
+19:10:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:10:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:10:44  INFO      AI added 7 → Anuran Reproduction- External Fertilization
+19:11:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:11:00  INFO      AI added 8 → Anus - Function
+19:11:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:11:03  INFO      AI added 12 → Anus - Internal Anal Sphincter
+19:11:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:11:08  INFO      AI added 5 → Anxiety- Anticipatory Fear
+19:11:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:11:08  INFO      AI added 14 → Anxiety Defined
+19:11:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:11:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:11:54  INFO      AI added 13 → Anxiety- Anticipatory Negative Outcome
+19:12:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:12:04  INFO      AI added 11 → Aorta Location
+19:12:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:12:04  INFO      AI added 9 → Aorta Origin
+19:12:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:12:37  INFO      AI added 7 → Aortic Arch - Primary Branches
+19:13:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:13:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:14:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:14:29  INFO      AI added 9 → Aortic Branching Pattern
+19:14:33  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:14:33  INFO      AI added 8 → Aortic Orifice and Aorta
+19:14:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:14:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:14:56  INFO      AI added 15 → Aortic Stenosis (Congenital)
+19:14:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:14:58  INFO      AI added 16 → Aortic Stenosis - Subaortic Form
+19:15:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:15:22  INFO      AI added 15 → Aortic Stenosis in Veterinary Patients
+19:15:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:15:37  INFO      AI added 13 → Aortic Stenosis
+19:15:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:15:42  INFO      AI added 8 → Aortic Valve
+19:15:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:15:42  INFO      AI added 7 → Aortic Vestibule - Smooth Wall Structure
+19:15:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:15:44  INFO      AI added 4 → AP Propagation - Inhibition
+19:15:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:15:46  INFO      AI added 9 → Aortic Vestibule Characteristics
+19:16:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+19:16:10  INFO      AI added 11 → AP Propagation in Cardiac Myocytes
+14:44:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:44:43  INFO      AI added 5 → Assessing Pruritis (Itching) in Animals
+14:44:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:44:46  INFO      AI added 19 → Assessing Pain - Demeanour & Signs
+14:44:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:44:47  INFO      AI added 11 → Assessing Pain in Horses- Demeanour Changes
+14:44:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:44:55  INFO      AI added 8 → Assessing Ventilation Effort in Pre-operative Patients
+14:45:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:02  INFO      AI added 4 → Assessing Lameness During a Trot-Up
+14:45:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:02  INFO      AI added 5 → Assessment Complications - Dehydration
+14:45:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:05  INFO      AI added 6 → Assisted Feeding - Initial Approach
+14:45:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:07  INFO      AI added 12 → Assisted Ambulation for Paretic-Plegic Patients
+14:45:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:08  INFO      AI added 8 → Assisted Feeding Techniques
+14:45:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:15  INFO      AI added 9 → Associative Learning Types
+14:45:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:15  INFO      AI added 9 → Assisted Feeding
+14:45:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:22  INFO      AI added 14 → Associative Learning- Classical and Operant Conditioning
+14:45:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:22  INFO      AI added 7 → AST Liver Parameter
+14:45:23  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:23  INFO      AI added 2 → Atomic Notes (Zettels)
+14:45:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:24  INFO      AI added 2 → Atomic notes
+14:45:27  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:27  INFO      AI added 8 → Atrial Excitation and Contraction
+14:45:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:28  INFO      AI added 8 → Atrial Excitation Wave
+14:45:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:31  INFO      AI added 10 → Atrial Natriuretic Peptide (ANP)
+14:45:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:31  INFO      AI added 10 → Atrial Fibrillation (AF) in ECG
+14:45:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:54  INFO      AI added 14 → Atrial Systole and Electrical Conduction
+14:45:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:45:57  INFO      AI added 8 → Atrium Receives Blood from Multiple Sources
+14:46:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:01  INFO      AI added 6 → Auditory Communication - Range of Frequencies
+14:46:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:04  INFO      AI added 10 → Auditory Communication in Dogs
+14:46:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:07  INFO      AI added 5 → Autoclave Maintenance & Monitoring
+14:46:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:07  INFO      AI added 11 → Atrial Systole and Gap Junctions
+14:46:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:09  INFO      AI added 8 → Autoclave Maintenance and Monitoring
+14:46:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:11  INFO      AI added 7 → Autoclave Operation and Maintenance
+14:46:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:17  INFO      AI added 30 → Autonomic (Parasympathetic) Cranial Nerves
+14:46:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:21  INFO      AI added 9 → Autonomic Control of Salivary Secretion
+14:46:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:31  INFO      AI added 22 → Autonomic Effectors
+14:46:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:34  INFO      AI added 33 → Autonomic Nervous System (ANS)
+14:46:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:35  INFO      AI added 14 → Autonomic Nervous System - Motor Division
+14:46:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:42  INFO      AI added 29 → Autonomic Nervous System Divisions
+14:46:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:44  INFO      AI added 33 → Autonomic Nervous System Overview
+14:46:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:46  INFO      AI added 10 → Autonomic Nervous System Response to Exercise
+14:46:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:51  INFO      AI added 14 → Autonomic Neuron Types
+14:46:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:51  INFO      AI added 21 → Autonomic Nervous System
+14:46:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:56  INFO      AI added 14 → Autonomic Reflexes and Visceral Activity
+14:46:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:46:59  INFO      AI added 14 → Autonomic Plexuses- Coeliac and Myenteric
+14:47:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:03  INFO      AI added 11 → Autonomic Synaptic Transmitters and Receptor Types
+14:47:11  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:11  INFO      AI added 12 → Autonomic Synaptic Transmitters and Receptors
+14:47:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:14  INFO      AI added 34 → Autonomic Reflexes
+14:47:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:16  INFO      AI added 12 → Autoregulation of Renal Blood Flow and GFR
+14:47:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:19  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:19  INFO      AI added 10 → AV Node Location
+14:47:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:21  INFO      AI added 15 → Avian - Digestive System
+14:47:22  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:22  INFO      AI added 7 → Avian Air Sac System
+14:47:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:26  INFO      AI added 13 → Avian Anaesthetic Considerations- Handling and Airway
+14:47:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:26  INFO      AI added 13 → Avian Anaesthesia Recovery Steps
+14:47:30  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:30  INFO      AI added 9 → Avian Anaesthetic Induction Inhalational vs. Injectable
+14:47:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:31  INFO      AI added 9 → Avian Anaesthetic Considerations- Monitoring and Zoonosis
+14:47:33  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:33  INFO      AI added 5 → Avian Axial Skeleton- Vertebrae and Ribs
+14:47:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:35  INFO      AI added 5 → Avian Beak - Structure
+14:47:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:37  INFO      AI added 4 → Avian Beak Structure (Rhampotheca)
+14:47:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:38  INFO      AI added 23 → Avian Anaesthetic Maintenance Circuit and Ventilation
+14:47:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:41  INFO      AI added 8 → Avian Blood Collection Sites, Volume, and Hematology Considerations
+14:47:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:41  INFO      AI added 6 → Avian Body Condition Scoring (BCS)
+14:47:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:44  INFO      AI added 7 → Avian Ceca
+14:47:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:44  INFO      AI added 9 → Avian Cloaca - Coprodeum
+14:47:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:47  INFO      AI added 5 → Avian Cloaca - Proctodeum
+14:47:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:47  INFO      AI added 5 → Avian Cloaca - Structure
+14:47:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:51  INFO      AI added 10 → Avian Cloaca - Urodeum
+14:47:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:52  INFO      AI added 10 → Avian Cloaca Overview
+14:47:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:55  INFO      AI added 13 → Avian Colon, Rectum, and Vent
+14:47:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:56  INFO      AI added 8 → Avian Cranial Kinesis- Mechanisms and Types
+14:47:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:58  INFO      AI added 6 → Avian Duodenum and Pancreas
+14:47:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:47:59  INFO      AI added 11 → Avian Digestive Tract - Accessory Organs
+14:48:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:48:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:48:06  INFO      AI added 5 → Avian Egg Characteristics
+14:48:07  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:48:07  INFO      AI added 7 → Avian Enrichment Foraging and Behavioral Health
+14:48:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:48:10  INFO      AI added 6 → Avian Esophagus - Crop Formation
+14:48:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:48:14  INFO      AI added 10 → Avian Eye Characteristics
+14:49:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:02  INFO      AI added 13 → Avian Euthanasia Methods
+14:49:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:04  INFO      AI added 11 → Avian Eye Features - General
+14:49:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:08  INFO      AI added 9 → Avian Eye Features - Morphology
+14:49:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:08  INFO      AI added 7 → Avian Eye Shapes by Species
+14:49:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:12  INFO      AI added 9 → Avian Feather Function and Structure
+14:49:13  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:13  INFO      AI added 14 → Avian Fasting Guidelines Before Anaesthesia
+14:49:15  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:15  INFO      AI added 5 → Avian Flight Muscles
+14:49:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:50  INFO      AI added 2 → Avian Female Reproductive Tract
+14:49:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:51  INFO      AI added 4 → Avian Feather Functions
+14:49:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:54  INFO      AI added 6 → Avian Foot Morphology and Function
+14:49:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:57  INFO      AI added 5 → Avian Foot Stance Variations
+14:49:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:49:58  INFO      AI added 13 → Avian Fluid Therapy Maintenance and Dehydration Replacement
+14:50:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:50:03  INFO      AI added 12 → Avian Heart Anatomy and Circulation
+14:50:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:50:04  INFO      AI added 18 → Avian Heart - Structure and Circulation
+14:50:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:50:24  INFO      AI added 8 → Avian Husbandry Bathing and Misting
+14:50:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:50:26  INFO      AI added 10 → Avian Husbandry Common Issues
+14:50:30  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:50:30  INFO      AI added 11 → Avian Intubation Glottis, Tube Type, and Complications
+14:50:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:50:31  INFO      AI added 10 → Avian Jejunum, Ileum, and Vitelline Diverticulum
+14:51:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:09  INFO      AI added 8 → Avian Liver - Lobes and Gallbladder
+14:51:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:09  INFO      AI added 9 → Avian Kidneys
+14:51:12  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:12  INFO      AI added 5 → Avian Lungs Structure
+14:51:14  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:14  INFO      AI added 9 → Avian Liver and Gallbladder
+14:51:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:17  INFO      AI added 7 → Avian Major Arteries
+14:51:18  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:18  INFO      AI added 6 → Avian Microchipping – Procedure
+14:51:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:20  INFO      AI added 7 → Avian Microchipping
+14:51:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:21  INFO      AI added 6 → Avian Oesophagus and Crop
+14:51:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:24  INFO      AI added 13 → Avian Oropharynx Structures
+14:51:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:25  INFO      AI added 11 → Avian Ovary and Reproductive Cycle (Female)
+14:51:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:29  INFO      AI added 15 → Avian Oviduct - Egg Formation
+14:51:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:32  INFO      AI added 9 → Avian Oviduct Sections
+14:51:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:34  INFO      AI added 6 → Avian Patagia (Wing Web)
+14:51:37  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:37  INFO      AI added 8 → Avian Pecten Oculi
+14:51:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:39  INFO      AI added 5 → Avian Pectoral Girdle and Wing Muscles
+14:51:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:43  INFO      AI added 4 → Avian Oviduct Function
+14:51:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:43  INFO      AI added 5 → Avian Pelvic Girdle and Limb Adaptations
+14:51:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:46  INFO      AI added 10 → Avian Perching Natural Branches vs. Dowels
+14:51:50  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:51:50  INFO      AI added 5 → Avian Phallus - Absence in Some Species
+14:52:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:52:25  INFO      AI added 4 → Avian Phallus
+14:52:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:52:35  INFO      AI added 7 → Avian Photoperiod 12-Hour Cycle
+14:53:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:53:20  INFO      AI added 6 → Avian Respiratory Pathway
+14:53:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:53:52  INFO      AI added 9 → Avian Pelvic Limb Bones
+14:54:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:54:09  INFO      AI added 8 → Avian Scleral Ossicles
+14:54:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:54:24  INFO      AI added 11 → Avian Respiratory System Overview
+14:54:39  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:54:39  INFO      AI added 10 → Avian Skeleton - Key Features
+14:54:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:54:46  INFO      AI added 10 → Avian Skeleton- General Adaptations for Flight
+14:54:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:54:57  INFO      AI added 7 → Avian Skull- Key Anatomical Features
+14:54:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:54:58  INFO      AI added 5 → Avian Spleen Location
+14:55:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:55:08  INFO      AI added 6 → Avian Sternum and Carina
+14:55:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:55:24  INFO      AI added 14 → Avian Stomach (Proventriculus & Gizzard)
+14:55:46  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:55:46  INFO      AI added 10 → Avian Stomach - Digestive Processes
+14:55:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:55:56  INFO      AI added 8 → Avian Stomach - Proventriculus and Gizzard
+14:56:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:03  INFO      AI added 7 → Avian Syrinx (Voice Box)
+14:56:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:06  INFO      AI added 5 → Avian Trachea
+14:56:06  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:06  INFO      AI added 4 → Avian Trauma Constriction Injuries from Leg Bands
+14:56:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:21  INFO      AI added 10 → Avian Trauma Hemorrhage Control
+14:56:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:21  INFO      AI added 8 → Avian Trauma Fracture Management
+14:56:25  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:25  INFO      AI added 7 → Avian Urinary System - Kidney Features
+14:56:30  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:30  INFO      AI added 8 → Avian Urinary Tract
+14:56:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:34  INFO      AI added 3 → Avian Uropygial Gland (Preen Gland)
+14:56:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:47  INFO      AI added 10 → Avian UVB Lighting Vitamin D3 and Vision
+14:56:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:51  INFO      AI added 7 → Avian Vasculature - Wing Supply
+14:56:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:53  INFO      AI added 5 → Avian Venous Access Sites
+14:56:54  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:54  INFO      AI added 5 → Avian Wing Bones and Structure
+14:56:58  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:58  INFO      AI added 7 → Avian Zoonotic Diseases Chlamydiosis (Psittacosis)
+14:56:59  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:56:59  INFO      AI added 8 → AVN Location and Structure
+14:57:43  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:43  INFO      AI added 11 → AVN's Role in Conduction
+14:57:48  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:48  INFO      AI added 11 → Avoid Drug Therapy for Weight Loss
+14:57:56  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:57:56  INFO      AI added 12 → Axial Skeleton Structure
+14:58:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:01  INFO      AI added 8 → Axillary Artery (Canine)
+14:58:01  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:01  INFO      AI added 9 → Azotaemia- Indicator of Renal Disease
+14:58:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:05  INFO      AI added 5 → Azygous Veins - Species Variations
+14:58:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:20  INFO      AI added 9 → Azygous Vein- Species Variation and Drainage (ANAT20007)
+14:58:35  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:35  INFO      AI added 4 → Babcock Tissue Forceps
+14:58:41  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:41  INFO      AI added 9 → Babesiosis (Babesia spp.) in Pets
+14:58:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:42  INFO      AI added 1 → Back-and-Forth Application - Scientific Rationale
+14:58:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:47  INFO      AI added 10 → Backhaus Towel Clip
+14:58:52  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:52  INFO      AI added 9 → Bacteria and Their Growth in the Intestine
+14:58:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:58:57  INFO      AI added 8 → Bacteria Forms - Vegetative & Spores
+14:59:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:03  INFO      AI added 7 → Bacterial Characteristics
+14:59:03  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:09  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:09  INFO      AI added 11 → Bacterial Enterocolitis & AHDS - Key Principles
+14:59:13  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:13  INFO      AI added 6 → Bacterial Morphology - Cocci and Bacilli
+14:59:16  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:16  INFO      AI added 5 → Bacterial Morphology
+14:59:20  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:20  INFO      AI added 9 → Bacterial Plasma Membrane - Function and Structure
+14:59:26  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:26  INFO      AI added 9 → Bacterial Respiration - Types of Aerobes
+14:59:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:28  INFO      AI added 8 → Bacterial Shapes and Examples
+14:59:30  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:30  INFO      AI added 13 → Bacterial Swabs, Cytology, Culture & Sensitivity in Ophthalmology
+14:59:31  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:31  INFO      AI added 4 → Badger and Fox Care
+14:59:34  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:34  INFO      AI added 13 → Bacterial Transmission, Treatment, and Prevention
+14:59:38  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:39  INFO      AI added 7 → Bain Breathing System
+14:59:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:44  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:47  INFO      AI added 5 → Barking and Howling in Dogs
+14:59:47  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:47  INFO      AI added 7 → Baroreceptor Controversy
+14:59:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:51  INFO      AI added 11 → Baroreceptor Reflex - Afferent Pathways
+14:59:53  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:53  INFO      AI added 8 → Baroreceptor Reflex - BP Response
+14:59:57  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+14:59:57  INFO      AI added 13 → Baroreceptor Reflex - Receptors and Signaling
+15:00:00  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:00  INFO      AI added 7 → Baroreceptor Resetting - Controversial Role
+15:00:02  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:03  INFO      AI added 10 → Barraquer Eye Speculum - Ophthalmic Surgery
+15:00:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:04  INFO      AI added 12 → Barraquer Eye Speculum
+15:00:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:05  INFO      AI added 7 → Basal Nuclei Dysfunction - Parkinson's
+15:00:08  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:09  INFO      AI added 11 → Basic Definitions of Locomotion (ANAT20001)
+15:00:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:24  INFO      AI added 8 → Basic Formula for Veterinary Drug Dosage (ABC Method)
+15:00:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:28  INFO      AI added 9 → Basic Gait Patterns
+15:00:42  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:00:42  INFO      AI added 10 → Basic Management Techniques- Topical Agents
+15:01:17  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:17  INFO      AI added 8 → Basic Management Techniques- Dressing Selection
+15:01:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:21  INFO      AI added 14 → Basic Management Techniques- Wound Lavage
+15:01:21  INFO      AI added 17 → Basic Management Techniques- Wound Assessment
+15:01:51  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:01:51  INFO      AI added 9 → Basic Pain Scoring Scales in Veterinary Medicine
+15:02:04  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:04  INFO      AI added 6 → Bat Respiratory Efficiency
+15:02:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:10  INFO      AI added 9 → Bedding for Hospitalised Horses
+15:02:21  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:21  INFO      AI added 8 → Behavior Initiation- Context and Trial-and-Error
+15:02:24  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:24  INFO      AI added 7 → Behavioural Implications of Neutering in Dogs
+15:02:28  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:28  INFO      AI added 13 → Behavioural Signs of Pain - Cats
+15:02:29  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:29  INFO      AI added 10 → Behavioral Modification Strategies
+15:02:32  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:32  INFO      AI added 13 → Behavioural Signs of Pain - Dogs
+15:02:36  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:36  INFO      AI added 18 → Behavioural Signs of Pain - Horses
+15:02:55  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:02:55  INFO      AI added 17 → Behavioural Signs of Pain in Cats
+15:03:05  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:03:05  INFO      AI added 12 → Behavioural Signs of Pain in Dogs
+15:03:10  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:03:10  INFO      AI added 20 → Behavioural Signs of Pain in Horses
+15:03:13  INFO      HTTP Request: POST https://ollama.com/api/chat "HTTP/1.1 200 OK"
+15:03:13  INFO      AI added 10 → Behavioural Signs of Pain in Rabbits

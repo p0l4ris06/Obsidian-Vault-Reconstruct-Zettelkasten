@@ -1,0 +1,2470 @@
+16:13:11  CRITICAL  GEMINI_API_KEY environment variable is not set.
+Set it with:  export GEMINI_API_KEY='your-key-here'
+Or place it in a .env file in the same directory as this script.
+16:15:24  CRITICAL  GEMINI_API_KEY environment variable is not set.
+Set it with:  export GEMINI_API_KEY='your-key-here'
+Or place it in a .env file in the same directory as this script.
+14:33:03  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+14:33:03  CRITICAL  Model 'gemma3:4b' is not pulled yet.
+Run:  ollama pull gemma3:4b
+14:40:42  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+14:40:42  INFO      Ollama ready. Model 'gemma3:4b' found.
+14:40:42  INFO      === PHASE 1: Splitting notes into Zettelkasten ===
+14:40:42  INFO      Using model: gemma3:4b
+14:40:42  INFO      Found 607 markdown files.
+14:42:15  INFO      HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+14:42:15  INFO      Ollama ready. Model 'gemma3:4b' found.
+14:42:15  INFO      === PHASE 1: Splitting notes into Zettelkasten ===
+14:42:15  INFO      Using model: gemma3:4b
+14:42:15  INFO      Found 607 markdown files.
+14:43:38  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:43:38  INFO      Split into 5 note(s): Homepage.md
+14:44:44  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:44:44  INFO      Split into 4 note(s): Uncreated files.md
+14:45:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:45:08  INFO      Split into 2 note(s): Vault.md
+14:47:21  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:47:21  INFO      Split into 12 note(s): GI Medicine - Liver Disease.md
+14:51:21  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:51:21  INFO      Split into 11 note(s): ICU Nursing 2.md
+14:53:39  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:53:39  INFO      Split into 5 note(s): Neurology 4 - Physiotherapy.md
+14:59:38  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+14:59:38  INFO      Split into 21 note(s): Surgical Diseases of The Respiratory System.md
+15:00:09  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:00:09  INFO      Split into 3 note(s): CAB Matrix.md
+15:01:01  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:01:01  INFO      Split into 8 note(s): CVNT Assessment One.md
+15:02:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:02:16  INFO      Split into 9 note(s): CVNT Assessment Two.md
+15:06:37  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:06:37  INFO      Split into 9 note(s): Breed and Behaviour.md
+15:09:48  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:09:48  INFO      Split into 7 note(s): Early Behavioural Development.md
+15:15:11  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:15:11  INFO      Split into 6 note(s): Learning Theory 1.md
+15:17:40  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:17:40  INFO      Split into 12 note(s): Motivation and Emotions.md
+15:25:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:25:15  INFO      Split into 12 note(s): Neutering and Behaviour.md
+15:31:52  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:31:52  INFO      Split into 14 note(s): Nutrition and Behaviour.md
+15:38:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:38:02  INFO      Split into 16 note(s): Artiodactyla 1.md
+15:44:27  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:44:27  INFO      Split into 26 note(s): Aves.md
+15:50:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:50:42  INFO      Split into 22 note(s): Carnivora.md
+15:55:28  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:55:28  INFO      Split into 12 note(s): Amphibia.md
+15:58:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+15:58:04  INFO      Split into 15 note(s): Fishes.md
+16:01:54  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:01:54  INFO      Split into 17 note(s): Chelonia.md
+16:06:38  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:06:38  INFO      Split into 15 note(s): Reptilia.md
+16:10:13  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:10:13  INFO      Split into 24 note(s): Squamata.md
+16:16:43  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:16:43  WARNING   [Advanced Skeletal Anatomy.md] Response was not valid JSON (attempt 1/3).
+16:16:43  WARNING   Quarantined: Advanced Skeletal Anatomy.md
+16:25:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:25:08  INFO      Split into 9 note(s): Bones of the Exotics.md
+16:30:36  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:30:36  WARNING   [Comparative Dentition.md] Response was not valid JSON (attempt 1/3).
+16:30:36  WARNING   Quarantined: Comparative Dentition.md
+16:36:26  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:36:26  INFO      Split into 13 note(s): Species ID Through Bone.md
+16:41:29  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:41:29  INFO      Split into 12 note(s): A brief overview of locomotion.md
+16:45:26  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:45:26  INFO      Split into 8 note(s): Head 1.md
+16:51:27  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:51:27  INFO      Split into 23 note(s): Head 2.md
+16:56:35  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+16:56:35  INFO      Split into 14 note(s): Neck and Trunk.md
+17:00:31  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:00:31  INFO      Split into 9 note(s): Distal forelimb.md
+17:03:52  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:03:52  INFO      Split into 8 note(s): Proximal forelimb.md
+17:07:56  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:07:56  WARNING   [Distal hindlimb.md] Response was not valid JSON (attempt 1/3).
+17:07:56  WARNING   Quarantined: Distal hindlimb.md
+17:13:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:13:04  INFO      Split into 11 note(s): Proximal hindlimb.md
+17:18:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:18:16  WARNING   [Comparative Limb 1.md] Response was not valid JSON (attempt 1/3).
+17:18:16  WARNING   Quarantined: Comparative Limb 1.md
+17:23:11  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:23:11  INFO      Split into 18 note(s): Comparative Limb 2.md
+17:26:06  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:26:06  INFO      Split into 11 note(s): Equine Adaptations 1.md
+17:29:25  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:29:25  INFO      Split into 4 note(s): Equine Adaptations 2.md
+17:32:54  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:32:54  WARNING   [Extreme Mammalian Adaptations.md] Response was not valid JSON (attempt 1/3).
+17:32:54  WARNING   Quarantined: Extreme Mammalian Adaptations.md
+17:38:49  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:38:50  WARNING   [Canine Infectious Disease.md] Response was not valid JSON (attempt 1/3).
+17:38:50  WARNING   Quarantined: Canine Infectious Disease.md
+17:43:37  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:43:37  WARNING   [Feline Infection.md] Response was not valid JSON (attempt 1/3).
+17:43:37  WARNING   Quarantined: Feline Infection.md
+17:48:17  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:48:17  INFO      Split into 8 note(s): Infectious Disease Overview.md
+17:52:31  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:52:31  WARNING   [Management of Skin Diseases.md] Response was not valid JSON (attempt 1/3).
+17:52:31  WARNING   Quarantined: Management of Skin Diseases.md
+17:56:22  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:56:23  INFO      Split into 16 note(s): Dermatology 2.md
+17:59:38  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+17:59:38  INFO      Split into 23 note(s): Dermatology.md
+18:04:33  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:04:33  INFO      Split into 21 note(s): Hospitalisation and Nursing of Rabbits.md
+18:08:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:08:08  WARNING   [Hospitalisation and Nursing of Reptiles.md] Response was not valid JSON (attempt 1/3).
+18:08:08  WARNING   Quarantined: Hospitalisation and Nursing of Reptiles.md
+18:12:01  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:12:01  INFO      Split into 13 note(s): Hospitalisation and Nursing of Rodents and Ferrets.md
+18:16:12  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:16:12  INFO      Split into 14 note(s): Wildlife, Fish and Invertebrate Nursing.md
+18:20:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:20:02  INFO      Split into 17 note(s): Clinical Nutrition 1.md
+18:23:00  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:23:00  INFO      Split into 9 note(s): Clinical Nutrition 2.md
+18:26:27  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:26:27  INFO      Split into 18 note(s): Clinical Nutrition 3.md
+18:30:52  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:30:52  INFO      Split into 10 note(s): Surgical Conditions of the Eye.md
+18:35:06  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:35:06  WARNING   [Assisted Feeding.md] Response was not valid JSON (attempt 1/3).
+18:35:06  WARNING   Quarantined: Assisted Feeding.md
+18:39:53  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:39:53  INFO      Split into 4 note(s): Avian Nursing.md
+18:44:51  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:44:52  INFO      Split into 17 note(s): Blood Transfusion.md
+18:48:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:48:43  INFO      Split into 18 note(s): Dentistry.md
+18:53:22  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:53:22  INFO      Split into 5 note(s): GI Medicine.md
+18:58:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+18:58:16  INFO      Split into 6 note(s): ICU 1.md
+19:03:18  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:03:18  INFO      Split into 5 note(s): Infectious Disease of Dogs and Cats.md
+19:06:44  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:06:44  INFO      Split into 8 note(s): Neurology 1 - Seizures.md
+19:10:39  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:10:39  INFO      Split into 12 note(s): Neurology 2 - Seizure Planning.md
+19:14:29  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:14:30  INFO      Split into 28 note(s): Neurology 3 - Patient Considerations.md
+19:19:37  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:19:37  INFO      Split into 6 note(s): Oncology 1.md
+19:23:48  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:23:48  INFO      Split into 12 note(s): Oncology 2.md
+19:28:11  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:28:11  WARNING   [Equine Anaesthesia and Sedation.md] Response was not valid JSON (attempt 1/3).
+19:28:11  WARNING   Quarantined: Equine Anaesthesia and Sedation.md
+19:30:40  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:30:40  INFO      Split into 9 note(s): The Equine Nurse and Management Advice.md
+19:35:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:35:42  INFO      Split into 14 note(s): The Equine Nurse in Theatre.md
+19:41:09  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:41:09  INFO      Split into 12 note(s): The Equine Nurse on the Clinic Floor.md
+19:44:09  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:44:09  INFO      Split into 13 note(s): The Equine Nurse on the Road.md
+19:49:34  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:49:34  INFO      Split into 11 note(s): The Equine Nurse on the Yard.md
+19:54:33  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+19:54:33  WARNING   [Cardiovascular Disease 1.md] Response was not valid JSON (attempt 1/3).
+19:54:33  WARNING   Quarantined: Cardiovascular Disease 1.md
+20:00:07  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:00:07  INFO      Split into 14 note(s): Cardiovascular Disease 2.md
+20:04:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:04:08  INFO      Split into 22 note(s): Minor Surgical Conditions.md
+20:06:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:06:42  INFO      Split into 20 note(s): Orthopaedic Instruments and Implants.md
+20:08:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:08:08  INFO      Split into 6 note(s): Physiology and Patient Assessment.md
+20:11:19  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:11:19  INFO      Split into 18 note(s): Skin Prep.md
+20:13:53  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:13:53  INFO      Split into 10 note(s): Theatre Practice 01.md
+20:15:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:15:42  INFO      Split into 9 note(s): Theatre Practice 02.md
+20:19:34  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:19:34  INFO      Split into 7 note(s): Theatre Practice 03.md
+20:24:48  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:24:48  INFO      Split into 27 note(s): Theatre Practice 04.md
+20:28:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:28:08  INFO      Split into 8 note(s): Theatre Practice 05.md
+20:31:45  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:31:45  INFO      Split into 7 note(s): Urinary Catheters and Catheter Care 1.md
+20:34:46  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:34:46  INFO      Split into 7 note(s): Urinary Catheters and Catheter Care 2.md
+20:38:05  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:38:05  WARNING   [Digital Imaging and Image Quality.md] Response was not valid JSON (attempt 1/3).
+20:38:05  WARNING   Quarantined: Digital Imaging and Image Quality.md
+20:42:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:42:08  INFO      Split into 8 note(s): Limitation of The Primary Beam.md
+20:45:33  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:45:33  INFO      Split into 14 note(s): Properties and Productions of X-Rays.md
+20:46:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:46:02  INFO      Split into 3 note(s): Alfaxalone.md
+20:47:38  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:47:38  INFO      Split into 14 note(s): Alpha-2 agonists.md
+20:51:29  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:51:29  INFO      Split into 9 note(s): Anaesthesia Calculations.md
+20:54:56  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+20:54:56  INFO      Split into 8 note(s): Anaesthesia Preparation.md
+21:00:10  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:00:10  WARNING   [Anaesthetic Equipment and Machines.md] Response was not valid JSON (attempt 1/3).
+21:00:10  WARNING   Quarantined: Anaesthetic Equipment and Machines.md
+21:02:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:02:15  WARNING   [ASA Grading.md] Response was not valid JSON (attempt 1/3).
+21:02:15  WARNING   Quarantined: ASA Grading.md
+21:04:57  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:04:57  INFO      Split into 11 note(s): Assessing Pain.md
+21:06:39  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:06:39  INFO      Split into 13 note(s): Benzodiazepine.md
+21:07:38  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:07:38  INFO      Split into 7 note(s): Butyrophenones.md
+21:10:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:10:16  INFO      Split into 8 note(s): Diagnostics in Fluid Therapy.md
+21:15:52  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:15:52  WARNING   [Exotic Animal Anaesthesia.md] Response was not valid JSON (attempt 1/3).
+21:15:52  WARNING   Quarantined: Exotic Animal Anaesthesia.md
+21:20:52  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:20:52  INFO      Split into 8 note(s): Inducing General Anaesthesia.md
+21:26:17  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:26:17  INFO      Split into 14 note(s): Injectable and Inhalational agents.md
+21:26:52  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:26:52  INFO      Split into 3 note(s): Ketamine.md
+21:27:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:27:16  INFO      Split into 3 note(s): Maintaining General Anaesthesia.md
+21:29:25  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:29:25  INFO      Split into 10 note(s): Pain and Pain Management.md
+21:31:20  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:31:20  INFO      Split into 19 note(s): Phenothiazine.md
+21:33:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:33:04  INFO      Split into 16 note(s): Premedication.md
+21:33:34  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:33:34  INFO      Split into 3 note(s): Propofol.md
+21:36:14  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:36:14  INFO      Split into 10 note(s): Shock.md
+21:37:58  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:37:58  INFO      Split into 7 note(s): Treating Pain.md
+21:43:12  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:43:12  INFO      Split into 12 note(s): Wound Management.md
+21:45:10  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:45:10  INFO      Split into 10 note(s): Pharmacology 1.md
+21:48:34  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:48:34  INFO      Split into 16 note(s): Pharmacology 2.md
+21:52:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:52:16  INFO      Split into 12 note(s): Canine EDESC.md
+21:52:44  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:52:44  INFO      Split into 1 note(s): EDE Introduction.md
+21:55:59  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:55:59  INFO      Split into 12 note(s): Equine EDESC.md
+21:59:05  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+21:59:05  INFO      Split into 22 note(s): Feline EDESC.md
+22:00:46  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:00:46  INFO      Split into 6 note(s): Rabbit EDESC.md
+22:04:55  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:04:55  INFO      Split into 6 note(s): Animal proforma.md
+22:05:20  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:05:20  INFO      Split into 3 note(s): Assignments.md
+22:06:58  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:06:58  INFO      Split into 6 note(s): Physiology Leaflet.md
+22:07:19  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:07:19  INFO      Split into 3 note(s): Reflective Video Presentation.md
+22:13:41  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:13:41  INFO      Split into 7 note(s): Sustainability essay.md
+22:19:25  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:19:25  INFO      Split into 34 note(s): AS1A.md
+22:23:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:23:15  WARNING   [AS1B.md] Response was not valid JSON (attempt 1/3).
+22:23:15  WARNING   Quarantined: AS1B.md
+22:23:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:23:42  INFO      Split into 1 note(s): PPN.md
+22:24:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:24:16  INFO      Split into 6 note(s): PPVN.md
+22:25:31  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:25:31  INFO      Split into 5 note(s): Year 1 Courses.md
+22:25:53  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:25:53  INFO      Split into 1 note(s): AS1A End of Semester 1.md
+22:26:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:26:08  INFO      Split into 2 note(s): AS1B End of Semester 2.md
+22:26:23  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:26:23  INFO      Split into 2 note(s): PHPH10014 End of Semester 2.md
+22:26:44  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:26:44  INFO      Split into 3 note(s): VETS10021 End of Semester 2.md
+22:29:59  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:29:59  INFO      Split into 18 note(s): VETS10021 Practical End of Semester 2.md
+22:35:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:35:02  INFO      Split into 21 note(s): Year 1 PHPH10014 Equations.md
+22:37:50  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:37:50  INFO      Split into 14 note(s): Biochemistry 1.md
+22:40:11  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:40:11  INFO      Split into 24 note(s): Biochemistry 2.md
+22:40:59  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:40:59  INFO      Split into 5 note(s): Biochemistry tubes.md
+22:46:06  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:46:06  INFO      Split into 11 note(s): Avian husbandry and nursing.md
+22:46:57  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:46:57  INFO      Split into 10 note(s): Exotic mammals.md
+22:53:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:53:02  INFO      Split into 16 note(s): Reptile husbandry and nursing.md
+22:55:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:55:08  INFO      Split into 15 note(s): FA 1&2.md
+22:56:12  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:56:12  INFO      Split into 7 note(s): FA 3&4.md
+22:57:33  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+22:57:33  INFO      Split into 9 note(s): Haematology 1.md
+23:01:13  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:01:13  INFO      Split into 18 note(s): Haematology 2.md
+23:05:36  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:05:36  WARNING   [Agents of Disease.md] Response was not valid JSON (attempt 1/3).
+23:05:36  WARNING   Quarantined: Agents of Disease.md
+23:08:23  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:08:23  INFO      Split into 20 note(s): Antiseptics and disinfectants.md
+23:12:31  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:12:31  INFO      Split into 4 note(s): Nosocomial infection.md
+23:15:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:15:08  INFO      Split into 7 note(s): Pathogens of the GI tract.md
+23:19:39  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:19:39  INFO      Split into 19 note(s): Pathogens of the respiratory tract.md
+23:22:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:22:16  INFO      Split into 8 note(s): The Structure of the Immune System.md
+23:22:54  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:22:54  INFO      Split into 6 note(s): Exam discussion.md
+23:24:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:24:04  INFO      Split into 6 note(s): Informed consent and confidentiality.md
+23:28:19  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:28:19  INFO      Split into 15 note(s): Nutrition 1.md
+23:33:11  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:33:11  INFO      Split into 16 note(s): Nutrition 2.md
+23:34:39  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:34:39  INFO      Split into 10 note(s): Parasitology cases.md
+23:36:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:36:16  INFO      Split into 10 note(s): Drug administration.md
+23:42:00  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:42:00  INFO      Split into 8 note(s): Introduction to pharmacy.md
+23:43:34  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:43:34  INFO      Split into 9 note(s): Brachycephalic Obstructive Airway Syndrome.md
+23:44:56  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:44:56  INFO      Split into 5 note(s): Respiratory noise.md
+23:50:11  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:50:11  INFO      Split into 49 note(s): TPR and BP.md
+23:54:36  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:54:36  WARNING   [Urinalysis 1.md] Response was not valid JSON (attempt 1/3).
+23:54:36  WARNING   Quarantined: Urinalysis 1.md
+23:57:22  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:57:22  INFO      Split into 15 note(s): Urinalysis 2.md
+23:58:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+23:58:15  INFO      Split into 6 note(s): Homeostasis.md
+00:00:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:00:02  WARNING   [Neurophysiology 1.md] Response was not valid JSON (attempt 1/3).
+00:00:02  WARNING   Quarantined: Neurophysiology 1.md
+00:01:59  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:02:00  INFO      Split into 11 note(s): Neurophysiology 2.md
+00:04:03  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:04:03  INFO      Split into 16 note(s): Neurophysiology 3.md
+00:05:44  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:05:44  INFO      Split into 13 note(s): Muscle 1.md
+00:08:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:08:16  INFO      Split into 11 note(s): Muscle 2.md
+00:11:03  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:11:03  INFO      Split into 14 note(s): Cardiovascular system 1.md
+00:13:17  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:13:18  INFO      Split into 13 note(s): Cardiovascular system 2.md
+00:16:12  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:16:12  INFO      Split into 11 note(s): Cardiovascular system 3.md
+00:17:38  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:17:38  INFO      Split into 6 note(s): Cardiovascular system 4.md
+00:19:13  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:19:13  INFO      Split into 11 note(s): Exercise physiology.md
+00:21:17  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:21:17  INFO      Split into 13 note(s): Respiratory 1.md
+00:23:43  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:23:43  WARNING   [Respiratory 2.md] Response was not valid JSON (attempt 1/3).
+00:23:43  WARNING   Quarantined: Respiratory 2.md
+00:26:22  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:26:22  INFO      Split into 10 note(s): Respiratory 3.md
+00:30:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:30:42  INFO      Split into 17 note(s): Respiratory 4.md
+00:34:56  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:34:56  INFO      Split into 13 note(s): Digestive system 1.md
+00:37:30  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:37:30  INFO      Split into 20 note(s): Acid base balance introduction.md
+00:39:43  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:39:43  INFO      Split into 11 note(s): Kidney 1.md
+00:42:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:42:04  INFO      Split into 13 note(s): Kidney 2.md
+00:44:49  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:44:49  INFO      Split into 14 note(s): Kidney 3.md
+00:47:11  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:47:11  INFO      Split into 15 note(s): Kidney 4.md
+00:49:51  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:49:51  INFO      Split into 14 note(s): Endocrine 1.md
+00:53:00  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:53:00  INFO      Split into 16 note(s): Endocrine 2.md
+00:57:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+00:57:42  INFO      Split into 29 note(s): Endocrine 3.md
+02:00:24  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:00:24  INFO      Split into 14 note(s): Endocrine 4.md
+02:04:07  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:04:07  INFO      Split into 16 note(s): Reproduction 1.md
+02:08:17  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:08:17  INFO      Split into 15 note(s): Reproduction 2.md
+02:11:55  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:11:55  INFO      Split into 11 note(s): Reproduction 3.md
+02:12:44  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:12:44  INFO      Split into 6 note(s): Breathing .md
+02:14:26  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:14:26  INFO      Split into 7 note(s): Mammalian respiratory tract.md
+02:16:50  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:16:50  INFO      Split into 22 note(s): Lower urinary system.md
+02:18:41  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:18:41  INFO      Split into 8 note(s): Upper urinary tract.md
+02:19:58  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:19:58  INFO      Split into 8 note(s): Digestive system overview.md
+02:22:46  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:22:46  INFO      Split into 19 note(s): Foregut.md
+02:24:49  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:24:49  WARNING   [Hindgut.md] Response was not valid JSON (attempt 1/3).
+02:24:49  WARNING   Quarantined: Hindgut.md
+02:27:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:27:02  INFO      Split into 9 note(s): Midgut.md
+02:27:33  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:27:33  INFO      Split into 2 note(s): Oral cavity and proximal gut tube.md
+02:29:31  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:29:31  INFO      Split into 12 note(s): The abdomen.md
+02:33:01  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:33:01  INFO      Split into 13 note(s): Comparative placentae.md
+02:36:43  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:36:44  INFO      Split into 17 note(s): Female reproductive system.md
+02:40:03  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:40:03  INFO      Split into 17 note(s): Male reproductive system.md
+02:42:37  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:42:37  INFO      Split into 12 note(s): Maternal adaptations to pregnancy and mammary glands.md
+02:47:05  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:47:05  WARNING   [Somatic NS and Musculoskeletal system.md] Response was not valid JSON (attempt 1/3).
+02:47:05  WARNING   Quarantined: Somatic NS and Musculoskeletal system.md
+02:51:49  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:51:49  INFO      Split into 22 note(s): Visceral NS and Endocrine control.md
+02:53:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:53:04  INFO      Split into 7 note(s): Introduction to practical anatomy study.md
+02:53:30  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:53:30  INFO      Split into 3 note(s): Planes of section - Human.md
+02:53:56  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:53:56  INFO      Split into 4 note(s): Planes of section - Quadruped.md
+02:54:47  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:54:47  INFO      Split into 8 note(s): Quadruped directional terms.md
+02:55:30  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:55:30  INFO      Split into 7 note(s): Quadruped Limbs and Head.md
+02:55:54  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:55:54  INFO      Split into 4 note(s): Surfaces of Hands and Feet.md
+02:56:37  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:56:37  INFO      Split into 6 note(s): Terms of movement.md
+02:57:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:57:09  INFO      Split into 5 note(s): Blastocyst formation.md
+02:58:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:58:16  INFO      Split into 6 note(s): Cardiovascular System.md
+02:59:22  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+02:59:23  INFO      Split into 12 note(s): Connective tissue.md
+03:00:01  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:00:01  INFO      Split into 7 note(s): Embryoblast and Trophoblast differentiation.md
+03:00:41  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:00:41  INFO      Split into 7 note(s): Embryonic Tissue Derivatives - Ectoderm.md
+03:01:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:01:08  INFO      Split into 4 note(s): Embryonic Tissue Derivatives - Endoderm.md
+03:01:38  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:01:38  INFO      Split into 7 note(s): Embryonic Tissue Derivatives - Mesoderm.md
+03:02:18  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:02:18  INFO      Split into 6 note(s): Embryonic Tissue Derivatives - Neural Crest Cells.md
+03:03:48  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:03:48  INFO      Split into 12 note(s): Endocrine System.md
+03:04:25  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:04:25  INFO      Split into 4 note(s): Epithelial structures - Glands.md
+03:05:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:05:16  INFO      Split into 7 note(s): Gastrulation.md
+03:05:28  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:05:28  INFO      Split into 1 note(s): Lateral and Cephalocaudal Folding.md
+03:06:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:06:02  INFO      Split into 5 note(s): Lymphatic System.md
+03:06:22  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:06:22  INFO      Split into 5 note(s): Major tissue types.md
+03:06:52  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:06:52  INFO      Split into 5 note(s): Morula.md
+03:07:29  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:07:29  INFO      Split into 5 note(s): Neurulation.md
+03:07:56  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:07:56  INFO      Split into 2 note(s): Organ systems.md
+03:09:01  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:09:01  INFO      Split into 13 note(s): Respiratory System.md
+03:09:43  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:09:43  INFO      Split into 6 note(s): Trilaminar disc.md
+03:11:22  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:11:22  INFO      Split into 20 note(s): Urinary system.md
+03:14:21  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:14:21  INFO      Split into 34 note(s): Autonomic Nervous System.md
+03:16:06  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:16:07  INFO      Split into 19 note(s): Brain.md
+03:17:13  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:17:13  INFO      Split into 8 note(s): Central Nervous System.md
+03:17:41  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:17:41  INFO      Split into 6 note(s): Cerebrum.md
+03:19:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:19:02  INFO      Split into 16 note(s): Cranial nerves.md
+03:19:43  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:19:43  INFO      Split into 3 note(s): Hindbrain.md
+03:20:06  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:20:06  INFO      Split into 2 note(s): Motor Neuron.md
+03:20:45  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:20:45  INFO      Split into 5 note(s): Nerve plexuses.md
+03:21:36  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:21:36  INFO      Split into 7 note(s): Nervous System.md
+03:22:11  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:22:11  INFO      Split into 4 note(s): Neurodevelopment.md
+03:22:32  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:22:32  INFO      Split into 2 note(s): Neuron.md
+03:23:31  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:23:31  INFO      Split into 10 note(s): Parasympathetic.md
+03:24:01  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:24:01  INFO      Split into 3 note(s): Sensory Neuron.md
+03:26:09  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:26:09  INFO      Split into 13 note(s): Somatic nervous system.md
+03:29:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:29:15  INFO      Split into 29 note(s): Special senses - organs.md
+03:31:05  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:31:05  INFO      Split into 15 note(s): Special senses - receptors and pathways.md
+03:32:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:32:04  INFO      Split into 10 note(s): Spinal Cord.md
+03:32:53  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:32:53  INFO      Split into 8 note(s): Spinothalamic pathways.md
+03:35:09  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:35:09  INFO      Split into 12 note(s): The Nervous System.md
+03:36:28  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:36:28  INFO      Split into 7 note(s): Bones and Joints.md
+03:37:43  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:37:43  INFO      Split into 10 note(s): Evolution of Tetrapod Limbs.md
+03:38:52  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:38:53  INFO      Split into 13 note(s): Fundamentals of Locomotor Anatomy.md
+03:43:00  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:43:00  WARNING   [Muscles, tendons and ligaments.md] Response was not valid JSON (attempt 1/3).
+03:43:00  WARNING   Quarantined: Muscles, tendons and ligaments.md
+03:44:36  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:44:36  INFO      Split into 9 note(s): Blood, blood vessels and the mammalian heart.md
+03:45:19  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:45:19  INFO      Split into 5 note(s): Great vessels of the heart.md
+03:45:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:45:42  INFO      Split into 5 note(s): The chambers of the heart.md
+03:46:34  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:46:34  INFO      Split into 6 note(s): The conducting system of the heart.md
+03:47:06  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:47:06  INFO      Split into 4 note(s): The Heart.md
+03:47:45  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:47:45  INFO      Split into 8 note(s): Aorta.md
+03:48:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:48:04  INFO      Split into 2 note(s): Apocrine.md
+03:48:22  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:48:22  INFO      Split into 2 note(s): Arch of the aorta.md
+03:48:37  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:48:37  INFO      Split into 2 note(s): Ascending aorta.md
+03:48:58  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:48:58  INFO      Split into 2 note(s): Atrioventricular node.md
+03:49:09  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:49:09  INFO      Split into 1 note(s): Brunner's glands.md
+03:49:44  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:49:44  INFO      Split into 4 note(s): Bundle of His.md
+03:50:13  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:50:13  INFO      Split into 3 note(s): Caudal vena cava.md
+03:50:33  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:50:33  INFO      Split into 2 note(s): Cranial vena cava.md
+03:52:01  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:52:01  INFO      Split into 15 note(s): Epidermis.md
+03:52:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:52:42  INFO      Split into 4 note(s): Epithelial tissue.md
+03:53:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:53:15  INFO      Split into 4 note(s): Fibrous.md
+03:53:27  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:53:27  INFO      Split into 1 note(s): Fossa ovalis.md
+03:53:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:53:42  INFO      Split into 2 note(s): Holocrine.md
+03:54:37  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:54:37  INFO      Split into 9 note(s): Human directional terms.md
+03:55:47  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:55:47  WARNING   [Integumentary System.md] Response was not valid JSON (attempt 1/3).
+03:55:47  WARNING   Quarantined: Integumentary System.md
+03:56:07  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:56:07  INFO      Split into 3 note(s): Interatrial septum.md
+03:56:19  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:56:19  INFO      Split into 1 note(s): Intermediate mesoderm.md
+03:56:30  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:56:30  INFO      Split into 1 note(s): Lateral plate mesoderm.md
+03:57:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:57:04  INFO      Split into 7 note(s): Left atrium.md
+03:57:40  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:57:40  INFO      Split into 5 note(s): Left ventricle.md
+03:57:57  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:57:57  INFO      Split into 1 note(s): Lissencephalic.md
+03:58:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:58:08  INFO      Split into 1 note(s): Merocrine.md
+03:58:35  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:58:35  INFO      Split into 4 note(s): Musculoskeletal System.md
+03:58:51  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:58:51  INFO      Split into 2 note(s): Paraxial mesoderm.md
+03:59:15  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:59:15  INFO      Split into 3 note(s): Primitive streak.md
+03:59:37  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+03:59:37  INFO      Split into 3 note(s): Pseudostratified columnar.md
+04:00:12  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:00:12  INFO      Split into 6 note(s): Pulmonary arteries.md
+04:00:51  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:00:51  INFO      Split into 7 note(s): Pulmonary veins.md
+04:01:45  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:01:45  INFO      Split into 7 note(s): Purkinje fibres.md
+04:02:20  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:02:20  INFO      Split into 4 note(s): Right atrium.md
+04:03:16  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:03:16  INFO      Split into 7 note(s): Right ventricle.md
+04:03:50  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:03:50  INFO      Split into 5 note(s): Simple columnar.md
+04:04:14  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:04:14  INFO      Split into 4 note(s): Simple cuboidal.md
+04:04:54  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:04:54  INFO      Split into 6 note(s): Simple squamous.md
+04:05:35  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:05:35  INFO      Split into 5 note(s): Sinoatrial node.md
+04:06:14  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:06:14  INFO      Split into 6 note(s): Stratified squamous.md
+04:07:30  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:07:30  INFO      Split into 12 note(s): Synovial.md
+04:07:52  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:07:52  INFO      Split into 2 note(s): Transitional.md
+04:08:23  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:08:23  INFO      Split into 5 note(s): Actin.md
+04:08:32  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:08:32  INFO      Split into 1 note(s): Chorion.md
+04:08:58  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:08:58  INFO      Split into 3 note(s): Cloaca.md
+04:09:30  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:09:30  INFO      Split into 5 note(s): Duodenum.md
+04:09:53  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:09:53  INFO      Split into 3 note(s): Loop of Henle.md
+04:10:20  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:10:20  INFO      Split into 3 note(s): Sympathetic.md
+04:11:10  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:11:10  INFO      Split into 8 note(s): Adrenal cortex.md
+04:11:27  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:11:27  INFO      Split into 3 note(s): Adrenal Gland.md
+04:12:10  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:12:10  INFO      Split into 5 note(s): Adrenal medulla.md
+04:12:41  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:12:41  INFO      Split into 4 note(s): Aldosterone.md
+04:13:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:13:02  INFO      Split into 3 note(s): Androgens.md
+04:13:36  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:13:36  INFO      Split into 6 note(s): Cortisol.md
+04:14:27  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:14:27  INFO      Split into 8 note(s): Fick's law.md
+04:14:51  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:14:51  INFO      Split into 2 note(s): Myosin.md
+04:16:08  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:16:08  INFO      Split into 11 note(s): Starling's law.md
+04:16:47  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:16:47  INFO      Split into 4 note(s): Troponin.md
+04:18:26  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:18:26  WARNING   [E1 - Introduction to practical anatomy.md] Response was not valid JSON (attempt 1/3).
+04:18:26  WARNING   Quarantined: E1 - Introduction to practical anatomy.md
+04:22:55  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:22:55  INFO      Split into 22 note(s): E2 - Cells to system.md
+04:25:37  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:25:38  INFO      Split into 21 note(s): E3 - The nervous system.md
+04:26:54  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:26:54  WARNING   [E4 - Locomotion.md] Response was not valid JSON (attempt 1/3).
+04:26:54  WARNING   Quarantined: E4 - Locomotion.md
+04:28:32  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:28:32  INFO      Split into 11 note(s): E5 - Cardiovascular system.md
+04:29:29  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:29:29  INFO      Split into 4 note(s): E1 - Respiratory system.md
+04:30:05  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:30:05  INFO      Split into 3 note(s): E2 - Urinary system.md
+04:30:54  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:30:54  INFO      Split into 2 note(s): E3 - Digestive system.md
+04:31:43  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:31:43  INFO      Split into 5 note(s): E4 - Reproductive system.md
+04:32:21  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:32:21  INFO      Split into 4 note(s): E5 - Control of body systems.md
+04:33:14  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:33:14  INFO      Split into 3 note(s): E1 - Neurophysiology.md
+04:33:51  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:33:51  INFO      Split into 4 note(s): E2 - Muscles.md
+04:34:34  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:34:34  WARNING   [E3 - Cardiovascular system.md] Response was not valid JSON (attempt 1/3).
+04:34:34  WARNING   Quarantined: E3 - Cardiovascular system.md
+04:35:27  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:35:27  INFO      Split into 6 note(s): E4 - Respiratory system.md
+04:36:01  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:36:01  WARNING   [E5 - Digestive system.md] Response was not valid JSON (attempt 1/3).
+04:36:01  WARNING   Quarantined: E5 - Digestive system.md
+04:36:55  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:36:55  WARNING   [E6 - Renal system.md] Response was not valid JSON (attempt 1/3).
+04:36:55  WARNING   Quarantined: E6 - Renal system.md
+04:37:41  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:37:41  WARNING   [E7 - Endocrine system.md] Response was not valid JSON (attempt 1/3).
+04:37:41  WARNING   Quarantined: E7 - Endocrine system.md
+04:38:22  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:38:22  WARNING   [E8 - Reproductive system.md] Response was not valid JSON (attempt 1/3).
+04:38:22  WARNING   Quarantined: E8 - Reproductive system.md
+04:39:04  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:39:04  WARNING   [PPVN - Biochemistry.md] Response was not valid JSON (attempt 1/3).
+04:39:04  WARNING   Quarantined: PPVN - Biochemistry.md
+04:39:47  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:39:47  WARNING   [PPVN - First Aid.md] Response was not valid JSON (attempt 1/3).
+04:39:47  WARNING   Quarantined: PPVN - First Aid.md
+04:40:26  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:40:26  WARNING   [PPVN - Haematology.md] Response was not valid JSON (attempt 1/3).
+04:40:27  WARNING   Quarantined: PPVN - Haematology.md
+04:40:59  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:40:59  INFO      Split into 4 note(s): PPVN - Miscellaneous.md
+04:41:42  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:41:42  WARNING   [PPVN - Parasitology.md] Response was not valid JSON (attempt 1/3).
+04:41:42  WARNING   Quarantined: PPVN - Parasitology.md
+04:42:29  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:42:29  INFO      Split into 7 note(s): El Refugio.md
+04:43:02  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:43:02  INFO      Split into 4 note(s): Anaesthesia & Analgesia for Geriatric Patients.md
+04:44:20  INFO      HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+04:44:20  INFO      Split into 12 note(s): Sponsorships.md
+04:44:21  INFO      Phase 1 complete.
+04:44:21  INFO      === PHASE 2: Auto-generating wiki-links ===
+04:44:21  INFO      Linking 5466 titles across 5466 files…
+04:44:30  INFO      Added 5 link(s) → QUARANTINE_Advanced Skeletal Anatomy
+04:44:32  INFO      Added 2 link(s) → QUARANTINE_Agents of Disease
+04:44:34  INFO      Added 2 link(s) → QUARANTINE_Anaesthetic Equipment and Machines
+04:44:41  INFO      Added 4 link(s) → QUARANTINE_Canine Infectious Disease
+04:44:43  INFO      Added 12 link(s) → QUARANTINE_Cardiovascular Disease 1
+04:44:45  INFO      Added 1 link(s) → QUARANTINE_Comparative Dentition
+04:44:47  INFO      Added 5 link(s) → QUARANTINE_Comparative Limb 1
+04:44:48  INFO      Added 1 link(s) → QUARANTINE_Digital Imaging and Image Quality
+04:44:50  INFO      Added 8 link(s) → QUARANTINE_Distal hindlimb
+04:44:51  INFO      Added 1 link(s) → QUARANTINE_E1 - Introduction to practical anatomy
+04:44:52  INFO      Added 1 link(s) → QUARANTINE_E3 - Cardiovascular system
+04:44:53  INFO      Added 1 link(s) → QUARANTINE_E4 - Locomotion
+04:44:53  INFO      Added 1 link(s) → QUARANTINE_E5 - Digestive system
+04:44:55  INFO      Added 1 link(s) → QUARANTINE_E7 - Endocrine system
+04:44:57  INFO      Added 2 link(s) → QUARANTINE_Equine Anaesthesia and Sedation
+04:45:00  INFO      Added 2 link(s) → QUARANTINE_Exotic Animal Anaesthesia
+04:45:01  INFO      Added 4 link(s) → QUARANTINE_Extreme Mammalian Adaptations
+04:45:05  INFO      Added 6 link(s) → QUARANTINE_Feline Infection
+04:45:08  INFO      Added 5 link(s) → QUARANTINE_Hospitalisation and Nursing of Reptiles
+04:45:08  INFO      Added 1 link(s) → QUARANTINE_Integumentary System
+04:45:10  INFO      Added 2 link(s) → QUARANTINE_Management of Skin Diseases
+04:45:11  INFO      Added 2 link(s) → QUARANTINE_Muscles, tendons and ligaments
+04:45:13  INFO      Added 1 link(s) → QUARANTINE_PPVN - Biochemistry
+04:45:14  INFO      Added 1 link(s) → QUARANTINE_PPVN - First Aid
+04:45:14  INFO      Added 1 link(s) → QUARANTINE_PPVN - Haematology
+04:45:15  INFO      Added 1 link(s) → QUARANTINE_PPVN - Parasitology
+04:45:16  INFO      Added 2 link(s) → QUARANTINE_Respiratory 2
+04:45:18  INFO      Added 11 link(s) → QUARANTINE_Somatic NS and Musculoskeletal system
+04:45:19  INFO      Added 2 link(s) → QUARANTINE_Urinalysis 1
+04:45:21  INFO      Added 2 link(s) → 'Dry' Feline Infectious Peritonitis (FIP)- Clinical Signs
+04:45:22  INFO      Added 1 link(s) → 1,25-Dihydroxyvitamin D3 Production in the Kidney
+04:45:23  INFO      Added 1 link(s) → 1,25-Dihydroxyvitamin D3- Bone and Mineral Homeostasis
+04:45:26  INFO      Added 1 link(s) → Abdominal Muscles - Layers and Functions
+04:45:28  INFO      Added 1 link(s) → Abdominal Oblique and Transverse Abdominis Muscles
+04:45:29  INFO      Added 1 link(s) → Abdominal Wall Blood Supply – Arteries
+04:45:29  INFO      Added 1 link(s) → Abdominal Wall Blood Supply
+04:45:35  INFO      Added 2 link(s) → Abducens Nerve (CN VI)- Lateral Rectus Eye Muscle
+04:45:36  INFO      Added 1 link(s) → Abducens Nerve
+04:45:40  INFO      Added 1 link(s) → Abscess- Treatment and Management
+04:45:43  INFO      Added 1 link(s) → Accessory Digestive Organs - Image Reference
+04:45:45  INFO      Added 1 link(s) → Accessory Nerve (CN XI)- Neck Muscle Control
+04:45:46  INFO      Added 3 link(s) → Accessory Sex Glands
+04:45:48  INFO      Added 1 link(s) → Acepromazine- Cardiovascular System Effects
+04:45:50  INFO      Added 1 link(s) → Acepromazine- Pharmacokinetics (Onset, Duration, Metabolism, Bioavailability)
+04:45:52  INFO      Added 1 link(s) → ACh Stimulation of Gastric Cells
+04:45:53  INFO      Added 3 link(s) → Acid-Base Balance Monitoring - VETS20019
+04:45:59  INFO      Added 1 link(s) → Actin (Myofilament)
+04:46:00  INFO      Added 1 link(s) → Action Potential Origin
+04:46:04  INFO      Added 2 link(s) → Acute Gastroenteritis- Infection Control Nursing
+04:46:12  INFO      Added 1 link(s) → Acute Vomiting and Diarrhoea- Surgical Causes (High Concern Emergency)
+04:46:22  INFO      Added 1 link(s) → Adrenal Cortex Zones
+04:46:24  INFO      Added 1 link(s) → Adrenal Gland Cortex Function
+04:46:24  INFO      Added 1 link(s) → Adrenal Gland Medulla Function
+04:46:33  INFO      Added 5 link(s) → Afferent Neurons
+04:46:35  INFO      Added 1 link(s) → Aims of Oncological Investigation in Veterinary Medicine
+04:46:36  INFO      Added 1 link(s) → Airway Device Placement During GA
+04:46:38  INFO      Added 1 link(s) → Aldosterone Action
+04:46:40  INFO      Added 2 link(s) → Aldosterone Production
+04:46:42  INFO      Added 1 link(s) → Alpha- and Beta-Adrenergic Receptors
+04:46:53  INFO      Added 1 link(s) → American Barn Stabling- Characteristics, Pros and Cons
+04:46:54  INFO      Added 1 link(s) → Amino Acid Precursors for Neurotransmitters- Tryptophan & Tyrosine
+04:46:56  INFO      Added 1 link(s) → Ammonia in Stables- Sources, Risks, and Reduction
+04:46:57  INFO      Added 1 link(s) → Amphibian Cardiovascular System- Common Carotid Artery
+04:46:58  INFO      Added 1 link(s) → Amphibian Cardiovascular System- Conus Arteriosus Branches
+04:46:58  INFO      Added 2 link(s) → Amphibian Cardiovascular System- Deoxygenated Blood Flow
+04:46:59  INFO      Added 3 link(s) → Amphibian Cardiovascular System- Oxygenated Blood Flow
+04:47:00  INFO      Added 1 link(s) → Amphibian Cardiovascular System- Pulmocutaneous Artery
+04:47:00  INFO      Added 1 link(s) → Amphibian Cardiovascular System- Spiral Valve Function
+04:47:01  INFO      Added 1 link(s) → Amphibian Cardiovascular System- Systemic Arteries
+04:47:02  INFO      Added 1 link(s) → Amphibian Cardiovascular System- Three-Chambered Heart
+04:47:02  INFO      Added 1 link(s) → Amphibian Cardiovascular System- Ventricular Discharge
+04:47:04  INFO      Added 1 link(s) → Amphibian Classification- Overview
+04:47:05  INFO      Added 1 link(s) → Amphibian Coelomic Cavities- Pericardial Cavity
+04:47:10  INFO      Added 1 link(s) → Amphibian Gastrointestinal Tract- Cloaca Connection
+04:47:11  INFO      Added 1 link(s) → Amphibian General- Ectothermy
+04:47:16  INFO      Added 1 link(s) → Amphibian Husbandry Requirements
+04:47:18  INFO      Added 2 link(s) → Amphibian Integument- Epidermis Thickness (Respiratory Role)
+04:47:18  INFO      Added 1 link(s) → Amphibian Integument- Keratinization (Respiratory Role)
+04:47:20  INFO      Added 1 link(s) → Amphibian Integument- Moisture Requirement (Respiratory Role)
+04:47:22  INFO      Added 1 link(s) → Amphibian Integument- Role in Respiration
+04:47:28  INFO      Added 1 link(s) → Amphibian Oral Cavity- Eye Retraction for Swallowing
+04:47:29  INFO      Added 1 link(s) → Amphibian Oral Cavity- Teeth Function
+04:47:29  INFO      Added 1 link(s) → Amphibian Oral Cavity- Tongue Function
+04:47:31  INFO      Added 1 link(s) → Amphibian Order- Gymnophiona (Caecilians)
+04:47:35  INFO      Added 1 link(s) → Amphibian Respiratory System- Cutaneous Respiration (Gas Exchange Factors)
+04:47:35  INFO      Added 1 link(s) → Amphibian Respiratory System- Cutaneous Respiration (Life Stages)
+04:47:36  INFO      Added 1 link(s) → Amphibian Respiratory System- Cutaneous Respiration (Medium)
+04:47:37  INFO      Added 1 link(s) → Amphibian Respiratory System- Cutaneous Respiration (Prevalence)
+04:47:37  INFO      Added 1 link(s) → Amphibian Respiratory System- Cutaneous Respiration Regulation
+04:47:38  INFO      Added 1 link(s) → Amphibian Respiratory System- External Gills
+04:47:39  INFO      Added 1 link(s) → Amphibian Respiratory System- Gill Irrigation
+04:47:40  INFO      Added 1 link(s) → Amphibian Respiratory System- Gill Support Mechanism
+04:47:44  INFO      Added 1 link(s) → Amphibian Respiratory System- Trachea Structure
+04:47:46  INFO      Added 1 link(s) → Amphibian Respiratory System- Unique Epidermal Capillaries in Lungless Salamanders
+04:47:46  INFO      Added 1 link(s) → Amplification of Stimuli by Nerve Fibers
+04:48:03  INFO      Added 1 link(s) → Anat10008 - Anatomical Directions
+04:48:04  INFO      Added 1 link(s) → ANAT10008 - Aorta
+04:48:04  INFO      Added 2 link(s) → ANAT10008 - Appendicular Skeleton
+04:48:05  INFO      Added 2 link(s) → ANAT10008 - Axial Skeleton
+04:48:06  INFO      Added 1 link(s) → ANAT10008 - Bones Overview
+04:48:06  INFO      Added 3 link(s) → ANAT10008 - Caudal Vena Cava
+04:48:07  INFO      Added 4 link(s) → ANAT10008 - Cranial Vena Cava
+04:48:08  INFO      Added 1 link(s) → ANAT10008 - Definition
+04:48:09  INFO      Added 1 link(s) → ANAT10008 - Neural Crest Cells
+04:48:09  INFO      Added 4 link(s) → ANAT10008 - Peripheral Nervous System Overview
+04:48:10  INFO      Added 2 link(s) → ANAT10008 - Pulmonary Arteries
+04:48:10  INFO      Added 4 link(s) → ANAT10008 - Pulmonary Veins
+04:48:11  INFO      Added 1 link(s) → ANAT10008 - Quadruped Directional Terms
+04:48:12  INFO      Added 4 link(s) → ANAT10008 Course Files Index
+04:48:13  INFO      Added 1 link(s) → ANAT10008 Course Identification
+04:48:13  INFO      Added 1 link(s) → ANAT10008 Course Overview
+04:48:14  INFO      Added 2 link(s) → ANAT10008 Course Topics
+04:48:15  INFO      Added 1 link(s) → ANAT10008 Overview
+04:48:16  INFO      Added 1 link(s) → Anat10008- Function of the Bladder Lining
+04:48:16  INFO      Added 1 link(s) → Anat10008-Definition- Example - Bladder Lining
+04:48:18  INFO      Added 2 link(s) → ANAT10009 - Nervous System Organization
+04:48:23  INFO      Added 1 link(s) → Anatomical Challenges in Exotic Anaesthesia
+04:48:24  INFO      Added 1 link(s) → Anatomical Directions - Caudal
+04:48:24  INFO      Added 1 link(s) → Anatomical Directions - Cranial
+04:48:25  INFO      Added 3 link(s) → Anatomical Directions - Distal
+04:48:25  INFO      Added 1 link(s) → Anatomical Directions - Dorsal
+04:48:26  INFO      Added 3 link(s) → Anatomical Directions - Lateral
+04:48:27  INFO      Added 2 link(s) → Anatomical Directions - Medial
+04:48:28  INFO      Added 2 link(s) → Anatomical Directions - Proximal
+04:48:28  INFO      Added 1 link(s) → Anatomical Directions - Ventral
+04:48:29  INFO      Added 1 link(s) → Anatomical Movements- Abduction
+04:48:30  INFO      Added 1 link(s) → Anatomical Movements- Adduction
+04:48:30  INFO      Added 3 link(s) → Anatomical Movements- Extension
+04:48:31  INFO      Added 2 link(s) → Anatomical Movements- Flexion
+04:48:32  INFO      Added 2 link(s) → Anatomical Movements- Pronation
+04:48:32  INFO      Added 2 link(s) → Anatomical Movements- Supination
+04:48:35  INFO      Added 1 link(s) → Anatomy Course Code- ANAT10008
+04:48:35  INFO      Added 1 link(s) → Anatomy of the Chelonian Shell
+04:48:45  INFO      Added 2 link(s) → Androgen Production
+04:48:47  INFO      Added 1 link(s) → Animal Pelvic Relations – Image Reference
+04:48:52  INFO      Added 1 link(s) → Anorexia and Impactions in Reptiles
+04:48:52  INFO      Added 3 link(s) → ANS Pathway
+04:48:55  INFO      Added 1 link(s) → Anterior Medial Auricle of the Right Atrium
+04:49:01  INFO      Added 1 link(s) → Antibiotic Stewardship and Resistance in Veterinary Medicine
+04:49:02  INFO      Added 1 link(s) → Antidiuretic Hormone (ADH) Release
+04:49:03  INFO      Added 1 link(s) → Antlers vs. Horns - Comparative Analysis
+04:49:04  INFO      Added 1 link(s) → Anura External Anatomy- Absence of External Gills
+04:49:04  INFO      Added 1 link(s) → Anura External Anatomy- Eyelids
+04:49:05  INFO      Added 1 link(s) → Anura External Anatomy- Locomotion Adaptations
+04:49:06  INFO      Added 1 link(s) → Anura External Anatomy- Size Range
+04:49:06  INFO      Added 1 link(s) → Anura External Anatomy- Skin Texture
+04:49:07  INFO      Added 1 link(s) → Anura External Anatomy- Tail-less Adults
+04:49:08  INFO      Added 1 link(s) → Anura External Anatomy- Tympanic Membrane
+04:49:10  INFO      Added 1 link(s) → Anura Skeletal System- Absence of Hard Palate
+04:49:13  INFO      Added 1 link(s) → Anuran Male Anatomy- Vocal Sacs (Oral Cavity Connection)
+04:49:16  INFO      Added 1 link(s) → Aorta Location
+04:49:17  INFO      Added 3 link(s) → Aorta Origin
+04:49:18  INFO      Added 1 link(s) → Aortic Arch - Primary Branches
+04:49:18  INFO      Added 1 link(s) → Aortic Arch Anatomy - Part of the Aorta
+04:49:19  INFO      Added 2 link(s) → Aortic Orifice and Aorta
+04:49:20  INFO      Added 1 link(s) → Aortic Stenosis (Congenital)
+04:49:21  INFO      Added 1 link(s) → Aortic Stenosis
+04:49:22  INFO      Added 1 link(s) → Aortic Valve
+04:49:22  INFO      Added 2 link(s) → Aortic Vestibule - Smooth Wall Structure
+04:49:24  INFO      Added 1 link(s) → Apocrine Sweat Glands
+04:49:26  INFO      Added 1 link(s) → Approach to Fluid Therapy - VETS20019
+04:49:28  INFO      Added 2 link(s) → Arch of the Aorta Connection
+04:49:33  INFO      Added 1 link(s) → Arrhythmias - Overview
+04:49:33  INFO      Added 1 link(s) → Arterial Blood Supply
+04:49:35  INFO      Added 1 link(s) → Arterial Supply of the Digestive System - Image References
+04:49:36  INFO      Added 6 link(s) → Arterial Supply to the Head
+04:49:40  INFO      Added 1 link(s) → Artiodactyla (Bovine) Distal Limb - Interdigital Ligaments
+04:49:40  INFO      Added 3 link(s) → Artiodactyla (Bovine) Distal Limb - Muscles and Tendons (Forelimb)
+04:49:41  INFO      Added 2 link(s) → Artiodactyla (Bovine) Distal Limb - Skeletal Differences
+04:49:42  INFO      Added 2 link(s) → Artiodactyla (Bovine) Distal Limb - Suspensory Ligament
+04:49:43  INFO      Added 1 link(s) → Artiodactyla Distal Limb - Bovine as a Model
+04:49:47  INFO      Added 1 link(s) → ASA Emergency Modifier (E)
+04:49:52  INFO      Added 1 link(s) → ASA Physical Status Categories I-V
+04:49:55  INFO      Added 1 link(s) → Ascites Definition and Pathophysiology
+04:50:03  INFO      Added 1 link(s) → Assessing Pruritis (Itching) in Animals
+04:50:06  INFO      Added 1 link(s) → Associative Learning- Classical and Operant Conditioning
+04:50:07  INFO      Added 1 link(s) → Atrial Excitation and Contraction
+04:50:09  INFO      Added 1 link(s) → Atrium Receives Blood from Multiple Sources
+04:50:10  INFO      Added 1 link(s) → Auditory Communication in Dogs
+04:50:11  INFO      Added 2 link(s) → Autonomic and Sensory Nerve Supply to Abdominal Viscera
+04:50:13  INFO      Added 2 link(s) → Autonomic Effectors
+04:50:13  INFO      Added 4 link(s) → Autonomic Nervous System (ANS)
+04:50:14  INFO      Added 1 link(s) → Autonomic Nervous System
+04:50:15  INFO      Added 1 link(s) → Autonomic Neuron Types
+04:50:17  INFO      Added 2 link(s) → Autonomic Synaptic Transmitters and Receptors
+04:50:20  INFO      Added 1 link(s) → Avian Axial Skeleton- Vertebrae and Ribs
+04:50:26  INFO      Added 2 link(s) → Avian Cloaca Overview
+04:50:27  INFO      Added 1 link(s) → Avian Colon, Rectum, and Vent
+04:50:31  INFO      Added 1 link(s) → Avian Esophagus - Crop Formation
+04:50:38  INFO      Added 2 link(s) → Avian Heart - Structure and Circulation
+04:50:39  INFO      Added 2 link(s) → Avian Heart Anatomy and Circulation
+04:50:41  INFO      Added 1 link(s) → Avian Kidneys
+04:50:43  INFO      Added 3 link(s) → Avian Major Arteries
+04:50:45  INFO      Added 1 link(s) → Avian Oesophagus and Crop
+04:50:45  INFO      Added 1 link(s) → Avian Oropharynx Structures
+04:50:48  INFO      Added 1 link(s) → Avian Oviduct Sections
+04:50:52  INFO      Added 2 link(s) → Avian Pelvic Limb Bones
+04:50:52  INFO      Added 1 link(s) → Avian Phallus - Absence in Some Species
+04:50:58  INFO      Added 2 link(s) → Avian Stomach (Proventriculus & Gizzard)
+04:51:02  INFO      Added 2 link(s) → Avian Urinary System - Kidney Features
+04:51:02  INFO      Added 1 link(s) → Avian Urinary Tract
+04:51:04  INFO      Added 1 link(s) → Avian Vasculature - Wing Supply
+04:51:05  INFO      Added 1 link(s) → Avian Venous Access Sites
+04:51:05  INFO      Added 1 link(s) → Avian Wing Bones and Structure
+04:51:06  INFO      Added 1 link(s) → AVN Location and Structure
+04:51:07  INFO      Added 1 link(s) → AVN's Role in Conduction
+04:51:08  INFO      Added 1 link(s) → Azygous Vein- Species Variation and Drainage (ANAT20007)
+04:51:45  INFO      Added 1 link(s) → Behavioural Implications of Neutering in Dogs
+04:51:56  INFO      Added 1 link(s) → Benzodiazepine Effects on the Cardiovascular System
+04:51:57  INFO      Added 1 link(s) → Benzodiazepine Effects on the Musculoskeletal System
+04:51:59  INFO      Added 3 link(s) → Benzodiazepine Pharmacokinetics- Administration and Distribution
+04:52:02  INFO      Added 2 link(s) → Benzodiazepines and the Musculoskeletal System
+04:52:06  INFO      Added 2 link(s) → Benzodiazepines- Core Pharmacological Actions
+04:52:11  INFO      Added 1 link(s) → Bicarbonate and Hydrogen Reabsorption - Carbonic Anhydrase
+04:52:12  INFO      Added 2 link(s) → Biceps Brachii - Shoulder Locking Mechanism
+04:52:13  INFO      Added 1 link(s) → Biceps Brachii Tendon- Equine Shoulder Locking Mechanism
+04:52:14  INFO      Added 3 link(s) → Biceps Femoris Muscle
+04:52:15  INFO      Added 3 link(s) → Bilaminar Embryonic Disc
+04:52:28  INFO      Added 1 link(s) → Bladder - Transitional Epithelial Tissue
+04:52:29  INFO      Added 2 link(s) → Bladder - [[Transitional]] Epithelial Tissue
+04:52:32  INFO      Added 1 link(s) → Blastocyst Cavity Formation
+04:52:35  INFO      Added 1 link(s) → Blood Flow to the Right Ventricle
+04:52:36  INFO      Added 1 link(s) → Blood Origin
+04:52:38  INFO      Added 1 link(s) → Blood Supply to the Intestines - Mesenteric Arteries
+04:52:41  INFO      Added 1 link(s) → Blood Vessel Properties and Blood Pressure Control
+04:52:46  INFO      Added 1 link(s) → Body Wall Definition - Basic
+04:52:48  INFO      Added 1 link(s) → Bone Curettes - Cutting and Scooping Bone
+04:52:48  INFO      Added 1 link(s) → Bone Curettes- Function and Types
+04:52:50  INFO      Added 1 link(s) → Bone Origin
+04:52:51  INFO      Added 6 link(s) → Bones as Levers in Locomotion (ANAT20001)
+04:52:53  INFO      Added 1 link(s) → Bound Chemical Partial Pressures
+04:52:55  INFO      Added 2 link(s) → Bovine Digital Extensor Muscles - Forelimb
+04:52:55  INFO      Added 1 link(s) → Bovine Distal Limb - Adaptation for Stability (Artiodactyla)
+04:52:56  INFO      Added 1 link(s) → Bovine Distal Limb - Radial Nerve Innervation
+04:52:57  INFO      Added 1 link(s) → Bovine Distal Limb - Two Weight-Bearing Digits (Claws)
+04:52:58  INFO      Added 1 link(s) → Bovine Hoof (Claw) - Laminae Development and P3 Mobility
+04:52:59  INFO      Added 3 link(s) → Bovine Interdigital Ligaments
+04:53:00  INFO      Added 1 link(s) → Bovine Metapodials (Cannon Bone) - Fused Structure
+04:53:00  INFO      Added 2 link(s) → Bovine Proximal Sesamoid Bones
+04:53:01  INFO      Added 1 link(s) → Bovine Suspensory Ligament (Interosseous) - Structure
+04:53:02  INFO      Added 1 link(s) → Bovine Suspensory Ligament - Attachments and Function
+04:53:02  INFO      Added 1 link(s) → Boyle's Law and Gas Flow
+04:53:04  INFO      Added 2 link(s) → Brachial Plexus (Canine)
+04:53:04  INFO      Added 3 link(s) → Brachial Plexus
+04:53:05  INFO      Added 3 link(s) → Brachiocephalicus Muscle Anatomy and Function
+04:53:06  INFO      Added 1 link(s) → Bradyarrhythmias
+04:53:09  INFO      Added 2 link(s) → Brain and Spinal Cord Origin
+04:53:09  INFO      Added 1 link(s) → Brain Regions- Cerebellum and Pons
+04:53:10  INFO      Added 2 link(s) → Brain Regions- Cerebrum
+04:53:11  INFO      Added 1 link(s) → Brain Regions- Diencephalon
+04:53:11  INFO      Added 1 link(s) → Brain Regions- Forebrain
+04:53:12  INFO      Added 2 link(s) → Brain Regions- Hindbrain
+04:53:13  INFO      Added 1 link(s) → Brain Regions- Hypothalamus
+04:53:13  INFO      Added 1 link(s) → Brain Regions- Medulla Oblongata
+04:53:14  INFO      Added 1 link(s) → Brain Regions- Midbrain
+04:53:15  INFO      Added 4 link(s) → Brain Regions- Spinal Cord
+04:53:15  INFO      Added 1 link(s) → Brain Regions- Thalamus
+04:53:16  INFO      Added 2 link(s) → Brain Structure - Smooth vs. Gyri and Sulci
+04:53:17  INFO      Added 1 link(s) → Brain Structure and Species Importance
+04:53:26  INFO      Added 1 link(s) → Brucellosis (Brucella canis) in Pets- Overview & Public Health
+04:53:28  INFO      Added 1 link(s) → Bruse Clark Needle Holder
+04:53:33  INFO      Added 1 link(s) → Bundle of His Continuation
+04:53:33  INFO      Added 1 link(s) → Bundle of His Descent
+04:53:35  INFO      Added 1 link(s) → Burrowing Mites- Sarcoptes scabiei Diagnosis
+04:53:39  INFO      Added 1 link(s) → Caecotrophy - Production of Caecotrophs
+04:53:40  INFO      Added 1 link(s) → Calcitonin
+04:53:41  INFO      Added 1 link(s) → Calcium Homeostasis Overview
+04:53:43  INFO      Added 1 link(s) → Calcium-Induced Calcium Release
+04:53:46  INFO      Added 1 link(s) → Calculating Partial Pressures of Oxygen
+04:53:50  INFO      Added 1 link(s) → Calorie Restriction and Lifestyle Modification for Pet Weight Loss
+04:53:52  INFO      Added 2 link(s) → Camelid Limb- Specific Adaptations (Llamas, Alpacas)
+04:53:52  INFO      Added 1 link(s) → Canine Abductor Pollicis Longus Muscle
+04:53:54  INFO      Added 1 link(s) → Canine Anconeus Muscle
+04:53:55  INFO      Added 1 link(s) → Canine Antebrachial Muscles- Caudomedial Flexor Group
+04:53:56  INFO      Added 1 link(s) → Canine Antebrachial Muscles- Craniolateral Extensor Group
+04:53:56  INFO      Added 1 link(s) → Canine Antebrachial Rotator Muscles
+04:53:58  INFO      Added 1 link(s) → Canine Biceps Brachii Muscle
+04:54:01  INFO      Added 2 link(s) → Canine Brachial Plexus- Overview
+04:54:08  INFO      Added 2 link(s) → Canine Common Digital Extensor (CDE)
+04:54:08  INFO      Added 1 link(s) → Canine Coracobrachialis Muscle
+04:54:10  INFO      Added 2 link(s) → Canine Deep Digital Flexor (DDFT)
+04:54:10  INFO      Added 1 link(s) → Canine Deltoideus Muscle
+04:54:12  INFO      Added 1 link(s) → Canine Elbow Extensor Muscles
+04:54:12  INFO      Added 1 link(s) → Canine Elbow Flexor Muscles
+04:54:13  INFO      Added 5 link(s) → Canine Elbow Joint - Anatomy
+04:54:15  INFO      Added 2 link(s) → Canine Elbow Joint- Collateral Ligaments
+04:54:15  INFO      Added 3 link(s) → Canine Elbow Joint- Overview
+04:54:16  INFO      Added 1 link(s) → Canine Extensor Carpi Radialis (ECR)
+04:54:20  INFO      Added 1 link(s) → Canine Flexor Carpi Radialis (FCR)
+04:54:20  INFO      Added 1 link(s) → Canine Flexor Carpi Ulnaris (FCU)
+04:54:21  INFO      Added 2 link(s) → Canine Forelimb Arterial Supply
+04:54:24  INFO      Added 1 link(s) → Canine Forelimb Venous Drainage- Cephalic Vein
+04:54:26  INFO      Added 1 link(s) → Canine Forelimb- Radial Nerve Paralysis
+04:54:27  INFO      Added 1 link(s) → Canine Girdle Attachment- Hindlimb vs. Forelimb
+04:54:28  INFO      Added 4 link(s) → Canine Glenohumeral Joint- Characteristics
+04:54:29  INFO      Added 3 link(s) → Canine Hindlimb- Hip Muscle Groups & Innervation Summary
+04:54:32  INFO      Added 1 link(s) → Canine Hip Adductors
+04:54:33  INFO      Added 2 link(s) → Canine Hip Extensors- Gluteal Group
+04:54:34  INFO      Added 2 link(s) → Canine Hip Extensors- Hamstring Group
+04:54:36  INFO      Added 1 link(s) → Canine Hip Flexors
+04:54:37  INFO      Added 1 link(s) → Canine Infraspinatus Muscle
+04:54:38  INFO      Added 1 link(s) → Canine Lateral Digital Extensor (LDE)
+04:54:40  INFO      Added 2 link(s) → Canine Main Innervation- Hindlimb vs. Forelimb
+04:54:41  INFO      Added 1 link(s) → Canine Main Venous Drainage- Hindlimb vs. Forelimb
+04:54:43  INFO      Added 1 link(s) → Canine Mandible- Mandibular Branch of Trigeminal Nerve
+04:54:44  INFO      Added 1 link(s) → Canine Manica Flexoria
+04:54:47  INFO      Added 1 link(s) → Canine Musculocutaneous Nerve
+04:54:53  INFO      Added 1 link(s) → Canine Paranasal Sinuses
+04:54:58  INFO      Added 1 link(s) → Canine Pronator Teres Muscle
+04:54:59  INFO      Added 1 link(s) → Canine Proximal Forelimb Anatomy - Overview
+04:55:00  INFO      Added 1 link(s) → Canine Proximal Forelimb Anatomy- Learning Outcomes
+04:55:01  INFO      Added 1 link(s) → Canine Radial Nerve
+04:55:06  INFO      Added 1 link(s) → Canine Sacroiliac Joint
+04:55:13  INFO      Added 3 link(s) → Canine Stifle Joint (Knee)
+04:55:14  INFO      Added 1 link(s) → Canine Subscapularis Muscle
+04:55:15  INFO      Added 1 link(s) → Canine Superficial Digital Flexor (SDFT)
+04:55:16  INFO      Added 1 link(s) → Canine Supinator Muscle
+04:55:17  INFO      Added 1 link(s) → Canine Supraspinatus Muscle
+04:55:18  INFO      Added 1 link(s) → Canine Teres Major Muscle
+04:55:19  INFO      Added 1 link(s) → Canine Teres Minor Muscle
+04:55:23  INFO      Added 1 link(s) → Canine Ulnaris Lateralis Muscle
+04:55:26  INFO      Added 1 link(s) → Capillary Hydrostatic Pressure (Pc)
+04:55:35  INFO      Added 1 link(s) → Cardiac Auscultation- Heart Rhythm
+04:55:36  INFO      Added 1 link(s) → Cardiac Biomarkers- Troponin I (cTnI)
+04:55:37  INFO      Added 1 link(s) → Cardiac Conducting Cells - General Definition
+04:55:38  INFO      Added 1 link(s) → Cardiac Conduction System Components
+04:55:44  INFO      Added 2 link(s) → Cardiac Lining - Example of Diffusion
+04:55:44  INFO      Added 3 link(s) → Cardiac Muscle - Striated and Intercalated
+04:55:45  INFO      Added 6 link(s) → Cardiac Muscle Action Potentials
+04:55:46  INFO      Added 1 link(s) → Cardiac Muscle Contraction & Beat
+04:55:46  INFO      Added 1 link(s) → Cardiac Notch - Ruminants & Pigs
+04:55:47  INFO      Added 1 link(s) → Cardiac Notch- Anatomy and Clinical Significance
+04:55:51  INFO      Added 2 link(s) → Cardiovascular System (CVS) Functions
+04:55:52  INFO      Added 4 link(s) → Cardiovascular System - Amphibian Heart
+04:55:53  INFO      Added 2 link(s) → Cardiovascular System - Coronary Arteries - Species Differences
+04:55:53  INFO      Added 2 link(s) → Cardiovascular System - Coronary Arteries
+04:55:54  INFO      Added 2 link(s) → Cardiovascular System - Ossa Cordis
+04:55:55  INFO      Added 1 link(s) → Cardiovascular System Assessment- Blood Pressure (BP) - Normal Ranges & Significance (VETS20019)
+04:55:56  INFO      Added 2 link(s) → Cardiovascular System Assessment- Electrocardiogram (ECG) & Auscultation (VETS20019)
+04:55:56  INFO      Added 1 link(s) → Cardiovascular System Assessment- Heart Rate (HR) (VETS20019)
+04:55:57  INFO      Added 1 link(s) → Cardiovascular System Assessment- Invasive Blood Pressure (IBP) Measurement (VETS20019)
+04:55:58  INFO      Added 1 link(s) → Cardiovascular System Assessment- Mucous Membranes (MMs) & Capillary Refill Time (CRT) (VETS20019)
+04:55:59  INFO      Added 3 link(s) → Cardiovascular System Assessment- Non-Invasive Blood Pressure (NIBP) Measurement (VETS20019)
+04:56:00  INFO      Added 2 link(s) → Cardiovascular System Assessment- Pulse Rate & Quality (VETS20019)
+04:56:01  INFO      Added 1 link(s) → Cardiovascular, Muscle, and Nervous System Effects of Glucocorticoids
+04:56:17  INFO      Added 1 link(s) → Carotid Arteries
+04:56:17  INFO      Added 1 link(s) → Carotid Artery Branches and Supply
+04:56:18  INFO      Added 2 link(s) → Carotid Body- A Peripheral Chemoreceptor
+04:56:23  INFO      Added 1 link(s) → Case Study- Cookie - Canine False Pregnancy & Resource Guarding
+04:56:24  INFO      Added 1 link(s) → Case Study- Elsa - Canine Aggression & False Pregnancy
+04:56:25  INFO      Added 1 link(s) → Case Study- Hedgehog Anaesthesia
+04:56:29  INFO      Added 1 link(s) → Case Study- Red-Tailed Hawk Anaesthesia
+04:56:31  INFO      Added 1 link(s) → Castro Viejo Needle Holder (Ophthalmic)
+04:56:33  INFO      Added 1 link(s) → Casts
+04:56:34  INFO      Added 1 link(s) → Cat Diet - Strict Carnivore Requirements
+04:56:42  INFO      Added 2 link(s) → Cauda Equina and Filum Terminale
+04:56:44  INFO      Added 1 link(s) → Caudal-Coccygeal
+04:56:54  INFO      Added 1 link(s) → Causes of Seizures- Extracranial and Intracranial
+04:56:55  INFO      Added 1 link(s) → Causes of Seizures- Extracranial vs. Intracranial Origins
+04:56:55  INFO      Added 2 link(s) → Cell Bodies of Afferent Neurons
+04:56:56  INFO      Added 1 link(s) → Cell Death and Secretion
+04:56:57  INFO      Added 1 link(s) → Cell Lineage Definitions- -paenia
+04:56:57  INFO      Added 1 link(s) → Cell Lineage Definitions- -philia vs. -cytosis
+04:57:01  INFO      Added 1 link(s) → Cellular Characteristics of Conducting Cells
+04:57:05  INFO      Added 1 link(s) → Central Chemoreceptors (Chemoreflex)
+04:57:06  INFO      Added 4 link(s) → Central Chemoreceptors- Location, Signals, and Action
+04:57:07  INFO      Added 4 link(s) → Central Chemoreflex Mechanism- Indirect PaCO2 Sensitivity
+04:57:08  INFO      Added 2 link(s) → Central Nervous System (CNS) Anatomy
+04:57:09  INFO      Added 2 link(s) → Central Nervous System and Proprioceptive Input
+04:57:09  INFO      Added 1 link(s) → Central Nervous System
+04:57:11  INFO      Added 1 link(s) → Cerebellum's Role in Motor Control
+04:57:11  INFO      Added 1 link(s) → Cerebral Arterial Circle (Circle of Willis)
+04:57:12  INFO      Added 1 link(s) → Cerebral Lobes
+04:57:13  INFO      Added 1 link(s) → Cerebrospinal Fluid (CSF) Absorption
+04:57:13  INFO      Added 2 link(s) → Cerebrospinal Fluid (CSF) Production
+04:57:14  INFO      Added 3 link(s) → Cerebrospinal Fluid (CSF) Role
+04:57:15  INFO      Added 1 link(s) → Cerebrum
+04:57:16  INFO      Added 6 link(s) → Chambers of the Heart
+04:57:17  INFO      Added 1 link(s) → Changes in Fluid Content
+04:57:18  INFO      Added 3 link(s) → Characteristics and Functions of Peripheral Chemoreceptors
+04:57:19  INFO      Added 1 link(s) → Characteristics of Suitable Feline Litter Boxes
+04:57:20  INFO      Added 1 link(s) → Chelonian and Squamate Heart Anatomy
+04:57:23  INFO      Added 1 link(s) → Chelonian Shell Anatomy and Composition
+04:57:27  INFO      Added 4 link(s) → Chemoreceptor Feedback and Brain Control of Breathing
+04:57:30  INFO      Added 1 link(s) → Chlamydia felis- Clinical Course and Zoonotic Risk
+04:57:33  INFO      Added 1 link(s) → Chloride Shift Mechanism in Red Blood Cells
+04:57:34  INFO      Added 1 link(s) → Chloride Shift
+04:57:34  INFO      Added 1 link(s) → Cholesterol as a Precursor
+04:57:36  INFO      Added 2 link(s) → Chorda Tympani (CN VII)- Taste Innervation of the Rostral 2-3 of the Tongue
+04:57:36  INFO      Added 1 link(s) → Chromium-plated Carbon Steel in Surgical Instruments
+04:57:39  INFO      Added 1 link(s) → Circuit Factors for Non-Rebreathing Anaesthetic Systems
+04:57:39  INFO      Added 2 link(s) → Circumduction
+04:57:47  INFO      Added 1 link(s) → Classification of Seizures- Focal (Partial) Seizures
+04:57:47  INFO      Added 2 link(s) → Classification of Seizures- Generalised (Tonic-Clonic) Seizures
+04:57:48  INFO      Added 1 link(s) → Classifications of Seizures- Partial (Focal) and Generalized
+04:57:55  INFO      Added 1 link(s) → Clinical Applications - Venepuncture
+04:57:57  INFO      Added 1 link(s) → Clinical Examples of Allodynia
+04:57:58  INFO      Added 1 link(s) → Clinical Foetal Circulation- PDA
+04:57:59  INFO      Added 1 link(s) → Clinical Landmark - The Jugular Groove
+04:58:00  INFO      Added 1 link(s) → Clinical Presentation of Fungal Infections in Animals
+04:58:02  INFO      Added 1 link(s) → Clinical Significance- Intervertebral Disc Disease (IVDD)
+04:58:02  INFO      Added 1 link(s) → Clinical Significance- Overriding Dorsal Spinous Processes (ODSP)
+04:58:03  INFO      Added 1 link(s) → Clinical Signs & Treatment (Stenosis)
+04:58:07  INFO      Added 1 link(s) → Clinical Signs of Gossypiboma- Gastrointestinal Manifestations
+04:58:08  INFO      Added 1 link(s) → Clinical Signs of Gossypiboma- General and Initial Manifestations
+04:58:09  INFO      Added 1 link(s) → Clinical Signs of Gossypiboma- Localised and Chronic Manifestations
+04:58:15  INFO      Added 1 link(s) → Clinical Techniques - Fluid Therapy
+04:58:16  INFO      Added 1 link(s) → Clinical Techniques - Medicating Routes
+04:58:16  INFO      Added 3 link(s) → Clinical- Equine Check Ligaments and Tendon Health
+04:58:17  INFO      Added 2 link(s) → Clinical- Equine Laminitis
+04:58:23  INFO      Added 1 link(s) → CNS Coordination of ANS
+04:58:27  INFO      Added 1 link(s) → Coeliac Artery and Foregut Blood Supply
+04:58:28  INFO      Added 1 link(s) → Coeliacomesenteric Ganglion - Domestic Species
+04:58:33  INFO      Added 3 link(s) → Collateral Ligaments of the Stifle Joint
+04:58:35  INFO      Added 1 link(s) → Colloid (π)
+04:58:35  INFO      Added 1 link(s) → Colloid Osmotic Pressure
+04:58:49  INFO      Added 1 link(s) → Common Calcaneal Tendon (Achilles Tendon)
+04:58:50  INFO      Added 1 link(s) → Common Canine and Feline Dental Diseases Overview
+04:58:54  INFO      Added 2 link(s) → Common Clinical Signs in Dermatology
+04:58:57  INFO      Added 2 link(s) → Common Diagnostic Tests
+04:58:58  INFO      Added 1 link(s) → Common Diseases and Conditions – Zoonotic Diseases
+04:59:02  INFO      Added 2 link(s) → Common Infectious Diseases in Reptiles
+04:59:06  INFO      Added 2 link(s) → Common Medical Presentations - Neurological - Encephalitozoonosis
+04:59:10  INFO      Added 1 link(s) → Common Non-Specific Horse Signs of Illness
+04:59:14  INFO      Added 1 link(s) → Common Physiotherapy Equipment
+04:59:15  INFO      Added 2 link(s) → Common Pre-operative Ancillary Diagnostic Tests
+04:59:15  INFO      Added 1 link(s) → Common Problems and Trauma Management in Fish
+04:59:16  INFO      Added 2 link(s) → Common Reptile Species Categories in Veterinary Practice
+04:59:18  INFO      Added 1 link(s) → Common Snake Families and Examples
+04:59:26  INFO      Added 1 link(s) → Common vs. Long Digital Extensor in Equine Limbs
+04:59:29  INFO      Added 1 link(s) → Communication Strategies for Equine Owner Support
+04:59:35  INFO      Added 1 link(s) → Competition for Binding Sites
+04:59:38  INFO      Added 1 link(s) → Complex Gills - Fish Gill Anatomy
+04:59:39  INFO      Added 1 link(s) → Complications and Risks
+04:59:40  INFO      Added 2 link(s) → Components of a Pre-operative Clinical Examination
+04:59:42  INFO      Added 3 link(s) → Components of the Behavioural System
+04:59:50  INFO      Added 1 link(s) → Conditions for Trait Evolution
+04:59:50  INFO      Added 2 link(s) → Conducting System of the Heart
+04:59:54  INFO      Added 4 link(s) → Congenital Cardiac Diseases - Overview
+04:59:55  INFO      Added 1 link(s) → Connection to Bundle of His
+04:59:56  INFO      Added 2 link(s) → Connection to the Inferior Vena Cava
+04:59:57  INFO      Added 3 link(s) → Connection to Ventricular Myocardium
+04:59:57  INFO      Added 2 link(s) → Connective Tissue & Exophthalmos
+05:00:05  INFO      Added 1 link(s) → Controlling Scatter- Collimation
+05:00:06  INFO      Added 1 link(s) → Controlling Scatter- Grids
+05:00:07  INFO      Added 1 link(s) → Conus Medullaris
+05:00:10  INFO      Added 1 link(s) → Corneal Ulcer Specifics
+05:00:11  INFO      Added 2 link(s) → Corneal Ulcer- Causes and Signs
+05:00:12  INFO      Added 1 link(s) → Coroid - Blood Supply
+05:00:13  INFO      Added 2 link(s) → Coronal Plane
+05:00:13  INFO      Added 3 link(s) → Coronary Arteries Branch Point
+05:00:14  INFO      Added 3 link(s) → Coronary Arteries- Left Dominance (Dog and Ruminant)
+05:00:15  INFO      Added 3 link(s) → Coronary Arteries- Origin and General Branching (ANAT20007)
+05:00:15  INFO      Added 2 link(s) → Coronary Arteries- Right Dominance (Pig and Horse)
+05:00:16  INFO      Added 1 link(s) → Coronary Arteries
+05:00:17  INFO      Added 2 link(s) → Coronary Veins- Venous Drainage of the Heart
+05:00:21  INFO      Added 2 link(s) → Cortisol Production
+05:00:22  INFO      Added 1 link(s) → Countercurrent Exchange in the Vasa Recta
+05:00:22  INFO      Added 1 link(s) → Countercurrent Flow in Fish Gills
+05:00:26  INFO      Added 2 link(s) → Course Files - E3 The nervous system
+05:00:27  INFO      Added 1 link(s) → Course Files - E5 Cardiovascular system
+05:00:33  INFO      Added 1 link(s) → Cranial Cruciate Ligament (CrCL) Rupture Overview
+05:00:34  INFO      Added 1 link(s) → Cranial Drawer Test for CrCL Rupture
+05:00:34  INFO      Added 1 link(s) → Cranial Nerve Pairs
+05:00:35  INFO      Added 4 link(s) → Cranial Nerves Overview
+05:00:35  INFO      Added 2 link(s) → Cranial Nerves with Parasympathetic Functions
+05:00:36  INFO      Added 2 link(s) → Cranial Nerves- Functional Classification
+05:00:37  INFO      Added 1 link(s) → Cranial nerves
+05:00:37  INFO      Added 3 link(s) → Cranial Plexus Relation
+05:00:38  INFO      Added 1 link(s) → Cranial Third - Cardiovascular System
+05:00:39  INFO      Added 1 link(s) → Cranial Third - Respiratory System
+05:00:41  INFO      Added 1 link(s) → Critical Role of Water Quality in Fish Husbandry
+05:00:55  INFO      Added 1 link(s) → CT and MRI for Ophthalmic Diagnostics
+05:00:56  INFO      Added 3 link(s) → Cursorial Limb Modifications
+05:01:00  INFO      Added 1 link(s) → Daily Calcium Balance
+05:01:02  INFO      Added 1 link(s) → Dalton's Law of Partial Pressures
+05:01:04  INFO      Added 2 link(s) → Dataview Publisher Query - Cells to System
+05:01:07  INFO      Added 1 link(s) → Dataview Query - PPVN Data
+05:01:08  INFO      Added 1 link(s) → Dataview Query - Urinary System Module
+05:01:12  INFO      Added 1 link(s) → Dataview Query for PPVN - Haematology Note Collection
+05:01:13  INFO      Added 1 link(s) → Dataview Query- PPVN Miscellaneous Overview
+05:01:17  INFO      Added 1 link(s) → DataviewJS- Outputting Results as a Table
+05:01:24  INFO      Added 1 link(s) → Decubital Ulcers - Prevention Strategies - Turning
+05:01:25  INFO      Added 3 link(s) → Decubital Ulcers- Definition and Prevention in Neurological Patients
+05:01:28  INFO      Added 2 link(s) → Deep Digital Flexor (DDF) - Hock and Digit Action
+05:01:33  INFO      Added 1 link(s) → Definition and Purpose of Triage in Veterinary Medicine (VETS20019)
+05:01:39  INFO      Added 1 link(s) → Definition of Pain
+05:01:43  INFO      Added 1 link(s) → Deglutition (Swallowing)- A Complex Process Overview
+05:01:43  INFO      Added 2 link(s) → Deglutition (Swallowing)- Involuntary Phase - Airway Protection (Phase 2, Part 1)
+05:01:44  INFO      Added 2 link(s) → Deglutition (Swallowing)- Involuntary Phase - Bolus Propulsion and Airway Closure (Phase 2, Part 2)
+05:01:46  INFO      Added 1 link(s) → Deglutition (Swallowing)- Voluntary Phase (Phase 1)
+05:01:47  INFO      Added 1 link(s) → Deglutition - Phase 1- Voluntary
+05:01:51  INFO      Added 1 link(s) → Delay at the Atrioventricular Node
+05:01:53  INFO      Added 1 link(s) → Dental Caries - Diagnosis & Treatment
+05:01:54  INFO      Added 1 link(s) → Dental Directional Terminology
+05:01:56  INFO      Added 2 link(s) → Dental Examination - Non-Sedated
+05:02:00  INFO      Added 1 link(s) → Dental Scaling Procedures in Veterinary Medicine
+05:02:05  INFO      Added 1 link(s) → Dermatological Diagnostic Technique- Trichogram
+05:02:06  INFO      Added 1 link(s) → Dermatological Diagnostic Technique- Wood's Lamp Examination
+05:02:08  INFO      Added 1 link(s) → Dermatophilosis in Equine (Rain Scald)
+05:02:11  INFO      Added 1 link(s) → Dermatophytosis Diagnosis- In-house Fungal Culture
+05:02:12  INFO      Added 1 link(s) → Dermatophytosis Diagnosis- PCR Testing
+05:02:12  INFO      Added 2 link(s) → Dermis Origin
+05:02:15  INFO      Added 1 link(s) → Development and Calibration of the Behavioural System
+05:02:17  INFO      Added 1 link(s) → Development of Social Relationships in Animals
+05:02:17  INFO      Added 2 link(s) → Development of Tension - Motor Unit
+05:02:19  INFO      Added 2 link(s) → Dexmedetomidine- Alpha-2 Receptor Agonist
+05:02:24  INFO      Added 1 link(s) → Diagnosing Gossypiboma- Radiography
+05:02:24  INFO      Added 1 link(s) → Diagnosing Gossypiboma- Role of Exploratory Laparotomy
+05:02:25  INFO      Added 1 link(s) → Diagnosing Gossypiboma- Ultrasound Findings
+05:02:26  INFO      Added 1 link(s) → Diagnosis of Feline Upper Respiratory Disease (Cat Flu)
+05:02:27  INFO      Added 1 link(s) → Diagnosis of Gastrointestinal Infections
+05:02:28  INFO      Added 1 link(s) → Diagnostic Approach- The Golden Rule & Steps
+05:02:33  INFO      Added 1 link(s) → Diarrhoea Localisation
+05:02:35  INFO      Added 1 link(s) → Diarthrosis Definition
+05:02:36  INFO      Added 1 link(s) → Diastole (Cardiac Relaxation)
+05:02:44  INFO      Added 1 link(s) → Dietary Impact on Serotonin Pathways
+05:02:45  INFO      Added 1 link(s) → Dietary Influence on GABA Pathways
+05:02:48  INFO      Added 1 link(s) → Differences in Stay Apparatus - Equine Forelimb vs. Hindlimb
+05:02:51  INFO      Added 1 link(s) → Diffusion and Distance
+05:02:51  INFO      Added 1 link(s) → Diffusion in Biological Systems
+05:02:52  INFO      Added 2 link(s) → Diffusion of Gases
+05:02:53  INFO      Added 1 link(s) → Digestive System Files
+05:02:53  INFO      Added 1 link(s) → Digestive System Functions - Overview
+05:02:54  INFO      Added 1 link(s) → Digestive system overview (ANAT10009 - Digestive system)
+05:02:55  INFO      Added 2 link(s) → Digital Flexor Tendons & Check Ligaments - Fetlock Stability
+05:02:56  INFO      Added 2 link(s) → Digital Flexor Tendons & Check Ligaments- Equine Passive Stay Apparatus
+05:02:57  INFO      Added 1 link(s) → Digital Flexor Tendons in Equine Hindlimb Distal Support
+05:03:13  INFO      Added 1 link(s) → Distal Sesamoid (Navicular Bone) - Function and Location
+05:03:14  INFO      Added 2 link(s) → Distal Sesamoidean Ligaments - Limb Support
+05:03:14  INFO      Added 2 link(s) → Distal Sesamoidean Ligaments- Equine Distal Limb Support
+05:03:15  INFO      Added 1 link(s) → Distal Support Structures of Equine Hindlimb Stay Apparatus
+05:03:16  INFO      Added 2 link(s) → Distal Tubule and Potassium Regulation - Aldosterone
+05:03:17  INFO      Added 1 link(s) → Distance
+05:03:24  INFO      Added 1 link(s) → Domestication of Dogs- Process and History
+05:03:28  INFO      Added 1 link(s) → Dopamine's Role in Animal Behaviour
+05:03:28  INFO      Added 1 link(s) → Dorsal Horn
+05:03:29  INFO      Added 1 link(s) → Dorsal Pedal Artery - Vascular Access
+05:03:30  INFO      Added 2 link(s) → Dorsal Plane
+05:03:31  INFO      Added 1 link(s) → Dorsal-Posterior Abdominal Wall Muscles
+05:03:32  INFO      Added 1 link(s) → Dorsiflexion and Plantar Flexion
+05:03:35  INFO      Added 1 link(s) → Drainage of Pulmonary Veins
+05:03:36  INFO      Added 1 link(s) → Drainage via Common Iliac Veins
+05:03:38  INFO      Added 2 link(s) → Drug Absorption Mechanisms
+05:03:40  INFO      Added 1 link(s) → Drug Clearance and Half-Life (Single Compartment Model)
+05:03:42  INFO      Added 1 link(s) → Drug Distribution - Volume of Distribution
+05:03:45  INFO      Added 1 link(s) → Drug Mechanisms of Action - Cellular
+05:03:45  INFO      Added 2 link(s) → Drug Mechanisms of Action - Non-Cellular
+05:03:51  INFO      Added 2 link(s) → Ductus Deferens (Vas Deferens)
+05:03:54  INFO      Added 2 link(s) → Dysecdysis (Retained Shed) in Reptiles
+05:04:00  INFO      Added 1 link(s) → E2 - Urinary system (ANAT10009)
+05:04:00  INFO      Added 1 link(s) → E3 - Digestive system (ANAT10009)
+05:04:03  INFO      Added 3 link(s) → Early Implantation - Embryoblast Formation
+05:04:04  INFO      Added 1 link(s) → Ecdysis- The Snake Skin Shedding Process
+05:04:09  INFO      Added 1 link(s) → Echocardiography (Cardiac Ultrasound)
+05:04:14  INFO      Added 1 link(s) → EDTA Collection for Haematology
+05:04:16  INFO      Added 1 link(s) → Effects of Adrenaline and Noradrenaline
+05:04:17  INFO      Added 4 link(s) → Efferent Nerves - Parasympathetic
+05:04:18  INFO      Added 3 link(s) → Efferent Nerves - Sympathetic
+05:04:18  INFO      Added 3 link(s) → Efferent Nervous System
+05:04:21  INFO      Added 1 link(s) → Electric Coupling in Cardiac Muscle
+05:04:29  INFO      Added 1 link(s) → Elimination - Litter Box Management
+05:04:29  INFO      Added 2 link(s) → Embryoblast and Trophoblast differentiation
+05:04:30  INFO      Added 1 link(s) → Embryoblast Presence
+05:04:30  INFO      Added 1 link(s) → Embryoblast
+05:04:31  INFO      Added 2 link(s) → Embryological Origin of the Digestive System - Image Reference
+05:04:33  INFO      Added 1 link(s) → Embryonic Tissue Derivatives - Endoderm
+05:04:33  INFO      Added 1 link(s) → Embryonic Tissue Derivatives - Mesoderm
+05:04:42  INFO      Added 2 link(s) → Emission, Ejaculation, and Ejaculatory Control
+05:04:44  INFO      Added 1 link(s) → Endochondral Ossification - Image Reference
+05:04:46  INFO      Added 1 link(s) → Endocrine System Overview
+05:04:47  INFO      Added 1 link(s) → Endoderm Definition
+05:04:48  INFO      Added 1 link(s) → Endoderm Derivatives - GI Tract
+05:04:49  INFO      Added 1 link(s) → Endoderm Derivatives - Respiratory Tract
+05:04:49  INFO      Added 3 link(s) → Endoderm
+05:04:57  INFO      Added 1 link(s) → Energy Source for Glomerular Filtration
+05:04:58  INFO      Added 1 link(s) → Enhancing Owner Engagement and Compliance in Pet Weight Loss
+05:05:00  INFO      Added 2 link(s) → Enteric Endocrine System Role in Hunger
+05:05:01  INFO      Added 2 link(s) → Enteric Nervous System
+05:05:07  INFO      Added 1 link(s) → Environmental Triggers in Worker Bee Caste Development
+05:05:09  INFO      Added 4 link(s) → Epaxial Muscles of the Trunk - Function and Systems
+05:05:10  INFO      Added 4 link(s) → Epiblast
+05:05:17  INFO      Added 1 link(s) → Epididymis Function
+05:05:19  INFO      Added 1 link(s) → Epithelial Tissue Classifications
+05:05:20  INFO      Added 2 link(s) → Epithelial Tissue Definition
+05:05:20  INFO      Added 1 link(s) → Epithelial Tissue Structure
+05:05:26  INFO      Added 1 link(s) → Equine Asthma - Diagnosis
+05:05:28  INFO      Added 1 link(s) → Equine Asthma- Clinical Signs
+05:05:29  INFO      Added 1 link(s) → Equine Asthma- Diagnosis
+05:05:30  INFO      Added 1 link(s) → Equine Asthma- Environmental Management (Critical Step)
+05:05:34  INFO      Added 1 link(s) → Equine Cannon Bone (Metacarpus-Metatarsus)
+05:05:40  INFO      Added 1 link(s) → Equine Distal Limb - Adaptation for Speed (Perissodactyla)
+05:05:40  INFO      Added 2 link(s) → Equine Distal Limb - Arterial Anastomosis
+05:05:41  INFO      Added 2 link(s) → Equine Distal Limb - Diagnostic Nerve Blocks for Lameness
+05:05:42  INFO      Added 2 link(s) → Equine Distal Limb - Digital Arteries and Veins
+05:05:43  INFO      Added 1 link(s) → Equine Distal Limb - Innervation by Median and Ulnar Nerves
+05:05:43  INFO      Added 3 link(s) → Equine Distal Limb - Nerve Block Procedure (Distal to Proximal)
+05:05:44  INFO      Added 1 link(s) → Equine Distal Limb Bones - Metacarpus-Metatarsus (Cannon Bone)
+05:05:45  INFO      Added 2 link(s) → Equine Distal Limb Bones Overview
+05:05:46  INFO      Added 1 link(s) → Equine Distal Sesamoid (Navicular Bone)
+05:05:46  INFO      Added 3 link(s) → Equine Elbow Joint- Stability and Restricted Movement
+05:05:50  INFO      Added 1 link(s) → Equine Foot- Internal Structures (Digital Cushion, Cartilages, Bursa)
+05:05:51  INFO      Added 1 link(s) → Equine Forelimb Weight-Bearing Support- Carpus
+05:05:51  INFO      Added 1 link(s) → Equine Forelimb Weight-Bearing Support- Elbow
+05:05:52  INFO      Added 1 link(s) → Equine Forelimb Weight-Bearing Support- Fetlock & Distal Joints
+05:05:52  INFO      Added 1 link(s) → Equine Forelimb Weight-Bearing Support- Shoulder
+05:05:53  INFO      Added 5 link(s) → Equine Forelimb- Bones and Joints (Perissodactyla)
+05:05:54  INFO      Added 3 link(s) → Equine Forelimb- Extensor Muscles and Tendons
+05:05:55  INFO      Added 3 link(s) → Equine Forelimb- Flexor Muscles and Tendons
+05:06:00  INFO      Added 2 link(s) → Equine Hindlimb- Extensor Muscles and Tendons
+05:06:01  INFO      Added 3 link(s) → Equine Hindlimb- Flexor Muscles and Tendons
+05:06:07  INFO      Added 1 link(s) → Equine Hoof - Periople
+05:06:11  INFO      Added 1 link(s) → Equine Hoof Laminae - Function and P3 Suspension
+05:06:12  INFO      Added 1 link(s) → Equine Hoof Laminae - Vascularity and Sensitivity
+05:06:14  INFO      Added 1 link(s) → Equine Hoof Wall - Stratum Internum (Internal Layer)
+05:06:16  INFO      Added 2 link(s) → Equine Hoof- Structure and Function
+05:06:18  INFO      Added 2 link(s) → Equine Laminitis - Definition and Pathology
+05:06:21  INFO      Added 1 link(s) → Equine Metabolic Syndrome (EMS) - Diagnosis
+05:06:23  INFO      Added 1 link(s) → Equine Metabolic Syndrome (EMS)- Diagnosis
+05:06:27  INFO      Added 2 link(s) → Equine Neurovasculature - Blood Supply
+05:06:28  INFO      Added 2 link(s) → Equine Neurovasculature - Nerve Blocks
+05:06:29  INFO      Added 1 link(s) → Equine Nursing Role - Overview
+05:06:30  INFO      Added 2 link(s) → Equine P3 - Extensor Process Tendon Attachment
+05:06:30  INFO      Added 1 link(s) → Equine P3 - Flexor Surface Tendon Attachment (DDFT)
+05:06:31  INFO      Added 4 link(s) → Equine P3 - Muscle Balance Overview
+05:06:32  INFO      Added 1 link(s) → Equine P3 - Suspensory Ligament Extensor Support
+05:06:32  INFO      Added 2 link(s) → Equine P3 Vascularity (Foramina)
+05:06:33  INFO      Added 1 link(s) → Equine Paranasal Sinuses
+05:06:35  INFO      Added 1 link(s) → Equine Passport and Microchip Application Process
+05:06:36  INFO      Added 1 link(s) → Equine Passports and Microchipping – Legal Requirements
+05:06:39  INFO      Added 1 link(s) → Equine Phalanges- P1 (Long Pastern)
+05:06:39  INFO      Added 1 link(s) → Equine Phalanges- P2 (Short Pastern)
+05:06:40  INFO      Added 1 link(s) → Equine Phalanges- P3 (Distal Phalanx-Pedal Bone)
+05:06:41  INFO      Added 1 link(s) → Equine Post-Anaesthetic Myopathy (EPAM)
+05:06:41  INFO      Added 1 link(s) → Equine Proximal Sesamoid Bones
+05:06:46  INFO      Added 2 link(s) → Equine Suspensory Ligament- Structure and Function
+05:06:52  INFO      Added 1 link(s) → Equipment Required for an Ophthalmic Exam
+05:06:55  INFO      Added 1 link(s) → Erectile Bodies in the Female Genitalia
+05:06:55  INFO      Added 1 link(s) → Erection
+05:06:56  INFO      Added 1 link(s) → Erythrocytes (Red Blood Cells)
+05:06:57  INFO      Added 1 link(s) → Erythrocytes - Haemoglobin
+05:06:58  INFO      Added 1 link(s) → Erythrocytes- Production and Lifespan
+05:07:04  INFO      Added 1 link(s) → Essential Equipment for Ophthalmic Examinations
+05:07:08  INFO      Added 1 link(s) → Ethological Feeding Needs for Dogs
+05:07:09  INFO      Added 1 link(s) → Eukaryotic Cell Wall Extension and Vacuoles
+05:07:10  INFO      Added 1 link(s) → Evolutionary Adaptation
+05:07:11  INFO      Added 1 link(s) → Evolutionary Trait Modification Conditions
+05:07:19  INFO      Added 1 link(s) → Exam Duration and Weighting
+05:07:30  INFO      Added 4 link(s) → Example Kit- Bitch Spay
+05:07:32  INFO      Added 1 link(s) → Example- Sebaceous Glands
+05:07:34  INFO      Added 1 link(s) → Examples of Horned Structures - Baleen
+05:07:34  INFO      Added 1 link(s) → Examples of Horned Structures - Rattles
+05:07:38  INFO      Added 1 link(s) → Examples of Tissues with Mucus Secretion
+05:07:39  INFO      Added 1 link(s) → Exchange Across the Capillary Wall – Pressure Gradients
+05:07:44  INFO      Added 2 link(s) → Exercise Pressor Reflex and the Autonomic Nervous System
+05:07:51  INFO      Added 1 link(s) → External Jugular Vein (Canine)
+05:07:54  INFO      Added 1 link(s) → External Respiration Definition
+05:07:55  INFO      Added 1 link(s) → Extracranial Causes of Seizures- Metabolic Issues
+05:07:59  INFO      Added 1 link(s) → Extrinsic Control of Stroke Volume – Inotropic Agents
+05:08:00  INFO      Added 1 link(s) → Extrinsic Muscles of the Forelimb - Synsarcosis & Actions
+05:08:03  INFO      Added 1 link(s) → Facial Artery
+05:08:04  INFO      Added 2 link(s) → Facial Nerve (CN VII) - Motor & Parasympathetic
+05:08:04  INFO      Added 1 link(s) → Facial Nerve (CN VII) - Sensory
+05:08:05  INFO      Added 3 link(s) → Facial Nerve (CN VII)- Functions and Clinical Significance
+05:08:08  INFO      Added 1 link(s) → Factors Affecting Behavior in Dogs
+05:08:08  INFO      Added 1 link(s) → Factors Affecting Glomerular Filtration
+05:08:11  INFO      Added 1 link(s) → Factors Determining Drug Distribution
+05:08:12  INFO      Added 2 link(s) → Factors Determining Locomotion Speed (ANAT20001)
+05:08:17  INFO      Added 1 link(s) → Factors Influencing Drug Transfer Rate (Fick's Law)
+05:08:25  INFO      Added 1 link(s) → Fascia- Roles and Types
+05:08:26  INFO      Added 1 link(s) → Fascia- Supporting and Compartmentalizing Tissues (ANAT20001)
+05:08:27  INFO      Added 1 link(s) → Fasciculata Zone
+05:09:13  INFO      Added 1 link(s) → Feline Kidney Efficiency and Water Intake
+05:09:33  INFO      Added 1 link(s) → FeLV Diagnosis- Antigen Testing (ELISA)
+05:09:34  INFO      Added 1 link(s) → FeLV Diagnosis- Complications and Confirmation
+05:09:37  INFO      Added 1 link(s) → Female and Male Development – Image Reference
+05:09:43  INFO      Added 2 link(s) → Femoral Artery - Vascular Access
+05:09:47  INFO      Added 1 link(s) → Fentanyl-Fluanisone- Respiratory Depression and Reversal
+05:09:52  INFO      Added 1 link(s) → Ferrets- Blood Sampling Sites
+05:09:52  INFO      Added 1 link(s) → Ferrets- Clinical Exam Protocol
+05:09:53  INFO      Added 2 link(s) → Ferrets- Clinical Techniques - Blood Sampling and Medications
+05:10:00  INFO      Added 1 link(s) → Ferrets- Fluid Therapy Maintenance Rate & Administration Routes
+05:10:03  INFO      Added 1 link(s) → Ferrets- Medication Administration Routes & Considerations
+05:10:08  INFO      Added 1 link(s) → Ferrets- Taxonomy and Anatomy
+05:10:13  INFO      Added 3 link(s) → Fibrous Joints - General Definition
+05:10:14  INFO      Added 1 link(s) → Fibrous Joints
+05:10:15  INFO      Added 3 link(s) → Fibular (Peroneal) Nerve Function
+05:10:16  INFO      Added 2 link(s) → Fibularis (Peroneus) Longus Muscle
+05:10:17  INFO      Added 1 link(s) → Fick's Law of Diffusion
+05:10:19  INFO      Added 2 link(s) → File Listing - The Nervous System (AS1A-E3)
+05:10:19  INFO      Added 2 link(s) → File- Blood, Blood Vessels and the Mammalian Heart
+05:10:21  INFO      Added 1 link(s) → File- Exam discussion.md
+05:10:23  INFO      Added 3 link(s) → File- Great Vessels of the Heart
+05:10:28  INFO      Added 4 link(s) → File- The Chambers of the Heart
+05:10:29  INFO      Added 4 link(s) → File- The Conducting System of the Heart
+05:10:29  INFO      Added 2 link(s) → File- The Heart
+05:10:31  INFO      Added 1 link(s) → Filtration as a Tissue Function
+05:10:35  INFO      Added 1 link(s) → Final Unit Exam Topic- Clinical Pathology
+05:10:38  INFO      Added 1 link(s) → Final Unit Exam Topic- Endocrinology
+05:10:42  INFO      Added 2 link(s) → Final Unit Exam Topic- Neurology
+05:10:49  INFO      Added 1 link(s) → FIP Diagnosis- Challenges and General Approach
+05:10:50  INFO      Added 1 link(s) → FIP Diagnosis- Haematology and Serum Biochemistry
+05:10:51  INFO      Added 1 link(s) → FIP Diagnosis- Imaging and Effusion Analysis
+05:10:51  INFO      Added 1 link(s) → FIP Diagnosis- Lab Tests for Effusions and Dry FIP
+05:10:52  INFO      Added 1 link(s) → FIP Diagnosis- Limitations of FCoV Serology
+05:10:53  INFO      Added 1 link(s) → FIP Diagnosis- Signalment and History
+05:10:56  INFO      Added 1 link(s) → Fish Anaesthesia Protocol
+05:10:56  INFO      Added 2 link(s) → Fish Anatomy- Gills, Swim Bladder, Lateral Line
+05:10:57  INFO      Added 1 link(s) → Fish Biodiversity
+05:10:58  INFO      Added 1 link(s) → Fish Care – Common Problems & First Aid
+05:10:58  INFO      Added 1 link(s) → Fish Diagnostics and Therapeutics
+05:10:59  INFO      Added 1 link(s) → Fish Fins- Types and Functions
+05:11:00  INFO      Added 2 link(s) → Fish First Aid Protocol (Client Advice)
+05:11:01  INFO      Added 1 link(s) → Fish Handling Techniques
+05:11:01  INFO      Added 1 link(s) → Fish Husbandry - Handling and Anaesthesia
+05:11:02  INFO      Added 1 link(s) → Fish Husbandry – Water Quality
+05:11:03  INFO      Added 1 link(s) → Fish Integument (Skin) Structure and Function
+05:11:03  INFO      Added 1 link(s) → Fish Skull Anatomy and Cranial Kinesis
+05:11:04  INFO      Added 1 link(s) → Fish Skull and Branchial Arches
+05:11:05  INFO      Added 5 link(s) → Fish Trunk and Tail Musculature
+05:11:06  INFO      Added 2 link(s) → Fish Vertebrae Structure
+05:11:06  INFO      Added 1 link(s) → Fish- Classes and Bone Characteristics
+05:11:08  INFO      Added 1 link(s) → Fistula- Definition, Causes, Signs, and Treatment
+05:11:12  INFO      Added 1 link(s) → FIV Diagnosis- Antibody Testing (ELISA)
+05:11:13  INFO      Added 1 link(s) → FIV Diagnosis- Complications and False Results
+05:11:13  INFO      Added 1 link(s) → FIV Prognosis
+05:11:15  INFO      Added 1 link(s) → FIV-FeLV Management- Positive Diagnosis Protocol
+05:11:16  INFO      Added 1 link(s) → Flank Surgical Approach via Abdominal Oblique Muscles
+05:11:18  INFO      Added 1 link(s) → Flea Allergic Dermatitis (FAD)- Clinical Signs
+05:11:19  INFO      Added 1 link(s) → Flea Allergic Dermatitis (FAD)- Diagnosis
+05:11:28  INFO      Added 3 link(s) → Flexion and Extension
+05:11:33  INFO      Added 2 link(s) → Fluanisone's Receptor Interactions
+05:11:37  INFO      Added 1 link(s) → Fluid Balance - Maintaining Homeostasis
+05:11:40  INFO      Added 2 link(s) → Fluid Choice- 0.9% Sodium Chloride
+05:11:41  INFO      Added 1 link(s) → Fluid Choice- Hartmann's Solution
+05:11:58  INFO      Added 1 link(s) → Follicular Mites- Demodex spp. Diagnosis
+05:12:02  INFO      Added 1 link(s) → Foramen Magnum
+05:12:03  INFO      Added 1 link(s) → Foregut (ANAT10009 - Digestive system)
+05:12:04  INFO      Added 1 link(s) → Foregut vs Midgut Fermentation
+05:12:05  INFO      Added 2 link(s) → Fossa Ovalis Location
+05:12:06  INFO      Added 1 link(s) → Fossa Ovalis
+05:12:11  INFO      Added 1 link(s) → Fresh Gas Flow (FGF) Calculation for Non-Rebreathing Anaesthetic Systems
+05:12:16  INFO      Added 1 link(s) → Frontal Lobe
+05:12:21  INFO      Added 1 link(s) → Function of Equine Hindlimb Reciprocal Apparatus
+05:12:23  INFO      Added 2 link(s) → Functional Classification of Cranial Nerves
+05:12:27  INFO      Added 1 link(s) → Functional Muscle Classifications- Agonists, Antagonists, etc
+05:12:28  INFO      Added 1 link(s) → Functional Roles of Muscles in Movement (ANAT20001)
+05:12:29  INFO      Added 1 link(s) → Functional Similarities - Tonic Activity
+05:12:31  INFO      Added 1 link(s) → Functions of Canine Vocalizations- Barking and Howling
+05:12:32  INFO      Added 1 link(s) → Functions of Epithelial Tissue
+05:12:36  INFO      Added 1 link(s) → Functions of the Abdominal Wall Muscles
+05:12:38  INFO      Added 1 link(s) → Fungal Infection Treatment and Prevention
+05:12:39  INFO      Added 1 link(s) → Fungal Pathology and Opportunistic Infections in Animals
+05:12:42  INFO      Added 2 link(s) → GABA Agonist- Definition and Mechanism
+05:12:43  INFO      Added 2 link(s) → GABA Agonists as Anaesthetics
+05:12:43  INFO      Added 2 link(s) → GABA Agonists in Veterinary Anaesthesia
+05:12:52  INFO      Added 1 link(s) → Gastric Dilation and Volvulus (GDV)
+05:13:06  INFO      Added 1 link(s) → Gastrointestinal Tract - Oral Cavity
+05:13:09  INFO      Added 1 link(s) → General Bone Characteristics - Class Distinctions
+05:13:11  INFO      Added 1 link(s) → General Characteristics of Fish
+05:13:18  INFO      Added 1 link(s) → General Reptile Requirements
+05:13:19  INFO      Added 2 link(s) → General Visceral Afferent Nerves
+05:13:20  INFO      Added 2 link(s) → General Visceral Efferent Nerves
+05:13:30  INFO      Added 2 link(s) → GFR Equation Components
+05:13:38  INFO      Added 1 link(s) → Glands as Example of Active Transport
+05:13:42  INFO      Added 1 link(s) → Glomerulosa Zone
+05:13:43  INFO      Added 1 link(s) → Glossary of Veterinary Medicine Terms - General
+05:13:44  INFO      Added 2 link(s) → Glossopharyngeal Nerve (CN IX) - Sensory & Motor
+05:13:44  INFO      Added 2 link(s) → Glossopharyngeal Nerve (CN IX)- Innervation of the Caudal 1-3 of the Tongue
+05:13:45  INFO      Added 2 link(s) → Glossopharyngeal Nerve (CN IX)- Pharyngeal and Taste Functions
+05:13:48  INFO      Added 2 link(s) → Glucose and Amino Acid Reabsorption - Co-Transport
+05:13:49  INFO      Added 1 link(s) → Glycaemic Control and Animal Behaviour
+05:13:52  INFO      Added 1 link(s) → Golden Rules for Feeding Horses
+05:13:53  INFO      Added 1 link(s) → Gomphosis - Fibrous Joint Type
+05:13:59  INFO      Added 5 link(s) → Great Vessels of the Heart
+05:14:00  INFO      Added 1 link(s) → Grid Factor
+05:14:00  INFO      Added 1 link(s) → Grid Types
+05:14:04  INFO      Added 1 link(s) → Gut Microbiome Basics - Firmicutes, Bacteriodetes, Resilience
+05:14:07  INFO      Added 1 link(s) → Gymnophiona External Anatomy- Limbless Form
+05:14:10  INFO      Added 1 link(s) → Gymnophiona Locomotion- Undulations
+05:14:11  INFO      Added 1 link(s) → Gyri and Sulci
+05:14:12  INFO      Added 1 link(s) → Habituation vs. Sensitization- A Refresher
+05:14:17  INFO      Added 1 link(s) → Haemoplasma- Other Species and Transmission
+05:14:18  INFO      Added 1 link(s) → Halitosis (Bad Breath)- Causes
+05:14:20  INFO      Added 2 link(s) → Hamstring Muscle Group Overview
+05:14:21  INFO      Added 1 link(s) → Hand-Held Surgical Retractors
+05:14:22  INFO      Added 1 link(s) → Handling Laboratory Samples in Oncology
+05:14:26  INFO      Added 1 link(s) → Health Benefits & Risks of Neutering- Male Dogs
+05:14:29  INFO      Added 2 link(s) → Heart Failure (HF) - Overview
+05:14:30  INFO      Added 2 link(s) → Heart Position in Quadrupedal Mammals
+05:14:31  INFO      Added 2 link(s) → Heartworm (Dirofilaria immitis) in Pets- Aetiology & Clinical Signs
+05:14:32  INFO      Added 2 link(s) → Heartworm (Dirofilaria immitis)- Diagnosis, Treatment & Prevention
+05:14:37  INFO      Added 1 link(s) → Hepatic Detoxification Failure
+05:14:40  INFO      Added 1 link(s) → Hepatic Encephalopathy
+05:14:40  INFO      Added 1 link(s) → Hepatic Jaundice Causes
+05:14:45  INFO      Added 2 link(s) → Hernia Classification- Reducible, Irreducible, Strangulated
+05:14:46  INFO      Added 1 link(s) → Hernia Classification
+05:14:53  INFO      Added 1 link(s) → Highly Virulent Calicivirus (Virulent Systemic Disease)
+05:14:57  INFO      Added 2 link(s) → Hindbrain
+05:14:57  INFO      Added 1 link(s) → Hindgut (ANAT10009 - Digestive system)
+05:14:58  INFO      Added 3 link(s) → Hindlimb vs. Forelimb Comparison
+05:15:00  INFO      Added 1 link(s) → Hip Adductors - Gracilis, Pectineus, Adductor Muscle
+05:15:01  INFO      Added 2 link(s) → Hip Extensors - Gluteal and Hamstring Groups
+05:15:02  INFO      Added 1 link(s) → Histopathology (Grading)- Tissue Assessment
+05:15:03  INFO      Added 1 link(s) → Histopathology and Cancer Grading
+05:15:06  INFO      Added 5 link(s) → Hock Joint Overview
+05:15:06  INFO      Added 3 link(s) → Hock Joint Support Structures
+05:15:08  INFO      Added 1 link(s) → Holocrine Sweat Glands
+05:15:11  INFO      Added 2 link(s) → Homeostasis - Cardiovascular System
+05:15:12  INFO      Added 1 link(s) → Homeostasis- Maintaining Internal Stability
+05:15:14  INFO      Added 1 link(s) → Homocercal vs. Heterocercal Tails
+05:15:16  INFO      Added 1 link(s) → Hormonal Regulation of Kidney Function
+05:15:19  INFO      Added 1 link(s) → Hormone Control- Feedback Mechanisms
+05:15:22  INFO      Added 1 link(s) → Hormones - Biochemistry
+05:15:25  INFO      Added 1 link(s) → Horse Behavior - Sleep Patterns
+05:15:27  INFO      Added 1 link(s) → Horse Binocular Vision & Depth Perception
+05:15:31  INFO      Added 1 link(s) → Horse Evolution- Eohippus to Modern Equus
+05:15:37  INFO      Added 1 link(s) → Horse General Characteristics- Prey Species Traits
+05:15:38  INFO      Added 1 link(s) → Horse General Characteristics- Trickle Grazers
+05:15:51  INFO      Added 1 link(s) → Horse Sleep- Lateral Recumbency (Deep Sleep)
+05:15:52  INFO      Added 1 link(s) → Horse Smell - Chemical Detection
+05:15:58  INFO      Added 1 link(s) → Horse Vision - Sensory Adaptation
+05:16:00  INFO      Added 1 link(s) → Horse Vomeronasal Organ & Flehmen Response
+05:16:06  INFO      Added 1 link(s) → Housing Requirements
+05:16:10  INFO      Added 4 link(s) → Human Directional Terms
+05:16:12  INFO      Added 1 link(s) → Human Male Reproductive Tract Overview
+05:16:13  INFO      Added 1 link(s) → Human Pelvic Relations – Image Reference
+05:16:19  INFO      Added 1 link(s) → Hunger Mechanisms - Enteric Endocrine System
+05:16:22  INFO      Added 1 link(s) → Husbandry and Nutrition Review - Avian Clinical Presentations
+05:16:23  INFO      Added 1 link(s) → Hydrostatic Pressure in Tissues
+05:16:24  INFO      Added 1 link(s) → Hygiene & Infection Control Protocols
+05:16:26  INFO      Added 1 link(s) → Hypaxial Muscles of the Trunk - Function and Sublumbar Group
+05:16:27  INFO      Added 2 link(s) → Hyperalgesia
+05:16:29  INFO      Added 1 link(s) → Hyperfunction of the Adrenal Medulla - Pheochromocytomas
+05:16:31  INFO      Added 2 link(s) → Hyperkalemia- Causes, Effects, and Management
+05:16:33  INFO      Added 1 link(s) → Hyperthyroidism - Grave's Disease
+05:16:35  INFO      Added 1 link(s) → Hyperventilation and PaCO2
+05:16:36  INFO      Added 1 link(s) → Hypoallergenic Diets - Skin & GI Diseases
+05:16:37  INFO      Added 1 link(s) → Hypoallergenic Diets- Purpose and Application in Animals
+05:16:38  INFO      Added 3 link(s) → Hypoblast
+05:16:39  INFO      Added 2 link(s) → Hypoglossal Nerve (CN XII)- Motor Innervation of the Tongue
+05:16:39  INFO      Added 1 link(s) → Hypoglossal Nerve (CN XII)- Tongue Muscle Control
+05:16:45  INFO      Added 1 link(s) → Hypothyroidism - Symptoms & Treatment
+05:16:46  INFO      Added 1 link(s) → Hypoventilation and PaCO2
+05:16:50  INFO      Added 1 link(s) → Hystricomorpha Skull Adaptations
+05:16:54  INFO      Added 1 link(s) → Image Reference - 20241105211317.png
+05:16:54  INFO      Added 1 link(s) → Image Reference - AS1B
+05:16:55  INFO      Added 1 link(s) → Image Reference- 20241110151448.png
+05:16:56  INFO      Added 3 link(s) → Image Reference- Paired Mesoderm Layers
+05:16:57  INFO      Added 1 link(s) → Image Reference
+05:16:57  INFO      Added 4 link(s) → Image- Bilaminar Disc
+05:17:03  INFO      Added 1 link(s) → Impact of Disease and Drugs on Gut Microbiome
+05:17:04  INFO      Added 1 link(s) → Impact on Blood Flow
+05:17:16  INFO      Added 1 link(s) → Importance of Management Advice in Equine Health
+05:17:18  INFO      Added 1 link(s) → Importance of pH Regulation for Enzyme Activity
+05:17:19  INFO      Added 2 link(s) → Importance of Physiotherapy for Recumbent ICU Patients
+05:17:20  INFO      Added 3 link(s) → Importance of Physiotherapy
+05:17:31  INFO      Added 1 link(s) → Indications for Skin Biopsy in Dermatology
+05:17:35  INFO      Added 3 link(s) → Individual Pulmonary Veins
+05:17:37  INFO      Added 1 link(s) → Induction of General Anesthesia
+05:17:40  INFO      Added 2 link(s) → Inferior Left Pulmonary Vein
+05:17:41  INFO      Added 2 link(s) → Inferior Right Pulmonary Vein
+05:17:43  INFO      Added 1 link(s) → Inflow Portion - Trabeculae Carneae
+05:17:44  INFO      Added 1 link(s) → Influence on Kidney Function
+05:17:47  INFO      Added 1 link(s) → Infrared Sensing Pit Organs - Thermal Detection
+05:18:14  INFO      Added 1 link(s) → Inner Ear - Vestibulocochlear Nerve
+05:18:16  INFO      Added 1 link(s) → Insectivorous Lizards
+05:18:16  INFO      Added 2 link(s) → Inspecting Surgical Instruments
+05:18:19  INFO      Added 1 link(s) → Instrument Groups - Needle Holders
+05:18:20  INFO      Added 1 link(s) → Instrument Groups - Scalpel Holders and Blades
+05:18:23  INFO      Added 1 link(s) → Instrument Groups - Visceral Clamps
+05:18:23  INFO      Added 1 link(s) → Instrument Handling - Instrument Inspection
+05:18:26  INFO      Added 1 link(s) → Instrument Materials - Stainless Steel
+05:18:27  INFO      Added 1 link(s) → Instrument Materials - Tungsten Carbide Tips
+05:18:28  INFO      Added 1 link(s) → Integrated Systems of the CVS
+05:18:29  INFO      Added 1 link(s) → Integration of PTH and Calcitonin
+05:18:30  INFO      Added 1 link(s) → Integumentary Issues in Reptiles (Beyond Dysecdysis)
+05:18:32  INFO      Added 1 link(s) → Inter-medullary Pins - Steinmann Pins
+05:18:33  INFO      Added 1 link(s) → Interaction of X-rays with Matter
+05:18:34  INFO      Added 2 link(s) → Interactive Theory of Development - Worker Bees
+05:18:36  INFO      Added 2 link(s) → Interconnection of Physiology, Behaviour, and Nutrition
+05:18:36  INFO      Added 2 link(s) → Intermediate Mesoderm
+05:18:42  INFO      Added 1 link(s) → Interpreting a Suture Pack Label
+05:18:46  INFO      Added 1 link(s) → Interstitial Fluid Hydrostatic Pressure (Pi)
+05:18:49  INFO      Added 1 link(s) → Intracranial Causes of Seizures- Idiopathic Epilepsy (Functional)
+05:18:50  INFO      Added 1 link(s) → Intracranial Causes of Seizures- Structural Issues
+05:18:52  INFO      Added 1 link(s) → Intramuscular (IM) Drug Administration
+05:18:56  INFO      Added 2 link(s) → Intravenous (IV) and Intraosseous (IO) Access in Reptiles
+05:18:58  INFO      Added 1 link(s) → Intrinsic Activity and Efficacy in Pharmacology
+05:18:58  INFO      Added 2 link(s) → Intrinsic vs. Extrinsic Musculature Concepts
+05:19:00  INFO      Added 1 link(s) → Introduction to ASA Physical Status Classification System
+05:19:03  INFO      Added 4 link(s) → Introduction to Cranial Nerves
+05:19:04  INFO      Added 1 link(s) → Introduction to Critical Care Nursing (VETS20019)
+05:19:07  INFO      Added 1 link(s) → Introduction to Heart Function
+05:19:07  INFO      Added 1 link(s) → Introduction to Locomotion (ANAT20001)
+05:19:08  INFO      Added 1 link(s) → Introduction to Locomotion- Definitions
+05:19:11  INFO      Added 1 link(s) → Intumescentia Cervicalis
+05:19:11  INFO      Added 1 link(s) → Intumescentia Lumbalis
+05:19:16  INFO      Added 1 link(s) → Investigations for Nasal Disease Under Anaesthesia
+05:19:32  INFO      Added 2 link(s) → Joints as Pivots for Movement (ANAT20001)
+05:19:33  INFO      Added 1 link(s) → Juxtaglomerular Apparatus (JGA) and Renin
+05:19:34  INFO      Added 1 link(s) → K2-EDTA Anticoagulant Properties
+05:19:37  INFO      Added 1 link(s) → Kennel Setup for Neurological Patients
+05:19:39  INFO      Added 1 link(s) → Key Anatomical Features - Digestive System
+05:19:41  INFO      Added 1 link(s) → Key Anatomical Features - Urogenital & Ophthalmic
+05:19:42  INFO      Added 1 link(s) → Key Anatomical Terminology Prefixes and Suffixes (ANAT20001)
+05:19:43  INFO      Added 2 link(s) → Key Benefits of Physiotherapy
+05:19:45  INFO      Added 1 link(s) → Key Considerations - VETS20019
+05:19:46  INFO      Added 1 link(s) → Key Differences- Forelimb vs. Hindlimb
+05:19:48  INFO      Added 1 link(s) → Key Instruments to Learn (Year 2) - Needle Holders
+05:19:49  INFO      Added 2 link(s) → Key Instruments to Learn (Year 2) - Ophthalmic Instruments
+05:19:51  INFO      Added 1 link(s) → Key Instruments to Learn (Year 2) - Scissors
+05:19:53  INFO      Added 1 link(s) → Key Instruments to Learn (Year 2) - Visceral Clamps
+05:19:56  INFO      Added 2 link(s) → Key Pharmacology of Licensed Opioids
+05:19:57  INFO      Added 1 link(s) → Key Precursors & Nutrients - Serotonin & Dopamine
+05:19:59  INFO      Added 1 link(s) → Key Surgical Instruments (Year 2)
+05:20:00  INFO      Added 1 link(s) → Key Terminology in Veterinary Oncology
+05:20:01  INFO      Added 1 link(s) → Kidney - Glomerular Filtration Rate (GFR)
+05:20:01  INFO      Added 1 link(s) → Kidney - Homeostasis
+05:20:04  INFO      Added 1 link(s) → Kidney Function - Blood Plasma Processing
+05:20:05  INFO      Added 1 link(s) → Kidney Function - Excretion and Regulation
+05:20:06  INFO      Added 1 link(s) → Kidney Function - pH and Electrolyte Regulation
+05:20:07  INFO      Added 1 link(s) → Kidney Function - Waste Removal
+05:20:12  INFO      Added 1 link(s) → Kidney Parameters - Azotaemia - Decrease
+05:20:13  INFO      Added 1 link(s) → Kidney Parameters - Biochemistry
+05:20:15  INFO      Added 1 link(s) → Kidney Parameters - Filtration
+05:20:16  INFO      Added 1 link(s) → Kidney Parameters - Urea-Creatinine Relationship
+05:20:17  INFO      Added 1 link(s) → Kidney Tubules as Example of Active Transport
+05:20:17  INFO      Added 1 link(s) → Kidney's Role in Homeostasis
+05:20:21  INFO      Added 1 link(s) → L-theanine in Behavioural Management
+05:20:22  INFO      Added 1 link(s) → Laboratory Sample Handling- Comprehensive Submission Forms
+05:20:23  INFO      Added 2 link(s) → Lacertus Fibrosus - Carpal Locking
+05:20:23  INFO      Added 2 link(s) → Lacertus Fibrosus- Equine Carpal Locking
+05:20:33  INFO      Added 1 link(s) → Lateral Digital Extensor Muscle
+05:20:34  INFO      Added 1 link(s) → Lateral Horns of Vertebrae
+05:20:34  INFO      Added 1 link(s) → Lateral Line System and Spatial Awareness
+05:20:35  INFO      Added 2 link(s) → Lateral Plate Mesoderm
+05:20:37  INFO      Added 1 link(s) → Learning and its Impact on Animal Behavior
+05:20:40  INFO      Added 2 link(s) → Left Atrium and Blood Flow to the Left Ventricle
+05:20:41  INFO      Added 3 link(s) → Left Atrium
+05:20:42  INFO      Added 2 link(s) → Left Auricle Location and Overlap
+05:20:43  INFO      Added 2 link(s) → Left Bundle Branch
+05:20:47  INFO      Added 1 link(s) → Leishmaniosis (Leishmania infantum)- Aetiology & Epidemiology
+05:20:48  INFO      Added 1 link(s) → Leishmaniosis (Leishmania infantum)- Clinical Signs
+05:20:49  INFO      Added 1 link(s) → Leishmaniosis (Leishmania infantum)- Diagnosis, Treatment & Prevention
+05:20:51  INFO      Added 2 link(s) → Leukocytes (White Blood Cells)
+05:21:03  INFO      Added 1 link(s) → Ligament Properties
+05:21:04  INFO      Added 1 link(s) → Ligaments- Connecting Bone to Bone and Stabilizing Joints (ANAT20001)
+05:21:05  INFO      Added 1 link(s) → Lighting Needs
+05:21:06  INFO      Added 3 link(s) → Limb Movements- Definitions
+05:21:08  INFO      Added 3 link(s) → Limbs and Plexuses
+05:21:09  INFO      Added 2 link(s) → Lingual Nerve (CN V3)- Somatic Sensation of the Rostral 2-3 of the Tongue
+05:21:12  INFO      Added 1 link(s) → List of PPVN - Haematology Topics
+05:21:15  INFO      Added 1 link(s) → Liver Metabolism and Duration Extension
+05:21:16  INFO      Added 1 link(s) → Liver Parameters - Biochemistry
+05:21:16  INFO      Added 2 link(s) → Lizard Alimentary System - Digestive System
+05:21:18  INFO      Added 1 link(s) → Lizard Alimentary System - Omnivorous-Herbivorous Diet
+05:21:18  INFO      Added 1 link(s) → Lizard Alimentary System- Diet and Oral Structure
+05:21:19  INFO      Added 1 link(s) → Lizard Alimentary System- Teeth
+05:21:20  INFO      Added 1 link(s) → Lizard Cardiorespiratory System - Paired Faveolate Lungs
+05:21:20  INFO      Added 1 link(s) → Lizard Cardiorespiratory System - Renal Portal System
+05:21:21  INFO      Added 1 link(s) → Lizard Cardiorespiratory System - Rib Movements
+05:21:22  INFO      Added 3 link(s) → Lizard Cardiovascular System
+05:21:22  INFO      Added 2 link(s) → Lizard Digestive System
+05:21:24  INFO      Added 1 link(s) → Lizard External Features - Limb Posture
+05:21:24  INFO      Added 1 link(s) → Lizard External Features - Movable Eyelids
+05:21:25  INFO      Added 1 link(s) → Lizard External Features - Skin Shedding (Ecdysis)
+05:21:26  INFO      Added 2 link(s) → Lizard External Features - Trunk and Tail Morphology
+05:21:27  INFO      Added 2 link(s) → Lizard External Features- Body Plan and Limbs
+05:21:28  INFO      Added 1 link(s) → Lizard External Features- Epidermal Modifications for Display
+05:21:28  INFO      Added 1 link(s) → Lizard External Features- Sensory Adaptations
+05:21:29  INFO      Added 2 link(s) → Lizard Female Reproductive System
+05:21:30  INFO      Added 1 link(s) → Lizard General Characteristics - Specialization
+05:21:30  INFO      Added 1 link(s) → Lizard Handling
+05:21:31  INFO      Added 2 link(s) → Lizard Housing
+05:21:32  INFO      Added 3 link(s) → Lizard Male Reproductive System
+05:21:32  INFO      Added 1 link(s) → Lizard Microchipping
+05:21:33  INFO      Added 1 link(s) → Lizard Pectoral Girdle and Forelimb Anatomy
+05:21:34  INFO      Added 1 link(s) → Lizard Pelvic Girdle and Hindlimb Anatomy
+05:21:35  INFO      Added 1 link(s) → Lizard Reproductive System - Female - Ovaries and Oviducts
+05:21:37  INFO      Added 2 link(s) → Lizard Reproductive System - Male - Testes and Hemipenes
+05:21:37  INFO      Added 1 link(s) → Lizard Respiratory System
+05:21:38  INFO      Added 1 link(s) → Lizard Skin Shedding (Ecdysis)
+05:21:38  INFO      Added 1 link(s) → Lizard Skull and Mandible- Cranial Kinesis
+05:21:40  INFO      Added 1 link(s) → Lizard Skull- Mandibular Symphasis
+05:21:41  INFO      Added 2 link(s) → Lizard Special Senses - Olfaction (Vomeronasal Organ)
+05:21:42  INFO      Added 1 link(s) → Lizard Special Senses - Parietal-Third Eye
+05:21:43  INFO      Added 1 link(s) → Lizard Special Senses - Vision (Scleral Ossicles)
+05:21:43  INFO      Added 1 link(s) → Lizard Special Senses- Hearing
+05:21:44  INFO      Added 2 link(s) → Lizard Special Senses- Olfaction (Vomeronasal Organ)
+05:21:45  INFO      Added 1 link(s) → Lizard Special Senses- Parietal Eye (Third Eye)
+05:21:46  INFO      Added 1 link(s) → Lizard Tail Adaptations
+05:21:47  INFO      Added 1 link(s) → Lizard Urinary System - Lobed Kidneys
+05:21:47  INFO      Added 2 link(s) → Lizard Urinary System - Short Ureter
+05:21:48  INFO      Added 2 link(s) → Lizard Urinary System- Cloaca and Bladder
+05:21:49  INFO      Added 2 link(s) → Lizard Urinary System- Kidneys and Ureters
+05:21:49  INFO      Added 1 link(s) → Lizard Vertebrae and Ribs
+05:21:50  INFO      Added 1 link(s) → Lizards – Overview
+05:21:51  INFO      Added 1 link(s) → Lizards- General Characteristics
+05:21:51  INFO      Added 1 link(s) → Lizards- Introduction and General Characteristics
+05:21:53  INFO      Added 1 link(s) → Location of Conducting Cells
+05:21:53  INFO      Added 1 link(s) → Location Requirements for Horse Isolation Facilities
+05:21:56  INFO      Added 1 link(s) → Long Digital Extensor Muscle
+05:21:58  INFO      Added 1 link(s) → Look-Up Tables (LUT) for Digital Radiograph Optimization
+05:22:03  INFO      Added 1 link(s) → Lower urinary system (ANAT10009 - Urinary system)
+05:22:04  INFO      Added 3 link(s) → Lumbosacral Plexus
+05:22:07  INFO      Added 1 link(s) → Lung Lobulation - Bovine, Porcine & Equine
+05:22:08  INFO      Added 1 link(s) → Lung Lobulation- Tissue Texture Differences Across Species
+05:22:08  INFO      Added 1 link(s) → Lung Metastasis Assessment- Four Inflated Radiographs
+05:22:09  INFO      Added 1 link(s) → Lungs - Amphibian Cutaneous Respiration
+05:22:10  INFO      Added 1 link(s) → Lungs - Blood Supply
+05:22:12  INFO      Added 1 link(s) → Lungs - Lobes and Fissures
+05:22:13  INFO      Added 2 link(s) → Lungs - Location and Divisions
+05:22:23  INFO      Added 1 link(s) → Maintenance of General Anesthesia
+05:22:24  INFO      Added 6 link(s) → Major Anatomical Systems Overview
+05:22:25  INFO      Added 1 link(s) → Major Body System 1- Cardiovascular System
+05:22:26  INFO      Added 2 link(s) → Major Body System 2- Respiratory System
+05:22:27  INFO      Added 1 link(s) → Major Foramina of the Cranial Region (Skull)
+05:22:28  INFO      Added 1 link(s) → Major Foramina of the Facial Region (Skull)
+05:22:30  INFO      Added 1 link(s) → Major Thoracic Arteries
+05:22:31  INFO      Added 3 link(s) → Major Thoracic Veins
+05:22:31  INFO      Added 3 link(s) → Major Veins
+05:22:32  INFO      Added 1 link(s) → Malassezia Overgrowth (Yeast Dermatitis) in Animals
+05:22:37  INFO      Added 1 link(s) → Male Reproductive System - Testes and Copulatory Segment
+05:22:47  INFO      Added 1 link(s) → Mandibular Nerve (CN V3)- Sensory Innervation of Lower Jaw and Cheeks
+05:22:49  INFO      Added 1 link(s) → Massage Technique- Effleurage
+05:22:50  INFO      Added 1 link(s) → Massage Technique- Percussion
+05:22:54  INFO      Added 1 link(s) → Maxillary Nerve (CN V2)- Sensory Innervation of Upper Jaw and Palate
+05:22:59  INFO      Added 1 link(s) → Measuring Horse Pulse- Arterial Sites
+05:23:03  INFO      Added 1 link(s) → Mechanism of Action- GABA Agonism in Injectable Anaesthetics
+05:23:05  INFO      Added 3 link(s) → Mechanism of Equine Stifle Patellar Locking
+05:23:07  INFO      Added 1 link(s) → Mechanism of Parietal Cell HCl Secretion
+05:23:07  INFO      Added 2 link(s) → Mechanisms of Drug Membrane Transport
+05:23:08  INFO      Added 1 link(s) → Mechanoreceptors- Hair Cells and Sensory Transduction
+05:23:09  INFO      Added 1 link(s) → Medial Meniscus Clinical Significance
+05:23:12  INFO      Added 3 link(s) → Medulla Oblongata as a Reflex Level
+05:23:15  INFO      Added 2 link(s) → Menisci of the Stifle Joint
+05:23:18  INFO      Added 1 link(s) → Merocrine Sweat Glands
+05:23:18  INFO      Added 1 link(s) → Mesenteric Arteries and Intestinal Blood Supply
+05:23:20  INFO      Added 1 link(s) → Mesoderm and Connective Tissues
+05:23:20  INFO      Added 1 link(s) → Mesoderm Definition
+05:23:21  INFO      Added 2 link(s) → Mesoderm
+05:23:21  INFO      Added 1 link(s) → Mesonephros Development
+05:23:23  INFO      Added 1 link(s) → Metabolic Acidosis- Causes
+05:23:24  INFO      Added 1 link(s) → Metabolic Alkalosis- Causes
+05:23:26  INFO      Added 1 link(s) → Metabolic Bone Disease (MBD) in Reptiles
+05:23:32  INFO      Added 1 link(s) → Metzenbaum Scissors
+05:23:42  INFO      Added 2 link(s) → Midazolam's Dopamine Receptor Antagonism
+05:23:46  INFO      Added 1 link(s) → Midbrain and Hindbrain Neuron Groups
+05:23:47  INFO      Added 1 link(s) → Middle Third - Digestive System
+05:23:48  INFO      Added 1 link(s) → Midgut (ANAT10009 - Digestive system)
+05:23:51  INFO      Added 1 link(s) → Mini-Lack Breathing System
+05:23:51  INFO      Added 1 link(s) → Minimal Cardiovascular System Effects
+05:23:57  INFO      Added 2 link(s) → Mitral Valve Papillary Muscles
+05:24:02  INFO      Added 1 link(s) → Monitoring Anaesthesia in Exotic Animals- Manual and Equipment
+05:24:08  INFO      Added 1 link(s) → Monitoring Geriatric Patients - Heart Rate
+05:24:14  INFO      Added 2 link(s) → Morphology of Equine Stifle Patellar Locking Mechanism
+05:24:14  INFO      Added 1 link(s) → Morula Formation
+05:24:15  INFO      Added 2 link(s) → Morula to Blastocyst Transition
+05:24:16  INFO      Added 3 link(s) → Motor Cranial Nerves
+05:24:16  INFO      Added 2 link(s) → Motor Neuron
+05:24:18  INFO      Added 2 link(s) → Motor Neurons
+05:24:20  INFO      Added 1 link(s) → Mucus Secretion - General Function
+05:24:20  INFO      Added 1 link(s) → Mucus Transport and Foreign Particle Removal
+05:24:22  INFO      Added 1 link(s) → Multi-Modal Analgesia Approach
+05:24:23  INFO      Added 1 link(s) → Multipolar Neurons
+05:24:24  INFO      Added 1 link(s) → Muscle Architecture
+05:24:26  INFO      Added 2 link(s) → Muscle Origin
+05:24:29  INFO      Added 3 link(s) → Muscles Acting on the Canine Elbow
+05:24:30  INFO      Added 2 link(s) → Muscles Crossing the Hip - Key Action Groups
+05:24:31  INFO      Added 1 link(s) → Muscles of Facial Expression- Key Examples
+05:24:31  INFO      Added 2 link(s) → Muscles of Facial Expression- Overview, Function, and Innervation
+05:24:32  INFO      Added 2 link(s) → Muscles of Mastication- Jaw Closing (Adduction)
+05:24:33  INFO      Added 4 link(s) → Muscles of Mastication- Jaw Opening (Abduction) - Digastricus Muscle
+05:24:34  INFO      Added 1 link(s) → Muscles of Mastication- Overview and Innervation
+05:24:34  INFO      Added 1 link(s) → Muscles of the Antebrachium - Caudomedial Group (Flexors)
+05:24:35  INFO      Added 1 link(s) → Muscles of the Antebrachium - Craniolateral Group (Extensors)
+05:24:36  INFO      Added 1 link(s) → Muscles of the Head - Facial Expression
+05:24:37  INFO      Added 2 link(s) → Muscles of the Head - Mastication
+05:24:37  INFO      Added 3 link(s) → Muscles of the Neck - Extrinsic Muscles (Forelimb)
+05:24:39  INFO      Added 2 link(s) → Muscles of the Neck - Ventral Muscles ('Strap Muscles')
+05:24:40  INFO      Added 3 link(s) → Muscles of the Trunk - Epaxial Muscles
+05:24:42  INFO      Added 1 link(s) → Muscles- The Motors of Movement (ANAT20001)
+05:24:43  INFO      Added 2 link(s) → Musculature Differences - Equine Adaptations
+05:24:43  INFO      Added 2 link(s) → Musculoskeletal System Overview (ANAT20001)
+05:24:44  INFO      Added 1 link(s) → Musculoskeletal System- Bones & Joints
+05:24:45  INFO      Added 1 link(s) → Musculoskeletal System- Muscles, Tendons & Ligaments
+05:24:48  INFO      Added 1 link(s) → Mycoplasma haemofelis- Diagnosis and Treatment
+05:24:50  INFO      Added 1 link(s) → Myofilament Cross Bridge
+05:24:51  INFO      Added 1 link(s) → Myomorpha Skull Adaptations
+05:24:52  INFO      Added 1 link(s) → Myosin Binding Sites
+05:24:54  INFO      Added 1 link(s) → Myxomatous Mitral Valve Disease (MMVD)
+05:24:55  INFO      Added 2 link(s) → Nasal Disease Nursing Considerations - Cats - Investigations
+05:24:56  INFO      Added 1 link(s) → Nasal Disease Nursing Considerations - Cats
+05:25:00  INFO      Added 1 link(s) → Neck Functions in Vertebrates
+05:25:05  INFO      Added 1 link(s) → Nerve Arcs - Spinal Reflexes
+05:25:06  INFO      Added 2 link(s) → Nerve Cell Types- Afferent, Efferent, and Interneurons
+05:25:06  INFO      Added 2 link(s) → Nerve Plexuses
+05:25:07  INFO      Added 1 link(s) → Nerve Supply to Abdominal Viscera - Autonomic Pathways
+05:25:08  INFO      Added 1 link(s) → Nervous System Key Structures
+05:25:09  INFO      Added 7 link(s) → Nervous System Organization - Central and Peripheral
+05:25:09  INFO      Added 1 link(s) → Nervous System
+05:25:11  INFO      Added 1 link(s) → Neural Crest Cell Derivation - Adrenal Medulla
+05:25:13  INFO      Added 1 link(s) → Neural Crest Cell Derivation - Sensory Neurons
+05:25:14  INFO      Added 1 link(s) → Neural Crest Cell Formation
+05:25:15  INFO      Added 1 link(s) → Neural Fold Development
+05:25:15  INFO      Added 1 link(s) → Neural Groove Formation
+05:25:16  INFO      Added 5 link(s) → Neural Plate Definition
+05:25:17  INFO      Added 1 link(s) → Neural Plate Formation
+05:25:17  INFO      Added 2 link(s) → Neuro-Ophthalmic Examination - Reflexes and Vision Assessment
+05:25:18  INFO      Added 2 link(s) → Neurodevelopment
+05:25:19  INFO      Added 1 link(s) → Neurological Mentation Levels- Consciousness Assessment
+05:25:21  INFO      Added 1 link(s) → Neurological Posture and Behaviors – Head Tilt
+05:25:22  INFO      Added 2 link(s) → Neurological Postures and Behaviours
+05:25:24  INFO      Added 1 link(s) → Neurological System Assessment- Cranial Nerve Function (Other Reflexes) (VETS20019)
+05:25:26  INFO      Added 1 link(s) → Neurological System Assessment- Modified Glasgow Coma Score (MGCS) (VETS20019)
+05:25:27  INFO      Added 1 link(s) → Neurological System Management- Increased Intracranial Pressure (ICP) - Recognition & Management (VETS20019)
+05:25:31  INFO      Added 2 link(s) → Neuron
+05:25:31  INFO      Added 1 link(s) → Neuronal Control of Erection - Mechanism
+05:25:32  INFO      Added 1 link(s) → Neuronal Decussation
+05:25:35  INFO      Added 1 link(s) → Neuronal Pathway Journey - Peripheral to Spinal Cord
+05:25:36  INFO      Added 1 link(s) → Neuronal Pathway Journey - Spinal Cord Passage
+05:25:36  INFO      Added 1 link(s) → Neuronal Pathway Termination - Cerebral Cortex
+05:25:38  INFO      Added 3 link(s) → Neurons as Structural and Functional Units of the Nervous System
+05:25:38  INFO      Added 1 link(s) → Neuropathic Pain Definition
+05:25:41  INFO      Added 1 link(s) → Neurotransmitter Pathways - Diet's Influence
+05:25:42  INFO      Added 2 link(s) → Neurovasculature - Blood Supply
+05:25:43  INFO      Added 2 link(s) → Neurovasculature - Brachial Plexus
+05:25:43  INFO      Added 5 link(s) → Neurovasculature of the Tongue
+05:25:53  INFO      Added 2 link(s) → Nociception Explained
+05:25:56  INFO      Added 1 link(s) → Non-Cellular Mechanisms of Drug Action
+05:25:57  INFO      Added 1 link(s) → Non-Immunologic Transfusion Reactions in Veterinary Patients
+05:25:58  INFO      Added 1 link(s) → Non-Oral Causes of Drooling (Ptyalism-Pseudoptyalism)
+05:26:01  INFO      Added 2 link(s) → Noradrenaline Release in Sympathetic Nervous System
+05:26:03  INFO      Added 1 link(s) → Normal Brain Activity and Seizure Pathophysiology
+05:26:05  INFO      Added 3 link(s) → Normal Sediment Findings
+05:26:10  INFO      Added 2 link(s) → Notochord Origin
+05:26:10  INFO      Added 2 link(s) → Notochordal Process
+05:26:15  INFO      Added 1 link(s) → Nurse's Role- Post-Operative Neutering Care and Discharge
+05:26:18  INFO      Added 1 link(s) → Nursing Management of Acute Gastroenteritis
+05:26:20  INFO      Added 2 link(s) → Nutraceuticals - Regulation & Alpha-Casozepine
+05:26:27  INFO      Added 1 link(s) → Nutritional Questions- Key Considerations
+05:26:34  INFO      Added 1 link(s) → Occipital Lobe
+05:26:36  INFO      Added 1 link(s) → Ocular Ultrasound
+05:26:36  INFO      Added 2 link(s) → Oculomotor Nerve (CN III) - Muscle Movements
+05:26:37  INFO      Added 4 link(s) → Oculomotor Nerve (CN III)- Eye Movement and Pupil Constriction
+05:26:38  INFO      Added 1 link(s) → Oculomotor Nerve
+05:26:38  INFO      Added 1 link(s) → Oesophageal Obstruction- Causes and Characteristics
+05:26:39  INFO      Added 1 link(s) → Oesophageal Obstruction- Diagnosis and Treatment
+05:26:45  INFO      Added 1 link(s) → Olfactory Nerve (CN I)- Smell
+05:26:46  INFO      Added 1 link(s) → Olfactory Nerve (CN I)
+05:26:48  INFO      Added 1 link(s) → Omega-3 Fatty Acids - Brain Function & Anti-Inflammation
+05:26:48  INFO      Added 1 link(s) → Omega-3 Fatty Acids for Brain Function and Behaviour
+05:26:49  INFO      Added 1 link(s) → Omega-3 Fatty Acids in Behavioural Management
+05:26:50  INFO      Added 1 link(s) → Omotransversarius Muscle Anatomy and Function
+05:26:51  INFO      Added 1 link(s) → Oncological Investigation Aims- Definitive Diagnosis & Staging
+05:26:57  INFO      Added 1 link(s) → Ophthalmic Examination - Close Observation
+05:27:01  INFO      Added 1 link(s) → Ophthalmic Theatre Setup and Requirements
+05:27:01  INFO      Added 2 link(s) → Ophthalmoscopy Techniques in Veterinary Practice
+05:27:03  INFO      Added 1 link(s) → Opioid Acronyms
+05:27:03  INFO      Added 1 link(s) → Opioid Analgesia in Reptiles- Species-Specific Efficacy
+05:27:04  INFO      Added 1 link(s) → Opioid Application in Pain Management Regimens
+05:27:05  INFO      Added 1 link(s) → Opioid Potency vs. Efficacy - Buprenorphine Example
+05:27:05  INFO      Added 2 link(s) → Opioid Receptor Types and Efficacy in Analgesia
+05:27:14  INFO      Added 1 link(s) → Optic Nerve (CN II)- Vision
+05:27:15  INFO      Added 1 link(s) → Optic Nerve (CN II)
+05:27:16  INFO      Added 2 link(s) → Optic Nerve Development
+05:27:16  INFO      Added 1 link(s) → Optic Nerve
+05:27:18  INFO      Added 1 link(s) → Oral Cavity - Boundaries
+05:27:19  INFO      Added 1 link(s) → Oral Cavity - Functions
+05:27:20  INFO      Added 5 link(s) → Oral Cavity - Tongue Innervation
+05:27:20  INFO      Added 2 link(s) → Oral Cavity - Trigeminal Nerve Innervation
+05:27:21  INFO      Added 3 link(s) → Oral cavity and proximal gut tube (ANAT10009 - Digestive system)
+05:27:22  INFO      Added 2 link(s) → Oral Cavity- Somatic Sensory Innervation by Trigeminal Nerve (CN V)
+05:27:27  INFO      Added 1 link(s) → Order- Rodentia (Rodents) - Key Features
+05:27:29  INFO      Added 3 link(s) → Origin of PNS Arcs
+05:27:50  INFO      Added 1 link(s) → Orthopaedic Wires - Arthrodesis Wire
+05:27:51  INFO      Added 1 link(s) → Orthopaedic Wires - Cerclage Wire
+05:28:03  INFO      Added 2 link(s) → Ossa Cordis- Splanchnic Bones of the Heart
+05:28:06  INFO      Added 2 link(s) → Other Drug Administration Routes
+05:28:10  INFO      Added 1 link(s) → Other Intrinsic Cardiovascular Reflexes
+05:28:12  INFO      Added 1 link(s) → Outflow Portion - Smooth Walls
+05:28:19  INFO      Added 2 link(s) → Overview of Nervous System Organization
+05:28:20  INFO      Added 1 link(s) → Overview of Physiotherapy Techniques and Modalities
+05:28:21  INFO      Added 1 link(s) → Overview of Transfusion Reactions in Veterinary Medicine
+05:28:33  INFO      Added 1 link(s) → Owner's Role in Seizure Diagnostics- Video and Diary
+05:28:51  INFO      Added 2 link(s) → Paired Arterial Branches of the Abdominal Aorta
+05:29:04  INFO      Added 1 link(s) → Papulae - Simple Gills
+05:29:05  INFO      Added 1 link(s) → Paranasal Sinuses- General Overview
+05:29:06  INFO      Added 1 link(s) → Paranasal Sinuses
+05:29:07  INFO      Added 1 link(s) → Paraneoplastic Syndromes (PNS)
+05:29:07  INFO      Added 1 link(s) → Parasagittal Plane
+05:29:11  INFO      Added 1 link(s) → Parasympathetic Activation - Rest and Digest
+05:29:11  INFO      Added 3 link(s) → Parasympathetic Effects – Bladder Contraction
+05:29:12  INFO      Added 3 link(s) → Parasympathetic Effects – Bronchi Constriction
+05:29:13  INFO      Added 3 link(s) → Parasympathetic Effects – Cardiac Output Reduction
+05:29:13  INFO      Added 4 link(s) → Parasympathetic Effects – Coronary Blood Supply Reduction
+05:29:14  INFO      Added 4 link(s) → Parasympathetic Effects – Erection
+05:29:15  INFO      Added 3 link(s) → Parasympathetic Effects – Glycogen Production
+05:29:15  INFO      Added 3 link(s) → Parasympathetic Effects – Lens Accommodation
+05:29:16  INFO      Added 3 link(s) → Parasympathetic Effects – Peristalsis Stimulation
+05:29:17  INFO      Added 3 link(s) → Parasympathetic Effects – Pupil Constriction
+05:29:17  INFO      Added 3 link(s) → Parasympathetic Effects – Sphincter Relaxation
+05:29:18  INFO      Added 3 link(s) → Parasympathetic Effects – Tear Secretion
+05:29:19  INFO      Added 3 link(s) → Parasympathetic Effects – Watery Saliva
+05:29:19  INFO      Added 3 link(s) → Parasympathetic Nervous System
+05:29:20  INFO      Added 2 link(s) → Parasympathetic
+05:29:21  INFO      Added 1 link(s) → Paraxial Mesoderm
+05:29:22  INFO      Added 1 link(s) → Parietal Lobe
+05:29:23  INFO      Added 3 link(s) → Parietal Pleura- Subdivisions and Cupula Pleurae (ANAT20007)
+05:29:25  INFO      Added 2 link(s) → Part 1- The Ophthalmic Examination - Summary
+05:29:25  INFO      Added 4 link(s) → Part 2- Surgical and Medical Ocular Conditions
+05:29:31  INFO      Added 1 link(s) → Passing Surgical Instruments
+05:29:36  INFO      Added 1 link(s) → Patent Ductus Arteriosus (PDA)
+05:29:43  INFO      Added 1 link(s) → Patient Cohorts Requiring Critical Care (VETS20019)
+05:29:47  INFO      Added 1 link(s) → Patient Management – Kennel Set-up - Lighting
+05:29:54  INFO      Added 1 link(s) → Patient Preparation for Tracheal and Thoracic Surgery
+05:29:55  INFO      Added 2 link(s) → Penile Blood Supply
+05:29:57  INFO      Added 1 link(s) → Penis Adaptations - Snake Hemipenis
+05:30:02  INFO      Added 2 link(s) → Performing a Dental Examination in Animals
+05:30:04  INFO      Added 1 link(s) → Pericardial Effusion
+05:30:05  INFO      Added 1 link(s) → Periodontal Disease Progression and Stages in Animals
+05:30:07  INFO      Added 1 link(s) → Periosteal Elevator - Lifts and Preserves Periosteum
+05:30:09  INFO      Added 1 link(s) → Peripheral Chemoreceptors
+05:30:09  INFO      Added 1 link(s) → Peripheral Nervous System
+05:30:10  INFO      Added 1 link(s) → Peritoneum - Definition and Structure
+05:30:17  INFO      Added 2 link(s) → Phalangeal Structure - P1, P2, and P3
+05:30:20  INFO      Added 1 link(s) → Phases of a Seizure- Post-Ictal Phase and Clinical Signs
+05:30:24  INFO      Added 1 link(s) → Phenothiazines (Acepromazine) in Equine Sedation
+05:30:31  INFO      Added 1 link(s) → Physical Changes in Pregnancy – Canine Example
+05:30:32  INFO      Added 1 link(s) → Physical Changes in Pregnancy – Horse Example
+05:30:38  INFO      Added 1 link(s) → Physical Properties of Inhalational Agents- Partial Pressure
+05:30:44  INFO      Added 1 link(s) → Physiological Indicators of Pain in Animals
+05:30:47  INFO      Added 2 link(s) → Physiology, Behaviour, and Nutrition - Interconnectedness
+05:30:48  INFO      Added 1 link(s) → Physiotherapy for Acute Spinal Cord Damage
+05:30:49  INFO      Added 1 link(s) → Physiotherapy for Chronic Spinal Cord Damage
+05:30:51  INFO      Added 1 link(s) → Physiotherapy for Spinal Cord Damage- Overview
+05:30:52  INFO      Added 1 link(s) → Physiotherapy for Swelling & Oedema in ICU
+05:30:56  INFO      Added 1 link(s) → Physiotherapy in the ICU - Swelling - Oedema Action Plan
+05:30:57  INFO      Added 1 link(s) → Physiotherapy Techniques
+05:30:59  INFO      Added 1 link(s) → Pineal Gland Mechanism
+05:31:00  INFO      Added 1 link(s) → Pinworm (Oxyuris equi) Diagnosis
+05:31:32  INFO      Added 2 link(s) → Pleural Recesses- Anatomy and Clinical Significance
+05:31:34  INFO      Added 2 link(s) → PNS Segments are Craniosacral
+05:31:38  INFO      Added 1 link(s) → Polyostotic Hyperostosis in Birds
+05:31:39  INFO      Added 1 link(s) → Polyphyodonty in Toothed Fish and Reptiles
+05:31:40  INFO      Added 2 link(s) → Pons and Cerebrum-Cerebellum Connection
+05:31:43  INFO      Added 1 link(s) → Porcine Thoracic Cavity - Pigs
+05:31:44  INFO      Added 1 link(s) → Portosystemic Shunts (PSS) Mechanism
+05:31:45  INFO      Added 1 link(s) → Portosystemic Shunts- Impact on Liver Function
+05:31:45  INFO      Added 3 link(s) → Portosystemic Shunts- Toxin Accumulation and Hepatic Encephalopathy
+05:31:46  INFO      Added 1 link(s) → Portosystemic Shunts
+05:31:49  INFO      Added 2 link(s) → Post-hepatic Jaundice Causes
+05:31:49  INFO      Added 1 link(s) → Post-Hepatic Jaundice
+05:31:55  INFO      Added 1 link(s) → Post-Processing Capabilities for Digital Radiographs
+05:31:56  INFO      Added 1 link(s) → Postcranial Identification - Limb Bone Adaptations
+05:32:01  INFO      Added 1 link(s) → Potassium Homeostasis- A Critical Balance
+05:32:02  INFO      Added 1 link(s) → Potency vs. Efficacy
+05:32:04  INFO      Added 1 link(s) → Potential Complications - Cardiovascular System Effects
+05:32:10  INFO      Added 1 link(s) → PPN Image Reference
+05:32:13  INFO      Added 1 link(s) → PPVN - Haematology Unit Overview
+05:32:14  INFO      Added 1 link(s) → PPVN - Image Reference
+05:32:15  INFO      Added 1 link(s) → PPVN - Miscellaneous (VETS10021)
+05:32:17  INFO      Added 1 link(s) → PPVN Biochemistry Overview
+05:32:18  INFO      Added 1 link(s) → PPVN First Aid Modules Index
+05:32:20  INFO      Added 2 link(s) → Pre-hepatic Jaundice Causes
+05:32:21  INFO      Added 1 link(s) → Pre-Hepatic Jaundice
+05:32:24  INFO      Added 1 link(s) → Pre-operative Clinical Examination (CE) - Timing and Assessment
+05:32:27  INFO      Added 2 link(s) → Pre-operative Fasting Guidelines for Exotic Animals
+05:32:32  INFO      Added 1 link(s) → Preferred Optimal Temperature Zones – Lizards
+05:32:34  INFO      Added 1 link(s) → Prehension - Lips and Tongue
+05:32:44  INFO      Added 2 link(s) → Preventative Analgesia
+05:32:53  INFO      Added 2 link(s) → Primary Stimuli Driving Breathing
+05:32:54  INFO      Added 1 link(s) → Primitive Groove Function
+05:32:54  INFO      Added 1 link(s) → Primitive Node Concept
+05:32:55  INFO      Added 1 link(s) → Primitive Pit Definition
+05:32:56  INFO      Added 4 link(s) → Primitive Streak
+05:32:58  INFO      Added 2 link(s) → Principles of Drug Absorption- Ionization and pH
+05:33:05  INFO      Added 1 link(s) → Production of Active Vitamin D
+05:33:12  INFO      Added 1 link(s) → Protection Against Friction- Tissue Function
+05:33:13  INFO      Added 1 link(s) → Protein Excess
+05:33:16  INFO      Added 1 link(s) → Proximal Sesamoids - Function and Location
+05:33:17  INFO      Added 2 link(s) → Proximal Tubule Characteristics
+05:33:20  INFO      Added 1 link(s) → Pruritis- Differential Diagnosis - Ectoparasites
+05:33:20  INFO      Added 1 link(s) → Pruritis- Differential Diagnosis - Microbial Overgrowth-Infection
+05:33:22  INFO      Added 1 link(s) → Pruritus- Differential Diagnosis
+05:33:22  INFO      Added 2 link(s) → Pseudounipolar Neurons
+05:33:25  INFO      Added 3 link(s) → Pulmonary Blood Supply - Anatomic Shunt
+05:33:25  INFO      Added 3 link(s) → Pulmonary Circulation - Blood Delivery
+05:33:28  INFO      Added 2 link(s) → Pulmonary Trunk Bifurcation
+05:33:28  INFO      Added 1 link(s) → Pulmonary Trunk Location
+05:33:29  INFO      Added 2 link(s) → Pulmonary Trunk Origin
+05:33:29  INFO      Added 2 link(s) → Pulmonary Veins and Blood Delivery
+05:33:31  INFO      Added 1 link(s) → Pulmonic Stenosis (Congenital)
+05:33:31  INFO      Added 2 link(s) → Pulmonic Stenosis
+05:33:33  INFO      Added 1 link(s) → Pulse Locations - Femoral
+05:33:34  INFO      Added 1 link(s) → Pulse Locations - Tarsal
+05:33:42  INFO      Added 1 link(s) → Purkinje Fibre Propagation
+05:33:46  INFO      Added 1 link(s) → Purpose-Bred Dog Types & Their Tendencies
+05:33:47  INFO      Added 1 link(s) → Purpose-Bred Dogs- Historical Functions and Behavioral Traits
+05:33:49  INFO      Added 1 link(s) → Quadriceps Femoris Muscle Group Overview
+05:33:54  INFO      Added 1 link(s) → Rabbit Anatomy- Digestive System - Coprophagia
+05:33:54  INFO      Added 1 link(s) → Rabbit Anatomy- Digestive System - Intestines and Hindgut Fermentation
+05:33:55  INFO      Added 1 link(s) → Rabbit Anatomy- Digestive System - Stomach
+05:33:57  INFO      Added 1 link(s) → Rabbit Anatomy- Musculoskeletal System
+05:33:58  INFO      Added 1 link(s) → Rabbit Anatomy- Ophthalmic Features
+05:34:04  INFO      Added 1 link(s) → Rabbit Clinical Techniques- Blood Sampling Sites
+05:34:06  INFO      Added 1 link(s) → Rabbit Clinical Techniques- Fluid Therapy Routes
+05:34:06  INFO      Added 1 link(s) → Rabbit Clinical Techniques- Medicating Routes
+05:34:10  INFO      Added 1 link(s) → Rabbit Domestication History
+05:34:26  INFO      Added 1 link(s) → Radiograph Quality- Correct Positioning
+05:34:28  INFO      Added 1 link(s) → Radiograph Quality- Proper Collimation
+05:34:29  INFO      Added 1 link(s) → Radiographic Findings- Left-Sided Congestive Heart Failure
+05:34:30  INFO      Added 1 link(s) → Rainbow Trout Anatomy - General
+05:34:32  INFO      Added 1 link(s) → Rainbow Trout General Body Plan
+05:34:39  INFO      Added 1 link(s) → Rainbow Trout Trunk and Tail Anatomy
+05:34:43  INFO      Added 1 link(s) → Raw Fish Consumption in Feline Diets
+05:34:50  INFO      Added 1 link(s) → Reciprocal Sympathetic-Parasympathetic Action
+05:34:54  INFO      Added 1 link(s) → Recommended Substrate for Hospitalized Reptiles
+05:34:56  INFO      Added 2 link(s) → Rectus Abdominis Muscle Anatomy
+05:34:57  INFO      Added 1 link(s) → Rectus Abdominis Muscle
+05:34:58  INFO      Added 1 link(s) → Rectus Femoris Muscle
+05:35:02  INFO      Added 1 link(s) → Regions of the Spinal Cord
+05:35:08  INFO      Added 1 link(s) → Regulatory Functions of the Brain
+05:35:12  INFO      Added 1 link(s) → Relationship between Vessels and Body Regions
+05:35:15  INFO      Added 1 link(s) → Remnant of Foramen Ovale in the Foetal Heart
+05:35:17  INFO      Added 2 link(s) → Renal Clearance Equation
+05:35:18  INFO      Added 1 link(s) → Renal Drug Excretion and Clinical Considerations
+05:35:24  INFO      Added 1 link(s) → Reporting Vaccine Adverse Events to the VMD
+05:35:28  INFO      Added 2 link(s) → Reptile and Chelonian Anaesthetic Considerations- Cardiovascular
+05:35:29  INFO      Added 1 link(s) → Reptile and Chelonian Anaesthetic Considerations- Respiratory and Airway
+05:35:31  INFO      Added 1 link(s) → Reptile and Chelonian Anaesthetic Considerations- Zoonosis and Injections
+05:35:32  INFO      Added 2 link(s) → Reptile Database Overview
+05:35:46  INFO      Added 4 link(s) → Respiratory Acidosis- Causes
+05:35:48  INFO      Added 1 link(s) → Respiratory Alkalosis - VETS20019
+05:35:49  INFO      Added 1 link(s) → Respiratory Alkalosis- Causes
+05:35:51  INFO      Added 2 link(s) → Respiratory Assessment - Neurological Component
+05:35:52  INFO      Added 5 link(s) → Respiratory Centers in the Brainstem
+05:36:00  INFO      Added 1 link(s) → Respiratory Pathogens - Entry Pathways
+05:36:02  INFO      Added 1 link(s) → Respiratory System - Amphibian Gas Exchange
+05:36:03  INFO      Added 1 link(s) → Respiratory System Assessment- Lung Auscultation (VETS20019)
+05:36:07  INFO      Added 4 link(s) → Respiratory System Assessment- Respiratory Rate (RR) (VETS20019)
+05:36:10  INFO      Added 1 link(s) → Response to Stress - Metabolic, Muscle, and Nervous System
+05:36:12  INFO      Added 1 link(s) → Restraint Principles - Positioning
+05:36:18  INFO      Added 1 link(s) → Reticularis Zone
+05:36:19  INFO      Added 1 link(s) → Retina - Pigmented Layer (Pars Ceca)
+05:36:21  INFO      Added 1 link(s) → Retroperitoneum - Organs
+05:36:24  INFO      Added 1 link(s) → Reverse Zoonosis Definition
+05:36:25  INFO      Added 3 link(s) → Right Atrium
+05:36:26  INFO      Added 2 link(s) → Right Bundle Branch
+05:36:27  INFO      Added 1 link(s) → Right Ventricle Division - Inflow and Outflow
+05:36:28  INFO      Added 1 link(s) → Right Ventricle Receives Deoxygenated Blood
+05:36:28  INFO      Added 2 link(s) → Right Ventricle
+05:36:32  INFO      Added 1 link(s) → Rodent Blood Sampling Techniques & Volume Limits
+05:36:39  INFO      Added 1 link(s) → Role in Coordinated Contraction
+05:36:43  INFO      Added 3 link(s) → Role of GABA Agonists in Injectable Anaesthesia
+05:36:45  INFO      Added 2 link(s) → Rotator Muscles of the Forelimb
+05:36:46  INFO      Added 1 link(s) → Route of Administration and Pharmacokinetics - IV
+05:36:56  INFO      Added 2 link(s) → SA Node Firing Rate Regulation - Parasympathetic Influence
+05:36:56  INFO      Added 1 link(s) → SA Node Firing Rate Regulation - Sympathetic Influence
+05:36:58  INFO      Added 1 link(s) → Sacral Region of Spinal Cord
+05:36:59  INFO      Added 1 link(s) → Sacroiliac Joint - Pelvic Girdle Connection
+05:37:01  INFO      Added 1 link(s) → Safe Handling Techniques for Lizards
+05:37:01  INFO      Added 1 link(s) → Safe Handling Techniques for Snakes
+05:37:06  INFO      Added 1 link(s) → Saliva Secretion Pathway
+05:37:09  INFO      Added 1 link(s) → Saphenous Nerve Function
+05:37:10  INFO      Added 2 link(s) → Saphenous Vein - Vascular Access
+05:37:16  INFO      Added 1 link(s) → Scapula (Canine)
+05:37:21  INFO      Added 2 link(s) → Sciuromorpha Skull Adaptations
+05:37:30  INFO      Added 1 link(s) → Secretion into Vesicles - Mammary Glands
+05:37:31  INFO      Added 1 link(s) → Secretion Pathways - General
+05:37:32  INFO      Added 1 link(s) → Secretion Processes in Tissues
+05:37:36  INFO      Added 1 link(s) → Seizure Mimics- 3rd Degree AV Block
+05:37:39  INFO      Added 1 link(s) → Seizure Mimics- Importance for Accurate Diagnosis
+05:37:42  INFO      Added 1 link(s) → Seizure Mimics- Syncope (Fainting)
+05:37:44  INFO      Added 1 link(s) → Self-Retaining Surgical Retractors
+05:37:45  INFO      Added 3 link(s) → Semimembranosus Muscle
+05:37:46  INFO      Added 2 link(s) → Semitendinosus Muscle
+05:37:48  INFO      Added 1 link(s) → Sensitive Periods in Animal Development
+05:37:50  INFO      Added 4 link(s) → Sensory Information Regulating Breathing
+05:37:51  INFO      Added 5 link(s) → Sensory Neuron Types
+05:37:51  INFO      Added 2 link(s) → Sensory Neuron
+05:37:52  INFO      Added 2 link(s) → Sensory Neurons - Spinal Neuron Types
+05:37:53  INFO      Added 3 link(s) → Sensory Neurons
+05:37:55  INFO      Added 2 link(s) → Sensory Receptors and Afferent Nerves
+05:37:55  INFO      Added 1 link(s) → Separation from the Left Atrium
+05:37:58  INFO      Added 2 link(s) → Septal Wall Definition
+05:38:00  INFO      Added 1 link(s) → Serratus Ventralis - Thoracic Sling
+05:38:01  INFO      Added 1 link(s) → Serratus Ventralis- Role in Equine Passive Stay Apparatus
+05:38:06  INFO      Added 1 link(s) → Short-Term Regulation of MAP- The Baroreceptor Reflex
+05:38:06  INFO      Added 3 link(s) → Shoulder Joint (Canine)
+05:38:07  INFO      Added 4 link(s) → Shoulder Joint (Glenohumeral Joint) - Ball and Socket
+05:38:08  INFO      Added 1 link(s) → Shoulder Joint - Flexors & Extensors
+05:38:09  INFO      Added 2 link(s) → Shoulder Joint - Stabilisers
+05:38:12  INFO      Added 1 link(s) → Signs of Lameness in Horses
+05:38:13  INFO      Added 2 link(s) → Simple Acid-Base Disorders
+05:38:14  INFO      Added 1 link(s) → Simple Focal Seizures
+05:38:26  INFO      Added 1 link(s) → Skeletal System - Amphibian Limb Structure
+05:38:35  INFO      Added 1 link(s) → Skull Identification by Order - Evolutionary Adaptations
+05:38:38  INFO      Added 2 link(s) → Small Intestine Anatomy
+05:38:40  INFO      Added 1 link(s) → Small Rodent Clinical Techniques- Blood Sampling
+05:38:44  INFO      Added 1 link(s) → Smell - Nearly Dog-Level and Vomeronasal Organ
+05:38:45  INFO      Added 1 link(s) → Smooth Muscle Contractile Apparatus - Calcium Signaling
+05:38:46  INFO      Added 1 link(s) → Smooth Muscle Contraction Regulation - Calcium and Troponin
+05:38:47  INFO      Added 2 link(s) → Snake Adaptations for Consuming Large Prey
+05:38:48  INFO      Added 2 link(s) → Snake Alimentary System- Upper Tract and Associated Glands
+05:38:49  INFO      Added 1 link(s) → Snake and Mammal Ear Bone Homologies
+05:38:50  INFO      Added 2 link(s) → Snake Cardiovascular System- Heart Anatomy
+05:38:50  INFO      Added 3 link(s) → Snake Cloaca- Structure and Function
+05:38:51  INFO      Added 1 link(s) → Snake Dentition- General Characteristics
+05:38:52  INFO      Added 2 link(s) → Snake Dentition- Venomous Fang Types
+05:38:53  INFO      Added 1 link(s) → Snake Fangs- Front-Fanged (Proteroglyphous & Solenoglyphous)
+05:38:53  INFO      Added 1 link(s) → Snake Fangs- Rear-Fanged (Opisthoglyphous)
+05:38:55  INFO      Added 1 link(s) → Snake Integument- Scales and Eye Spectacle
+05:38:56  INFO      Added 2 link(s) → Snake Internal Anatomy- Caudal Third Organs
+05:38:57  INFO      Added 3 link(s) → Snake Internal Anatomy- Cranial Third Organs
+05:39:00  INFO      Added 1 link(s) → Snake Reproductive System- Female Anatomy
+05:39:00  INFO      Added 1 link(s) → Snake Reproductive System- Male Anatomy
+05:39:01  INFO      Added 1 link(s) → Snake Respiratory System- Lung Anatomy
+05:39:02  INFO      Added 2 link(s) → Snake Sensory Organs- Infrared Sensing Pit Organs
+05:39:03  INFO      Added 3 link(s) → Snake Sensory Organs- Vomeronasal Organ (Jacobson's Organ)
+05:39:04  INFO      Added 1 link(s) → Snake Skeleton- Key Features
+05:39:05  INFO      Added 1 link(s) → Snake Skull and Jaw- Highly Kinetic Adaptations
+05:39:06  INFO      Added 1 link(s) → Snake Urogenital System- Kidneys and Excretion
+05:39:07  INFO      Added 1 link(s) → Snake Vertebrae, Ribs, and Locomotion
+05:39:08  INFO      Added 1 link(s) → Snakes- Introduction and General Characteristics
+05:39:16  INFO      Added 4 link(s) → Sodium Bicarbonate Administration in Acidosis
+05:39:17  INFO      Added 1 link(s) → Sodium Reabsorption - Secondary Active Transport
+05:39:20  INFO      Added 2 link(s) → Somatic and Visceral Nervous Systems
+05:39:21  INFO      Added 1 link(s) → Somatic Nervous System
+05:39:22  INFO      Added 4 link(s) → Somatic NS and Musculoskeletal system (ANAT10009 - Control of body systems)
+05:39:22  INFO      Added 3 link(s) → Somatic NS and Musculoskeletal system
+05:39:24  INFO      Added 1 link(s) → Somites and the Musculoskeletal System
+05:39:24  INFO      Added 1 link(s) → Somites- Definition
+05:39:27  INFO      Added 1 link(s) → Specialised Equine Instruments – Dental & Orthopaedic
+05:39:30  INFO      Added 1 link(s) → Species Differences in Head Arterial Supply (Horse)
+05:39:31  INFO      Added 1 link(s) → Species Differences in Thoracic Cavity Topography (ANAT20007)
+05:39:33  INFO      Added 2 link(s) → Species Variation - Accessory Sex Glands
+05:39:33  INFO      Added 1 link(s) → Species Variation - Ovaries (Horses)
+05:39:34  INFO      Added 1 link(s) → Species Variation - Penis Types
+05:39:36  INFO      Added 1 link(s) → Species Variations in Spinal Cord Termination
+05:39:38  INFO      Added 1 link(s) → Specific Anatomical Issues Affecting Exotic Anaesthesia
+05:39:45  INFO      Added 1 link(s) → Spermatic Cord Components
+05:39:47  INFO      Added 1 link(s) → Spermatozoa in Epididymis - Maturation and Storage
+05:39:48  INFO      Added 1 link(s) → Spinal Cord Anatomy
+05:39:49  INFO      Added 4 link(s) → Spinal Cord Enlargements
+05:39:50  INFO      Added 3 link(s) → Spinal Cord Location and Structure
+05:39:51  INFO      Added 1 link(s) → Spinal Cord Malacia as a Rare Equine Anaesthesia Complication
+05:39:51  INFO      Added 1 link(s) → Spinal Cord
+05:39:52  INFO      Added 1 link(s) → Spinal Nerve Exit Points
+05:39:58  INFO      Added 1 link(s) → Squamous Epithelial Cells
+05:40:06  INFO      Added 1 link(s) → Stabling and Housing - Measuring Vital Signs
+05:40:11  INFO      Added 1 link(s) → Staging for Pulmonary Metastasis
+05:40:12  INFO      Added 1 link(s) → Stainless Steel in Surgical Instruments
+05:40:14  INFO      Added 1 link(s) → Standard Surgical Item Counting Procedure
+05:40:15  INFO      Added 2 link(s) → Starling's Law
+05:40:16  INFO      Added 1 link(s) → Status Epilepticus- Definition and Emergency Implications
+05:40:21  INFO      Added 1 link(s) → Step 3- Final Skin Antisepsis - Chlorhexidine Alcohol
+05:40:27  INFO      Added 2 link(s) → Sternocephalicus Muscle Anatomy and Function
+05:40:31  INFO      Added 1 link(s) → Steroid Hormone Release
+05:40:32  INFO      Added 1 link(s) → Steroidogenesis Control - Theca & Granulosa Cells
+05:40:33  INFO      Added 1 link(s) → Stifle Joint - Femur, Tibia, and Patella
+05:40:39  INFO      Added 1 link(s) → Stomach Secretion - Gastric and Intestinal Phases
+05:40:47  INFO      Added 2 link(s) → Stride Dynamics- Speed and Components
+05:40:48  INFO      Added 1 link(s) → Strongyles and Colic
+05:40:50  INFO      Added 1 link(s) → Structured Approach to Ophthalmic Examinations
+05:40:52  INFO      Added 1 link(s) → Stylomastoid Foramen
+05:40:53  INFO      Added 4 link(s) → Subclavian Artery Branches and Distribution
+05:40:54  INFO      Added 2 link(s) → Subclavian Artery Branches
+05:40:54  INFO      Added 1 link(s) → Subclavian Vein Definition
+05:40:55  INFO      Added 1 link(s) → Subclavian Vein Formation
+05:40:59  INFO      Added 1 link(s) → Subject Areas Covered - Clinical - Advanced
+05:41:05  INFO      Added 1 link(s) → Subtypes of Diarthrosis Joints
+05:41:08  INFO      Added 1 link(s) → Superficial Digital Flexor (SDF) - Stifle Flexor Role
+05:41:08  INFO      Added 1 link(s) → Superficial Gluteal Muscle Function in Horses
+05:41:09  INFO      Added 2 link(s) → Superficial Pyoderma in Animals
+05:41:12  INFO      Added 2 link(s) → Superior Left Pulmonary Vein
+05:41:12  INFO      Added 2 link(s) → Superior Right Pulmonary Vein
+05:41:14  INFO      Added 1 link(s) → Supination and Pronation
+05:41:18  INFO      Added 1 link(s) → Surface Pyoderma in Animals
+05:41:23  INFO      Added 1 link(s) → Surgical Instrument Assessment in OSCI
+05:41:23  INFO      Added 1 link(s) → Surgical Instrument Assessment in Written Exams
+05:41:24  INFO      Added 1 link(s) → Surgical Instrument Assessment
+05:41:25  INFO      Added 1 link(s) → Surgical Instrument Groups
+05:41:26  INFO      Added 1 link(s) → Surgical Instrument Handling
+05:41:27  INFO      Added 1 link(s) → Surgical Instrument Materials
+05:42:02  INFO      Added 1 link(s) → Surgical Skin Prep- Stage 3 - Final Antisepsis Agent
+05:42:04  INFO      Added 2 link(s) → Suspensory Ligament (Interosseous)- Equine Fetlock Support
+05:42:05  INFO      Added 2 link(s) → Suspensory Ligament - Fetlock Support
+05:42:06  INFO      Added 1 link(s) → Suspensory Ligament in Equine Hindlimb Distal Support
+05:42:11  INFO      Added 1 link(s) → Suture Material Classification Overview
+05:42:19  INFO      Added 1 link(s) → Suture Material- Stainless Steel
+05:42:21  INFO      Added 3 link(s) → Sutures - Fibrous Joint Type
+05:42:22  INFO      Added 1 link(s) → Swim Bladder - Hydrostatic Organ
+05:42:24  INFO      Added 3 link(s) → Sympathetic and Parasympathetic Innervation - Key Ganglia
+05:42:25  INFO      Added 4 link(s) → Sympathetic and Parasympathetic Roles in Exercise
+05:42:25  INFO      Added 2 link(s) → Sympathetic Effects on the Pupil
+05:42:26  INFO      Added 3 link(s) → Sympathetic Effects – Adrenaline Release
+05:42:27  INFO      Added 2 link(s) → Sympathetic Effects – Bronchi Dilation
+05:42:27  INFO      Added 2 link(s) → Sympathetic Effects – Cardiac Output Increase
+05:42:28  INFO      Added 2 link(s) → Sympathetic Effects – Ejaculation
+05:42:29  INFO      Added 2 link(s) → Sympathetic Effects – GI Mobility Reduction
+05:42:29  INFO      Added 2 link(s) → Sympathetic Effects – Glycogen Breakdown
+05:42:30  INFO      Added 2 link(s) → Sympathetic Effects – Goosebumps
+05:42:30  INFO      Added 2 link(s) → Sympathetic Effects – Renal Vasoconstriction
+05:42:31  INFO      Added 2 link(s) → Sympathetic Effects – Saliva Viscosity
+05:42:32  INFO      Added 2 link(s) → Sympathetic Effects – Sphincter Contraction
+05:42:32  INFO      Added 2 link(s) → Sympathetic Effects – Sweating
+05:42:33  INFO      Added 2 link(s) → Sympathetic Effects – Tear Secretion Reduction
+05:42:34  INFO      Added 2 link(s) → Sympathetic Effects – Vasoconstriction
+05:42:34  INFO      Added 3 link(s) → Sympathetic Nervous System Activation
+05:42:36  INFO      Added 3 link(s) → Sympathetic Nervous System- Origin and Thoracic Ganglia
+05:42:36  INFO      Added 2 link(s) → Sympathetic Nervous System
+05:42:39  INFO      Added 1 link(s) → Syncytiotrophoblast (Duplicate)
+05:42:40  INFO      Added 1 link(s) → Syncytiotrophoblast
+05:42:40  INFO      Added 4 link(s) → Syndesmosis - Fibrous Joint Type
+05:42:44  INFO      Added 1 link(s) → Systole (Cardiac Contraction)
+05:42:47  INFO      Added 2 link(s) → Table Data- Blood, Blood Vessels and the Mammalian Heart
+05:42:48  INFO      Added 3 link(s) → Table Data- Great Vessels of the Heart
+05:42:48  INFO      Added 4 link(s) → Table Data- The Chambers of the Heart
+05:42:49  INFO      Added 4 link(s) → Table Data- The Conducting System of the Heart
+05:42:50  INFO      Added 2 link(s) → Table Data- The Heart
+05:42:51  INFO      Added 1 link(s) → Tachyarrhythmias
+05:43:01  INFO      Added 1 link(s) → Technique for Administering Topical Ophthalmic Medications
+05:43:03  INFO      Added 1 link(s) → Techniques for Catheterisation – Male Dog
+05:43:04  INFO      Added 2 link(s) → Teleost Scale Types
+05:43:05  INFO      Added 1 link(s) → Teleost Scales - Cycloid
+05:43:11  INFO      Added 1 link(s) → Temperature Dependence of Spermatogenesis
+05:43:12  INFO      Added 1 link(s) → Temporal Lobe
+05:43:14  INFO      Added 2 link(s) → Tendons- Connecting Muscle to Bone and Storing Energy (ANAT20001)
+05:43:16  INFO      Added 3 link(s) → Terminology for Limb Movements (ANAT20001)
+05:43:17  INFO      Added 1 link(s) → Terminology- Cytology, Histopathology, Grading & Staging
+05:43:17  INFO      Added 1 link(s) → Terms of Movement - Quadruped
+05:43:19  INFO      Added 1 link(s) → Testes and Spermatic Cord - Components
+05:43:21  INFO      Added 1 link(s) → Testis and Excurrent Duct System
+05:43:25  INFO      Added 1 link(s) → The abdomen (ANAT10009 - Digestive system)
+05:43:27  INFO      Added 1 link(s) → The Adrenal Gland - The Adrenal Cortex
+05:43:28  INFO      Added 1 link(s) → The Adrenal Medulla - Catecholamines
+05:43:29  INFO      Added 1 link(s) → The Appendicular Skeleton
+05:43:32  INFO      Added 2 link(s) → The Behavioural System - Overview
+05:43:34  INFO      Added 1 link(s) → The Bella Moss Foundation - Promoting Antimicrobial Stewardship
+05:43:36  INFO      Added 1 link(s) → The Brain and Breathing
+05:43:40  INFO      Added 2 link(s) → The Chambers of the Heart
+05:43:40  INFO      Added 2 link(s) → The Conducting System of the Heart
+05:43:42  INFO      Added 1 link(s) → The Diagnostic Approach to Suspected Neoplasms
+05:43:46  INFO      Added 1 link(s) → The Feline Vomeronasal Organ
+05:43:47  INFO      Added 2 link(s) → The Gut-Brain Axis - Bidirectional Communication
+05:43:48  INFO      Added 2 link(s) → The Gut-Brain Axis- A Bidirectional Link
+05:43:48  INFO      Added 1 link(s) → The Heart - Structure
+05:43:49  INFO      Added 2 link(s) → The Heart as a Double Pump
+05:43:50  INFO      Added 2 link(s) → The Heart's Chambers
+05:43:55  INFO      Added 1 link(s) → The Jugular Groove - Clinical Landmark for Venepuncture
+05:43:56  INFO      Added 2 link(s) → The Linea Alba - Anatomy and Clinical Significance
+05:44:00  INFO      Added 1 link(s) → The Neck - Functions
+05:44:01  INFO      Added 1 link(s) → The Nervous System
+05:44:01  INFO      Added 2 link(s) → The Nuchal Ligament - Structure and Function
+05:44:02  INFO      Added 2 link(s) → The Nuchal Ligament - Structure and Species Variation
+05:44:05  INFO      Added 2 link(s) → The Oral Cavity- Overview and Functions
+05:44:08  INFO      Added 4 link(s) → The Passive Stay Apparatus (Hindlimb)
+05:44:14  INFO      Added 1 link(s) → The Renal-Angiotensin System (RAS)
+05:44:21  INFO      Added 1 link(s) → The Thyroid Gland - Metabolism Regulation
+05:44:32  INFO      Added 1 link(s) → Therapeutic Diets for Behavioural Support
+05:44:40  INFO      Added 1 link(s) → Thoracic Surgery - Indications
+05:44:41  INFO      Added 1 link(s) → Thoracic Surgery- Lateral Intercostal Thoracotomy
+05:44:45  INFO      Added 1 link(s) → Thrombocytopaenia- Clinical Manifestations
+05:44:46  INFO      Added 1 link(s) → Thyroid Gland Anatomy
+05:44:48  INFO      Added 1 link(s) → Tibial Nerve Function
+05:45:00  INFO      Added 1 link(s) → Timing of New Behavioural Responses
+05:45:01  INFO      Added 1 link(s) → Tissue Fluid Origin from Microcirculation
+05:45:03  INFO      Added 1 link(s) → Titanium in Surgical Instruments
+05:45:10  INFO      Added 1 link(s) → Tooth Classification- Shape and Function
+05:45:14  INFO      Added 2 link(s) → Top Causes of Non-Colic Anaesthetic Death in Horses
+05:45:17  INFO      Added 1 link(s) → Topical Ophthalmic Mydriatics
+05:45:20  INFO      Added 1 link(s) → Tortoise Bladder and Urinary System
+05:45:21  INFO      Added 1 link(s) → Tortoise Cardiac Shunting during Diving
+05:45:22  INFO      Added 1 link(s) → Tortoise Diving - Bradycardia and Microcirculation
+05:45:24  INFO      Added 1 link(s) → Tortoise Expiration - Muscle Rotation
+05:45:29  INFO      Added 1 link(s) → Tortoise Hibernation - Metabolic Reduction
+05:45:29  INFO      Added 1 link(s) → Tortoise Hibernation – Conditions
+05:45:34  INFO      Added 1 link(s) → Tortoise Integument - Scutes and Ecdysis
+05:45:36  INFO      Added 1 link(s) → Tortoise Olfaction and Vomeronasal Organ
+05:45:37  INFO      Added 1 link(s) → Tortoise Olfaction – Modified Vomeronasal Organ
+05:45:38  INFO      Added 1 link(s) → Tortoise Oral Cavity and Diet
+05:45:39  INFO      Added 1 link(s) → Tortoise Respiratory Adaptations for Hibernation
+05:45:42  INFO      Added 1 link(s) → Tortoise Scutes and Ecdysis
+05:45:43  INFO      Added 1 link(s) → Tortoise Shell Structure
+05:45:46  INFO      Added 1 link(s) → Tortoise Urinary System - Kidney Structure
+05:45:50  INFO      Added 1 link(s) → Toxoplasmosis- Clinical Signs in Cats
+05:45:51  INFO      Added 1 link(s) → Toxoplasmosis- Diagnosis in Cats
+05:45:53  INFO      Added 1 link(s) → Toxoplasmosis- Treatment and Supportive Management
+05:45:53  INFO      Added 2 link(s) → Trabeculae Carneae in the Left Ventricle Inflow
+05:45:55  INFO      Added 1 link(s) → Trachea - Ruminants
+05:45:57  INFO      Added 2 link(s) → Trachea- Bifurcation and Shape in Domestic Mammals
+05:45:58  INFO      Added 1 link(s) → Tracheal Collapse- Signalment and Clinical Signs
+05:45:59  INFO      Added 1 link(s) → Trachealis Muscle Location- Species Differences
+05:46:05  INFO      Added 1 link(s) → Transmission via the Bundle of His
+05:46:08  INFO      Added 2 link(s) → Transverse Plane
+05:46:14  INFO      Added 1 link(s) → Treatment of Cancer- Surgical Excision vs. Debulking
+05:46:23  INFO      Added 1 link(s) → Triage in Veterinary Medicine
+05:46:24  INFO      Added 2 link(s) → Triceps Brachii Muscle- Equine Specifics
+05:46:25  INFO      Added 1 link(s) → Trigeminal Nerve (CN V) - Motor Function
+05:46:26  INFO      Added 3 link(s) → Trigeminal Nerve (CN V) - Sensory Branches
+05:46:26  INFO      Added 3 link(s) → Trigeminal Nerve (CN V)- Mastication and Facial Sensation
+05:46:27  INFO      Added 1 link(s) → Trigeminal Nerve Branches
+05:46:29  INFO      Added 1 link(s) → Trochlear Nerve (CN IV)- Dorsal Oblique Eye Muscle
+05:46:30  INFO      Added 1 link(s) → Trophoblast --- Placenta
+05:46:31  INFO      Added 2 link(s) → Trophoblast Development
+05:46:32  INFO      Added 2 link(s) → Trophoblast Differentiation and Capillary Interaction
+05:46:33  INFO      Added 1 link(s) → Tropomyosin
+05:46:33  INFO      Added 2 link(s) → Troponin and Tropomyosin
+05:46:34  INFO      Added 1 link(s) → Troponin C Role
+05:46:35  INFO      Added 1 link(s) → Troponin Complex Composition
+05:46:35  INFO      Added 1 link(s) → Troponin I Definition
+05:46:36  INFO      Added 2 link(s) → Troponin T Definition
+05:46:40  INFO      Added 2 link(s) → Tungsten Carbide Tips on Surgical Instruments
+05:46:45  INFO      Added 1 link(s) → Types of Bone Forceps
+05:46:46  INFO      Added 1 link(s) → Types of Brain Fibres- Association Fibres
+05:46:46  INFO      Added 2 link(s) → Types of Brain Fibres- Commisural Fibres
+05:46:47  INFO      Added 1 link(s) → Types of Brain Fibres- Projection Fibres
+05:46:48  INFO      Added 2 link(s) → Types of Circulatory Shock (Hypoperfusion)
+05:46:54  INFO      Added 1 link(s) → Types of Sweat Glands
+05:46:59  INFO      Added 1 link(s) → Tyrosine in Behavioural Management
+05:47:05  INFO      Added 1 link(s) → Ulcer Causes
+05:47:05  INFO      Added 1 link(s) → Ulcer Definition
+05:47:07  INFO      Added 1 link(s) → Ulcer- Definition, Causes, and Common Sites
+05:47:07  INFO      Added 1 link(s) → Ulna (Canine)
+05:47:10  INFO      Added 1 link(s) → Ungulates (Hoofed Mammals) - Overview and Perissodactyla
+05:47:10  INFO      Added 1 link(s) → Ungulates - Family Specifics and Artiodactyla
+05:47:14  INFO      Added 1 link(s) → Upper urinary tract (ANAT10009 - Urinary system)
+05:47:15  INFO      Added 1 link(s) → Upward Fixation of the Patella (Equine Clinical Condition)
+05:47:19  INFO      Added 1 link(s) → Urinalysis
+05:47:23  INFO      Added 3 link(s) → Urination – Parasympathetic Control
+05:47:24  INFO      Added 1 link(s) → Urine Concentrating Mechanism
+05:47:24  INFO      Added 1 link(s) → Urine Incontinence – Image Reference
+05:47:27  INFO      Added 1 link(s) → Uroepithelial Tissue – Transitional Epithelium
+05:47:33  INFO      Added 2 link(s) → UV Light Requirements for Reptiles
+05:47:40  INFO      Added 2 link(s) → Vagus Nerve (CN X) - Parasympathetic Function
+05:47:40  INFO      Added 2 link(s) → Vagus Nerve - Function and Connections
+05:47:41  INFO      Added 2 link(s) → Vagus Nerve, Recurrent Laryngeal Nerve, and Clinical Significance
+05:47:42  INFO      Added 1 link(s) → Van't Hoff's Law and Osmotic Pressure
+05:47:44  INFO      Added 1 link(s) → Vascular Lining - Example of Diffusion
+05:47:46  INFO      Added 1 link(s) → Vastus Intermedius Muscle
+05:47:46  INFO      Added 2 link(s) → Vastus Lateralis Muscle
+05:47:47  INFO      Added 2 link(s) → Vastus Medialis Muscle
+05:47:49  INFO      Added 1 link(s) → Vector-Borne Diseases in Pets- General Introduction
+05:47:50  INFO      Added 1 link(s) → Vector-Borne Infectious Diseases - Leishmaniosis (_Leishmania infantum_)
+05:47:51  INFO      Added 1 link(s) → Vector-Borne Infectious Diseases - Tick-Borne Diseases
+05:47:53  INFO      Added 1 link(s) → Venous Access - Ulnar and Jugular
+05:47:55  INFO      Added 1 link(s) → Venous Drainage of the Head
+05:47:56  INFO      Added 2 link(s) → Venous Return - General
+05:47:57  INFO      Added 1 link(s) → Ventilation and Arterial CO2 (PaCO2) Maintenance
+05:48:00  INFO      Added 2 link(s) → Ventilatory Response to Hypercapnia (Central and Peripheral Chemoreceptors)
+05:48:00  INFO      Added 1 link(s) → Ventilatory Response to Hypercapnia (Peripheral and Central Chemoreceptors)
+05:48:01  INFO      Added 1 link(s) → Ventilatory Response to Hypoxia (Peripheral Chemoreceptors)
+05:48:02  INFO      Added 1 link(s) → Ventral Horn
+05:48:05  INFO      Added 3 link(s) → Ventricular Septal Defect (VSD)
+05:48:05  INFO      Added 1 link(s) → Ventricular Septal Defect
+05:48:07  INFO      Added 1 link(s) → Vertebral Canal
+05:48:10  INFO      Added 1 link(s) → Vesical Blood Supply – Drainage
+05:48:10  INFO      Added 2 link(s) → Vesical Blood Supply – Inferior Arteries
+05:48:11  INFO      Added 1 link(s) → Vesical Blood Supply – Internal Iliac Branching
+05:48:12  INFO      Added 2 link(s) → Vesical Blood Supply – Superior Arteries
+05:48:12  INFO      Added 1 link(s) → Vestibulocochlear Nerve (CN VIII)- Hearing and Balance
+05:48:13  INFO      Added 1 link(s) → Vestibulocochlear Nerve (CN VIII)
+05:48:35  INFO      Added 1 link(s) → VETS10021 - Serum Biochemistry Assays
+05:48:38  INFO      Added 1 link(s) → VETS10021 Course Overview
+05:48:40  INFO      Added 1 link(s) → VETS10021 Parasitology Case Studies
+05:48:51  INFO      Added 1 link(s) → VETS20019 - Flashard-Completed - Common Dental Diseases in Animals
+05:48:52  INFO      Added 1 link(s) → VETS20019 - GA Sequence- Animal Unconscious - Maintenance
+05:48:53  INFO      Added 1 link(s) → VETS20019 - GA Sequence- Animal Unconscious - Monitoring
+05:48:55  INFO      Added 1 link(s) → VETS20019 - GA Sequence- Sedation-Pre-medication
+05:48:57  INFO      Added 1 link(s) → VETS20019 - Inhalation Agents- Uptake, Distribution, Elimination
+05:49:00  INFO      Added 1 link(s) → VETS20019 - Injectable Agents- Hypoalbuminaemia Impact
+05:49:02  INFO      Added 1 link(s) → VETS20019 - Key Acronyms
+05:49:03  INFO      Added 1 link(s) → VETS20019 - Recovery- Drug Factors & Physiological Considerations
+05:49:10  INFO      Added 2 link(s) → Visceral NS and Endocrine control (ANAT10009 - Control of body systems)
+05:49:11  INFO      Added 1 link(s) → Visceral NS and Endocrine control
+05:49:15  INFO      Added 1 link(s) → Visual Pathways - Lateral Geniculate Nucleus
+05:49:15  INFO      Added 1 link(s) → Visual Pathways - Optic Chiasm
+05:49:16  INFO      Added 1 link(s) → Visual Pathways - Optic Nerve
+05:49:17  INFO      Added 1 link(s) → Visual Pathways - Optic Tract
+05:49:17  INFO      Added 1 link(s) → Visual Pathways - Visual Cortex
+05:49:18  INFO      Added 1 link(s) → Visual Signaling in Dogs
+05:49:19  INFO      Added 1 link(s) → Visual Signalling and Canine Body Language
+05:49:22  INFO      Added 1 link(s) → Vomeronasal Organ (Jacobson's Organ)
+05:49:22  INFO      Added 2 link(s) → Vomeronasal Organ - Sensory Function
+05:49:24  INFO      Added 1 link(s) → Vomiting and Diarrhoea- Consequences for the Patient
+05:49:32  INFO      Added 1 link(s) → Water Reabsorption - Osmotic Gradient
+05:49:35  INFO      Added 1 link(s) → Weight-Bearing Stances in Mammals
+05:49:36  INFO      Added 2 link(s) → Weight-Bearing Support - Joint Locking
+05:49:38  INFO      Added 1 link(s) → What Drives Breathing-
+05:49:39  INFO      Added 1 link(s) → What is Learning- Definition and Key Concepts
+05:49:41  INFO      Added 2 link(s) → White and Grey Matter in the Spinal Cord
+05:49:48  INFO      Added 1 link(s) → Wildlife Legislation – Key Acts
+05:49:49  INFO      Added 1 link(s) → Worker Bee Development- Gene Expression and Social Roles
+05:49:52  INFO      Added 1 link(s) → Wound Classification- Overview
+05:50:17  INFO      Added 1 link(s) → X-ray Exposure Charts
+05:50:19  INFO      Added 1 link(s) → X-ray Machine Controls - FFD-SID
+05:50:21  INFO      Added 1 link(s) → X-ray Machine Controls- Focus-Film Distance (FFD-SID) and Inverse Square Law
+05:50:27  INFO      Added 1 link(s) → X-ray Tube Components- Anode (Positive Electrode)
+05:50:29  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Blastocyst formation
+05:50:29  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Cardiovascular System
+05:50:30  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Connective tissue
+05:50:31  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Digestive System
+05:50:31  INFO      Added 3 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Embryoblast and Trophoblast differentiation
+05:50:32  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Embryonic Tissue Derivatives - Ectoderm
+05:50:32  INFO      Added 2 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Embryonic Tissue Derivatives - Endoderm
+05:50:33  INFO      Added 2 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Embryonic Tissue Derivatives - Mesoderm
+05:50:34  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Embryonic Tissue Derivatives - Neural Crest Cells
+05:50:34  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Endocrine System
+05:50:35  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Epithelial structures - Glands
+05:50:36  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Lateral and Cephalocaudal Folding
+05:50:41  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Trilaminar disc
+05:50:41  INFO      Added 1 link(s) → Year 1-Year 1 Units-AS1A-E2 - Cells to system - Urinary system
+05:50:45  INFO      Added 5 link(s) → Zettelkasten Note- Afferent and Efferent Neurons
+05:50:45  INFO      Added 1 link(s) → Zettelkasten Note- Anatomy of a Synapse
+05:50:46  INFO      Added 4 link(s) → Zettelkasten Note- Autonomic Nervous System - Parasympathetic
+05:50:47  INFO      Added 3 link(s) → Zettelkasten Note- Autonomic Nervous System - Sympathetic
+05:50:47  INFO      Added 2 link(s) → Zettelkasten Note- Functions of the Nervous System
+05:50:48  INFO      Added 6 link(s) → Zettelkasten Note- Organization of the Nervous System - CNS
+05:50:49  INFO      Added 5 link(s) → Zettelkasten Note- Organization of the Nervous System - PNS
+05:50:50  INFO      Added 4 link(s) → Zettelkasten Note- Somatic and Autonomic Nervous Systems
+05:50:50  INFO      Added 2 link(s) → Zettelkasten Note- Supporting Cells - Glia (Myelination - CNS)
+05:50:51  INFO      Added 2 link(s) → Zettelkasten Note- Supporting Cells - Glia (Myelination - PNS)
+05:50:52  INFO      Added 1 link(s) → Zettelkasten Note- Synaptic Locations
+05:50:52  INFO      Added 2 link(s) → Zettelkasten Note- The Nervous System - Neurons
+05:50:58  INFO      Phase 2 complete.
+05:50:58  INFO      All done!
