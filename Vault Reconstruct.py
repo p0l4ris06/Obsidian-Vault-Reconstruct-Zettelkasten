@@ -18,10 +18,7 @@ from dataclasses import dataclass, field
 try:
     import reconstruct_rust  # New Rust module
 except ImportError:
-    import sys
-    print("ERROR: The 'reconstruct_rust' module is not built.", file=sys.stderr)
-    print("       Please build it by running `cd reconstruct_rust && maturin develop --release && cd ..`", file=sys.stderr)
-    sys.exit(1)
+    reconstruct_rust = None
 
 from vault_reconstruct.env import load_dotenv_no_override
 load_dotenv_no_override()
@@ -213,6 +210,10 @@ def run_phase1(client, config: Config):
 
 def run_phase2(config: Config):
     # This phase is now handled by the Rust module
+    if reconstruct_rust is None:
+        log.warning("Note: High-speed Rust engine not detected. Run 'maturin develop' in 'reconstruct_rust' to enable parallel processing.")
+        return
+
     try:
         files_modified = reconstruct_rust.run_link_phase(config.output_vault)
         log.info("Phase 2 (Rust) complete. %d files modified.", files_modified)
