@@ -11,7 +11,7 @@ use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
 // --- Constants / Regexes ---
 lazy_static::lazy_static! {
-    static ref UNSAFE_CHARS: Regex = Regex::new(r"[\\/:*?\"<>|]").unwrap();
+    static ref UNSAFE_CHARS: Regex = Regex::new(r#"[\\/:*?"<>|]"#).unwrap();
     static ref FRONTMATTER_RE: Regex = Regex::new(r"(?s)^---\s*\n.*?\n---\s*\n").unwrap();
     static ref CODE_FENCE_RE: Regex = Regex::new(r"(?s)```.*?```").unwrap();
     static ref INLINE_CODE_RE: Regex = Regex::new(r"`[^`]+`").unwrap();
