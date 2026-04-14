@@ -1,6 +1,6 @@
 use pyo3::prelude::*;
 use pyo3::exceptions::PyIOError;
-use std::collections::{HashSet};
+use std::collections::HashSet;
 use std::path::PathBuf;
 use walkdir::WalkDir;
 use rayon::prelude::*;
@@ -8,25 +8,12 @@ use regex::{Regex, Captures};
 use std::fs;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
-// --- Constants / Regexes ---
 lazy_static::lazy_static! {
-    static ref UNSAFE_CHARS: Regex = Regex::new(r#"[\\/:*?"<>|]"#).unwrap();
-    static ref FRONTMATTER_RE: Regex = Regex::new(r"(?s)^---\s*\n.*?\n---\s*\n").unwrap();
-    static ref CODE_FENCE_RE: Regex = Regex::new(r"(?s)```.*?```").unwrap();
-    static ref INLINE_CODE_RE: Regex = Regex::new(r"`[^`]+`").unwrap();
-    static ref WIKILINK_RE: Regex = Regex::new(r"\[\[.*?\]\]").unwrap();
-}
-
-// --- Helper Functions (ported from Python) ---
-fn safe_filename(title: &str) -> String {
-    let cleaned = UNSAFE_CHARS.replace_all(title, "-");
-    let trimmed = cleaned.trim_end_matches(". ");
-    let sliced = if trimmed.len() > 200 { &trimmed[..200] } else { trimmed };
-    if sliced.is_empty() {
-        "Untitled".to_string()
-    } else {
-        sliced.to_string()
-    }
+    static ref UNSAFE_CHARS: Regex = Regex::new("[\\\\/:*?\\\"<>|]").unwrap();
+    static ref FRONTMATTER_RE: Regex = Regex::new("(?s)^---\\s*\\n.*?\\n---\\s*\\n").unwrap();
+    static ref CODE_FENCE_RE: Regex = Regex::new("(?s)```.*?```").unwrap();
+    static ref INLINE_CODE_RE: Regex = Regex::new("`[^`]+`").unwrap();
+    static ref WIKILINK_RE: Regex = Regex::new("\\[\\[.*?\\]\\]").unwrap();
 }
 
 fn mask_protected(text: &str) -> (String, Vec<(String, String)>) {
@@ -39,16 +26,9 @@ fn mask_protected(text: &str) -> (String, Vec<(String, String)>) {
         token
     };
 
-    // Frontmatter (only replace once)
     masked_text = FRONTMATTER_RE.replacen(&masked_text, 1, &mut replace_one).to_string();
-    
-    // Code fences
     masked_text = CODE_FENCE_RE.replace_all(&masked_text, &mut replace_one).to_string();
-
-    // Inline code
     masked_text = INLINE_CODE_RE.replace_all(&masked_text, &mut replace_one).to_string();
-
-    // Wikilinks
     masked_text = WIKILINK_RE.replace_all(&masked_text, &mut replace_one).to_string();
 
     (masked_text, placeholders)
@@ -62,17 +42,15 @@ fn restore_protected(text: &str, placeholders: &[(String, String)]) -> String {
     restored_text
 }
 
-
 #[pyfunction]
 fn run_link_phase(vault_path_str: &str) -> PyResult<usize> {
     let vault_path = PathBuf::from(vault_path_str);
     if !vault_path.is_dir() {
-        return Err(PyIOError::new_err(format!("Vault path does not exist or is not a directory: {}", vault_path_str)));
+        return Err(PyIOError::new_err(format!("Vault path does not exist: {}", vault_path_str)));
     }
 
     println!("INFO: === PHASE 2 (Rust): Auto-generating wiki-links ===");
 
-    // Phase 1: Collect all markdown files and their titles (stems)
     let mut file_paths_and_titles: Vec<(PathBuf, String)> = Vec::new();
     let mut unique_titles: HashSet<String> = HashSet::new();
 
@@ -85,7 +63,6 @@ fn run_link_phase(vault_path_str: &str) -> PyResult<usize> {
         let stem = path.file_stem().and_then(|s| s.to_str()).map_or_else(|| "".to_string(), |s| s.to_string());
 
         if !stem.is_empty() {
-            // Filter out internal obsidian files and tracker file
             if path.components().any(|comp| comp.as_os_str() == ".obsidian") || stem.starts_with(".processed_files") {
                 continue;
             }
@@ -94,65 +71,41 @@ fn run_link_phase(vault_path_str: &str) -> PyResult<usize> {
         }
     }
 
-    println!("INFO: Linking {} titles across {} files...", unique_titles.len(), file_paths_and_titles.len());
-
-    // Sort titles by length (longest first) to avoid partial replacements
     let mut sorted_titles: Vec<String> = unique_titles.into_iter().collect();
-    sorted_titles.sort_by(|a, b| b.len().cmp(&a.len()).then_with(|| a.cmp(b))); // Secondary sort for stable order
+    sorted_titles.sort_by(|a, b| b.len().cmp(&a.len()).then_with(|| a.cmp(b)));
 
     let files_modified_count = AtomicUsize::new(0);
 
-    // Phase 2: Process files in parallel to add links
     file_paths_and_titles.par_iter().for_each(|(file_path, current_title)| {
-        match fs::read_to_string(file_path) {
-            Ok(original_content) => {
-                let (masked_content, placeholders) = mask_protected(&original_content);
-                let mut current_masked_content = masked_content;
-                let mut links_added_to_file = 0;
+        if let Ok(original_content) = fs::read_to_string(file_path) {
+            let (masked_content, placeholders) = mask_protected(&original_content);
+            let mut current_masked_content = masked_content;
 
-                for title in &sorted_titles {
-                    if title == current_title {
-                        continue; // Don't link a note to itself
-                    }
+            for title in &sorted_titles {
+                if title == current_title { continue; }
 
-                    // Word-boundary match, case-insensitive, first occurrence only
-                    let pattern_str = format!(r"(?i)\b({})\b", regex::escape(title));
-                    let link_pattern = Regex::new(&pattern_str).unwrap();
-
-                    // Replace only the first occurrence
-                    let replaced_content_tuple = link_pattern.replacen(&current_masked_content, 1, |caps: &Captures| {
-                        links_added_to_file += 1;
+                let pattern_str = format!("\\b({})\\b", regex::escape(title));
+                if let Ok(link_pattern) = Regex::new(&pattern_str) {
+                    current_masked_content = link_pattern.replacen(&current_masked_content, 1, |caps: &Captures| {
                         format!("[[{}]]", &caps[1])
-                    });
-                    current_masked_content = replaced_content_tuple.to_string();
+                    }).to_string();
                 }
+            }
 
-                let result_content = restore_protected(&current_masked_content, &placeholders);
-
-                if result_content != original_content {
-                    match fs::write(file_path, result_content) {
-                        Ok(_) => {
-                            println!("INFO: Added {} link(s) -> {}", links_added_to_file, file_path.file_stem().unwrap().to_str().unwrap_or("UNKNOWN"));
-                            files_modified_count.fetch_add(1, AtomicOrdering::SeqCst);
-                        }
-                        Err(e) => {
-                            eprintln!("ERROR: Could not write to file {}: {}", file_path.display(), e);
-                        }
-                    }
+            let result_content = restore_protected(&current_masked_content, &placeholders);
+            if result_content != original_content {
+                if fs::write(file_path, result_content).is_ok() {
+                    files_modified_count.fetch_add(1, AtomicOrdering::SeqCst);
                 }
-            },
-            Err(e) => {
-                eprintln!("ERROR: Could not read file {}: {}", file_path.display(), e);
             }
         }
     });
 
-    println!("INFO: Phase 2 (Rust) complete.");
     Ok(files_modified_count.load(AtomicOrdering::SeqCst))
 }
 
 #[pymodule]
-fn reconstruct_rust(_py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn reconstruct_rust(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(run_link_phase, m)?)?;
     Ok(())
 }
