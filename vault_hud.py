@@ -710,7 +710,9 @@ class VaultHud(App):
             await self._stream_task
 
             code = self._proc.wait() if self._proc else 1
-        log.write(f"[bold #00ff88]✓[/] exit {code}")
+        
+        exit_msg = f"[bold #00ff88]✓[/] exit {code}"
+        log.write(exit_msg)
         self.is_running = False
         self._proc = None
         self._inproc_task = None
