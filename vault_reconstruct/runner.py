@@ -10,6 +10,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Optional
 
+try:
+    import reconstruct_rust
+except ImportError:
+    reconstruct_rust = None
+
 
 @dataclass(frozen=True)
 class PythonLauncher:
@@ -115,4 +120,16 @@ def run_script_inprocess(
     finally:
         sys.argv = prev_argv
         os.chdir(str(prev_cwd))
+
+
+def run_reconstruction(vault_path: Path) -> None:
+    """Perform Phase 2 (Link Generation) using the Rust engine if available."""
+    if reconstruct_rust is None:
+        print("Note: High-speed Rust engine not detected. Run maturin develop to enable parallel processing.")
+        # Fallback logic would go here if Phase 2 Python implementation existed in this file
+        return
+
+    print("Phase 2: Generating wiki-links using Rust engine...")
+    modified_count = reconstruct_rust.run_link_phase(str(vault_path))
+    print(f"Summary: Modified {modified_count} files.")
 
