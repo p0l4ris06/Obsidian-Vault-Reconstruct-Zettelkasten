@@ -1,12 +1,11 @@
 use pyo3::prelude::*;
 use pyo3::exceptions::PyIOError;
 use std::collections::{HashSet};
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use walkdir::WalkDir;
 use rayon::prelude::*;
 use regex::{Regex, Captures};
 use std::fs;
-use std::cmp::Ordering;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
 // --- Constants / Regexes ---
@@ -34,23 +33,23 @@ fn mask_protected(text: &str) -> (String, Vec<(String, String)>) {
     let mut placeholders: Vec<(String, String)> = Vec::new();
     let mut masked_text = text.to_string();
 
-    let mut replace_one = |m: Captures| {
+    let mut replace_one = |m: &Captures| {
         let token = format!("\x00PH{}\x00", placeholders.len());
         placeholders.push((token.clone(), m[0].to_string()));
         token
     };
 
     // Frontmatter (only replace once)
-    masked_text = FRONTMATTER_RE.replacen(&masked_text, 1, |m: &Captures| replace_one(m.to_owned())).to_string();
+    masked_text = FRONTMATTER_RE.replacen(&masked_text, 1, &mut replace_one).to_string();
     
     // Code fences
-    masked_text = CODE_FENCE_RE.replace_all(&masked_text, |m: Captures| replace_one(m.to_owned())).to_string();
+    masked_text = CODE_FENCE_RE.replace_all(&masked_text, &mut replace_one).to_string();
 
     // Inline code
-    masked_text = INLINE_CODE_RE.replace_all(&masked_text, |m: Captures| replace_one(m.to_owned())).to_string();
+    masked_text = INLINE_CODE_RE.replace_all(&masked_text, &mut replace_one).to_string();
 
     // Wikilinks
-    masked_text = WIKILINK_RE.replace_all(&masked_text, |m: Captures| replace_one(m.to_owned())).to_string();
+    masked_text = WIKILINK_RE.replace_all(&masked_text, &mut replace_one).to_string();
 
     (masked_text, placeholders)
 }
@@ -153,7 +152,7 @@ fn run_link_phase(vault_path_str: &str) -> PyResult<usize> {
 }
 
 #[pymodule]
-fn reconstruct_rust(_py: Python, m: &PyModule) -> PyResult<()> {
+fn reconstruct_rust(_py: Python, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(run_link_phase, m)?)?;
     Ok(())
 }
