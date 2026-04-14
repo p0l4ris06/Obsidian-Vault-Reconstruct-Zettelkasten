@@ -117,7 +117,7 @@ fn run_link_phase(vault_path_str: &str) -> PyResult<usize> {
                     }
 
                     // Word-boundary match, case-insensitive, first occurrence only
-                    let pattern_str = format!(r"\b({})\b", regex::escape(title));
+                    let pattern_str = format!(r"(?i)\b({})\b", regex::escape(title));
                     let link_pattern = Regex::new(&pattern_str).unwrap();
 
                     // Replace only the first occurrence
