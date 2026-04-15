@@ -96,7 +96,7 @@ class MLP(nn.Module):
         self.w3 = nn.Linear(int(config.n_embd * 8 / 3), config.n_embd, bias=False)
 
     def forward(self, x):
-        return self.w3(F.gelu(self.w1(x)) * self.w2(x))
+        return self.w3(F.silu(self.w1(x)) * self.w2(x))
 
 class RMSNorm(nn.Module):
     def __init__(self, dim):
