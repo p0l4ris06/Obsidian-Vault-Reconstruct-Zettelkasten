@@ -41,11 +41,15 @@ class Attention(nn.Module):
         super().__init__()
         self.n_head = config.n_head
         self.n_embd = config.n_embd
-        self.wqkv = nn.Linear(config.n_embd, 3 * config.n_embd, bias=False)
+        self.head_dim = config.n_embd // config.n_head
+        
+        self.wq = nn.Linear(config.n_embd, config.n_embd, bias=False)
+        self.wk = nn.Linear(config.n_embd, self.head_dim, bias=False)
+        self.wv = nn.Linear(config.n_embd, self.head_dim, bias=False)
         self.wo = nn.Linear(config.n_embd, config.n_embd, bias=False)
         
         # RoPE frequency precomputation
-        inv_freq = 1.0 / (10000**(torch.arange(0, config.n_embd // config.n_head, 2).float() / (config.n_embd // config.n_head)))
+        inv_freq = 1.0 / (10000**(torch.arange(0, self.head_dim, 2).float() / self.head_dim))
         self.register_buffer("inv_freq", inv_freq)
 
     def _apply_rope(self, x, seq_len):
@@ -60,11 +64,17 @@ class Attention(nn.Module):
 
     def forward(self, x):
         B, T, C = x.size()
-        qkv = self.wqkv(x).reshape(B, T, 3, self.n_head, C // self.n_head).transpose(1, 3)
-        q, k, v = qkv.unbind(2)
+        
+        q = self.wq(x).view(B, T, self.n_head, self.head_dim).transpose(1, 2)
+        k = self.wk(x).view(B, T, 1, self.head_dim).transpose(1, 2)
+        v = self.wv(x).view(B, T, 1, self.head_dim).transpose(1, 2)
         
         q = self._apply_rope(q, T)
         k = self._apply_rope(k, T)
+        
+        # MQA: Broadcast K and V across all Q heads
+        k = k.expand(-1, self.n_head, -1, -1)
+        v = v.expand(-1, self.n_head, -1, -1)
 
         if flash_attn_func is not None and x.is_cuda:
             q = q.transpose(1, 2)
