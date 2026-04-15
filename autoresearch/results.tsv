@@ -4,3 +4,4 @@ f67ff7f	2.860600	0.0	keep	Increase learning rate to 2e-3
 739d9f9	2.791000	0.0	keep	Switch LayerNorm to RMSNorm
 43ebfda	3.921600	0.0	discard	Disable weight decay
 8b7e07f	2.668210	0.3	keep	Increase DIM to 384
+64f0951	2.340281	0.4	keep	Increase DIM to 512
