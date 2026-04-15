@@ -159,7 +159,7 @@ print("Building model...")
 config = Config()
 model = Transformer(config).to(device)
 
-optimizer = torch.optim.AdamW(model.parameters(), lr=2e-3, weight_decay=0.1)
+optimizer = torch.optim.AdamW(model.parameters(), lr=2e-3, weight_decay=0.05)
 
 print("Loading tokenizer and dataloader from cache...")
 tokenizer = Tokenizer.from_directory()
