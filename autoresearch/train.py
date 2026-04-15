@@ -91,11 +91,12 @@ class Attention(nn.Module):
 class MLP(nn.Module):
     def __init__(self, config):
         super().__init__()
-        self.w1 = nn.Linear(config.n_embd, 4 * config.n_embd, bias=False)
-        self.w2 = nn.Linear(4 * config.n_embd, config.n_embd, bias=False)
+        self.w1 = nn.Linear(config.n_embd, int(config.n_embd * 8 / 3), bias=False)
+        self.w2 = nn.Linear(config.n_embd, int(config.n_embd * 8 / 3), bias=False)
+        self.w3 = nn.Linear(int(config.n_embd * 8 / 3), config.n_embd, bias=False)
 
     def forward(self, x):
-        return self.w2(F.gelu(self.w1(x)))
+        return self.w3(F.gelu(self.w1(x)) * self.w2(x))
 
 class RMSNorm(nn.Module):
     def __init__(self, dim):
