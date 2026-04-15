@@ -141,12 +141,25 @@ print("Loading tokenizer and dataloader from cache...")
 tokenizer = Tokenizer.from_directory()
 train_loader = make_dataloader(tokenizer, BATCH_SIZE, T, "train")
 
-print("Starting 5-minute training run...")
+print("Starting 5-minute training run with Cosine LR Decay...")
 start_time = time.time()
 step = 0
+base_lr = 2e-3
+min_lr = 2e-4
+budget = 300
 
-while (time.time() - start_time) < 300: 
+while True:
+    elapsed = time.time() - start_time
+    if elapsed >= budget:
+        break
+        
     model.train()
+    
+    # Cosine LR Schedule based on time
+    lr = min_lr + 0.5 * (base_lr - min_lr) * (1 + math.cos(math.pi * elapsed / budget))
+    for param_group in optimizer.param_groups:
+        param_group['lr'] = lr
+        
     x, y, epoch = next(train_loader)
     x, y = x.to(device), y.to(device)
     
@@ -156,7 +169,7 @@ while (time.time() - start_time) < 300:
     optimizer.step()
     
     if step < 5 or step % 50 == 0:
-        print(f"step {step} | epoch {epoch} | loss {loss.item():.4f} | time {(time.time()-start_time):.1f}s")
+        print(f"step {step} | lr {lr:.2e} | loss {loss.item():.4f} | time {elapsed:.1f}s")
     step += 1
 
 training_time = time.time() - start_time
