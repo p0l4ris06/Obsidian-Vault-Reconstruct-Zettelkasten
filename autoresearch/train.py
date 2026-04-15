@@ -26,7 +26,7 @@ BATCH_SIZE = 2
 DEPTH = 8                
 DIM = 512                
 HEADS = 16                
-T = 256                  
+T = 512                  
 
 @dataclass
 class Config:
