@@ -22,7 +22,7 @@ except ImportError:
 
 # --- 4GB VRAM SURVIVAL CONFIG (GTX 1650 Super) ---
 TOTAL_BATCH_SIZE = 4096 
-BATCH_SIZE = 2           
+BATCH_SIZE = 4           
 DEPTH = 8                
 DIM = 512                
 HEADS = 16                
