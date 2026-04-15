@@ -157,7 +157,7 @@ train_loader = make_dataloader(tokenizer, BATCH_SIZE, T, "train")
 print("Starting 5-minute training run with Cosine LR Decay...")
 start_time = time.time()
 step = 0
-base_lr = 2e-3
+base_lr = 2.2e-3
 min_lr = 2e-4
 budget = 300
 
