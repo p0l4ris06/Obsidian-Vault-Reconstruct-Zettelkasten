@@ -166,6 +166,7 @@ while True:
     optimizer.zero_grad()
     logits, loss = model(x, y)
     loss.backward()
+    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
     optimizer.step()
     
     if step < 5 or step % 50 == 0:
