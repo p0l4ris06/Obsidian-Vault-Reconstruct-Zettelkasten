@@ -25,7 +25,7 @@ TOTAL_BATCH_SIZE = 4096
 BATCH_SIZE = 2           
 DEPTH = 8                
 DIM = 512                
-HEADS = 8                
+HEADS = 16                
 T = 256                  
 
 @dataclass
