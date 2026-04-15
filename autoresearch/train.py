@@ -24,7 +24,7 @@ except ImportError:
 TOTAL_BATCH_SIZE = 4096 
 BATCH_SIZE = 2           
 DEPTH = 4                
-DIM = 256                
+DIM = 384                
 HEADS = 8                
 T = 256                  
 
@@ -102,7 +102,6 @@ class Transformer(nn.Module):
         ))
         self.lm_head = nn.Linear(config.n_embd, config.vocab_size, bias=False)
 
-    # UPDATED: Added reduction parameter to satisfy evaluate_bpb
     def forward(self, idx, targets=None, reduction='mean'):
         device = idx.device
         b, t = idx.size()
@@ -118,8 +117,6 @@ class Transformer(nn.Module):
         loss = None
         if targets is not None:
             loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1), reduction=reduction)
-            
-            # If the evaluation script asks for unreduced loss, it expects just the tensor back
             if reduction == 'none':
                 return loss
                 
@@ -131,6 +128,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Device set to: {device}")
 
 torch.cuda.empty_cache()
+torch.cuda.reset_peak_memory_stats()
 gc.collect()
 
 print("Building model...")
@@ -157,13 +155,25 @@ while (time.time() - start_time) < 300:
     loss.backward()
     optimizer.step()
     
-    if step < 5 or step % 10 == 0:
+    if step < 5 or step % 50 == 0:
         print(f"step {step} | epoch {epoch} | loss {loss.item():.4f} | time {(time.time()-start_time):.1f}s")
     step += 1
 
+training_time = time.time() - start_time
 print("Training loop finished! Running evaluation...")
 model.eval()
 
 # Calculates the final BPB score
 val_bpb = evaluate_bpb(model, tokenizer, BATCH_SIZE)
-print(f"FINAL_RESULT: {val_bpb:.4f}")
+
+peak_vram = torch.cuda.max_memory_allocated(device) / 1024 / 1024 if torch.cuda.is_available() else 0
+num_params = sum(p.numel() for p in model.parameters()) / 1e6
+
+print(f"---")
+print(f"val_bpb:          {val_bpb:.6f}")
+print(f"training_seconds: {training_time:.1f}")
+print(f"peak_vram_mb:     {peak_vram:.1f}")
+print(f"num_steps:        {step}")
+print(f"num_params_M:     {num_params:.1f}")
+print(f"depth:            {DEPTH}")
+print(f"dim:              {DIM}")
