@@ -1,0 +1,162 @@
+import os
+os.environ["PYTORCH_ALLOC_CONF"] = "expandable_segments:True"
+os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
+import gc
+import math
+import time
+from dataclasses import dataclass
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+# --- Import from your exact prepare.py ---
+from prepare import Tokenizer, make_dataloader, evaluate_bpb
+
+# --- FA2 Implementation & Hardware Check ---
+try:
+    from flash_attn import flash_attn_func
+    print("Flash Attention 2 library loaded successfully.")
+except ImportError:
+    flash_attn_func = None
+    print("Flash Attention 2 not found. Relying on PyTorch optimized SDPA (Memory-Efficient Attention).")
+
+# --- 4GB VRAM SURVIVAL CONFIG (GTX 1650 Super) ---
+TOTAL_BATCH_SIZE = 4096 
+BATCH_SIZE = 2           
+DEPTH = 4                
+DIM = 256                
+HEADS = 8                
+T = 256                  
+
+@dataclass
+class Config:
+    vocab_size: int = 8192 # Must match VOCAB_SIZE in prepare.py
+    n_layer: int = DEPTH
+    n_head: int = HEADS
+    n_embd: int = DIM
+    sequence_length: int = T
+
+class Attention(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.n_head = config.n_head
+        self.n_embd = config.n_embd
+        self.wqkv = nn.Linear(config.n_embd, 3 * config.n_embd, bias=False)
+        self.wo = nn.Linear(config.n_embd, config.n_embd, bias=False)
+
+    def forward(self, x):
+        B, T, C = x.size()
+        qkv = self.wqkv(x).reshape(B, T, 3, self.n_head, C // self.n_head).transpose(1, 3)
+        q, k, v = qkv.unbind(2)
+
+        if flash_attn_func is not None and x.is_cuda:
+            q = q.transpose(1, 2)
+            k = k.transpose(1, 2)
+            v = v.transpose(1, 2)
+            y = flash_attn_func(q, k, v, causal=True)
+            y = y.reshape(B, T, C)
+        else:
+            y = F.scaled_dot_product_attention(q, k, v, is_causal=True)
+            y = y.transpose(1, 3).contiguous().view(B, T, C)
+            
+        return self.wo(y)
+
+class MLP(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.w1 = nn.Linear(config.n_embd, 4 * config.n_embd, bias=False)
+        self.w2 = nn.Linear(4 * config.n_embd, config.n_embd, bias=False)
+
+    def forward(self, x):
+        return self.w2(F.gelu(self.w1(x)))
+
+class Block(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.ln1 = nn.LayerNorm(config.n_embd)
+        self.attn = Attention(config)
+        self.ln2 = nn.LayerNorm(config.n_embd)
+        self.mlp = MLP(config)
+
+    def forward(self, x):
+        x = x + self.attn(self.ln1(x))
+        x = x + self.mlp(self.ln2(x))
+        return x
+
+class Transformer(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.config = config
+        self.transformer = nn.ModuleDict(dict(
+            wte = nn.Embedding(config.vocab_size, config.n_embd),
+            wpe = nn.Embedding(config.sequence_length, config.n_embd),
+            h = nn.ModuleList([Block(config) for _ in range(config.n_layer)]),
+            ln_f = nn.LayerNorm(config.n_embd),
+        ))
+        self.lm_head = nn.Linear(config.n_embd, config.vocab_size, bias=False)
+
+    # UPDATED: Added reduction parameter to satisfy evaluate_bpb
+    def forward(self, idx, targets=None, reduction='mean'):
+        device = idx.device
+        b, t = idx.size()
+        pos = torch.arange(0, t, dtype=torch.long, device=device)
+        tok_emb = self.transformer.wte(idx)
+        pos_emb = self.transformer.wpe(pos)
+        x = tok_emb + pos_emb
+        for block in self.transformer.h:
+            x = block(x)
+        x = self.transformer.ln_f(x)
+        logits = self.lm_head(x)
+        
+        loss = None
+        if targets is not None:
+            loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1), reduction=reduction)
+            
+            # If the evaluation script asks for unreduced loss, it expects just the tensor back
+            if reduction == 'none':
+                return loss
+                
+        return logits, loss
+
+# --- Training Loop Setup ---
+print("Initializing device...")
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"Device set to: {device}")
+
+torch.cuda.empty_cache()
+gc.collect()
+
+print("Building model...")
+config = Config()
+model = Transformer(config).to(device)
+
+optimizer = torch.optim.AdamW(model.parameters(), lr=6e-4, weight_decay=0.1)
+
+print("Loading tokenizer and dataloader from cache...")
+tokenizer = Tokenizer.from_directory()
+train_loader = make_dataloader(tokenizer, BATCH_SIZE, T, "train")
+
+print("Starting 5-minute training run...")
+start_time = time.time()
+step = 0
+
+while (time.time() - start_time) < 300: 
+    model.train()
+    x, y, epoch = next(train_loader)
+    x, y = x.to(device), y.to(device)
+    
+    optimizer.zero_grad()
+    logits, loss = model(x, y)
+    loss.backward()
+    optimizer.step()
+    
+    if step < 5 or step % 10 == 0:
+        print(f"step {step} | epoch {epoch} | loss {loss.item():.4f} | time {(time.time()-start_time):.1f}s")
+    step += 1
+
+print("Training loop finished! Running evaluation...")
+model.eval()
+
+# Calculates the final BPB score
+val_bpb = evaluate_bpb(model, tokenizer, BATCH_SIZE)
+print(f"FINAL_RESULT: {val_bpb:.4f}")
