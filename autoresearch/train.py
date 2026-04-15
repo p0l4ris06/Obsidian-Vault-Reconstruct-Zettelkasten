@@ -167,7 +167,7 @@ train_loader = make_dataloader(tokenizer, BATCH_SIZE, T, "train")
 print("Starting 5-minute training run with Cosine LR Decay...")
 start_time = time.time()
 step = 0
-base_lr = 2.2e-3
+base_lr = 3e-3
 min_lr = 2e-4
 budget = 300
 
@@ -214,3 +214,8 @@ print(f"num_steps:        {step}")
 print(f"num_params_M:     {num_params:.1f}")
 print(f"depth:            {DEPTH}")
 print(f"dim:              {DIM}")
+
+# --- Save Model ---
+print("Saving model to model.pt...")
+torch.save(model.state_dict(), 'model.pt')
+print("Model saved.")
