@@ -43,11 +43,28 @@ class Attention(nn.Module):
         self.n_embd = config.n_embd
         self.wqkv = nn.Linear(config.n_embd, 3 * config.n_embd, bias=False)
         self.wo = nn.Linear(config.n_embd, config.n_embd, bias=False)
+        
+        # RoPE frequency precomputation
+        inv_freq = 1.0 / (10000**(torch.arange(0, config.n_embd // config.n_head, 2).float() / (config.n_embd // config.n_head)))
+        self.register_buffer("inv_freq", inv_freq)
+
+    def _apply_rope(self, x, seq_len):
+        t = torch.arange(seq_len, device=x.device, dtype=self.inv_freq.dtype)
+        freqs = torch.einsum("i,j->ij", t, self.inv_freq)
+        emb = torch.cat((freqs, freqs), dim=-1)
+        cos = emb.cos()[None, None, :, :]
+        sin = emb.sin()[None, None, :, :]
+        
+        x_rotated = torch.cat((-x[..., x.size(-1)//2:], x[..., :x.size(-1)//2]), dim=-1)
+        return (x * cos) + (x_rotated * sin)
 
     def forward(self, x):
         B, T, C = x.size()
         qkv = self.wqkv(x).reshape(B, T, 3, self.n_head, C // self.n_head).transpose(1, 3)
         q, k, v = qkv.unbind(2)
+        
+        q = self._apply_rope(q, T)
+        k = self._apply_rope(k, T)
 
         if flash_attn_func is not None and x.is_cuda:
             q = q.transpose(1, 2)
@@ -96,7 +113,6 @@ class Transformer(nn.Module):
         self.config = config
         self.transformer = nn.ModuleDict(dict(
             wte = nn.Embedding(config.vocab_size, config.n_embd),
-            wpe = nn.Embedding(config.sequence_length, config.n_embd),
             h = nn.ModuleList([Block(config) for _ in range(config.n_layer)]),
             ln_f = RMSNorm(config.n_embd),
         ))
@@ -104,11 +120,8 @@ class Transformer(nn.Module):
 
     def forward(self, idx, targets=None, reduction='mean'):
         device = idx.device
-        b, t = idx.size()
-        pos = torch.arange(0, t, dtype=torch.long, device=device)
         tok_emb = self.transformer.wte(idx)
-        pos_emb = self.transformer.wpe(pos)
-        x = tok_emb + pos_emb
+        x = tok_emb
         for block in self.transformer.h:
             x = block(x)
         x = self.transformer.ln_f(x)
