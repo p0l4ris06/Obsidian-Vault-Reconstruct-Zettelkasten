@@ -24,7 +24,7 @@ except ImportError:
 TOTAL_BATCH_SIZE = 4096 
 BATCH_SIZE = 4           
 DEPTH = 8                
-DIM = 512                
+DIM = 544                
 HEADS = 16                
 T = 512                  
 
