@@ -180,7 +180,7 @@ while True:
     model.train()
     
     # Cosine LR Schedule with Warmup
-    warmup_steps = 200
+    warmup_steps = 350
     if step < warmup_steps:
         lr = min_lr + (base_lr - min_lr) * (step / warmup_steps)
     else:
