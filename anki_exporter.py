@@ -53,10 +53,10 @@ load_dotenv_no_override()
 # CONFIG (defaults; override via env or CLI)
 # ============================================================================
 
-DEFAULT_VAULT_PATH = os.environ.get("VAULT_PATH", str(get_vault_paths().output_vault))
+DEFAULT_VAULT_PATH = os.environ.get("VAULT_PATH", r"D:\OBSIDIAN\Uni Sync")
 DEFAULT_OUTPUT_DIR = os.environ.get(
     "ANKI_OUTPUT_DIR",
-    r"C:\Users\Wren C\Documents\Coding stuff\Anki Decks",
+    r"C:\Users\Wren C\Documents\Anki Decks",
 )
 TRACKER_FILE = os.environ.get("ANKI_TRACKER_FILE", "anki_tracker.json")
 
@@ -318,6 +318,12 @@ def parse_note(fp: Path) -> dict[str, Any] | None:
 
 def _pick_system_subdeck(tags: list[str]) -> str | None:
     for tag in tags:
+        if tag.startswith("anatomy/body-system/"):
+            system_tag = tag.split("/")[-1]
+            mapped = _SYSTEM_TAG_MAP.get(system_tag)
+            if mapped:
+                return mapped
+                
         mapped = _SYSTEM_TAG_MAP.get(tag)
         if mapped:
             return mapped
@@ -334,10 +340,12 @@ def _pick_clinical_subdeck(tags: list[str]) -> str:
 
 def get_deck_name(tags: list[str]) -> str:
     tag_set = set(tags)
+    
+    has_anatomy = bool(tag_set & _ANATOMY_TRIGGER_TAGS) or any(t.startswith("anatomy/") for t in tags)
 
-    if tag_set & _ANATOMY_TRIGGER_TAGS:
+    if has_anatomy:
         system = _pick_system_subdeck(tags)
-        return f"{DECK_PREFIX}::Anatomy::{system}" if system else f"{DECK_PREFIX}::Anatomy"
+        return f"{DECK_PREFIX}::anatomy::body-system::{system.lower()}" if system else f"{DECK_PREFIX}::anatomy"
 
     if tag_set & _CLINICAL_TRIGGER_TAGS:
         system = _pick_system_subdeck(tags)
@@ -470,6 +478,8 @@ def main(argv: list[str] | None = None) -> int:
     for fp in vault.rglob("*.md"):
         if fp.name.startswith(".") or fp.name.startswith("QUARANTINE_"):
             continue
+        if "Year 2" not in fp.parts:
+            continue
         note = parse_note(fp)
         if note:
             all_notes.append(note)
@@ -501,7 +511,7 @@ def main(argv: list[str] | None = None) -> int:
             assert backend is not None
             cards = generate_cards(backend, note)
         except Exception as exc:
-            log.warning("  → LLM error: %s", exc)
+            log.warning("  -> LLM error: %s", exc)
             cards = []
 
         deck_name = get_deck_name(note["tags"])
@@ -517,10 +527,10 @@ def main(argv: list[str] | None = None) -> int:
                     }
                 )
             tracker.mark_done(note["path"], note["hash"], len(cards))
-            log.info("  → %d cards for deck: %s", len(cards), deck_name)
+            log.info("  -> %d cards for deck: %s", len(cards), deck_name)
         else:
             tracker.mark_done(note["path"], note["hash"], 0)
-            log.warning("  → No cards generated")
+            log.warning("  -> No cards generated")
 
         if i % 20 == 0:
             tracker.save()
