@@ -179,8 +179,13 @@ while True:
         
     model.train()
     
-    # Cosine LR Schedule based on time
-    lr = min_lr + 0.5 * (base_lr - min_lr) * (1 + math.cos(math.pi * elapsed / budget))
+    # Cosine LR Schedule with Warmup
+    warmup_steps = 100
+    if step < warmup_steps:
+        lr = min_lr + (base_lr - min_lr) * (step / warmup_steps)
+    else:
+        lr = min_lr + 0.5 * (base_lr - min_lr) * (1 + math.cos(math.pi * elapsed / budget))
+        
     for param_group in optimizer.param_groups:
         param_group['lr'] = lr
         
