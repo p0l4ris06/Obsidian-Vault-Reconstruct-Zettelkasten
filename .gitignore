@@ -30,3 +30,18 @@ build/
 dist/
 *.spec
 .aider*
+
+# Rust
+reconstruct_rust/target/
+**/target/
+
+# ML Models
+*.pt
+*.safetensors
+
+# Editor/Agent Data
+.vs/
+.agents/
+
+# Training Outputs
+progress.*

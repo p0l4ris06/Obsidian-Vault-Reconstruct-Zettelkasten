@@ -1,0 +1,5 @@
+FROM qwen2.5-coder:3b
+# Boost context to 32k tokens (Claude Code requirement)
+PARAMETER num_ctx 32768
+# Ensure it fits entirely in your 4GB VRAM
+PARAMETER num_gpu 99

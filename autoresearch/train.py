@@ -24,7 +24,7 @@ except ImportError:
 TOTAL_BATCH_SIZE = 4096 
 BATCH_SIZE = 4           
 DEPTH = 8                
-DIM = 544                
+DIM = 512                
 HEADS = 16                
 T = 512                  
 
@@ -180,7 +180,7 @@ while True:
     model.train()
     
     # Cosine LR Schedule with Warmup
-    warmup_steps = 350
+    warmup_steps = 100
     if step < warmup_steps:
         lr = min_lr + (base_lr - min_lr) * (step / warmup_steps)
     else:
