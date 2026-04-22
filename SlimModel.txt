@@ -1,0 +1,5 @@
+FROM qwen2.5-coder:3b
+# Force context to 8k instead of 32k
+PARAMETER num_ctx 8192
+# Force more layers onto GPU
+PARAMETER num_gpu 99

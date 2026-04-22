@@ -28,7 +28,11 @@ TOTAL_BATCH_SIZE = 4096
 BATCH_SIZE = 4           
 DEPTH = 8                
 DIM = 512                
+<<<<<<< HEAD
 HEADS = 8                
+=======
+HEADS = 16                
+>>>>>>> ce713fd35b3faae3112424d12481776de75fec1c
 T = 512                  
 
 @dataclass
@@ -154,6 +158,7 @@ def save_and_log(model, tokenizer, device, repo_root, epoch_desc):
     
     print(f"[{time.strftime('%H:%M:%S')}] Checkpoint saved: val_bpb={val_bpb:.4f}")
     model.train()
+<<<<<<< HEAD
 
 def main():
     parser = argparse.ArgumentParser()
@@ -177,6 +182,13 @@ def main():
         print(f"Loading existing weights for refinement...")
         model.load_state_dict(torch.load(weights_path, map_location=device))
         base_lr = 1.2e-3
+=======
+    
+    # Cosine LR Schedule with Warmup
+    warmup_steps = 100
+    if step < warmup_steps:
+        lr = min_lr + (base_lr - min_lr) * (step / warmup_steps)
+>>>>>>> ce713fd35b3faae3112424d12481776de75fec1c
     else:
         base_lr = 4e-3
 
