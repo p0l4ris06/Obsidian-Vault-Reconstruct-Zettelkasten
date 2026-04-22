@@ -10,10 +10,30 @@ import pyarrow.parquet as pq
 import rustbpe
 import tiktoken
 import torch
+try:
+    import reconstruct_rust
+except ImportError:
+    reconstruct_rust = None
 
-# --- CRITICAL FIX FOR 1650 SUPER ---
+try:
+    import ctypes
+    from ctypes import c_char_p, c_int, POINTER
+    # Path to the Go shared library
+    _DLL_PATH = os.path.join(os.path.dirname(__file__), "dataloader.dll")
+    if os.path.exists(_DLL_PATH):
+        go_lib = ctypes.CDLL(_DLL_PATH)
+        go_lib.LoadShard.argtypes = [c_char_p]
+        go_lib.LoadShard.restype = c_int
+        go_lib.GetBatch.argtypes = [c_int]
+        go_lib.GetBatch.restype = POINTER(c_char_p)
+        go_lib.FreeBatch.argtypes = [POINTER(c_char_p), c_int]
+    else:
+        go_lib = None
+except Exception:
+    go_lib = None
+
 # This MUST match the 'T' in your train.py
-MAX_SEQ_LEN = 256        
+MAX_SEQ_LEN = 512        
 TIME_BUDGET = 300        
 EVAL_TOKENS = 10 * 524288  
 
@@ -83,6 +103,39 @@ def _document_batches(split):
                 continue
 
 def make_dataloader(tokenizer, B, T, split):
+    # Use Fast Go DataLoader if available
+    if go_lib is not None:
+        val_shards = [os.path.join(DATA_DIR, VAL_FILENAME)]
+        train_shards = [p for p in list_parquet_files() if p != val_shards[0]]
+        shards = val_shards if split == "val" else train_shards
+        
+        bos = tokenizer.get_bos_token_id()
+        
+        while True:
+            for s_path in shards:
+                rows_in_shard = go_lib.LoadShard(s_path.encode('utf-8'))
+                if rows_in_shard <= 0: continue
+                
+                for _ in range(0, rows_in_shard, B):
+                    batch_ptr = go_lib.GetBatch(B)
+                    if not batch_ptr: break
+                    
+                    x = torch.zeros((B, T), dtype=torch.long)
+                    y = torch.zeros((B, T), dtype=torch.long)
+                    
+                    for j in range(B):
+                        if batch_ptr[j]:
+                            s = batch_ptr[j].decode('utf-8')
+                            tokens = tokenizer.encode(s, prepend=bos)[:T+1]
+                            if len(tokens) < T+1: tokens += [0] * (T+1-len(tokens))
+                            x[j] = torch.tensor(tokens[:T])
+                            y[j] = torch.tensor(tokens[1:T+1])
+                    
+                    go_lib.FreeBatch(batch_ptr, B)
+                    yield x, y, 0
+        return
+
+    # Fallback to pure Python implementation
     docs = _document_batches(split)
     bos = tokenizer.get_bos_token_id()
     while True:

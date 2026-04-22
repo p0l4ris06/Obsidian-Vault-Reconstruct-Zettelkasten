@@ -1,170 +1,81 @@
-# Vault Reconstruct
+# Vault Reconstruct 🧬
 
-This repo contains a set of scripts for:
-- Converting markdown notes into an Obsidian Zettelkasten-style vault
-- Adding wikilinks
-- Consolidating tags
-- Generating MOCs (Maps of Content)
-- Producing vault health reports / fixing broken links
+**Transform fragmented notes into a grounded, high-performance Obsidian Zettelkasten.**
 
-The scripts originally lived as separate entrypoints. Use `vault_cli.py` to run them from one place.
+Vault Reconstruct is a unified, phase-aware pipeline designed to rebuild and optimize Obsidian vaults. It moves beyond simple "AI writing" by implementing a **Local RAG (Retrieval-Augmented Generation)** pipeline that grounds knowledge synthesis in real academic data (arXiv, PubMed, Wikipedia).
 
-## Quick start
+## ✨ Key Features
 
-Run a full Ollama-based conversion pipeline:
+- **Unified Dashboard**: Manage your entire vault from the `vault-recon` TUI.
+- **5-Phase Pipeline**:
+    - **Phase 0**: Rescue and repair quarantined or stuck notes.
+    - **Phase 1**: Atomic splitting of large journals into atomic Zettels.
+    - **Phase 2**: High-speed linking and cross-referencing (Rust-powered).
+    - **Phase 3**: Automated YAML frontmatter and tag standardization.
+    - **Phase 4**: Map of Content (MOC) generation for high-level navigation.
+- **Local RAG Research**: Synthesize new research notes grounded in facts. Crawls external academic APIs and indexes them into a local vector store for offline use.
+- **Vault Maintenance**: Auto-fix broken links, standardize tags (UK English), and prune health reports.
+- **Anki Integration**: Export your Zettels directly to Anki flashcards with one command.
 
-```bash
-python vault_cli.py convert-ollama
-```
+## 🚀 Quick Start
 
-Recommended local model for your machine (per `llm-checker smart-recommend`):
-
-```bash
-ollama pull qwen2.5-coder:0.5b-base-q8_0
-```
-
-Quick integration + performance dry-run (no vault writes):
+### 1. Installation
 
 ```bash
-# Current provider only
-python vault_cli.py doctor -- --ping --ping-repeats 3
-
-# Test ollama + gemini + azure (providers missing keys are skipped)
-python vault_cli.py doctor -- --all --ping --ping-repeats 2
+git clone https://github.com/your-repo/vault-reconstruct.git
+cd vault-reconstruct
+uv pip install -e .
 ```
 
-Launch the interactive HUD (recommended on Windows):
+### 2. Configuration
+
+Copy and configure your environment variables:
+```bash
+cp .env.example .env
+```
+
+### 3. Launch the Dashboard
+
+The recommended way to use Vault Reconstruct is via the interactive Text User Interface (TUI):
 
 ```bash
-python vault_hud.py
+vault-recon
 ```
 
-### Desktop app (.exe)
+## 🧠 Local RAG Pipeline
 
-Build the app (recommended: onedir):
+To generate fact-grounded research notes:
+1. **Sync**: Run `Sync Knowledge (RAG)` in the dashboard. This crawls arXiv, PubMed, and Wiki for your vault tags.
+2. **Generate**: Use `Grounded Research Note` to write a literature note connecting two topics using your local index.
 
-```powershell
-.\build_exe.ps1 -Mode onedir
-```
+## 🚄 Performance
 
-### Building the Rust module
+Link reconstruction (Phase 2) is powered by a custom **Rust module** for maximum speed on large vaults (>10k notes).
 
-The link-reconstruction phase (Phase 2) is now implemented in Rust for performance. You'll need to build the Rust module for your Python environment:
-
+To build the Rust module locally:
 ```bash
 cd reconstruct_rust
 maturin develop --release
-cd ..
-```
-This will compile the Rust code and make it available as `reconstruct_rust` to your Python scripts.
-
-Compatibility note: `.\build_hud.ps1` is a thin wrapper around `.\build_exe.ps1` (same flags/behavior).
-
-There are two PyInstaller modes:
-
-- **Recommended (most reliable)**: onedir build  
-  Run: `dist\VaultHUD\VaultHUD.exe`  
-  This does **not** extract to a temp `_MEI...` folder, so it avoids common onefile DLL-load failures.
-  - If launched from **cmd.exe**, it will **auto-relaunch into PowerShell** for better rendering.
-  - To disable relaunch: run with `--no-relaunch`
-
-- **Onefile build**: `dist\VaultHUD.exe`  
-  If you hit an error like `Failed to load Python DLL ... python311.dll`, use the **onedir** build instead.
-
-#### Create a shortcut (Windows)
-
-After building the onedir app, you can create a Desktop shortcut:
-
-```powershell
-.\create_shortcut.ps1 -Location Desktop
 ```
 
-Or create both Desktop + Start Menu shortcuts:
+## 🛠️ Technical Details
 
-```powershell
-.\create_shortcut.ps1 -Location Both
-```
+All CLI tools are located in the `tools/` directory, and utility/build scripts are in `scripts/`.
 
-Run the Gemini-based splitter/linker:
+- **Tools**: `tools/vault_reconstruct.py`, `tools/vault_maintenance.py`, `tools/vault_researcher.py`.
+- **Scripts**: `scripts/build_exe.ps1`, `scripts/create_shortcut.ps1`.
 
+- **Python 3.10+**
+- **Ollama** (Local LLM backend)
+- **Rust/Cargo** (Only for building the performance module)
+- **SQLite** (For local indexing)
+
+## 🩺 Diagnostics
+
+Run the "Doctor" to verify your AI providers and environment setup:
 ```bash
-python vault_cli.py convert-gemini
+python vault_doctor.py --all
 ```
 
-Run architecture passes (threaded linking + tag consolidation + MOCs):
-
-```bash
-python vault_cli.py architecture
-```
-
-Generate Anki decks from your zettels:
-
-```bash
-python vault_cli.py anki-export -- --vault "D:\Obsidian Vault" --out "D:\Anki Decks"
-```
-
-## Passing options to underlying scripts
-
-Anything after `--` is passed through to the underlying script.
-
-Example (vault improver dry-run):
-
-```bash
-python vault_cli.py improve -- --vault "D:\Obsidian Vault" --dry-run
-```
-
-Example (tag consolidation dry-run with custom min count):
-
-```bash
-python vault_cli.py tag-consolidate -- --dry-run --min 5
-```
-
-## Repo hygiene
-
-Generated logs (`*.log`) and generated mappings (`tag_mapping.json`, `tag_changes.json`, etc.) are ignored via `.gitignore` to keep the repo compact.
-
-## Model backends (Ollama / Gemini / Azure OpenAI)
-
-The main Ollama pipeline (`Vault Reconstruct Ollama.py`) can now use different backends via environment variables:
-
-- **Ollama (default)**:
-  - Set `VAULT_LLM_PROVIDER=ollama`
-  - Optional cloud-first: set `OLLAMA_API_KEY`
-  - Optional local model override: set `VAULT_OLLAMA_MODEL` (single model for **all** tasks)
-  - Optional **JSON phases only** (split / quarantine / AI links): set `VAULT_OLLAMA_INSTRUCT_MODEL` to an installed instruct/chat-tuned tag
-  - Optional cloud model override: set `VAULT_OLLAMA_CLOUD_MODEL`
-  - If `VAULT_OLLAMA_MODEL` is **not** set, the Ollama pipelines pick:
-    - an **instruction-tuned** installed model for JSON-heavy prompts
-    - a `llm-checker smart-recommend` pick for **MOC prose** (Map of Content body text)
-- **Gemini**:
-  - Set `VAULT_LLM_PROVIDER=gemini`
-  - Set `GEMINI_API_KEY`
-  - Optional model override: set `VAULT_GEMINI_MODEL`
-- **Azure OpenAI**:
-  - Set `VAULT_LLM_PROVIDER=azure`
-  - Set `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY`
-  - Optional: set `AZURE_OPENAI_API_VERSION` (default: `2024-10-21`)
-  - Set `VAULT_AZURE_MODEL` to your Azure deployment name (not the base model name)
-
-### Ollama notes (Windows)
-
-- If you have `OLLAMA_HOST=0.0.0.0:11434`, that’s a **bind address** (server-side). Clients typically need a connectable address like `127.0.0.1:11434`.
-- If `llm-checker` recommends a model tag you haven’t pulled yet, `doctor` will still report it; JSON-heavy work prefers **instruct/chat** tags you already have. Pull the checker’s tag with `ollama pull <tag>` if you want that exact weight for prose routes.
-
-## .env (recommended)
-
-Copy `\.env.example` to `\.env` and fill in the keys you actually use.
-
-Minimum examples:
-
-- **Ollama local**: set `VAULT_LLM_PROVIDER=ollama` and ensure `OLLAMA_HOST` is correct.
-- **Gemini**: set `VAULT_LLM_PROVIDER=gemini` + `GEMINI_API_KEY`
-- **Azure OpenAI**: set `VAULT_LLM_PROVIDER=azure` + `AZURE_OPENAI_ENDPOINT` + `AZURE_OPENAI_API_KEY` + `VAULT_AZURE_MODEL`
-
-Run a quick dry-run sanity check:
-
-```bash
-python vault_cli.py doctor -- --all --ping --ping-repeats 2
-```
-
-
+---
+*Maintained by the Advanced Agentic Coding team.*

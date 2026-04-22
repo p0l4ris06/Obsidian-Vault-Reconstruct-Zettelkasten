@@ -1,0 +1,8 @@
+[build]
+target = "x86_64-pc-windows-gnu"
+rustflags = ["-C", "link-arg=-static"]
+
+[target.x86_64-pc-windows-gnu]
+linker = "C:\\TDM-GCC-64\\bin\\gcc.exe"
+ar = "C:\\TDM-GCC-64\\bin\\ar.exe"
+rustflags = ["-C", "link-arg=-static"]

@@ -1,31 +1,31 @@
 """
 vault_hud.py
 
-Interactive HUD/TUI for running this repo's vault scripts on Windows
-from PowerShell/CMD.
-
-Run:
-  python vault_hud.py
-  python vault_hud.py --self-test
-
-Keys:
-  - Up/Down: select action
-  - Enter: run action
-  - Ctrl+C: quit (safe)
+Inline, sleek CLI HUD for running vault scripts.
+Replicates the Gemini CLI aesthetic with scrolling terminal output.
+Categorized nested navigation for Vault Reconstructor.
 """
 
-from __future__ import annotations
-
-import argparse
-import asyncio
-import json
 import os
-import shlex
-import subprocess
 import sys
-from dataclasses import dataclass, field
-from datetime import datetime
+import time
+import json
+import shlex
+import asyncio
+import argparse
+import subprocess
 from pathlib import Path
+from datetime import datetime
+from dataclasses import dataclass, field
+from typing import Union
+
+from rich.console import Console
+# Branding: the logo is already 'VAULT RECONSTRUCTOR' from previous turn
+from rich.text import Text
+from rich.live import Live
+from rich.prompt import Prompt
+from rich.table import Table
+from rich.style import Style
 
 from vault_reconstruct.runner import (
     detect_python_launcher,
@@ -36,52 +36,20 @@ from vault_reconstruct.runner import (
 from vault_reconstruct.config import get_vault_paths
 from vault_reconstruct.env import load_dotenv_no_override
 
-from textual import on
-from textual.app import App, ComposeResult
-from textual.binding import Binding
-from textual.containers import Container, Horizontal, Vertical
-from textual.message import Message
-from textual.reactive import reactive
-from textual.widgets import (
-    Button,
-    Footer,
-    Header,
-    Input,
-    Label,
-    ListItem,
-    ListView,
-    ProgressBar,
-    RichLog,
-    Static,
-)
-
+# --- CONFIG & PATHS ---
 
 def _detect_repo_root() -> Path:
-    """
-    When packaged with PyInstaller --onefile, __file__ points into a temp dir.
-    We want the folder containing the scripts (usually the repo root).
-    """
     if getattr(sys, "frozen", False):
         exe_dir = Path(sys.executable).resolve().parent
-        # Common layout (onefile): repo_root/dist/VaultHUD.exe
         if exe_dir.name.lower() == "dist" and (exe_dir.parent / "vault_cli.py").exists():
             return exe_dir.parent
-
-        # Common layout (onedir): repo_root/dist/<appname>/VaultHUD_onedir.exe
-        # Here exe_dir is repo_root/dist/<appname>
         if (exe_dir.parent.parent / "vault_cli.py").exists():
             return exe_dir.parent.parent
-
         return exe_dir
     return Path(__file__).resolve().parent
 
-
 REPO_ROOT = _detect_repo_root()
-
-load_dotenv_no_override(repo_root=REPO_ROOT)
-
 _HUD_SETTINGS_PATH = REPO_ROOT / ".vault_hud_settings.json"
-
 
 def _load_hud_settings() -> dict:
     try:
@@ -92,13 +60,11 @@ def _load_hud_settings() -> dict:
     except Exception:
         return {}
 
-
 def _save_hud_settings(data: dict) -> None:
     try:
         _HUD_SETTINGS_PATH.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     except Exception:
-        return
-
+        pass
 
 @dataclass(frozen=True)
 class Operation:
@@ -117,702 +83,330 @@ class Operation:
             raise FileNotFoundError(str(p))
         return p
 
+@dataclass(frozen=True)
+class Category:
+    id: str
+    name: str
+    description: str
+    items: list[Union['Operation', 'Category']]
 
-OPERATIONS: list[Operation] = [
-    Operation(
-        id="convert-ollama",
-        name="Convert (Ollama)",
-        description="Split + tags + frontmatter + linking + MOCs.\nRequires Ollama running. Uses OLLAMA_API_KEY for cloud-first if set.",
-        script="Vault Reconstruct Ollama.py",
-        icon="[O]",
-        tags=["AI", "OLLAMA"],
-        args_hint="(optional) extra args passed to script",
+# --- CATEGORIZED OPERATIONS ---
+
+OPERATIONS_TREE: list[Union[Operation, Category]] = [
+    Category(
+        id="reconstruct",
+        name="AI RECONSTRUCTION",
+        description="Run the full vault pipeline — splitting, linking, and organising your notes with AI.",
+        items=[
+            Operation(
+                id="full-recon",
+                name="Full Pipeline",
+                description="Runs everything start to finish: recovers broken notes, splits large ones into atomic zettels, adds wikilinks, builds MOC index pages. Use this for a full vault rebuild.",
+                script="tools/reconstruct.py",
+                icon="[P]",
+                args_hint="Leave blank to run all phases, or add --phase 0-4 to run one step",
+            ),
+            Operation(
+                id="rust-link",
+                name="Quick Wikilinks Only",
+                description="Just adds [[wikilinks]] between your notes — no AI, no splitting, very fast. Good for a quick refresh after you've added new notes manually.",
+                script="tools/reconstruct.py",
+                default_args="--phase 2",
+                icon="[R]",
+                args_hint="--phase 2  (runs the fast linker only)",
+            ),
+        ]
     ),
-    Operation(
-        id="convert-gemini",
-        name="Convert (Gemini)",
-        description="Split + regex linking via Gemini API.\nRequires GEMINI_API_KEY env var or .env.",
-        script="Vault Reconstruct.py",
-        icon="[G]",
-        tags=["AI", "CLOUD"],
-        args_hint="(optional) extra args passed to script",
+    Category(
+        id="maintenance",
+        name="VAULT MAINTENANCE",
+        description="Fix broken links, clean up tags, and find notes that need attention.",
+        items=[
+            Operation(
+                id="health-check",
+                name="Health Report",
+                description="Scans your vault and produces a report — shows broken links, orphaned notes (nothing links to them), and tag inconsistencies. Doesn't change anything, safe to run anytime.",
+                script="tools/maintenance.py",
+                icon="[H]",
+                args_hint="No args needed — just press Enter to run",
+            ),
+            Operation(
+                id="fix-auto",
+                name="Auto-fix Tags & Links",
+                description="Automatically corrects common tag formatting issues and repairs fuzzy wikilinks (e.g. where the note was renamed but links weren't updated). Makes changes in-place.",
+                script="tools/maintenance.py",
+                default_args="--fix-tags --fix-links",
+                icon="[F]",
+                args_hint="--fix-tags --fix-links  (both fixes on by default)",
+            ),
+            Operation(
+                id="repair-q",
+                name="Rescue Stuck Notes",
+                description="Tries to recover notes that ended up in the QUARANTINE folder (notes the AI couldn't process cleanly). Attempts to parse and re-file them.",
+                script="tools/maintenance.py",
+                default_args="--repair",
+                icon="[!]",
+                args_hint="--repair  (attempts automatic rescue)",
+            ),
+        ]
     ),
-    Operation(
-        id="architecture",
-        name="Architecture (threaded)",
-        description="AI linking + tag consolidation + MOCs.\nThreaded architecture pass with parallel processing.",
-        script="obsidian_zettelkasten_v3_threaded.py",
-        icon="[T]",
-        tags=["AI", "THREADED"],
-        args_hint="(optional) extra args passed to script",
+    Category(
+        id="utils",
+        name="UTILITIES",
+        description="Export to Anki, or check that your AI providers are set up correctly.",
+        items=[
+            Operation(
+                id="anki-export",
+                name="Export to Anki",
+                description="Turns your zettels into Anki flashcard decks. Picks up Q&A-style notes automatically. Run this whenever you want to refresh your Anki collection from the vault.",
+                script="tools/anki_exporter.py",
+                icon="[A]",
+                args_hint="Leave blank for defaults, or: --deck anatomy --out C:\\path\\to\\decks",
+            ),
+            Operation(
+                id="doctor",
+                name="Check Configuration",
+                description="Tests that your AI keys and providers are working — checks Ollama, Gemini, and Azure connections without touching any vault files. Run this if something isn't working.",
+                script="tools/doctor.py",
+                default_args="--all",
+                icon="[D]",
+                args_hint="--all  (checks everything)",
+            ),
+        ]
     ),
-    Operation(
-        id="improve",
-        name="Improve vault",
-        description="Health reports + broken link fixes + tag cleanup.\nSafe start: run with --dry-run and point --vault if needed.",
-        script="obsidian_vault_improver.py",
-        icon="[+]",
-        tags=["HEALTH"],
-        default_args="--dry-run",
-        args_hint='--vault "C:\\Users\\Wren C\\Documents\\Coding stuff\\Obsidian Vault" --dry-run',
-    ),
-    Operation(
-        id="regex-link",
-        name="Regex-only wikilinks",
-        description="Add [[wikilinks]] fast using regex. No API required.\nFully offline, fast.",
-        script="regex_link_only.py",
-        icon="[R]",
-        tags=["OFFLINE", "FAST"],
-        args_hint="(optional) extra args passed to script",
-    ),
-    Operation(
-        id="tag-consolidate",
-        name="Tag consolidation",
-        description="Standalone tag merge + dedup + normalize.\nStarts in preview mode by default.",
-        script="tag_consolidator.py",
-        icon="[T]",
-        tags=["TAGS"],
-        default_args="--dry-run",
-        args_hint="--dry-run --min 5",
-    ),
-    Operation(
-        id="fix-quarantine",
-        name="Fix QUARANTINE/ERROR",
-        description="Process notes flagged QUARANTINE_ or ERROR_.\nAttempts automated repair and cleanup.",
-        script="fix_quarantined_notes.py",
-        icon="[!]",
-        tags=["REPAIR"],
-        args_hint='--vault "C:\\Users\\Wren C\\Documents\\Coding stuff\\Obsidian Vault"',
-    ),
-    Operation(
-        id="expand-short",
-        name="Expand short notes",
-        description="Find notes below content threshold and expand with templates.\nOffline templates; use carefully.",
-        script="expand_short_notes.py",
-        icon="[^]",
-        tags=["EXPAND"],
-        args_hint='--vault "C:\\Users\\Wren C\\Documents\\Coding stuff\\Obsidian Vault"',
-    ),
-    Operation(
-        id="anki-export",
-        name="Anki export",
-        description="Generate Anki decks from zettels.\nRequires genanki installed (optional).",
-        script="anki_exporter.py",
-        icon="[A]",
-        tags=["EXPORT"],
-        args_hint='--deck anatomy --out "C:\\path\\to\\decks"',
-    ),
-    Operation(
-        id="doctor",
-        name="Doctor (dry-run checks)",
-        description="Dry-run checks for env vars, provider config, and basic backend init.\nUse this to validate Azure/Gemini/Ollama config without touching your vault.",
-        script="vault_doctor.py",
-        icon="[D]",
-        tags=["DIAG"],
-        default_args="--all",
-        args_hint="--all  (or: --providers ollama,gemini,azure)",
+    Category(
+        id="autoresearch",
+        name="AUTORESEARCH & RAG",
+        description="Generate fact-grounded research notes using your local vault and academic sources.",
+        items=[
+            Operation(
+                id="rag-sync",
+                name="Sync Knowledge (RAG)",
+                description="Crawls arXiv, PubMed, and Wikipedia for all tags current in your vault and builds a local factual index. Run this to 'seed' your research bank.",
+                script="tools/research.py",
+                default_args="--sync",
+                icon="[S]",
+                args_hint="--sync  (crawls external sources for all vault tags)",
+            ),
+            Operation(
+                id="rag-research",
+                name="Grounded Research Note",
+                description="Generates a note between two topics using the local RAG index. Provides citations and grounded facts. Uses Qwen 2.5 3B.",
+                script="tools/research.py",
+                default_args='--rag --provider ollama',
+                icon="[G]",
+                args_hint='Type two topics, e.g: "synaptic plasticity" "cancer"',
+            ),
+            Operation(
+                id="research-note",
+                name="Fast Synthetic Note",
+                description="Generates a connection note using only the model's internal weights (no external lookup). Fast but higher hallucination risk.",
+                script="tools/research.py",
+                icon="[~]",
+                args_hint='Type two topic names, e.g: "Zettelkasten" "spaced repetition"',
+            ),
+        ]
     ),
 ]
 
+# --- THEME & LOGO ---
 
-class RunRequested(Message):
-    def __init__(self, op: Operation, args: list[str]) -> None:
-        super().__init__()
-        self.op = op
-        self.args = args
-
-
-HUD_CSS = """
-Screen {
-    background: #06080c;
-    color: #7fefaa;
-}
-
-#main-grid {
-    layout: horizontal;
-    height: 1fr;
-}
-
-#op-panel {
-    width: 38;
-    border: tall #163826;
-    background: #0a0e14;
-    padding: 0;
-}
-
-#op-panel-title {
-    dock: top;
-    height: 3;
-    background: #0d1420;
-    color: #00ff88;
-    text-style: bold;
-    content-align: center middle;
-    border-bottom: hkey #1a3a2a;
-}
-
-#op-list {
-    background: transparent;
-    scrollbar-size: 1 1;
-    padding: 0;
-}
-
-ListItem:hover {
-    background: #0d2018;
-}
-
-ListItem.-highlight {
-    background: #003322;
-    color: #00ffaa;
-}
-
-#detail-area {
-    width: 1fr;
-    padding: 1 2;
-    background: #080c10;
-}
-
-#detail-header {
-    height: auto;
-    max-height: 10;
-    background: #0a1018;
-    border: round #1a3a2a;
-    padding: 1 2;
-    margin-bottom: 1;
-}
-
-#detail-title {
-    color: #00ff88;
-    text-style: bold;
-}
-
-#detail-desc {
-    color: #4a8a6a;
-    margin-top: 1;
-}
-
-#detail-tags {
-    color: #2a6a4a;
-    margin-top: 1;
-}
-
-#config-status {
-    color: #9fe7c0;
-    margin-top: 1;
-}
-
-#args-row {
-    height: 3;
-    margin-bottom: 1;
-    layout: horizontal;
-}
-
-#args-label {
-    width: 7;
-    height: 3;
-    content-align: left middle;
-    color: #3a7a5a;
-    text-style: bold;
-}
-
-#args-input {
-    width: 1fr;
-    background: #0a0e14;
-    border: tall #1a3a2a;
-    color: #7fefaa;
-}
-
-#args-input:focus {
-    border: tall #00ff88;
-}
-
-#btn-row {
-    height: 3;
-    layout: horizontal;
-    margin-bottom: 1;
-}
-
-#btn-run {
-    width: 1fr;
-    background: #004422;
-    color: #00ff88;
-    border: tall #00aa55;
-    text-style: bold;
-    margin-right: 1;
-}
-
-#btn-clear {
-    width: 1fr;
-    background: #443300;
-    color: #ffaa00;
-    border: tall #aa7700;
-    text-style: bold;
-    margin-right: 1;
-}
-
-#btn-stop {
-    width: 1fr;
-    background: #440000;
-    color: #ff4444;
-    border: tall #aa0000;
-    text-style: bold;
-}
-
-#output-panel {
-    height: 1fr;
-    background: #060a0e;
-    border: round #1a3a2a;
-    padding: 0;
-}
-
-#output-header {
-    dock: top;
-    height: 1;
-    background: #0a1018;
-    color: #2a5a4a;
-    padding: 0 1;
-    border-bottom: hkey #1a3a2a;
-}
-
-#output-log {
-    background: transparent;
-    scrollbar-size: 1 1;
-    padding: 0 1;
-    color: #5faf8a;
-}
-
-#status-bar {
-    dock: bottom;
-    height: 1;
-    background: #0a1018;
-    color: #2a5a4a;
-    layout: horizontal;
-    padding: 0 1;
-    border-top: hkey #1a3a2a;
-}
-
-#status-left {
-    width: 1fr;
-    color: #2a6a4a;
-}
-
-#status-clock {
-    width: auto;
-    color: #ffaa00;
-    text-style: bold;
-}
+VAULT_LOGO = """
+[bold #7895f5]  ██╗   ██╗ █████╗ ██╗   ██╗██╗     ████████╗ [/]
+[bold #8a8df0]  ██║   ██║██╔══██╗██║   ██║██║     ╚══██╔══╝ [/]
+[bold #9d85eb]  ██║   ██║███████║██║   ██║██║        ██║    [/]
+[bold #af7de6]  ╚██╗ ██╔╝██╔══██║██║   ██║██║        ██║    [/]
+[bold #c275e1]  ╚████╔╝ ██║  ██║╚██████╔╝███████╗   ██║   [/]
+[bold #af7de6]                                            [/]
+[bold #af7de6] ██████╗ ███████╗ ██████╗  ██████╗ ███╗   ██╗███████╗████████╗██████╗ ██╗   ██╗ ██████╗ ████████╗ ██████╗ ██████╗  [/]
+[bold #9d85eb] ██╔══██╗██╔════╝██╔════╝ ██╔═══██╗████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║   ██║██╔════╝ ╚══██╔══╝██╔═══██╗██╔══██╗ [/]
+[bold #8a8df0] ██████╔╝█████╗  ██║      ██║   ██║██╔██╗ ██║███████╗   ██║   ██████╔╝██║   ██║██║         ██║   ██║   ██║██████╔╝ [/]
+[bold #9d85eb] ██╔══██╗██╔══╝  ██║      ██║   ██║██║╚██╗██║╚════██║   ██║   ██╔══██╗██║   ██║██║         ██║   ██║   ██║██╔══██╗ [/]
+[bold #af7de6] ██║  ██║███████╗╚██████╗ ╚██████╔╝██║ ╚████║███████║   ██║   ██║  ██║╚██████╔╝╚██████╗    ██║   ╚██████╔╝██║  ██║ [/]
 """
 
-
-class OpItem(ListItem):
-    def __init__(self, op: Operation) -> None:
-        super().__init__()
-        self.op = op
-
-    def compose(self) -> ComposeResult:
-        tag_str = " ".join(f"[{t}]" for t in self.op.tags)
-        yield Label(f" {self.op.icon}  {self.op.name}  [dim]{tag_str}[/]", markup=True)
-
-
-class VaultHud(App):
-    """Futuristic HUD that runs the real scripts and streams output."""
-
-    CSS = HUD_CSS
-    TITLE = "VaultHUD"
-
-    BINDINGS = [
-        Binding("ctrl+r", "run_op", "Run", show=True, priority=True),
-        Binding("ctrl+l", "clear_output", "Clear", show=True, priority=True),
-        Binding("ctrl+c", "stop_op", "Stop", show=True, priority=True),
-        Binding("ctrl+e", "ensure_env", ".env", show=True, priority=True),
-        Binding("ctrl+q", "quit", "Quit", show=True),
-        Binding("escape", "quit", "Quit", show=False),
-    ]
-
-    selected_op: reactive[Operation | None] = reactive(None)
-    is_running: reactive[bool] = reactive(False)
-
-    def __init__(self) -> None:
-        super().__init__()
-        self._proc: subprocess.Popen[str] | None = None
-        self._stream_task: asyncio.Task[None] | None = None
-        self._inproc_task: asyncio.Task[int] | None = None
-        self._hud_settings: dict = _load_hud_settings()
-        self._hud_op_index_by_id: dict[str, int] = {op.id: i for i, op in enumerate(OPERATIONS)}
-        self._hud_settings_dirty: bool = False
-
-    def compose(self) -> ComposeResult:
-        yield Header(show_clock=True)
-
-        with Horizontal(id="main-grid"):
-            with Vertical(id="op-panel"):
-                yield Static("OPERATIONS", id="op-panel-title")
-                yield ListView(*[OpItem(op) for op in OPERATIONS], id="op-list")
-
-            with Vertical(id="detail-area"):
-                yield Container(
-                    Static("Select an operation ←", id="detail-title"),
-                    Static("", id="detail-desc"),
-                    Static("", id="detail-tags"),
-                    Static("", id="config-status"),
-                    id="detail-header",
-                )
-                with Horizontal(id="args-row"):
-                    yield Static("Args: ", id="args-label")
-                    yield Input(placeholder="--flag value", id="args-input")
-
-                with Horizontal(id="btn-row"):
-                    yield Button("▶ RUN", id="btn-run", variant="success")
-                    yield Button("✕ CLEAR", id="btn-clear", variant="warning")
-                    yield Button("■ STOP", id="btn-stop", variant="error")
-
-                yield ProgressBar(total=100, show_eta=False, id="progress-bar")
-
-                with Container(id="output-panel"):
-                    yield Static(" ◧  OUTPUT", id="output-header")
-                    yield RichLog(highlight=True, markup=True, wrap=True, id="output-log", min_width=40)
-
-        yield Container(
-            Static("^r Run  ^l Clear  ^c Stop  ^q Quit", id="status-left"),
-            Static("", id="status-clock"),
-            id="status-bar",
-        )
-
-        yield Footer()
-
-    def on_mount(self) -> None:
-        op_list = self.query_one("#op-list", ListView)
-
-        selected_id = str(self._hud_settings.get("selected_op_id", "") or "").strip()
-        idx = self._hud_op_index_by_id.get(selected_id, 0)
-        idx = max(0, min(idx, len(OPERATIONS) - 1))
-        op_list.index = idx
-
-        # Make the right pane show the selected op immediately.
-        self._set_selected_op(OPERATIONS[idx], prefer_saved_args=True)
-        self._update_config_status()
-        self._update_clock()
-        self.set_interval(1, self._update_clock)
-        self.set_interval(2, self._update_config_status)
-
-        log = self.query_one("#output-log", RichLog)
-        log.write("[dim]╔══════════════════════════════════════════╗[/]")
-        log.write("[dim]║[/]  [bold #00ff88]VaultHUD[/] — [dim]ready[/]")
-        log.write("[dim]║[/]  Select an operation and press [bold #00ff88]^r[/] to run")
-        log.write("[dim]╚══════════════════════════════════════════╝[/]")
-
-    def _update_clock(self) -> None:
-        self.query_one("#status-clock", Static).update(datetime.now().strftime("%H:%M:%S"))
-
-    def _update_config_status(self) -> None:
-        s = self.query_one("#config-status", Static)
-
+class VaultReconstructorCLI:
+    def __init__(self):
+        self.console = Console()
         load_dotenv_no_override(repo_root=REPO_ROOT)
+        self.settings = _load_hud_settings()
+        self.title = os.environ.get("VAULT_HUD_TITLE", "Vault Reconstructor").upper()
+        self.history: list[list[Union[Operation, Category]]] = [OPERATIONS_TREE]
 
-        if self._hud_settings_dirty:
-            self._persist_hud_settings(flush=True)
+    @property
+    def current_menu(self) -> list[Union[Operation, Category]]:
+        return self.history[-1]
 
-        provider = (os.environ.get("VAULT_LLM_PROVIDER", "ollama") or "ollama").strip().lower()
-        if provider not in ("ollama", "gemini", "azure"):
-            provider = "ollama"
+    def print_header(self):
+        self.console.print(VAULT_LOGO)
+        
+        # Sleek gradient title bar
+        title_text = Text()
+        title_text.append(f" {self.title} ", style="bold #0d0d0d on #7895f5")
+        title_text.append(f" {datetime.now().year} EDITION ", style="dim #7895f5")
+        self.console.print(title_text)
+        
+        self.console.print("\n[bold #c8c8c8]Getting Started[/]")
+        self.console.print(" [dim]•[/] [#a8b8ff]/help[/] for command reference")
+        self.console.print(" [dim]•[/] [#a8b8ff]/env[/]  diagnose vault configuration")
+        self.console.print(" [dim]•[/] Select a category or operation below.\n")
 
+    def get_footer_info(self):
         paths = get_vault_paths()
+        provider = (os.environ.get("VAULT_LLM_PROVIDER", "ollama") or "ollama").strip().lower()
+        model = (os.environ.get("VAULT_OLLAMA_MODEL", "llama3") or "").strip()
+        if provider == "gemini":
+            model = (os.environ.get("VAULT_GEMINI_MODEL", "gemini-2.5-flash") or "").strip()
+        
+        info = Text()
+        info.append("── ", style="dim")
+        info.append(f"vault:recon", style="#888888")
+        info.append(" | ", style="dim")
+        info.append(f"llm:{provider}:{model}", style="#7895f5")
+        info.append(" | ", style="dim")
+        info.append(f"{datetime.now().strftime('%H:%M:%S')}", style="dim")
+        return info
 
-        gemini_ok = bool(os.environ.get("GEMINI_API_KEY", "").strip())
-        azure_ok = (
-            bool(os.environ.get("AZURE_OPENAI_ENDPOINT", "").strip())
-            and bool(os.environ.get("AZURE_OPENAI_API_KEY", "").strip())
-            and bool(os.environ.get("VAULT_AZURE_MODEL", "").strip())
-        )
-        ollama_cloud_ok = bool(os.environ.get("OLLAMA_API_KEY", "").strip())
+    def show_menu(self):
+        # If we are deep in nested menu, show breadcrumbs or just indent
+        if len(self.history) > 1:
+            self.console.print(f"[bold #7895f5]SUBMENU > [/][dim #a8b8ff]Navigate back with 'b'[/]\n")
 
-        ollama_model = (os.environ.get("VAULT_OLLAMA_MODEL", "") or "").strip()
-        gemini_model = (os.environ.get("VAULT_GEMINI_MODEL", "gemini-2.5-flash") or "").strip()
-        azure_model = (os.environ.get("VAULT_AZURE_MODEL", "") or "").strip()
+        for i, item in enumerate(self.current_menu):
+            line = Text()
+            line.append(f" {i+1:02d} ", style="bold #a8b8ff")
+            if isinstance(item, Category):
+                line.append(f" {item.name:<25}", style="bold #c275e1")
+                line.append(f" folder view (contains {len(item.items)} items)", style="dim")
+            else:
+                line.append(f" {item.name:<25}", style="#c8c8c8")
+                line.append(f" {item.description.splitlines()[0]}", style="dim")
+            self.console.print(line)
+        
+        if len(self.history) > 1:
+            self.console.print(f" [bold #cc5577]b[/]  Go Back")
 
-        def yn(v: bool) -> str:
-            return "[bold #00ff88]yes[/]" if v else "[bold #ff4444]no[/]"
+        self.console.print("")
 
-        lines = [
-            f"[dim]provider:[/] [bold #00ff88]{provider}[/]",
-            f"[dim]vault in:[/] {paths.input_vault}",
-            f"[dim]vault out:[/] {paths.output_vault}",
-        ]
-        if ollama_model:
-            lines.append(f"[dim]ollama model:[/] {ollama_model}")
-        lines.extend(
-            [
-                f"[dim]ollama cloud key:[/] {yn(ollama_cloud_ok)}",
-                f"[dim]gemini key:[/] {yn(gemini_ok)}  [dim]model:[/] {gemini_model}",
-                f"[dim]azure ready:[/] {yn(azure_ok)}  [dim]deployment:[/] {azure_model or '(unset)'}",
-            ]
-        )
-        s.update("\n".join(lines))
-
-    def _set_selected_op(self, op: Operation, *, prefer_saved_args: bool = False) -> None:
-        self.selected_op = op
-        title = self.query_one("#detail-title", Static)
-        desc = self.query_one("#detail-desc", Static)
-        tags = self.query_one("#detail-tags", Static)
-        args_input = self.query_one("#args-input", Input)
-
-        title.update(f"{op.icon}  {op.name}")
-        desc.update(op.description)
-        tag_str = "  ".join(f"[bold #2a6a4a]<{t}>[/]" for t in op.tags)
-        tags.update(tag_str)
-        args_input.placeholder = op.args_hint or "--flag value"
-
-        saved = ""
-        if prefer_saved_args:
-            by_op = self._hud_settings.get("args_by_op")
-            if isinstance(by_op, dict):
-                v = by_op.get(op.id, "")
-                if isinstance(v, str):
-                    saved = v
-
-        if saved.strip():
-            args_input.value = saved
-        elif not args_input.value.strip():
-            args_input.value = op.default_args
-
-    def _stash_args_for_selected_op(self) -> None:
-        op = self.selected_op
-        if not op:
-            return
-
-        args_input = self.query_one("#args-input", Input)
-        args_by_op = self._hud_settings.get("args_by_op")
-        if not isinstance(args_by_op, dict):
-            args_by_op = {}
-
-        args_by_op[op.id] = args_input.value
-        self._hud_settings["args_by_op"] = args_by_op
-        self._hud_settings_dirty = True
-
-    def _persist_hud_settings(self, *, flush: bool) -> None:
-        op = self.selected_op
-        if not op:
-            return
-
-        self._hud_settings["selected_op_id"] = op.id
-        if flush:
-            _save_hud_settings(self._hud_settings)
-            self._hud_settings_dirty = False
-
-    @on(ListView.Highlighted, "#op-list")
-    def _op_highlighted(self, event: ListView.Highlighted) -> None:
-        item = event.item
-        if isinstance(item, OpItem):
-            # Stash args for the previously highlighted op before switching UI state.
-            self._stash_args_for_selected_op()
-            self._set_selected_op(item.op, prefer_saved_args=True)
-            self._persist_hud_settings(flush=True)
-
-    @on(Input.Changed, "#args-input")
-    def _args_changed(self, _event: Input.Changed) -> None:
-        self._stash_args_for_selected_op()
-
-    async def action_quit(self) -> None:
-        self._stash_args_for_selected_op()
-        _save_hud_settings(self._hud_settings)
-        self._hud_settings_dirty = False
-        await super().action_quit()
-
-    def action_clear_output(self) -> None:
-        self.query_one("#output-log", RichLog).clear()
-        self.query_one("#progress-bar", ProgressBar).update(progress=0)
-
-    def action_ensure_env(self) -> None:
-        """
-        Create `.env` from `.env.example` if missing. Never overwrites.
-        """
-        log = self.query_one("#output-log", RichLog)
-        env_path = REPO_ROOT / ".env"
-        example_path = REPO_ROOT / ".env.example"
-
-        if env_path.exists():
-            log.write(f"[bold #00ff88]✓[/] .env exists: {env_path}")
-            return
-        if not example_path.exists():
-            log.write(f"[bold #ff4444]Missing:[/] {example_path}")
-            return
-
-        try:
-            env_path.write_text(example_path.read_text(encoding="utf-8"), encoding="utf-8")
-            log.write(f"[bold #00ff88]✓[/] created .env from .env.example")
-        except Exception as exc:
-            log.write(f"[bold #ff4444]Failed:[/] {exc}")
-
-    def action_stop_op(self) -> None:
-        self.is_running = False
-        self._terminate_proc()
-        if self._inproc_task and not self._inproc_task.done():
-            self._inproc_task.cancel()
-
-    def action_run_op(self) -> None:
-        if self.is_running:
-            return
-        if not self.selected_op:
-            return
-        args_str = self.query_one("#args-input", Input).value.strip()
+    async def run_operation(self, op: Operation, args_str: str):
         try:
             args = shlex.split(args_str, posix=False) if args_str else []
         except ValueError as exc:
-            self.query_one("#output-log", RichLog).write(f"[bold #ff4444]args parse error:[/] {exc}")
-            return
-        self.post_message(RunRequested(self.selected_op, args))
-
-    async def on_run_requested(self, msg: RunRequested) -> None:
-        if (self._proc and self._proc.poll() is None) or (self._inproc_task and not self._inproc_task.done()):
-            self.query_one("#output-log", RichLog).write("[bold #ffaa00]Busy:[/] stop the running process first.")
+            self.console.print(f"[bold #cc5577]Error parsing arguments:[/] {exc}")
             return
 
-        log = self.query_one("#output-log", RichLog)
-        progress = self.query_one("#progress-bar", ProgressBar)
+        script_path = op.script_path()
+        self.console.print(f"\n[bold #7895f5]━━━ TRIGGERING PIPELINE: {op.name} ━━━[/]")
 
-        try:
-            script_path = msg.op.script_path()
-        except FileNotFoundError as exc:
-            log.write(f"[bold #ff4444]Missing script:[/] {exc}")
-            return
-
-        log.write(f"\n[bold #ffaa00]━━━ {msg.op.icon}  {msg.op.name} ━━━[/]")
-        try:
-            preview_cmd = build_python_command(script_path, msg.args)
-        except Exception:
-            preview_cmd = [str(script_path), *msg.args]
-        log.write(f"[dim]$ {' '.join(_quote(c) for c in preview_cmd)}[/]")
-
-        self.is_running = True
-        progress.update(progress=0)
-
-        if getattr(sys, "frozen", False):
-            cmd = [sys.executable, "--_run-script", str(script_path), "--", *msg.args]
-            self._proc = subprocess.Popen(
-                cmd,
-                cwd=str(REPO_ROOT),
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                text=True,
-                bufsize=1,
-            )
-            self._stream_task = asyncio.create_task(self._stream_output())
-            await self._stream_task
-            code = self._proc.wait() if self._proc else 1
-        else:
-            try:
-                self._proc = popen_script(repo_root=REPO_ROOT, script=script_path, passthrough=msg.args)
-            except Exception as exc:
-                log.write(f"[bold #ff4444]Failed to start:[/] {exc}")
-                self.is_running = False
-                return
-
-            self._stream_task = asyncio.create_task(self._stream_output())
-            await self._stream_task
-
-            code = self._proc.wait() if self._proc else 1
+        # For the offline autoresearch pipeline, force the local model provider
+        extra_env = {}
+        if op.id == "recon-autoresearch":
+            extra_env["VAULT_LLM_PROVIDER"] = "autoresearch"
+            self.console.print("[dim]  Using local autoresearch model (offline mode)[/]")
         
-        exit_msg = f"[bold #00ff88]✓[/] exit {code}"
-        log.write(exit_msg)
-        self.is_running = False
-        self._proc = None
-        self._inproc_task = None
+        run_env = {**os.environ, **extra_env}
 
-    async def _stream_output(self) -> None:
-        assert self._proc is not None
-        assert self._proc.stdout is not None
+        with Live(Text("⠋ Just a moment, I'm tuning the algorithms...", style="#af7de6"), refresh_per_second=12, transient=True) as live:
+            if getattr(sys, "frozen", False):
+                cmd = [sys.executable, "--_run-script", str(script_path), "--", *args]
+                proc = subprocess.Popen(
+                    cmd, cwd=str(REPO_ROOT), env=run_env,
+                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1
+                )
+            else:
+                # Temporarily apply extra env vars since popen_script inherits os.environ
+                _old = {k: os.environ.get(k) for k in extra_env}
+                os.environ.update(extra_env)
+                try:
+                    proc = popen_script(repo_root=REPO_ROOT, script=script_path, passthrough=args)
+                finally:
+                    for k, v in _old.items():
+                        if v is None:
+                            os.environ.pop(k, None)
+                        else:
+                            os.environ[k] = v
 
-        log = self.query_one("#output-log", RichLog)
-        progress = self.query_one("#progress-bar", ProgressBar)
+            while True:
+                line = await asyncio.to_thread(proc.stdout.readline)
+                if not line and proc.poll() is not None:
+                    break
+                if line:
+                    self.console.print(f"  [dim]│[/] {line.strip()}", style="#888888")
+            
+            code = proc.wait()
+            self.console.print(f"  [bold #a8b8ff]✓[/] Sequence ended (code {code})")
 
-        tick = 0
+    async def main_loop(self):
+        self.print_header()
         while True:
-            if not self.is_running:
+            self.show_menu()
+            
+            choices = [str(i+1) for i in range(len(self.current_menu))] + ["q"]
+            if len(self.history) > 1:
+                choices.append("b")
+
+            choice = Prompt.ask("[bold #7895f5]>[/] Select action", choices=choices)
+            
+            if choice == "q":
                 break
+            if choice == "b":
+                self.history.pop()
+                self.console.print("\n" + "─" * 40 + "\n")
+                continue
+            
+            item = self.current_menu[int(choice)-1]
+            
+            if isinstance(item, Category):
+                self.history.append(item.items)
+                self.console.print(f"\n[bold #c275e1]📂 {item.name}[/]")
+                self.console.print(f"[dim]{item.description}[/]\n")
+                continue
+            
+            # It's an operation
+            op = item
+            self.console.print(f"\n[dim]{op.description}[/]\n")
+            if op.args_hint:
+                self.console.print(f"[dim]  hint: {op.args_hint}[/]")
+            args = Prompt.ask(f"[bold #7895f5]>[/] Args", default=op.default_args)
+            
+            # Save settings
+            self.settings["selected_op_id"] = op.id
+            if "args_by_op" not in self.settings: self.settings["args_by_op"] = {}
+            self.settings["args_by_op"][op.id] = args
+            _save_hud_settings(self.settings)
 
-            line = await asyncio.to_thread(self._proc.stdout.readline)
-            if not line and self._proc.poll() is not None:
-                break
-            if line:
-                log.write(line.rstrip("\n"))
-                tick = min(100, tick + 1)
-                progress.update(progress=tick)
+            await self.run_operation(op, args)
+            self.console.print(self.get_footer_info())
+            self.console.print("\n" + "─" * 40 + "\n")
 
-        progress.update(progress=100 if (self._proc and self._proc.poll() == 0) else progress.progress)
+def _ensure_utf8() -> None:
+    if sys.platform != "win32": return
+    try:
+        import ctypes
+        import ctypes.wintypes
+        kernel32 = ctypes.windll.kernel32
+        if kernel32.GetConsoleCP() not in (65001, 0):
+            kernel32.SetConsoleCP(65001)
+            kernel32.SetConsoleOutputCP(65001)
+        # Enable VT100
+        h = kernel32.GetStdHandle(-11)
+        mode = ctypes.wintypes.DWORD(0)
+        if kernel32.GetConsoleMode(h, ctypes.byref(mode)):
+            kernel32.SetConsoleMode(h, mode.value | 0x0004 | 0x0001)
+    except Exception: pass
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception: pass
 
-    def _terminate_proc(self) -> None:
-        if not self._proc or self._proc.poll() is not None:
-            return
-        try:
-            self._proc.terminate()
-            self.query_one("#output-log", RichLog).write("[bold #ff4444]■ terminate sent[/]")
-        except Exception as exc:
-            self.query_one("#output-log", RichLog).write(f"[bold #ff4444]stop error:[/] {exc}")
-
-    @on(Button.Pressed, "#btn-run")
-    def _btn_run(self) -> None:
-        self.action_run_op()
-
-    @on(Button.Pressed, "#btn-clear")
-    def _btn_clear(self) -> None:
-        self.action_clear_output()
-
-    @on(Button.Pressed, "#btn-stop")
-    def _btn_stop(self) -> None:
-        self.action_stop_op()
-
-
-def _quote(s: str) -> str:
-    if not s:
-        return '""'
-    if any(ch.isspace() for ch in s) or any(ch in s for ch in ('"', "'")):
-        return '"' + s.replace('"', '\\"') + '"'
-    return s
-
-
-def _looks_like_cmd() -> bool:
-    """
-    Heuristic: when launched from cmd.exe, PROMPT is usually set.
-    (PowerShell typically doesn't define PROMPT env var; it defines a prompt function.)
-    """
-    return bool(__import__("os").environ.get("PROMPT"))
-
-
-def _relaunch_in_powershell(argv: list[str]) -> None:
-    """
-    Launch a new PowerShell window running this program, then exit.
-    Uses UTF-8 codepage to improve box-drawing + symbols rendering.
-    """
-    exe = Path(sys.executable).resolve()
-
-    if getattr(sys, "frozen", False):
-        target = f"& '{str(exe)}' --no-relaunch"
-    else:
-        script = Path(__file__).resolve()
-        target = f"& '{sys.executable}' '{str(script)}' --no-relaunch"
-
-    # Preserve user args except our relaunch flags.
-    passthrough = [a for a in argv if a not in ("--relaunch-powershell", "--no-relaunch")]
-    if passthrough:
-        # naive quoting; PowerShell will receive as a single string
-        extra = " " + " ".join("'" + a.replace("'", "''") + "'" for a in passthrough)
-    else:
-        extra = ""
-
-    command = f"chcp 65001 > $null; {target}{extra}"
-    subprocess.Popen(
-        [
-            "powershell.exe",
-            "-NoProfile",
-            "-ExecutionPolicy",
-            "Bypass",
-            "-NoExit",
-            "-Command",
-            command,
-        ],
-        cwd=str(REPO_ROOT),
-        creationflags=subprocess.CREATE_NEW_CONSOLE,  # type: ignore[attr-defined]
-    )
-
+def main_entry():
+    """Entry point for vault-recon."""
+    _ensure_utf8()
+    cli = VaultReconstructorCLI()
+    try:
+        asyncio.run(cli.main_loop())
+    except KeyboardInterrupt:
+        print("\nExiting...")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(add_help=True)
@@ -827,15 +421,9 @@ if __name__ == "__main__":
         default=None,
         help=argparse.SUPPRESS,
     )
-    parser.add_argument(
-        "--no-relaunch",
-        action="store_true",
-        help="Disable auto-relaunch into PowerShell when started from cmd.exe.",
-    )
     ns, rest = parser.parse_known_args()
 
     if ns._run_script:
-        # Internal execution mode used by packaged exe to run helper scripts in a child process.
         script = Path(ns._run_script).resolve()
         passthrough = rest
         if passthrough[:1] == ["--"]:
@@ -849,28 +437,10 @@ if __name__ == "__main__":
         raise SystemExit(code)
 
     if ns.self_test:
-        missing = []
-        for a in OPERATIONS:
-            try:
-                a.script_path()
-            except FileNotFoundError:
-                missing.append(a.script)
-
-        print("VaultHUD self-test")
+        print("VaultReconstructor HUD self-test")
         print(f"- repo_root: {REPO_ROOT}")
         print(f"- python: {sys.executable}")
-        if getattr(sys, "frozen", False):
-            print("- run_mode: child-exe")
-            launcher = detect_python_launcher()
-            print(f"- python_launcher(optional): {launcher.argv0 if launcher else 'none'}")
-        print(f"- actions: {len(OPERATIONS)}")
-        print(f"- missing_scripts: {missing if missing else 'none'}")
         raise SystemExit(0)
 
-    # Default behavior: if launched from cmd.exe, relaunch in PowerShell to improve rendering.
-    if (not ns.no_relaunch) and _looks_like_cmd():
-        _relaunch_in_powershell(sys.argv[1:])
-        raise SystemExit(0)
-
-    VaultHud().run()
+    main_entry()
 

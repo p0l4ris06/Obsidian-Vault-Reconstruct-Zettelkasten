@@ -13,7 +13,7 @@ class LlmBackend(Protocol):
         ...
 
 
-Provider = Literal["ollama", "gemini", "azure"]
+Provider = Literal["ollama", "gemini", "azure", "autoresearch"]
 
 
 @dataclass(frozen=True)
@@ -127,6 +127,28 @@ class AzureOpenAIBackend:
         return (r.choices[0].message.content or "").strip()
 
 
+class AutoresearchBackend:
+    def __init__(self, *, model_path: str | None = None, tokenizer_dir: str | None = None) -> None:
+        import sys
+        from pathlib import Path
+        # Import the local inference class
+        repo_root = Path(__file__).resolve().parent.parent
+        sys.path.append(str(repo_root / "autoresearch"))
+        from inference import AutoresearchInference # type: ignore
+
+        # Resolve paths
+        if model_path is None:
+            model_path = str(repo_root / "autoresearch" / "model.pt")
+        if tokenizer_dir is None:
+            tokenizer_dir = str(Path.home() / ".cache" / "autoresearch" / "tokenizer")
+
+        self._inference = AutoresearchInference(model_path, tokenizer_dir)
+
+    def generate_text(self, *, prompt: str) -> str:
+        # Use reasonable defaults for vault prose
+        return self._inference.generate(prompt, max_new_tokens=400, temperature=0.7, top_k=50)
+
+
 def make_backend(cfg: LlmConfig) -> LlmBackend:
     if cfg.provider == "ollama":
         return OllamaBackend(model=cfg.model, cloud_model=cfg.ollama_cloud_model)
@@ -142,6 +164,8 @@ def make_backend(cfg: LlmConfig) -> LlmBackend:
         if not endpoint or not key:
             raise RuntimeError("Missing AZURE_OPENAI_ENDPOINT/AZURE_OPENAI_API_KEY for Azure provider.")
         return AzureOpenAIBackend(model=cfg.model, endpoint=endpoint, api_key=key, api_version=api_version)
+    if cfg.provider == "autoresearch":
+        return AutoresearchBackend()
     raise ValueError(f"Unknown provider: {cfg.provider}")
 
 

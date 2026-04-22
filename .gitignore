@@ -30,3 +30,14 @@ build/
 dist/
 *.spec
 .aider*
+
+# Local Research & RAG
+rag_cache/
+rag_index.pkl
+
+# Large Models & Training Data
+autoresearch/model.pt
+autoresearch/results.tsv
+autoresearch/progress.png
+autoresearch/results_historical.tsv
+autoresearch/progress_historical.png

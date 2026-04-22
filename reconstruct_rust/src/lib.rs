@@ -1,3 +1,4 @@
+mod dataloader;
 use pyo3::prelude::*;
 use pyo3::exceptions::PyIOError;
 use std::collections::HashSet;
@@ -107,5 +108,6 @@ fn run_link_phase(vault_path_str: &str) -> PyResult<usize> {
 #[pymodule]
 fn reconstruct_rust(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(run_link_phase, m)?)?;
+    m.add_class::<dataloader::FastDataLoader>()?;
     Ok(())
 }
