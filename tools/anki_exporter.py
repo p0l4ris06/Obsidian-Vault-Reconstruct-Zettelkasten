@@ -426,10 +426,16 @@ def generate_cards(backend: Any, note: dict[str, Any], vault_path: Path) -> list
                 log.warning("  [VAGUENESS FILTER] Rejected card in '%s': %s", note["title"], warn_msg)
                 continue
                 
-            front = c.get("front", "").strip()
-            back = c.get("back", "").strip()
-            ifa_cat = c.get("ifa_category", "General").strip()
+            front = str(c.get("front") or "").strip()
+            back = str(c.get("back") or "").strip()
+            ifa_cat = str(c.get("ifa_category") or "General").strip()
+            
+            # Normalize tags to a list of strings
             card_tags = c.get("tags", [])
+            if isinstance(card_tags, str):
+                card_tags = [t.strip() for t in card_tags.split(",") if t.strip()]
+            elif not isinstance(card_tags, list):
+                card_tags = []
             
             # Media handling
             media_files = []
@@ -785,7 +791,8 @@ def main(argv: list[str] | None = None) -> int:
                     card["source"],
                     " ".join(card["tags"]),
                 ],
-                guid=genanki.guid_for(card["question"]),
+                # Unique GUID combining front, back, and source to prevent duplicate collision issues in Anki
+                guid=genanki.guid_for(card["question"] + "|||" + card["answer"] + "|||" + card["source"]),
                 tags=card["tags"],
             )
             deck.add_note(anki_note)
