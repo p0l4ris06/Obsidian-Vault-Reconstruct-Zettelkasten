@@ -76,6 +76,7 @@ class Operation:
     tags: list[str] = field(default_factory=list)
     args_hint: str = ""
     default_args: str = ""
+    prompt_folder: bool = False
 
     def script_path(self) -> Path:
         p = (REPO_ROOT / self.script).resolve()
@@ -105,6 +106,7 @@ OPERATIONS_TREE: list[Union[Operation, Category]] = [
                 script="tools/reconstruct.py",
                 icon="[P]",
                 args_hint="Leave blank to run all phases, or add --phase 0-4 to run one step",
+                prompt_folder=True,
             ),
             Operation(
                 id="rust-link",
@@ -114,6 +116,7 @@ OPERATIONS_TREE: list[Union[Operation, Category]] = [
                 default_args="--phase 2",
                 icon="[R]",
                 args_hint="--phase 2  (runs the fast linker only)",
+                prompt_folder=True,
             ),
         ]
     ),
@@ -124,20 +127,22 @@ OPERATIONS_TREE: list[Union[Operation, Category]] = [
         items=[
             Operation(
                 id="health-check",
-                name="Health Report",
-                description="Scans your vault and produces a report — shows broken links, orphaned notes (nothing links to them), and tag inconsistencies. Doesn't change anything, safe to run anytime.",
+                name="Health Report (Rust)",
+                description="Scans your vault using the high-performance Native Rust Engine. Shows broken links, orphaned notes, and tag inconsistencies in seconds.",
                 script="tools/maintenance.py",
                 icon="[H]",
-                args_hint="No args needed — just press Enter to run",
+                args_hint="Uses native Rust acceleration — press Enter to run",
+                prompt_folder=True,
             ),
             Operation(
                 id="fix-auto",
-                name="Auto-fix Tags & Links",
-                description="Automatically corrects common tag formatting issues and repairs fuzzy wikilinks (e.g. where the note was renamed but links weren't updated). Makes changes in-place.",
+                name="Auto-fix Tags & Links (Rust)",
+                description="Automatically corrects tag formatting and repairs fuzzy wikilinks using native Rust logic. Significantly faster than standard Python for large vaults.",
                 script="tools/maintenance.py",
                 default_args="--fix-tags --fix-links",
                 icon="[F]",
-                args_hint="--fix-tags --fix-links  (both fixes on by default)",
+                args_hint="--fix-tags --fix-links  (Native Rust Fixer enabled)",
+                prompt_folder=True,
             ),
             Operation(
                 id="repair-q",
@@ -147,6 +152,7 @@ OPERATIONS_TREE: list[Union[Operation, Category]] = [
                 default_args="--repair",
                 icon="[!]",
                 args_hint="--repair  (attempts automatic rescue)",
+                prompt_folder=True,
             ),
         ]
     ),
@@ -161,7 +167,8 @@ OPERATIONS_TREE: list[Union[Operation, Category]] = [
                 description="Turns your zettels into Anki flashcard decks. Picks up Q&A-style notes automatically. Run this whenever you want to refresh your Anki collection from the vault.",
                 script="tools/anki_exporter.py",
                 icon="[A]",
-                args_hint="Leave blank for defaults, or: --deck anatomy --out C:\\path\\to\\decks",
+                args_hint="Leave blank for defaults, or: --force-deck-name VA2_COMPLETE",
+                prompt_folder=True,
             ),
             Operation(
                 id="doctor",
@@ -187,6 +194,7 @@ OPERATIONS_TREE: list[Union[Operation, Category]] = [
                 default_args="--sync",
                 icon="[S]",
                 args_hint="--sync  (crawls external sources for all vault tags)",
+                prompt_folder=True,
             ),
             Operation(
                 id="rag-research",
@@ -196,6 +204,7 @@ OPERATIONS_TREE: list[Union[Operation, Category]] = [
                 default_args='--rag --provider ollama',
                 icon="[G]",
                 args_hint='Type two topics, e.g: "synaptic plasticity" "cancer"',
+                prompt_folder=True,
             ),
             Operation(
                 id="research-note",
@@ -204,6 +213,7 @@ OPERATIONS_TREE: list[Union[Operation, Category]] = [
                 script="tools/research.py",
                 icon="[~]",
                 args_hint='Type two topic names, e.g: "Zettelkasten" "spaced repetition"',
+                prompt_folder=True,
             ),
         ]
     ),
@@ -291,6 +301,8 @@ class VaultReconstructorCLI:
     async def run_operation(self, op: Operation, args_str: str):
         try:
             args = shlex.split(args_str, posix=False) if args_str else []
+            # shlex.split(posix=False) leaves quotes intact. Strip outer quotes so subprocess handles escaping.
+            args = [a[1:-1] if len(a) >= 2 and a[0] == a[-1] and a[0] in "\"'`" else a for a in args]
         except ValueError as exc:
             self.console.print(f"[bold #cc5577]Error parsing arguments:[/] {exc}")
             return
@@ -365,9 +377,30 @@ class VaultReconstructorCLI:
             # It's an operation
             op = item
             self.console.print(f"\n[dim]{op.description}[/]\n")
+            
+            folder_arg = ""
+            if getattr(op, "prompt_folder", False):
+                folder = Prompt.ask("\n[bold #7895f5]>[/] Target folder (leave blank for entire vault, or enter an absolute path for a different location)")
+                folder_val = folder.strip()
+                if folder_val:
+                    if folder_val.startswith('"') and folder_val.endswith('"'):
+                        folder_val = folder_val[1:-1]
+                    elif folder_val.startswith("'") and folder_val.endswith("'"):
+                        folder_val = folder_val[1:-1]
+                        
+                    if Path(folder_val).is_absolute():
+                        folder_arg = f'--vault "{folder_val}"'
+                    else:
+                        folder_arg = f'--folder "{folder_val}"'
+
             if op.args_hint:
-                self.console.print(f"[dim]  hint: {op.args_hint}[/]")
-            args = Prompt.ask(f"[bold #7895f5]>[/] Args", default=op.default_args)
+                self.console.print(f"\n[dim]  hint: {op.args_hint}[/]")
+            
+            args = Prompt.ask(f"[bold #7895f5]>[/] Additional args", default=op.default_args)
+            
+            final_args = args
+            if folder_arg:
+                final_args = f"{folder_arg} {args}".strip()
             
             # Save settings
             self.settings["selected_op_id"] = op.id
@@ -375,7 +408,7 @@ class VaultReconstructorCLI:
             self.settings["args_by_op"][op.id] = args
             _save_hud_settings(self.settings)
 
-            await self.run_operation(op, args)
+            await self.run_operation(op, final_args)
             self.console.print(self.get_footer_info())
             self.console.print("\n" + "─" * 40 + "\n")
 
@@ -402,13 +435,7 @@ def _ensure_utf8() -> None:
 def main_entry():
     """Entry point for vault-recon."""
     _ensure_utf8()
-    cli = VaultReconstructorCLI()
-    try:
-        asyncio.run(cli.main_loop())
-    except KeyboardInterrupt:
-        print("\nExiting...")
-
-if __name__ == "__main__":
+    
     parser = argparse.ArgumentParser(add_help=True)
     parser.add_argument(
         "--self-test",
@@ -442,5 +469,12 @@ if __name__ == "__main__":
         print(f"- python: {sys.executable}")
         raise SystemExit(0)
 
+    cli = VaultReconstructorCLI()
+    try:
+        asyncio.run(cli.main_loop())
+    except KeyboardInterrupt:
+        print("\nExiting...")
+
+if __name__ == "__main__":
     main_entry()
 

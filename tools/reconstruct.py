@@ -61,6 +61,7 @@ YAML_TAG_VALUE_PATTERN = re.compile(r"  - (.+)")
 class Config:
     input_vault: str = str(get_vault_paths().input_vault)
     output_vault: str = str(get_vault_paths().output_vault)
+    folder: Optional[str] = None
     provider:     str = os.environ.get("VAULT_LLM_PROVIDER", "ollama").strip().lower()
     
     # Model defaults
@@ -184,7 +185,7 @@ def run_phase0(backend: LlmBackend, config: Config) -> None:
                     dest_folder = "03_Literature" if ntype == "literature" else "02_Zettels"
                     (out_path / dest_folder / f"{title}.md").write_text(n.get("content", ""), encoding="utf-8")
                 q_file.unlink()
-                log.info("Recovered %s → %s", q_file.name, dest_folder)
+                log.info("Recovered %s -> %s", q_file.name, dest_folder)
         except Exception as e:
             log.error("Failed recovery for %s: %s", q_file.name, e)
         tracker.mark_done("phase0", q_file.name)
@@ -211,6 +212,10 @@ def run_phase1(backend: LlmBackend, config: Config) -> None:
         (out_path / folder).mkdir(parents=True, exist_ok=True)
         
     input_files = list(Path(config.input_vault).rglob("*.md"))
+    if config.folder:
+        target_folder = config.folder.strip().lower()
+        input_files = [f for f in input_files if any(target_folder in p.lower() for p in f.parts)]
+        
     for f in tqdm(input_files, desc="Splitting"):
         if tracker.is_done("phase1", f.name): continue
         content = f.read_text(encoding="utf-8")
@@ -246,6 +251,8 @@ def run_phase2_rust(config: Config) -> None:
     if reconstruct_rust is None:
         log.warning("Rust engine not found. Skipping high-speed link phase.")
         return
+    if config.folder:
+        log.warning("Rust Link Phase operates on the entire vault. The --folder filter will be ignored for linking.")
     log.info("=== PHASE 2: High-speed Link (Rust) ===")
     try:
         files_modified = reconstruct_rust.run_link_phase(config.output_vault)
@@ -261,6 +268,10 @@ def run_phase3(config: Config) -> None:
     log.info("=== PHASE 3: Frontmatter ===")
     out_path = Path(config.output_vault)
     notes = list(out_path.rglob("*.md"))
+    if config.folder:
+        target_folder = config.folder.strip().lower()
+        notes = [f for f in notes if any(target_folder in p.lower() for p in f.parts)]
+        
     tracker = ProcessingTracker(out_path / config.tracker_filename)
     
     for f in tqdm(notes, desc="Frontmatter"):
@@ -316,8 +327,13 @@ def run_phase4(backend: LlmBackend, config: Config) -> None:
     tracker = ProcessingTracker(out_path / config.tracker_filename)
     
     # Collect tags
+    all_files = list(out_path.rglob("*.md"))
+    if config.folder:
+        target_folder = config.folder.strip().lower()
+        all_files = [f for f in all_files if any(target_folder in p.lower() for p in f.parts)]
+        
     tag_map = defaultdict(list)
-    for f in out_path.rglob("*.md"):
+    for f in all_files:
         if "MOC" in f.name or "QUARANTINE" in f.name: continue
         try:
             content = f.read_text(encoding="utf-8")
@@ -352,9 +368,16 @@ def main():
     load_dotenv_no_override()
     parser = argparse.ArgumentParser(description="Vault Reconstructor Pipeline")
     parser.add_argument("--phase", type=int, help="Run only specific phase (0-4)")
+    parser.add_argument("--vault", type=str, help="Path to Obsidian vault")
+    parser.add_argument("--folder", type=str, help="Subfolder to limit processing to")
     args = parser.parse_args()
 
     cfg = Config()
+    if args.vault:
+        cfg.input_vault = args.vault
+        cfg.output_vault = args.vault
+    cfg.folder = args.folder
+    
     backend = get_llm_backend(cfg)
     
     phases = [

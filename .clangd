@@ -1,0 +1,23 @@
+CompileFlags:
+  Add:
+    - --target=x86_64-w64-mingw32
+    - -isystem
+    - C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++
+    - -isystem
+    - C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/x86_64-w64-mingw32
+    - -isystem
+    - C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/backward
+    - -isystem
+    - C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include
+    - -isystem
+    - C:/TDM-GCC-64/include
+    - -isystem
+    - C:/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include-fixed
+    - -isystem
+    - C:/TDM-GCC-64/x86_64-w64-mingw32/include
+
+---
+If:
+  PathMatch: .*\.cpp
+CompileFlags:
+  Add: [-std=c++17]

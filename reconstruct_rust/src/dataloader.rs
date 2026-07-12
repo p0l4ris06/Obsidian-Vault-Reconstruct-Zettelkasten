@@ -2,7 +2,7 @@ use pyo3::prelude::*;
 use polars::prelude::*;
 use std::path::PathBuf;
 use std::fs::File;
-use std::sync::Arc;
+// Removed unused Arc
 
 #[pyclass]
 pub struct FastDataLoader {

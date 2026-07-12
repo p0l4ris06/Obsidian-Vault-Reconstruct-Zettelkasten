@@ -17,6 +17,12 @@ import logging
 import argparse
 import difflib
 from pathlib import Path
+
+try:
+    import reconstruct_rust
+    HAS_RUST = True
+except ImportError:
+    HAS_RUST = False
 from collections import defaultdict, Counter
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -63,6 +69,7 @@ class Config:
     repair_quarantine: bool = False
     export_json: bool = False
     short_threshold: int = 100
+    folder: Optional[str] = None
 
     # Tag map (UK English standardized)
     tag_mappings: Dict[str, str] = field(default_factory=lambda: {
@@ -88,25 +95,49 @@ class VaultAnalyzer:
         self.quarantine: List[Path] = []
         self._title_index: Dict[str, str] = {}
 
-    def scan(self, threshold: int, use_native: bool = True):
+    def scan(self, threshold: int, use_native: bool = True, use_rust: bool = True, folder_filter: Optional[str] = None):
+        if folder_filter:
+            log.info(f"Filtering scan to folder: {folder_filter}")
+            # Native engines scan the whole vault root; fallback to Python for folder-specific scan.
+            use_rust = False
+            use_native = False
+
+        if use_rust and HAS_RUST:
+            log.info("Using native Rust scanner engine...")
+            try:
+                res_json = reconstruct_rust.run_maintenance(
+                    str(self.path),
+                    False,  # fix_tags
+                    False,  # fix_links
+                    True,   # dry_run
+                    threshold,
+                    {}      # empty tag_mappings for pure scan
+                )
+                data = json.loads(res_json)
+                log.info(f"Rust Scan Metadata: {data}")
+                # If Rust succeeded, we skip the C++ scanner
+                use_native = False
+            except Exception as e:
+                log.warning(f"Rust scanner failed: {e}")
+
         scanner_exe = Path(__file__).parent / "scanner.exe"
         if use_native and scanner_exe.exists():
             log.info("Using native C++ scanner engine...")
             import subprocess
             try:
-                # First run: Analysis
                 res = subprocess.run([str(scanner_exe), str(self.path)], capture_output=True, text=True, check=True)
                 data = json.loads(res.stdout)
                 log.info(f"Native Scan Result: {data}")
-                
-                # Update basic metrics (further population happens in manual loop for now to maintain compat)
-                # However, for speed, we now have a working health report instantly.
-                # We still need notes{} populated for other Python logic.
             except Exception as e:
                 log.warning(f"Native scanner failed, falling back to Python: {e}")
 
-        log.info("Scanning vault: %s", self.path)
-        for f in self.path.rglob("*.md"):
+        log.info("Scanning vault files...")
+        files = list(self.path.rglob("*.md"))
+        if folder_filter:
+            target = folder_filter.strip().lower()
+            files = [f for f in files if any(target in p.lower() for p in f.parts)]
+
+        for f in tqdm(files, desc="Analyzing", unit="note", leave=False):
             if f.name.startswith("."): continue
             if "QUARANTINE_" in f.name:
                 self.quarantine.append(f)
@@ -188,6 +219,31 @@ def perform_link_fix(analyzer: VaultAnalyzer, cfg: Config):
             fixed += 1
     log.info(f"Finished. Fixed links in {fixed} files.")
 
+def perform_repair(analyzer: VaultAnalyzer, cfg: Config):
+    if not analyzer.quarantine:
+        log.info("No quarantined notes found.")
+        return
+    log.info(f"Attempting to rescue {len(analyzer.quarantine)} quarantined notes...")
+    rescued = 0
+    for f in analyzer.quarantine:
+        # Remove QUARANTINE_ prefix
+        new_name = f.name.replace("QUARANTINE_", "")
+        new_path = f.parent / new_name
+        
+        # Check for collisions
+        if new_path.exists():
+            log.warning(f"  Skipping {f.name}: Target {new_name} already exists.")
+            continue
+            
+        log.info(f"  Rescuing: {f.name} -> {new_name}")
+        if not cfg.dry_run:
+            try:
+                f.rename(new_path)
+                rescued += 1
+            except Exception as e:
+                log.error(f"  Failed to rescue {f.name}: {e}")
+    log.info(f"Finished. Rescued {rescued} files.")
+
 # ============================================================================
 # MAIN
 # ============================================================================
@@ -200,9 +256,14 @@ def main():
     parser.add_argument("--expand", action="store_true")
     parser.add_argument("--repair", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--vault", type=str, help="Path to Obsidian vault")
+    parser.add_argument("--folder", type=str, help="Subfolder to limit processing to")
     args = parser.parse_args()
 
     cfg = Config()
+    if args.vault:
+        cfg.vault_path = Path(args.vault)
+    cfg.folder = args.folder
     cfg.fix_tags = args.fix_tags
     cfg.fix_links = args.fix_links
     cfg.expand_short = args.expand
@@ -210,24 +271,53 @@ def main():
     cfg.dry_run = args.dry_run
 
     analyzer = VaultAnalyzer(cfg.vault_path)
-    analyzer.scan(cfg.short_threshold)
-    analyzer.analyze_links()
-
-    log.info("\n=== VAULT HEALTH SUMMARY ===")
-    log.info(f"Total Notes:      {len(analyzer.notes)}")
-    log.info(f"Broken Links:     {sum(len(v) for v in analyzer.broken.values())}")
-    log.info(f"Short/Empty:      {len(analyzer.short)}")
-    log.info(f"Quarantined:      {len(analyzer.quarantine)}")
     
-    # If using native, we can run the fix directly
-    scanner_exe = Path(__file__).parent / "scanner.exe"
-    if scanner_exe.exists() and (cfg.fix_tags or cfg.fix_links) and not cfg.dry_run:
-        log.info("Running native auto-fix...")
-        import subprocess
-        subprocess.run([str(scanner_exe), str(cfg.vault_path), "--fix"], check=True)
+    # If we are doing a Rust fix, we can skip the expensive Python scan/analyze phases
+    # But only if we aren't filtering by folder (since Rust doesn't support that yet)
+    skip_python_scan = HAS_RUST and (cfg.fix_tags or cfg.fix_links) and not cfg.dry_run and not cfg.folder
+    
+    if not skip_python_scan:
+        analyzer.scan(cfg.short_threshold, folder_filter=cfg.folder)
+        analyzer.analyze_links()
+
+        log.info("\n=== VAULT HEALTH SUMMARY ===")
+        log.info(f"Total Notes:      {len(analyzer.notes)}")
+        log.info(f"Broken Links:     {sum(len(v) for v in analyzer.broken.values())}")
+        log.info(f"Short/Empty:      {len(analyzer.short)}")
+        log.info(f"Quarantined:      {len(analyzer.quarantine)}")
     else:
-        if cfg.fix_tags: perform_tag_fix(analyzer, cfg)
-        if cfg.fix_links: perform_link_fix(analyzer, cfg)
+        log.info("Bypassing Python scan (using high-speed Rust engine for fixes)...")
+
+    # Use Rust native fix if available, else fallback to Python
+    if HAS_RUST and (cfg.fix_tags or cfg.fix_links):
+        log.info("Running native Rust auto-fix...")
+        try:
+            res_json = reconstruct_rust.run_maintenance(
+                str(cfg.vault_path),
+                cfg.fix_tags,
+                cfg.fix_links,
+                cfg.dry_run,
+                cfg.short_threshold,
+                cfg.tag_mappings
+            )
+            data = json.loads(res_json)
+            log.info(f"Rust Auto-Fix Summary: {data}")
+        except Exception as e:
+            log.error(f"Rust auto-fix failed, falling back to Python: {e}")
+            # If Rust fails, we might need to do the scan after all if we didn't do it before
+            if skip_python_scan:
+                analyzer.scan(cfg.short_threshold)
+                analyzer.analyze_links()
+            if cfg.fix_tags: perform_tag_fix(analyzer, cfg)
+            if cfg.fix_links: perform_link_fix(analyzer, cfg)
+    else:
+        # Only do Python fixes if we actually did the scan
+        if not skip_python_scan:
+            if cfg.fix_tags: perform_tag_fix(analyzer, cfg)
+            if cfg.fix_links: perform_link_fix(analyzer, cfg)
+    
+    if cfg.repair_quarantine:
+        perform_repair(analyzer, cfg)
     
     log.info("\nMaintenance cycle complete.")
 

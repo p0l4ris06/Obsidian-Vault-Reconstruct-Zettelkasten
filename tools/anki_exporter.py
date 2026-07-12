@@ -212,12 +212,12 @@ Note title: {title}
 Note content:
 {body}
 
-Generate 2-4 high-quality flashcard Q&A pairs from this note.
+Generate as many high-quality flashcard Q&A pairs as necessary to cover EVERY distinct idea, fact, or concept in this section.
 
 Rules:
+- Create at least one card per discrete fact or important detail. Do NOT truncate, over-simplify, or omit items.
 - Questions should test understanding, not just recall of exact wording
 - Answers should be concise (1-3 sentences)
-- Cover the most clinically or academically important points
 - Do NOT generate trivial or obvious questions
 - Each question must be answerable from the note content alone
 
@@ -260,25 +260,57 @@ def _make_llm_backend(provider: str):
     raise SystemExit(f"Unknown VAULT_LLM_PROVIDER: {provider!r} (expected ollama/gemini/azure)")
 
 
-def generate_cards(backend: Any, note: dict[str, Any]) -> list[dict[str, str]]:
-    raw = generate_text_with_retries(
-        backend,
-        prompt=_CARD_PROMPT.format(title=note["title"], body=note["body"]),
-        max_retries=MAX_RETRIES,
-    )
-    arr = extract_json_array(raw or "")
-    if not arr:
+def chunk_text(text: str, max_size: int = 3000) -> list[str]:
+    """Splits text into chunks of roughly max_size characters, preferring double-newline boundaries."""
+    if not text.strip():
         return []
+    paragraphs = text.split("\n\n")
+    chunks = []
+    current_chunk = []
+    current_len = 0
+    for p in paragraphs:
+        p_len = len(p)
+        if current_len + p_len > max_size and current_chunk:
+            chunks.append("\n\n".join(current_chunk))
+            current_chunk = [p]
+            current_len = p_len
+        else:
+            current_chunk.append(p)
+            current_len += p_len + 2 # +2 for the \n\n
+    if current_chunk:
+        chunks.append("\n\n".join(current_chunk))
+    return chunks
 
-    out: list[dict[str, str]] = []
-    for c in arr:
-        if not isinstance(c, dict):
+def generate_cards(backend: Any, note: dict[str, Any]) -> list[dict[str, str]]:
+    chunks = chunk_text(note["body"])
+    all_cards: list[dict[str, str]] = []
+    
+    for i, chunk in enumerate(chunks):
+        chunk = chunk.strip()
+        if len(chunk) < 50:
             continue
-        q = c.get("question")
-        a = c.get("answer")
-        if isinstance(q, str) and isinstance(a, str) and q.strip() and a.strip():
-            out.append({"question": q.strip(), "answer": a.strip()})
-    return out
+            
+        if len(chunks) > 1:
+            log.info("    -> Processing chunk %d/%d (%d chars)", i + 1, len(chunks), len(chunk))
+            
+        raw = generate_text_with_retries(
+            backend,
+            prompt=_CARD_PROMPT.format(title=note["title"], body=chunk),
+            max_retries=MAX_RETRIES,
+        )
+        arr = extract_json_array(raw or "")
+        if not arr:
+            continue
+
+        for c in arr:
+            if not isinstance(c, dict):
+                continue
+            q = c.get("question")
+            a = c.get("answer")
+            if isinstance(q, str) and isinstance(a, str) and q.strip() and a.strip():
+                all_cards.append({"question": q.strip(), "answer": a.strip()})
+                
+    return all_cards
 
 
 # ============================================================================
@@ -316,7 +348,7 @@ def parse_note(fp: Path) -> dict[str, Any] | None:
         "title": title,
         "tags": tags,
         "type": note_type,
-        "body": body[:2000],
+        "body": body,
         "path": str(fp),
         "hash": _content_hash(text),
     }
@@ -456,8 +488,11 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--vault", type=str, default=DEFAULT_VAULT_PATH)
     parser.add_argument("--out", type=str, default=DEFAULT_OUTPUT_DIR)
-    parser.add_argument("--reset", action="store_true", help="Regenerate all cards")
+    parser.add_argument("--reset", action="store_true", help="Wipes the tracking database to regenerate ALL cards for the entire vault")
+    parser.add_argument("--force", action="store_true", help="Force regenerate cards for the current run without wiping the entire tracker")
     parser.add_argument("--deck", type=str, default=None, help="Only export notes containing this tag")
+    parser.add_argument("--force-deck-name", type=str, default=None, help="Force all generated cards to go into this specific deck name, ignoring tag-based categorisation")
+    parser.add_argument("--folder", type=str, default=None, help="Only process notes in this subfolder of the vault (e.g. 'Year 2 - VA2')")
     parser.add_argument("--provider", type=str, default=DEFAULT_PROVIDER, help="ollama|gemini|azure")
     parser.add_argument(
         "--dry-run",
@@ -484,15 +519,23 @@ def main(argv: list[str] | None = None) -> int:
     for fp in vault.rglob("*.md"):
         if fp.name.startswith(".") or fp.name.startswith("QUARANTINE_"):
             continue
-        if "Year 2" not in fp.parts:
-            continue
+        if args.folder:
+            # Split the folder argument by comma to allow multiple target folders
+            target_folders = [f.strip().lower() for f in args.folder.split(",") if f.strip()]
+            if not any(any(tf in p.lower() for p in fp.parts) for tf in target_folders):
+                continue
         note = parse_note(fp)
         if note:
             all_notes.append(note)
 
     log.info("%d eligible notes found", len(all_notes))
 
-    pending = [n for n in all_notes if tracker.needs_update(n["path"], n["hash"])]
+    if args.force:
+        pending = all_notes
+        log.info("Force flag used — ignoring tracker for %d notes", len(pending))
+    else:
+        pending = [n for n in all_notes if tracker.needs_update(n["path"], n["hash"])]
+        
     log.info("%d notes need card generation", len(pending))
 
     if args.deck:
@@ -520,7 +563,7 @@ def main(argv: list[str] | None = None) -> int:
             log.warning("  -> LLM error: %s", exc)
             cards = []
 
-        deck_name = get_deck_name(note["tags"])
+        deck_name = args.force_deck_name.strip() if args.force_deck_name else get_deck_name(note["tags"])
         if cards:
             for card in cards:
                 all_cards.append(
@@ -571,7 +614,7 @@ def main(argv: list[str] | None = None) -> int:
 
         out_path = output_dir / f"{_safe_deck_filename(deck_name)}.apkg"
         genanki.Package(deck).write_to_file(str(out_path))
-        log.info("Exported %d cards → %s", len(cards), out_path)
+        log.info("Exported %d cards -> %s", len(cards), out_path)
 
     log.info("All decks exported to %s", output_dir)
     log.info("Import .apkg files into Anki via File > Import")

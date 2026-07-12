@@ -108,6 +108,7 @@ def main():
     parser.add_argument("--provider", default="ollama", help="LLM provider (default: ollama)")
     parser.add_argument("--rag", action="store_true", help="Use local RAG context")
     parser.add_argument("--sync", action="store_true", help="Sync knowledge base from vault tags")
+    parser.add_argument("--folder", help="Subfolder to limit tag scanning to")
     
     args = parser.parse_args()
     repo_root = Path(__file__).resolve().parent.parent
@@ -116,10 +117,10 @@ def main():
         try:
             from vault_reconstruct.rag.manager import RAGManager
             from vault_reconstruct.rag.harvester import get_vault_tags
-            paths = get_vault_paths()
+            vault_path = Path(args.vault) if args.vault else get_vault_paths().output_vault
             rag = RAGManager(repo_root)
-            tags = get_vault_tags(paths.output_vault)
-            print(f"Discovered {len(tags)} tags in vault. Syncing...")
+            tags = get_vault_tags(vault_path, folder_filter=args.folder)
+            print(f"Discovered {len(tags)} tags in vault {args.folder if args.folder else ''}. Syncing...")
             rag.sync(tags)
             print("Success: Knowledge base synced and indexed.")
         except Exception as e:

@@ -1,6 +1,2 @@
-[build]
-target = "x86_64-pc-windows-gnu"
-rustflags = ["-C", "linker=rust-lld", "-C", "target-feature=+crt-static"]
-
 [target.x86_64-pc-windows-gnu]
-rustflags = ["-C", "linker=rust-lld", "-C", "target-feature=+crt-static"]
+linker = "rust-lld"

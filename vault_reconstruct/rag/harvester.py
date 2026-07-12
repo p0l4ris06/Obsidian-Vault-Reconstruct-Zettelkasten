@@ -162,12 +162,18 @@ class Harvester:
             import time
             time.sleep(1.2)
 
-def get_vault_tags(vault_path: Path):
+def get_vault_tags(vault_path: Path, folder_filter: str = None):
     """Scan vault for all unique tags."""
     tags = set()
     # Simple regex to find tags in markdown files
     tag_re = re.compile(r"(?<!\S)#([a-zA-Z0-9_\-/]+)")
-    for md in vault_path.rglob("*.md"):
+    
+    files = list(vault_path.rglob("*.md"))
+    if folder_filter:
+        target = folder_filter.strip().lower()
+        files = [f for f in files if any(target in p.lower() for p in f.parts)]
+
+    for md in files:
         try:
             content = md.read_text(encoding="utf-8")
             for t in tag_re.findall(content):

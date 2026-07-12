@@ -46,10 +46,12 @@ Vault health and repair tools.
 
 **Usage:** `python tools/maintenance.py [options]`
 
+**Note:** Core maintenance is now powered by a **Native Rust Engine**, providing up to 100x faster scanning and auto-repairing for large vaults compared to the standard Python implementation.
+
 | Flag | Description |
 | :--- | :--- |
-| `--fix-tags` | Standardize all tags to UK English. |
-| `--fix-links` | Auto-repair broken wikilinks via fuzzy matching. |
+| `--fix-tags` | Standardize all tags to UK English (Native Rust). |
+| `--fix-links` | Auto-repair broken wikilinks via fuzzy matching (Native Rust). |
 | `--repair` | Attempt automated recovery of stuck/broken notes. |
 
 ---

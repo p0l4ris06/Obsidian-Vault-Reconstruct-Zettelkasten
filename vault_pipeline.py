@@ -143,10 +143,10 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 if _RUST_AVAILABLE:
-    log.info("Rust engine loaded — phases 4-6 running with native acceleration.")
+    log.info("Rust engine loaded - phases 4-6 running with native acceleration.")
 else:
     log.info(
-        "Rust engine not found — running pure Python. "
+        "Rust engine not found - running pure Python. "
         "Run `maturin develop` in reconstruct_rust/ to enable acceleration."
     )
 
@@ -479,7 +479,7 @@ def run_phase0(config: Config):
         notes = extract_json_array(text)
 
         if notes is None:
-            log.warning("Still cannot parse JSON for: %s — leaving in quarantine.", key)
+            log.warning("Still cannot parse JSON for: %s - leaving in quarantine.", key)
             tracker.mark_done("phase0", key)
             continue
 
@@ -496,7 +496,7 @@ def run_phase0(config: Config):
         file_path.unlink()
         tracker.mark_done("phase0", key)
         recovered += 1
-        log.info("Recovered: %s → %d note(s)", key, len(notes))
+        log.info("Recovered: %s -> %d note(s)", key, len(notes))
         time.sleep(config.request_delay)
 
     log.info("Phase 0 complete. Recovered %d file(s).", recovered)
@@ -790,7 +790,7 @@ def run_phase4(config: Config):
             total += future.result()
 
     tracker.flush()
-    log.info("Phase 4 complete — %d AI links added.", total)
+    log.info("Phase 4 complete - %d AI links added.", total)
 
 
 # ============================================================================
@@ -932,7 +932,7 @@ def run_phase_4_5_tag_consolidation(config: Config, tag_map: Optional[dict] = No
         _update_note_tags(fp, mapping)
 
     log.info(
-        "Phase 4.5 complete — %d tags consolidated across %d files.",
+        "Phase 4.5 complete - %d tags consolidated across %d files.",
         len(global_mapping), len(file_changes),
     )
 
@@ -1114,7 +1114,7 @@ def run_phase6(config: Config, tag_map: Optional[dict] = None):
             improved += future.result()
 
     tracker.flush()
-    log.info("Phase 6 complete — %d MOCs improved.", improved)
+    log.info("Phase 6 complete - %d MOCs improved.", improved)
 
 
 def run_phase8(config: Config):
@@ -1174,7 +1174,7 @@ def main():
             "  OLLAMA_HOST                           - Ollama server URL\n"
             "  GEMINI_API_KEY                        - required when provider includes 'gemini'\n"
             "  VAULT_GEMINI_MODEL                    - Gemini model (default: gemini-2.5-flash)\n\n"
-            f"Rust engine: {'ACTIVE' if _RUST_AVAILABLE else 'not found — run: cd reconstruct_rust && maturin develop'}\n"
+            f"Rust engine: {'ACTIVE' if _RUST_AVAILABLE else 'not found - run: cd reconstruct_rust && maturin develop'}\n"
         )
         raise SystemExit(0)
 
