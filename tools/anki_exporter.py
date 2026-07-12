@@ -732,8 +732,8 @@ def main(argv: list[str] | None = None) -> int:
         if fp.name.startswith(".") or fp.name.startswith("QUARANTINE_"):
             continue
         if args.folder:
-            # Split the folder argument by comma to allow multiple target folders
-            target_folders = [f.strip().lower() for f in args.folder.split(",") if f.strip()]
+            # Split by comma, semicolon, or pipe to allow multiple target folders
+            target_folders = [f.strip().lower() for f in re.split(r'[,;|]', args.folder) if f.strip()]
             if not any(any(tf in p.lower() for p in fp.parts) for tf in target_folders):
                 continue
         note = parse_note(fp)
