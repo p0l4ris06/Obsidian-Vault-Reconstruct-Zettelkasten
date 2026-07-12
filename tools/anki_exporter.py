@@ -339,28 +339,36 @@ def validate_and_filter_card(card: dict[str, Any]) -> tuple[bool, str | None]:
     if not front or not back:
         return False, "Empty front or back field."
         
-    word_count = len(back.split())
+    # Strip HTML tags to get accurate plain-text word count
+    clean_back = re.sub(r'<[^>]+>', ' ', back)
+    word_count = len(clean_back.split())
     
     # Category-specific vagueness rules (respiration, etc.)
     if "function" in category:
         if word_count < 5:
-            return False, f"Vague function answer ({word_count} words): '{back}' (must be at least 5 words)"
+            return False, f"Vague function answer ({word_count} words): '{clean_back.strip()}' (must be at least 5 words)"
         if re.search(r"\bfunctions\s+in\b", back.lower()):
             return False, f"Vague description 'functions in' in function answer: '{back}'. Needs mechanism depth."
             
-    if "application" in category or "comparison" in category:
+    # Force comparison validations if the question asks to "compare"
+    is_comparison = "compare" in front.lower() or "comparison" in category
+    
+    if is_comparison:
         if word_count < 8:
-            return False, f"Vague application/comparison answer ({word_count} words): '{back}' (must be at least 8 words)"
-        if "compare" in front.lower():
-            species_list = ["cow", "pig", "horse", "dog", "cat", "sheep", "goat", "avian", "bird", "reptile", "chicken"]
-            found_in_front = [s for s in species_list if s in front.lower()]
-            if len(found_in_front) >= 2:
-                missing_in_back = [s for s in found_in_front if s not in back.lower()]
-                if missing_in_back:
-                    return False, f"Comparison card lacks details for species: {missing_in_back}"
-                if "<table" not in back.lower():
-                    return False, "Comparison card missing requested HTML table formatting."
-                    
+            return False, f"Vague comparison/application answer ({word_count} words): '{clean_back.strip()}' (must be at least 8 words)"
+        
+        species_list = ["cow", "pig", "horse", "dog", "cat", "sheep", "goat", "avian", "bird", "reptile", "chicken"]
+        found_in_front = [s for s in species_list if s in front.lower()]
+        if len(found_in_front) >= 2:
+            missing_in_back = [s for s in found_in_front if s not in clean_back.lower()]
+            if missing_in_back:
+                return False, f"Comparison card lacks details for species: {missing_in_back}"
+            if "<table" not in back.lower():
+                return False, "Comparison card missing requested HTML table formatting."
+    elif "application" in category:
+        if word_count < 8:
+            return False, f"Vague application answer ({word_count} words): '{clean_back.strip()}' (must be at least 8 words)"
+            
     return True, None
 
 
@@ -405,6 +413,12 @@ def generate_cards(backend: Any, note: dict[str, Any], vault_path: Path) -> list
         for c in arr:
             if not isinstance(c, dict):
                 continue
+                
+            # Normalize keys to support both front/back and question/answer
+            if "question" in c and "front" not in c:
+                c["front"] = c["question"]
+            if "answer" in c and "back" not in c:
+                c["back"] = c["answer"]
                 
             # Perform vagueness filtering
             is_valid, warn_msg = validate_and_filter_card(c)
