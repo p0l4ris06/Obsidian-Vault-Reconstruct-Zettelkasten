@@ -215,12 +215,12 @@ CATEGORY 1: IDENTIFY (Simulates the first 1-2 questions of a station)
 - Image Rule: If the source note contains images, you should reference them in the front of the card (e.g., "Identify the marked structure in ![[anatomy_diagram.png]]").
 
 CATEGORY 2: FUNCTION (Simulates the middle 3-5 questions of a station)
-- Task: Ask about the role, blood supply, innervation, or mechanism of a structure.
-- Rule: Reject vague answers. The back of the card must contain detailed depth. For example, do not just list "respiration"; detail the specific mechanism. 
+- Task: Ask about the roles, actions, processes, blood supply, innervation, or mechanisms of a structure.
+- Rule: Reject vague answers. The back of the card must contain detailed depth regarding how structures work together. For example, do not just list "respiration"; detail the specific mechanism behind the bodily process.
 
 CATEGORY 3: APPLICATION (Simulates the final 1-2 questions of a station)
 - Task: Create clinical scenarios, problem-solving questions, or species comparisons.
-- Rule for Comparisons: When asking to compare a structure between two species (e.g., cow vs. horse), the back of the card MUST explicitly state the anatomical fact for BOTH species. A comparison is invalid if it only describes one species.
+- Rule for Comparisons: When asking to compare a structure between two species (e.g., cow vs. horse), the back of the card MUST explicitly state the anatomical fact for BOTH species. A comparison is invalid if it only describes one species. YOU MUST FORMAT COMPARISONS AS AN HTML TABLE.
 
 TERMINOLOGY RULES TO ENFORCE ON THE BACK OF CARDS:
 - If asked for "Morphology": Describe form, shape, and physical makeup.
@@ -255,7 +255,7 @@ Format:
   {{
     "ifa_category": "Application - Comparison",
     "front": "Compare the morphology of the ascending colon between the cow and the pig.",
-    "back": "Cow: [Insert specific cow morphology]. \\nPig: [Insert specific pig morphology]. \\n\\n*Note: You must state the facts for BOTH species to get the mark.*",
+    "back": "<table><tr><th>Species</th><th>Morphology</th></tr><tr><td>Cow</td><td>[Specific cow morphology]</td></tr><tr><td>Pig</td><td>[Specific pig morphology]</td></tr></table><br><i>*Note: You must state the facts for BOTH species to get the mark.*</i>",
     "tags": ["VetAnat2", "GI_Tract", "Application"]
   }}
 ]
@@ -346,7 +346,7 @@ def validate_and_filter_card(card: dict[str, Any]) -> tuple[bool, str | None]:
         if word_count < 5:
             return False, f"Vague function answer ({word_count} words): '{back}' (must be at least 5 words)"
         if re.search(r"\bfunctions\s+in\b", back.lower()):
-            return False, f"Vague description 'functions in' in function answer: '{back}'"
+            return False, f"Vague description 'functions in' in function answer: '{back}'. Needs mechanism depth."
             
     if "application" in category or "comparison" in category:
         if word_count < 8:
@@ -358,6 +358,8 @@ def validate_and_filter_card(card: dict[str, Any]) -> tuple[bool, str | None]:
                 missing_in_back = [s for s in found_in_front if s not in back.lower()]
                 if missing_in_back:
                     return False, f"Comparison card lacks details for species: {missing_in_back}"
+                if "<table" not in back.lower():
+                    return False, "Comparison card missing requested HTML table formatting."
                     
     return True, None
 
@@ -576,6 +578,9 @@ ANKI_MODEL = genanki.Model(
         .question { font-weight: bold; margin-bottom: 8px; }
         .answer { color: #2c5f2e; margin-top: 8px; }
         .source { font-size: 11px; color: #888; font-style: italic; margin-top: 8px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; color: #333; }
     """,
 )
 
