@@ -232,6 +232,11 @@ TERMINOLOGY RULES TO ENFORCE ON THE BACK OF CARDS:
 - If asked for "Clinical significance": Relate the anatomy to a disease, injury, or pathology.
 - If asked for "Anatomical adaptations": Describe how the structure has physically changed over time to suit the animal's diet or environment.
 
+ANIMAL-ONLY RULES:
+- Focus EXCLUSIVELY on veterinary animal anatomy and physiology (dogs, cats, horses, cattle, sheep, pigs, goats, birds, reptiles, exotics).
+- NEVER generate cards about human anatomy, human physiology, or human clinical cases.
+- If the note mentions humans or human comparisons, you MUST omit them entirely. Focus only on the animal aspects.
+
 Note title: {title}
 Note tags: {tags}
 Note images: {images}
@@ -353,6 +358,13 @@ def validate_and_filter_card(card: dict[str, Any]) -> tuple[bool, str | None]:
     if not front or not back:
         return False, "Empty front or back field."
         
+    # Exclude human anatomy references (veterinary/animal anatomy only)
+    human_keywords = {"human", "humans", "person", "people", "man", "woman"}
+    front_words = set(re.findall(r'\b\w+\b', front.lower()))
+    back_words = set(re.findall(r'\b\w+\b', back.lower()))
+    if (front_words & human_keywords) or (back_words & human_keywords):
+        return False, f"Card mentions human-related terminology (veterinary/animal only): '{front}' / '{back}'"
+
     # Strip HTML tags to get accurate plain-text word count
     clean_back = re.sub(r'<[^>]+>', ' ', back)
     word_count = len(clean_back.split())
