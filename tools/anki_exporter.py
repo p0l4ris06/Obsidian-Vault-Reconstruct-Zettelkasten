@@ -59,10 +59,10 @@ load_dotenv_no_override()
 # CONFIG (defaults; override via env or CLI)
 # ============================================================================
 
-DEFAULT_VAULT_PATH = os.environ.get("VAULT_PATH", r"D:\OBSIDIAN\Uni Sync")
+DEFAULT_VAULT_PATH = os.environ.get("VAULT_PATH", str(get_vault_paths().input_vault))
 DEFAULT_OUTPUT_DIR = os.environ.get(
     "ANKI_OUTPUT_DIR",
-    r"C:\Users\Wren C\Documents\Anki Decks",
+    r"D:\Coding stuff\Anki Decks",
 )
 TRACKER_FILE = os.environ.get("ANKI_TRACKER_FILE", "anki_tracker.json")
 
@@ -195,7 +195,7 @@ log = logging.getLogger(__name__)
 # ============================================================================
 
 _FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
-_TAG_LINE_RE = re.compile(r"^  - (.+)$", re.MULTILINE)
+_TAG_LINE_RE = re.compile(r"^\s*-\s*(.+)$", re.MULTILINE)
 _TYPE_RE = re.compile(r"^type:\s*(.+)$", re.MULTILINE)
 _TITLE_RE = re.compile(r'^title:\s*"?(.+?)"?\s*$', re.MULTILINE)
 _WIKILINK_RE = re.compile(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]")
@@ -206,26 +206,58 @@ _WIKILINK_RE = re.compile(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]")
 # ============================================================================
 
 _CARD_PROMPT = """\
-You are creating Anki flashcards for a veterinary nursing student.
+You are an expert veterinary anatomy professor generating Anki flashcards for a practical spot exam. 
+Every card generated must fall into one of three strict categories (IFA) and follow specific grading rules:
+
+CATEGORY 1: IDENTIFY (Simulates the first 1-2 questions of a station)
+- Task: Ask the user to identify a specific structure, organ, vessel, or nerve.
+- Rule: Be highly specific with terminology. If the answer is a blood vessel, the prompt MUST include the word "vessel" as a hint (e.g., "Identify vessel B"). If it is a nerve, use the word "nerve".
+- Image Rule: If the source note contains images, you should reference them in the front of the card (e.g., "Identify the marked structure in ![[anatomy_diagram.png]]").
+
+CATEGORY 2: FUNCTION (Simulates the middle 3-5 questions of a station)
+- Task: Ask about the role, blood supply, innervation, or mechanism of a structure.
+- Rule: Reject vague answers. The back of the card must contain detailed depth. For example, do not just list "respiration"; detail the specific mechanism. 
+
+CATEGORY 3: APPLICATION (Simulates the final 1-2 questions of a station)
+- Task: Create clinical scenarios, problem-solving questions, or species comparisons.
+- Rule for Comparisons: When asking to compare a structure between two species (e.g., cow vs. horse), the back of the card MUST explicitly state the anatomical fact for BOTH species. A comparison is invalid if it only describes one species.
+
+TERMINOLOGY RULES TO ENFORCE ON THE BACK OF CARDS:
+- If asked for "Morphology": Describe form, shape, and physical makeup.
+- If asked for "Functional significance": Describe why the structure's action matters to the animal's survival or daily processes.
+- If asked for "Clinical significance": Relate the anatomy to a disease, injury, or pathology.
+- If asked for "Anatomical adaptations": Describe how the structure has physically changed over time to suit the animal's diet or environment.
 
 Note title: {title}
+Note tags: {tags}
+Note images: {images}
+
 Note content:
 {body}
 
-Generate as many high-quality flashcard Q&A pairs as necessary to cover EVERY distinct idea, fact, or concept in this section.
-
-Rules:
-- Create at least one card per discrete fact or important detail. Do NOT truncate, over-simplify, or omit items.
-- Questions should test understanding, not just recall of exact wording
-- Answers should be concise (1-3 sentences)
-- Do NOT generate trivial or obvious questions
-- Each question must be answerable from the note content alone
+Generate high-quality flashcard Q&A pairs as necessary to cover the distinct anatomical ideas, facts, or concepts in this section.
 
 Return ONLY a valid JSON array. No markdown fences. No explanation.
 Format:
 [
-  {{"question": "...", "answer": "..."}},
-  {{"question": "...", "answer": "..."}}
+  {{
+    "ifa_category": "Identify",
+    "front": "Identify the structure marked 'A' in ![[kidney.png]]",
+    "back": "Renal cortex",
+    "tags": ["VetAnat2", "Renal", "Identify"]
+  }},
+  {{
+    "ifa_category": "Function",
+    "front": "What is the specific functional significance of [Structure X]?",
+    "back": "[Detailed explanation of mechanism and function]",
+    "tags": ["VetAnat2", "Cardiovascular", "Function"]
+  }},
+  {{
+    "ifa_category": "Application - Comparison",
+    "front": "Compare the morphology of the ascending colon between the cow and the pig.",
+    "back": "Cow: [Insert specific cow morphology]. \\nPig: [Insert specific pig morphology]. \\n\\n*Note: You must state the facts for BOTH species to get the mark.*",
+    "tags": ["VetAnat2", "GI_Tract", "Application"]
+  }}
 ]
 """
 
@@ -281,9 +313,68 @@ def chunk_text(text: str, max_size: int = 3000) -> list[str]:
         chunks.append("\n\n".join(current_chunk))
     return chunks
 
-def generate_cards(backend: Any, note: dict[str, Any]) -> list[dict[str, str]]:
+_IMAGE_RE = re.compile(r'!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]|!\[.*?\]\((.*?)\)')
+
+
+def find_image_file(vault_path: Path, filename: str) -> Path | None:
+    """Recursively search for an image file in the vault."""
+    filename = filename.strip()
+    if not filename:
+        return None
+    for fp in vault_path.rglob("*"):
+        if fp.is_file() and fp.name.lower() == filename.lower():
+            return fp
+    return None
+
+
+def validate_and_filter_card(card: dict[str, Any]) -> tuple[bool, str | None]:
+    """
+    Validates a card dictionary to ensure it meets the spot exam requirements.
+    Returns (is_valid, warning_message).
+    """
+    front = card.get("front", "").strip()
+    back = card.get("back", "").strip()
+    category = card.get("ifa_category", "").strip().lower()
+    
+    if not front or not back:
+        return False, "Empty front or back field."
+        
+    word_count = len(back.split())
+    
+    # Category-specific vagueness rules (respiration, etc.)
+    if "function" in category:
+        if word_count < 5:
+            return False, f"Vague function answer ({word_count} words): '{back}' (must be at least 5 words)"
+        if re.search(r"\bfunctions\s+in\b", back.lower()):
+            return False, f"Vague description 'functions in' in function answer: '{back}'"
+            
+    if "application" in category or "comparison" in category:
+        if word_count < 8:
+            return False, f"Vague application/comparison answer ({word_count} words): '{back}' (must be at least 8 words)"
+        if "compare" in front.lower():
+            species_list = ["cow", "pig", "horse", "dog", "cat", "sheep", "goat", "avian", "bird", "reptile", "chicken"]
+            found_in_front = [s for s in species_list if s in front.lower()]
+            if len(found_in_front) >= 2:
+                missing_in_back = [s for s in found_in_front if s not in back.lower()]
+                if missing_in_back:
+                    return False, f"Comparison card lacks details for species: {missing_in_back}"
+                    
+    return True, None
+
+
+def generate_cards(backend: Any, note: dict[str, Any], vault_path: Path) -> list[dict[str, Any]]:
+    # Extract images referenced in the note body
+    raw_images = _IMAGE_RE.findall(note["body"])
+    note_images = []
+    for match in raw_images:
+        img = match[0] or match[1]
+        if img:
+            img = img.split("|")[0].strip()
+            if img not in note_images:
+                note_images.append(img)
+
     chunks = chunk_text(note["body"])
-    all_cards: list[dict[str, str]] = []
+    all_cards: list[dict[str, Any]] = []
     
     for i, chunk in enumerate(chunks):
         chunk = chunk.strip()
@@ -293,9 +384,16 @@ def generate_cards(backend: Any, note: dict[str, Any]) -> list[dict[str, str]]:
         if len(chunks) > 1:
             log.info("    -> Processing chunk %d/%d (%d chars)", i + 1, len(chunks), len(chunk))
             
+        prompt = _CARD_PROMPT.format(
+            title=note["title"],
+            tags=", ".join(note["tags"]),
+            images=", ".join(note_images) if note_images else "None",
+            body=chunk
+        )
+        
         raw = generate_text_with_retries(
             backend,
-            prompt=_CARD_PROMPT.format(title=note["title"], body=chunk),
+            prompt=prompt,
             max_retries=MAX_RETRIES,
         )
         arr = extract_json_array(raw or "")
@@ -305,10 +403,55 @@ def generate_cards(backend: Any, note: dict[str, Any]) -> list[dict[str, str]]:
         for c in arr:
             if not isinstance(c, dict):
                 continue
-            q = c.get("question")
-            a = c.get("answer")
-            if isinstance(q, str) and isinstance(a, str) and q.strip() and a.strip():
-                all_cards.append({"question": q.strip(), "answer": a.strip()})
+                
+            # Perform vagueness filtering
+            is_valid, warn_msg = validate_and_filter_card(c)
+            if not is_valid:
+                log.warning("  [VAGUENESS FILTER] Rejected card in '%s': %s", note["title"], warn_msg)
+                continue
+                
+            front = c.get("front", "").strip()
+            back = c.get("back", "").strip()
+            ifa_cat = c.get("ifa_category", "General").strip()
+            card_tags = c.get("tags", [])
+            
+            # Media handling
+            media_files = []
+            
+            # Resolve image paths and convert to HTML
+            def repl(match):
+                img_name = match.group(1) or match.group(2)
+                if not img_name:
+                    return match.group(0)
+                img_name = img_name.split("|")[0].strip()
+                img_file = find_image_file(vault_path, img_name)
+                if img_file:
+                    media_files.append(str(img_file))
+                    return f'<img src="{img_file.name}">'
+                else:
+                    log.warning("Image file not found in vault: %s", img_name)
+                    return f'<img src="{img_name}">'
+
+            front_html = re.sub(r'!\[\[([^\]]+)\]\]|!\[.*?\]\((.*?)\)', repl, front)
+            back_html = re.sub(r'!\[\[([^\]]+)\]\]|!\[.*?\]\((.*?)\)', repl, back)
+            
+            # Automatically append note images to Identify cards if not already present
+            if "identify" in ifa_cat.lower() and note_images and "<img" not in front_html:
+                for img_name in note_images:
+                    img_file = find_image_file(vault_path, img_name)
+                    if img_file:
+                        media_files.append(str(img_file))
+                        front_html += f'<br><br><img src="{img_file.name}">'
+                    else:
+                        front_html += f'<br><br><img src="{img_name}">'
+
+            all_cards.append({
+                "question": front_html,
+                "answer": back_html,
+                "ifa_category": ifa_cat,
+                "tags": card_tags,
+                "media_files": media_files
+            })
                 
     return all_cards
 
@@ -558,7 +701,7 @@ def main(argv: list[str] | None = None) -> int:
         log.info("[%d/%d] %s", i + 1, len(pending), note["title"][:80])
         try:
             assert backend is not None
-            cards = generate_cards(backend, note)
+            cards = generate_cards(backend, note, vault)
         except Exception as exc:
             log.warning("  -> LLM error: %s", exc)
             cards = []
@@ -566,13 +709,23 @@ def main(argv: list[str] | None = None) -> int:
         deck_name = args.force_deck_name.strip() if args.force_deck_name else get_deck_name(note["tags"])
         if cards:
             for card in cards:
+                # Merge note tags, LLM-generated card tags, and the IFA category tag
+                merged_tags = list(set(
+                    [t.lower().replace(" ", "_") for t in note["tags"]] + 
+                    [t.lower().replace(" ", "_") for t in card.get("tags", [])] + 
+                    [card.get("ifa_category", "").lower().replace(" ", "_")]
+                ))
+                if "vetanat2" not in merged_tags:
+                    merged_tags.append("vetanat2")
+
                 all_cards.append(
                     {
                         "question": card["question"],
                         "answer": card["answer"],
                         "deck": deck_name,
                         "source": note["title"],
-                        "tags": note["tags"],
+                        "tags": merged_tags,
+                        "media_files": card.get("media_files", []),
                     }
                 )
             tracker.mark_done(note["path"], note["hash"], len(cards))
@@ -598,7 +751,13 @@ def main(argv: list[str] | None = None) -> int:
 
     for deck_name, cards in decks_map.items():
         deck = genanki.Deck(_deck_id(deck_name), deck_name)
+        deck_media: list[str] = []
         for card in cards:
+            # Collect unique media files
+            for m in card.get("media_files", []):
+                if m not in deck_media:
+                    deck_media.append(m)
+
             anki_note = genanki.Note(
                 model=ANKI_MODEL,
                 fields=[
@@ -613,7 +772,10 @@ def main(argv: list[str] | None = None) -> int:
             deck.add_note(anki_note)
 
         out_path = output_dir / f"{_safe_deck_filename(deck_name)}.apkg"
-        genanki.Package(deck).write_to_file(str(out_path))
+        package = genanki.Package(deck)
+        if deck_media:
+            package.media_files = deck_media
+        package.write_to_file(str(out_path))
         log.info("Exported %d cards -> %s", len(cards), out_path)
 
     log.info("All decks exported to %s", output_dir)
