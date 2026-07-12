@@ -59,7 +59,11 @@ load_dotenv_no_override()
 # CONFIG (defaults; override via env or CLI)
 # ============================================================================
 
-DEFAULT_VAULT_PATH = os.environ.get("VAULT_PATH", str(get_vault_paths().input_vault))
+try:
+    DEFAULT_VAULT_PATH = os.environ.get("VAULT_PATH", str(get_vault_paths().input_vault))
+except Exception:
+    DEFAULT_VAULT_PATH = os.environ.get("VAULT_PATH", r"D:\Coding stuff\Obsidian Vault")
+
 DEFAULT_OUTPUT_DIR = os.environ.get(
     "ANKI_OUTPUT_DIR",
     r"D:\Coding stuff\Anki Decks",
@@ -316,15 +320,25 @@ def chunk_text(text: str, max_size: int = 3000) -> list[str]:
 _IMAGE_RE = re.compile(r'!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]|!\[.*?\]\((.*?)\)')
 
 
+_IMAGE_CACHE: dict[str, Path] = {}
+_IMAGE_CACHE_INITIALIZED = False
+
 def find_image_file(vault_path: Path, filename: str) -> Path | None:
-    """Recursively search for an image file in the vault."""
-    filename = filename.strip()
+    """Recursively search for an image file in the vault, caching results for performance."""
+    global _IMAGE_CACHE, _IMAGE_CACHE_INITIALIZED
+    filename = filename.strip().lower()
     if not filename:
         return None
-    for fp in vault_path.rglob("*"):
-        if fp.is_file() and fp.name.lower() == filename.lower():
-            return fp
-    return None
+    if not _IMAGE_CACHE_INITIALIZED:
+        valid_extensions = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".bmp", ".webp"}
+        try:
+            for fp in vault_path.rglob("*"):
+                if fp.is_file() and fp.suffix.lower() in valid_extensions:
+                    _IMAGE_CACHE[fp.name.lower()] = fp
+        except Exception as e:
+            log.warning("Failed to build image cache: %s", e)
+        _IMAGE_CACHE_INITIALIZED = True
+    return _IMAGE_CACHE.get(filename)
 
 
 def validate_and_filter_card(card: dict[str, Any]) -> tuple[bool, str | None]:
@@ -357,12 +371,30 @@ def validate_and_filter_card(card: dict[str, Any]) -> tuple[bool, str | None]:
         if word_count < 8:
             return False, f"Vague comparison/application answer ({word_count} words): '{clean_back.strip()}' (must be at least 8 words)"
         
-        species_list = ["cow", "pig", "horse", "dog", "cat", "sheep", "goat", "avian", "bird", "reptile", "chicken"]
-        found_in_front = [s for s in species_list if s in front.lower()]
-        if len(found_in_front) >= 2:
-            missing_in_back = [s for s in found_in_front if s not in clean_back.lower()]
-            if missing_in_back:
-                return False, f"Comparison card lacks details for species: {missing_in_back}"
+        # Group species synonyms for robust matching
+        species_groups = [
+            {"cow", "cattle", "bovine", "ruminant"},
+            {"pig", "porcine", "swine"},
+            {"horse", "equine"},
+            {"dog", "canine"},
+            {"cat", "feline"},
+            {"sheep", "ovine"},
+            {"goat", "caprine"},
+            {"avian", "bird", "chicken"},
+            {"reptile", "snake", "lizard", "turtle"}
+        ]
+        
+        found_groups = []
+        for group in species_groups:
+            # Check if any synonym in the group is in the front (question)
+            if any(syn in front.lower() for syn in group):
+                found_groups.append(group)
+                
+        if len(found_groups) >= 2:
+            for group in found_groups:
+                # Check if at least one synonym from the group is in the back (answer)
+                if not any(syn in clean_back.lower() for syn in group):
+                    return False, f"Comparison card lacks details for species group: {group}"
             if "<table" not in back.lower():
                 return False, "Comparison card missing requested HTML table formatting."
     elif "application" in category:
